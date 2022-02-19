@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+
+[node name="DemoScene" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 63, 376 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -13, 502, 215, 505, 219, 406, 293, 404, 293, 302, 381, 298, 378, 518, 553, 520, 552, 243, 636, 239, 639, 705, 742, 707, 732, 236, 1081, 231, 1079, 758, -80, 740, -70, 496 )
+__meta__ = {
+"_edit_lock_": true
+}
