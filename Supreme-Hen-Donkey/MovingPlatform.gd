@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export var HORIZONTAL_SPEED := 60.0
 export var TRAVEL_DISTANCE := 200.0
-export var HEIGHT := 30.0
+export var HEIGHT := 120.0
 export var WIDTH := 120.0
 # Declare member variables here. Examples:
 # var a = 2
