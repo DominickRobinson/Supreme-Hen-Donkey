@@ -2,12 +2,13 @@ extends RigidBody2D
 class_name Player
 
 # The `export` keyword tells Godot to show this variable in the Inspector
+export var RESPAWN_POINT: NodePath
 export var HORIZONTAL_MAX_SPEED := 500.0
 export var FLOOR_ACCELERATION := 30.0
 export var AIR_ACCELERATION := 20.0
 export var JUMP_SPEED := 600.0
-export var WALL_JUMP_VERTICAL_SPEED := 600.0
-export var WALL_JUMP_HORIZONTAL_SPEED := 600.0
+export var WALL_JUMP_VERTICAL_SPEED := 700.0
+export var WALL_JUMP_HORIZONTAL_SPEED := 300.0
 
 # The `onready` keyword tells Godot to only bind this variable once the scene is fully loaded
 # The `$` operator gets the node of that name relative to this node
@@ -15,6 +16,8 @@ onready var left_zone = $LeftJumpZone
 onready var right_zone = $RightJumpZone
 onready var bottom_zone = $BottomJumpZone
 onready var center_zone = $CenterJumpZone
+
+var reset_state := false
 
 # Lot of functions are called automatically by the engine. These include _ready, _process, etc.
 # This gets called on every physics frame. Sort of like FixedUpdate() in Unity.
@@ -24,8 +27,11 @@ func _physics_process(_delta: float):
 	var x := Input.get_action_strength("right") - Input.get_action_strength("left")
 	
 	# Don't allow walking closer to a wall when already on it, so that you don't get stuck on it
-	if (is_on_right_wall() and x > 0) or (is_on_left_wall() and x < 0):
-		x = 0
+	if (is_on_right_wall() and x > 0):
+		x = 0.5
+		
+	if (is_on_left_wall() and x < 0):
+		x = -0.5
 		
 	# Apply horizontal acceleration movement
 	var accel := AIR_ACCELERATION
@@ -62,3 +68,14 @@ func is_on_left_wall():
 	return !left_zone.get_overlapping_bodies().empty()
 func is_on_right_wall():
 	return !right_zone.get_overlapping_bodies().empty()
+
+func _integrate_forces(state):
+	if reset_state:
+		var t = state.get_transform()
+		t.origin.x = get_node(RESPAWN_POINT).position.x
+		t.origin.y = get_node(RESPAWN_POINT).position.y
+		reset_state = false
+		state.set_transform(t)
+
+func death():
+	reset_state = true
