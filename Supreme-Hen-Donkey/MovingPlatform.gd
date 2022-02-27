@@ -5,9 +5,8 @@ export var TRAVEL_DISTANCE := 200.0
 export var HEIGHT := 120.0
 export var WIDTH := 120.0
 export var ROTATION := 24
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+
+var enabled := false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -24,6 +23,9 @@ var travel_forward := true
 var current_distance := 0
 var x := 0
 func _process(delta):
+	if not enabled:
+		return
+		
 	if travel_forward:
 		move_and_collide(delta * Vector2(HORIZONTAL_SPEED,0).rotated(rotation))
 		current_distance += (delta*HORIZONTAL_SPEED)
