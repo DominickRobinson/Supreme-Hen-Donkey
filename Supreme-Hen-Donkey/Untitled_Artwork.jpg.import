@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Untitled_Artwork.jpg-b99b527cbba9e98e88b1cf7d98f9cfbe.stex"
+path="res://.import/Untitled_Artwork.jpg-06b13b4968b3a024965dbad81e99924a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GCS - SHD/blocks and stuff/Untitled_Artwork.jpg"
-dest_files=[ "res://.import/Untitled_Artwork.jpg-b99b527cbba9e98e88b1cf7d98f9cfbe.stex" ]
+source_file="res://Untitled_Artwork.jpg"
+dest_files=[ "res://.import/Untitled_Artwork.jpg-06b13b4968b3a024965dbad81e99924a.stex" ]
 
 [params]
 
