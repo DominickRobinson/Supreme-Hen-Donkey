@@ -49,8 +49,16 @@ func _physics_process(_delta: float):
 #			linear_velocity = Vector2(-WALL_JUMP_HORIZONTAL_SPEED, -WALL_JUMP_VERTICAL_SPEED)
 			apply_central_impulse(Vector2(-WALL_JUMP_HORIZONTAL_SPEED, -WALL_JUMP_VERTICAL_SPEED))
 		# Otherwise, we're not on a wall or floor, so don't jump
+	
+	if x != 0:
+		$AnimatedSprite.animation = "Running"
+	else:
+		$AnimatedSprite.animation = "Idle" 
 
-
+	if x > 0:
+		$AnimatedSprite.flip_h = false
+	elif x < 0:
+		$AnimatedSprite.flip_h = true
 ## Helper functions
 # Gets if the center jump zone detects a floor (player is definitely on a floor)
 func is_on_floor():
