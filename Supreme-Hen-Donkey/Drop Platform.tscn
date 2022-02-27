@@ -3,7 +3,7 @@
 [ext_resource path="res://Drop Platform.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 44.75, 12 )
+extents = Vector2( 60, 15 )
 
 [node name="Drop Platform" type="RigidBody2D"]
 collision_layer = 3

@@ -18,8 +18,3 @@ func _ready():
 func _on_Drop_Platform_body_entered(body):
 	if body is Player:
 		mode = RigidBody2D.MODE_CHARACTER
-
-
-func _on_Drop_Platform_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	if body is Player:
-		mode = RigidBody2D.MODE_CHARACTER
