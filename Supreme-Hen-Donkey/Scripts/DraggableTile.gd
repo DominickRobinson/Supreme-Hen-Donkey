@@ -34,7 +34,7 @@ func _input_event(viewport, event, shape_idx):
 	# Start dragging
 	if event.is_action_pressed("click"):
 		if event.is_pressed():
-			print('Click')
+#			print('Click')
 			following = true
 			pickupTile()
 			
