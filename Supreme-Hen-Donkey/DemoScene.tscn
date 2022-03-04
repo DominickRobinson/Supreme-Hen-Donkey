@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Launcher.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/Launcher.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GCS - SHD/blocks and stuff/notebook1.png" type="Texture" id=3]
+[ext_resource path="res://Prefabs/DraggableTile.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/DraggableTileBlock.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prefabs/MovingPlatform.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30, 30 )
@@ -42,9 +45,17 @@ position = Vector2( 373, 236 )
 collision_layer = 3
 collision_mask = 3
 mass = 0.5
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Box"]
 shape = SubResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 1
+
+[node name="DraggableTile" parent="." instance=ExtResource( 4 )]
+position = Vector2( -277, 364 )
+
+[node name="MovingPlatform" parent="DraggableTile" instance=ExtResource( 6 )]
+
+[node name="DraggableTile2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 216, 351 )
