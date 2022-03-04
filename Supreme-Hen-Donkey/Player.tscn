@@ -69,6 +69,12 @@ animations = [ {
 [node name="Player" type="RigidBody2D"]
 mode = 2
 script = ExtResource( 2 )
+HORIZONTAL_MAX_SPEED = null
+FLOOR_ACCELERATION = null
+AIR_ACCELERATION = null
+JUMP_SPEED = null
+WALL_JUMP_VERTICAL_SPEED = null
+WALL_JUMP_HORIZONTAL_SPEED = null
 
 [node name="Sprite" type="Sprite" parent="."]
 visible = false
