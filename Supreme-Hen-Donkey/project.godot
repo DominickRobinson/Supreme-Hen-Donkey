@@ -24,6 +24,10 @@ config/name="Supreme-Hen-Donkey"
 run/main_scene="res://DemoScene.tscn"
 config/icon="res://icon.png"
 
+[gdnative]
+
+singletons=[  ]
+
 [input]
 
 left={

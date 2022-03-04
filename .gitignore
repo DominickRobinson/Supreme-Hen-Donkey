@@ -1,3 +1,7 @@
 # Ignore the imported assets folder
 .import/
 # Note: do not add *.import to this! Those files should be committed.
+
+bin/
+build/
+lib/
