@@ -22,7 +22,8 @@ func _ready():
 	add_child(collision.duplicate())
 	kinematicChild.remove_child(collision)
 	
-	mouseOffset = collision.shape.extents
+#	mouseOffset = collision.shape.extents
+	mouseOffset = tileMap.cell_size / 2
 
 
 func _physics_process(delta):
@@ -31,15 +32,17 @@ func _physics_process(delta):
 
 
 func _input_event(viewport, event, shape_idx):
-	# Start dragging
+	# Start dragging when clicked on
 	if event.is_action_pressed("click"):
 		if event.is_pressed():
 #			print('Click')
 			following = true
 			pickupTile()
 			
+
+func _input(event):
 	# Release and put on tilemap
-	elif event.is_action_released("click"):
+	if event.is_action_released("click"):
 		if following:
 			following = false
 			placeTile()
