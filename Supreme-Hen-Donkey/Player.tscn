@@ -27,7 +27,6 @@
 [ext_resource path="res://GCS - SHD/animation/Stick people/Jumping/Jump-2.png" type="Texture" id=25]
 [ext_resource path="res://GCS - SHD/animation/Stick people/Jumping/Jump-3.png" type="Texture" id=26]
 
-
 [sub_resource type="CapsuleShape2D" id=6]
 radius = 16.0
 height = 32.0
@@ -46,10 +45,10 @@ extents = Vector2( 10, 5 )
 
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 16 ), ExtResource( 22 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 21 ) ],
 "loop": true,
-"name": "Idle",
-"speed": 10.0
+"name": "Falling",
+"speed": 15.0
 }, {
 "frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 8 ) ],
 "loop": true,
@@ -61,10 +60,10 @@ animations = [ {
 "name": "Jumping",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 16 ), ExtResource( 22 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 21 ) ],
+"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
-"name": "Falling",
-"speed": 15.0
+"name": "Idle",
+"speed": 10.0
 } ]
 
 [node name="Player" type="RigidBody2D"]

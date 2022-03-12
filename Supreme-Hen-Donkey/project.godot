@@ -24,6 +24,10 @@ config/name="Supreme-Hen-Donkey"
 run/main_scene="res://DemoScene.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Globals="*res://Scripts/Globals.gd"
+
 [gdnative]
 
 singletons=[  ]

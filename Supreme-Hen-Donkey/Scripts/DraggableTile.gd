@@ -5,10 +5,12 @@ export(NodePath) var tileMapNP: NodePath
 onready var tileMap = get_node(tileMapNP)
 
 var mouseOffset
-var following: bool = false
+var following := false
+var canDrag := false
 var collision: CollisionShape2D
 var startPos: Vector2
 var kinematicChild: KinematicBody2D
+
 
 func _ready():
 	startPos = position
@@ -24,6 +26,8 @@ func _ready():
 	
 #	mouseOffset = collision.shape.extents
 	mouseOffset = tileMap.cell_size / 2
+	
+	get_node("../GameManager/").connect('switchMode', self, '_on_switchMode')
 
 
 func _physics_process(delta):
@@ -34,14 +38,14 @@ func _physics_process(delta):
 func _input_event(viewport, event, shape_idx):
 	# Start dragging when clicked on
 	if event.is_action_pressed("click"):
-		if event.is_pressed():
-#			print('Click')
+		if event.is_pressed() && canDrag:
+			print(canDrag)
 			following = true
 			pickupTile()
 			
 
 func _input(event):
-	# Release and put on tilemap
+	# Release and put on world
 	if event.is_action_released("click"):
 		if following:
 			following = false
@@ -64,7 +68,22 @@ func placeTile():
 	var tileType = 0
 	kinematicChild.add_child(collision)
 	collision.position = Vector2.ZERO
+
+
+func _on_switchMode(mode):
+	match mode:
+		Globals.Modes.PLAYING:
+			switchModePlaying()
+		
+		Globals.Modes.BUILDING:
+			switchModeBuilding()
+
+
+func switchModePlaying():
 	kinematicChild.enabled = true
-	
-	# DEBUG Reset tile to original position
-#	position = startPos
+	canDrag = false
+
+
+func switchModeBuilding():
+	kinematicChild.enabled = false
+	canDrag = true
