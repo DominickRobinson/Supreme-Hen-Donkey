@@ -1,15 +1,38 @@
-[gd_scene load_steps=5 format=2]
+<<<<<<< HEAD
+[gd_scene load_steps=8 format=2]
+=======
+[gd_scene load_steps=10 format=2]
+>>>>>>> 02157767a98f16d1173c115097abc28f2d20b80c
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Launcher.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/Launcher.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GCS - SHD/blocks and stuff/notebook1.png" type="Texture" id=3]
+<<<<<<< HEAD
+[ext_resource path="res://GCS - SHD/enemies/chicken.png" type="Texture" id=4]
+[ext_resource path="res://GCS - SHD/enemies/red circle.png" type="Texture" id=5]
+[ext_resource path="res://GCS - SHD/enemies/donkey.png" type="Texture" id=6]
+=======
+[ext_resource path="res://Prefabs/DraggableTile.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/DraggableTileBlock.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prefabs/MovingPlatform.tscn" type="PackedScene" id=6]
+[ext_resource path="res://GameManager.gd" type="Script" id=7]
+[ext_resource path="res://UI.tscn" type="PackedScene" id=8]
+>>>>>>> 02157767a98f16d1173c115097abc28f2d20b80c
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30, 30 )
 
 [node name="DemoScene" type="Node2D"]
 
-[node name="Sprite" type="Sprite" parent="."]
+<<<<<<< HEAD
+=======
+[node name="GameManager" type="Node2D" parent="."]
+position = Vector2( 66, 457 )
+script = ExtResource( 7 )
+playerNP = NodePath("../Player")
+
+>>>>>>> 02157767a98f16d1173c115097abc28f2d20b80c
+[node name="Background" type="Sprite" parent="."]
 position = Vector2( 200, 557 )
 texture = ExtResource( 3 )
 region_enabled = true
@@ -18,8 +41,20 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource( 8 )]
+margin_right = 44.0
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 63, 376 )
+HORIZONTAL_MAX_SPEED = 500.0
+FLOOR_ACCELERATION = 30.0
+AIR_ACCELERATION = 20.0
+JUMP_SPEED = 600.0
+WALL_JUMP_VERTICAL_SPEED = 600.0
+WALL_JUMP_HORIZONTAL_SPEED = 600.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 3
@@ -29,7 +64,7 @@ __meta__ = {
 }
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PoolVector2Array( -13, 502, 215, 505, 219, 406, 293, 404, 293, 302, 381, 298, 378, 518, 553, 520, 552, 243, 636, 239, 639, 705, 742, 707, 732, 236, 1081, 231, 1212, 357, 1417, 491, 1695, 601, 1952, 651, 2077, 654, 2257, 605, 2249, 752, 1079, 758, -80, 740, -70, 496 )
+polygon = PoolVector2Array( -1069, 521, 215, 505, 219, 406, 293, 404, 293, 302, 381, 298, 378, 518, 553, 520, 552, 243, 636, 239, 639, 705, 742, 707, 732, 236, 1081, 231, 1212, 357, 1417, 491, 1695, 601, 1952, 651, 2077, 654, 2257, 605, 2249, 752, 1079, 758, -80, 740, -1516, 431 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -42,9 +77,39 @@ position = Vector2( 373, 236 )
 collision_layer = 3
 collision_mask = 3
 mass = 0.5
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Box"]
 shape = SubResource( 1 )
+
+<<<<<<< HEAD
+[node name="Chicken" type="Sprite" parent="."]
+position = Vector2( 94.1534, 139.495 )
+scale = Vector2( 0.0361533, 0.0364951 )
+texture = ExtResource( 5 )
+
+[node name="Image" type="Sprite" parent="Chicken"]
+position = Vector2( -14.0239, -14.928 )
+scale = Vector2( 2.65688, 2.53652 )
+texture = ExtResource( 4 )
+
+[node name="Donkey" type="Sprite" parent="."]
+position = Vector2( -318.847, 355.495 )
+scale = Vector2( 0.0361533, 0.0364951 )
+texture = ExtResource( 5 )
+
+[node name="Image" type="Sprite" parent="Donkey"]
+position = Vector2( -14.0239, -14.928 )
+scale = Vector2( 2.65688, 2.53652 )
+texture = ExtResource( 6 )
+=======
+[node name="TileMap" type="TileMap" parent="."]
+format = 1
+
+[node name="DraggableTile2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 152, 269 )
+
+[node name="DraggableTile" parent="." instance=ExtResource( 4 )]
+position = Vector2( -235, 377 )
+
+[node name="MovingPlatform" parent="DraggableTile" instance=ExtResource( 6 )]
+>>>>>>> 02157767a98f16d1173c115097abc28f2d20b80c
