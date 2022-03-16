@@ -2,12 +2,12 @@ extends RigidBody2D
 class_name Player
 
 # The `export` keyword tells Godot to show this variable in the Inspector
-export var HORIZONTAL_MAX_SPEED := 500.0
-export var FLOOR_ACCELERATION := 30.0
+export var HORIZONTAL_MAX_SPEED := 800.0
+export var FLOOR_ACCELERATION := 35.0
 export var AIR_ACCELERATION := 20.0
 export var JUMP_SPEED := 600.0
 export var WALL_JUMP_VERTICAL_SPEED := 600.0
-export var WALL_JUMP_HORIZONTAL_SPEED := 600.0
+export var WALL_JUMP_HORIZONTAL_SPEED := 500.0
 
 # The `onready` keyword tells Godot to only bind this variable once the scene is fully loaded
 # The `$` operator gets the node of that name relative to this node
@@ -54,17 +54,22 @@ func _physics_process(_delta: float):
 	if is_on_floor():
 	
 		if x != 0:
+			$AnimatedSprite.speed_scale = 0.3 + 1.5 * abs(linear_velocity.x) / HORIZONTAL_MAX_SPEED
 			$AnimatedSprite.animation = "Running"
 		else:
+			$AnimatedSprite.speed_scale = 1;
 			$AnimatedSprite.animation = "Idle" 
 	
 	else:
+		
+		$AnimatedSprite.speed_scale = 1.5 * abs(linear_velocity.y) / 200
 		
 		if linear_velocity.y <= 0:
 			$AnimatedSprite.animation = "Jumping"
 		elif linear_velocity.y > 0:
 			$AnimatedSprite.animation = "Falling"
-
+			
+			
 	if x > 0:
 		$AnimatedSprite.flip_h = false
 	elif x < 0:
