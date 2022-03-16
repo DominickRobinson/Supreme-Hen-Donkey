@@ -140,5 +140,5 @@ smoothing_enabled = true
 scale = Vector2( 0.125, 0.125 )
 frames = SubResource( 7 )
 animation = "Jumping"
-frame = 5
+frame = 1
 playing = true
