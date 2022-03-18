@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "RigidBody2D",
 "class": "Player",
 "language": "GDScript",
-"path": "res://Scripts/Player.gd"
+"path": "res://Player.gd"
 } ]
 _global_script_class_icons={
 "Player": ""
@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Supreme-Hen-Donkey"
-run/main_scene="res://DemoScene.tscn"
+run/main_scene="res://TitleScreen1.tscn"
 config/icon="res://icon.png"
 
 [autoload]
