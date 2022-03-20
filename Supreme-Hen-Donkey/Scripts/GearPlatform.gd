@@ -9,8 +9,8 @@ export var ROTATION_SPEED := 1
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	$CollisionShape2D.shape.radius = RADIUS
+#func _ready():
+	#$CollisionPolygon2D.shape.radius = RADIUS
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
