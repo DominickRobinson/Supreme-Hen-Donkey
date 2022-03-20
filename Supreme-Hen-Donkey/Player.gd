@@ -2,9 +2,9 @@ extends RigidBody2D
 class_name Player
 
 # The `export` keyword tells Godot to show this variable in the Inspector
-export var HORIZONTAL_MAX_SPEED := 800.0
+export var HORIZONTAL_MAX_SPEED := 650.0
 export var FLOOR_ACCELERATION := 35.0
-export var AIR_ACCELERATION := 20.0
+export var AIR_ACCELERATION := 15.0
 export var JUMP_SPEED := 600.0
 export var WALL_JUMP_VERTICAL_SPEED := 600.0
 export var WALL_JUMP_HORIZONTAL_SPEED := 500.0
@@ -44,17 +44,21 @@ func _physics_process(_delta: float):
 		# Otherwise, wall jump if we're on a wall
 		elif is_on_left_wall():
 #			linear_velocity = Vector2(WALL_JUMP_HORIZONTAL_SPEED, -WALL_JUMP_VERTICAL_SPEED)
-			apply_central_impulse(Vector2(WALL_JUMP_HORIZONTAL_SPEED, -WALL_JUMP_VERTICAL_SPEED))
+			#apply_central_impulse(Vector2(WALL_JUMP_HORIZONTAL_SPEED, -WALL_JUMP_VERTICAL_SPEED))
+			linear_velocity.x = WALL_JUMP_HORIZONTAL_SPEED
+			linear_velocity.y = -WALL_JUMP_VERTICAL_SPEED
 		elif is_on_right_wall():
 #			linear_velocity = Vector2(-WALL_JUMP_HORIZONTAL_SPEED, -WALL_JUMP_VERTICAL_SPEED)
-			apply_central_impulse(Vector2(-WALL_JUMP_HORIZONTAL_SPEED, -WALL_JUMP_VERTICAL_SPEED))
+			#apply_central_impulse(Vector2(-WALL_JUMP_HORIZONTAL_SPEED, -WALL_JUMP_VERTICAL_SPEED))
+			linear_velocity.x = -WALL_JUMP_HORIZONTAL_SPEED
+			linear_velocity.y = -WALL_JUMP_VERTICAL_SPEED
 		# Otherwise, we're not on a wall or floor, so don't jump
 	
 	
 	if is_on_floor():
 	
 		if x != 0:
-			$AnimatedSprite.speed_scale = 0.3 + 1.5 * abs(linear_velocity.x) / HORIZONTAL_MAX_SPEED
+			$AnimatedSprite.speed_scale = 0.3 + 2 * abs(linear_velocity.x) / HORIZONTAL_MAX_SPEED
 			$AnimatedSprite.animation = "Running"
 		else:
 			$AnimatedSprite.speed_scale = 1;

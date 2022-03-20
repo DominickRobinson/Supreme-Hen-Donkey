@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://GCS - SHD/irl-test/video3.jpg" type="Texture" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+
+[node name="1-1" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( -3445, -2325 )
+scale = Vector2( 3, 3 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -0.333374, -2 )
+polygon = PoolVector2Array( 1137.67, 902.667, 1554, 910, 1553.33, 976.667, 1136.67, 972.667 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 160.667, -111 )
+polygon = PoolVector2Array( 1459.67, 823.667, 1527, 823.667, 1527.67, 1086.67, 1456.67, 1084 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -4.33337, -153.333 )
+polygon = PoolVector2Array( 1399, 905.667, 1554, 910, 1552, 972, 1399, 971.333 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -156.333, -155 )
+polygon = PoolVector2Array( 1399, 905.667, 1467.67, 905.667, 1465.67, 971.667, 1399, 971.333 )
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -262, -157.333 )
+polygon = PoolVector2Array( 1401.33, 737, 1462.67, 733.667, 1471, 740.333, 1463.67, 974, 1399, 971.333 )
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -113.333, -285 )
+polygon = PoolVector2Array( 1399, 905.667, 1488.33, 905.667, 1489.33, 949.667, 1399.67, 951 )
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 62.3334, -263.333 )
+polygon = PoolVector2Array( 1396.67, 904.333, 1491.67, 908, 1491, 954, 1397, 949.333 )
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -322.667, -334 )
+polygon = PoolVector2Array( 1401, 734.667, 1462, 736, 1461, 868.333, 1400.67, 868.667 )
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -200, -332.333 )
+polygon = PoolVector2Array( 1401, 734.667, 1467.67, 735, 1468, 823.333, 1401.67, 823 )
+
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -28.3334, -328 )
+polygon = PoolVector2Array( 1401, 734.667, 1691, 734, 1691.67, 799.333, 1401, 798.667 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 108, 271 )
