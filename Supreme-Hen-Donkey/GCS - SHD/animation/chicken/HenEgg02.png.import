@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Egg.png-eb354baa736d7178bed7efb80be606bf.stex"
+path="res://.import/HenEgg02.png-ebac9f807a6685486217c1463e7245b1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GCS - SHD/items/Egg.png"
-dest_files=[ "res://.import/Egg.png-eb354baa736d7178bed7efb80be606bf.stex" ]
+source_file="res://GCS - SHD/animation/chicken/HenEgg02.png"
+dest_files=[ "res://.import/HenEgg02.png-ebac9f807a6685486217c1463e7245b1.stex" ]
 
 [params]
 
