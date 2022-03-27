@@ -57,4 +57,3 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [connection signal="switchMode" from="GameManager" to="Player" method="_on_GameManager_switchMode"]
-[connection signal="switchMode" from="GameManager" to="StartBlock" method="_on_GameManager_switchMode"]
