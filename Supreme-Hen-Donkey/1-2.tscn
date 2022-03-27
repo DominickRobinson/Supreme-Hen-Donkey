@@ -37,13 +37,13 @@ polygon = PoolVector2Array( 203.956, 4.34058, 199.475, 137.269, -5.37613, 128.90
 position = Vector2( 457.116, 1300.41 )
 polygon = PoolVector2Array( 325.203, -3.4884, 326.379, 142.593, -5.37613, 128.904, -2.76337, -9.07532, 255.358, -10.3191, 264.316, -1116.46, -1107.61, -1137.38, -1091.7, -1592.12, -777.962, -1577.91, -784.805, -1201.96, -461.126, -1185.48, -457.435, -1326.43, 129.259, -1307.06, 132.518, -2348.34, 333.449, -2343.07, 332.345, -1116.68 )
 
-[node name="GoToNextScene" type="Node" parent="StaticBody2D"]
-
-[node name="NextScene" type="Area2D" parent="StaticBody2D/GoToNextScene"]
+[node name="Goal" type="Area2D" parent="StaticBody2D"]
+rotation = 0.0261799
+scale = Vector2( 0.952381, 0.952381 )
 script = ExtResource( 1 )
 worldScene = "1-1.tscn"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/GoToNextScene/NextScene"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Goal"]
 position = Vector2( -722, 1284 )
 shape = SubResource( 1 )
 
