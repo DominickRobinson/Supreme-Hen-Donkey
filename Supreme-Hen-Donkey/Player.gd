@@ -65,7 +65,7 @@ func _physics_process(_delta: float):
 	if is_on_floor():
 	
 		if x != 0:
-			$AnimatedSprite.speed_scale = 0.5 + 2 * abs(linear_velocity.x) / HORIZONTAL_MAX_SPEED
+			$AnimatedSprite.speed_scale = 0.3 + 2 * abs(linear_velocity.x) / HORIZONTAL_MAX_SPEED
 			$AnimatedSprite.animation = "Running"
 		else:			
 			$AnimatedSprite.speed_scale = 1;
