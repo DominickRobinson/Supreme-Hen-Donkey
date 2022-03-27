@@ -129,7 +129,7 @@ scale = Vector2( 0.954638, -68.2065 )
 shape = SubResource( 2 )
 
 [node name="Bound4" type="CollisionShape2D" parent="StaticBody2D/Respawn"]
-position = Vector2( -573.54, 222.797 )
+position = Vector2( -573.352, 268.847 )
 scale = Vector2( 20.0368, -1.81508 )
 shape = SubResource( 2 )
 
