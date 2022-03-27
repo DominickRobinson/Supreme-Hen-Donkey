@@ -2,12 +2,12 @@ extends RigidBody2D
 class_name Player
 
 # The `export` keyword tells Godot to show this variable in the Inspector
-export var HORIZONTAL_MAX_SPEED := 650.0
-export var FLOOR_ACCELERATION := 35.0
+export var HORIZONTAL_MAX_SPEED := 625.0
+export var FLOOR_ACCELERATION := 50.0
 export var AIR_ACCELERATION := 15.0
 export var JUMP_SPEED := 600.0
-export var WALL_JUMP_VERTICAL_SPEED := 600.0
-export var WALL_JUMP_HORIZONTAL_SPEED := 500.0
+export var WALL_JUMP_VERTICAL_SPEED := 650.0
+export var WALL_JUMP_HORIZONTAL_SPEED := 250.0
 
 # The `onready` keyword tells Godot to only bind this variable once the scene is fully loaded
 # The `$` operator gets the node of that name relative to this node
@@ -26,6 +26,13 @@ func _physics_process(_delta: float):
 	# Don't allow walking closer to a wall when already on it, so that you don't get stuck on it
 	if (is_on_right_wall() and x > 0) or (is_on_left_wall() and x < 0):
 		x = 0
+		
+	
+	if (is_on_right_wall() or is_on_left_wall()):
+		gravity_scale = .7
+	else:
+		gravity_scale = 1
+	
 		
 	# Apply horizontal acceleration movement
 	var accel := AIR_ACCELERATION
@@ -58,11 +65,14 @@ func _physics_process(_delta: float):
 	if is_on_floor():
 	
 		if x != 0:
-			$AnimatedSprite.speed_scale = 0.3 + 2 * abs(linear_velocity.x) / HORIZONTAL_MAX_SPEED
+			$AnimatedSprite.speed_scale = 0.5 + 2 * abs(linear_velocity.x) / HORIZONTAL_MAX_SPEED
 			$AnimatedSprite.animation = "Running"
-		else:
+		else:			
 			$AnimatedSprite.speed_scale = 1;
-			$AnimatedSprite.animation = "Idle" 
+			$AnimatedSprite.animation = "Idle"
+	
+			if abs(linear_velocity.x) > 10:
+				$AnimatedSprite.animation = "SlidingFloor"
 	
 	else:
 		
@@ -73,6 +83,13 @@ func _physics_process(_delta: float):
 		elif linear_velocity.y > 0:
 			$AnimatedSprite.animation = "Falling"
 			
+		if is_on_left_wall():
+			$AnimatedSprite.animation = "SlidingWall"
+			$AnimatedSprite.flip_h = false
+			
+		elif is_on_right_wall():
+			$AnimatedSprite.animation = "SlidingWall"
+			$AnimatedSprite.flip_h = true
 			
 	if x > 0:
 		$AnimatedSprite.flip_h = false
