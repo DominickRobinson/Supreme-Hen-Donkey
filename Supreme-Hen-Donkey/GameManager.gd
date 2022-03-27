@@ -2,7 +2,7 @@ extends Node2D
 
 var currPlayer := 1
 var currMode = Globals.Modes.PLAYING
-
+var difficulty = Globals.Difficulties.EASY
 export(NodePath) var playerNP: NodePath
 onready var player = get_node(playerNP)
 
@@ -16,6 +16,23 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func die():
+	if difficulty != Globals.Difficulties.EASY:
+		Globals.lives -= 1
+	
+	if Globals.lives == 0:
+		gameOver()
+	
+	respawn()
+	
+		
+func gameOver():
+	return
+	
+func respawn():
+	return
 
 func changeEnabled(obj, enabled):
 	obj.set_process(enabled)
