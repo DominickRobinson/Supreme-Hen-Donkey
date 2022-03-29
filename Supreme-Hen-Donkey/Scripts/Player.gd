@@ -21,11 +21,11 @@ onready var center_zone = $CenterJumpZone
 onready var start = get_node('../StartBlock')
 
 func _ready():
-	var startShape = get_node('../StartBlock/CollisionShape2D')
+	var startBlock = get_node('../StartBlock/')
 	var extraOffset = 0
-	startPos = startShape.position - Vector2(0, startShape.shape.extents.y + 
+	startPos = startBlock.position - Vector2(0, 
+		startBlock.get_node('CollisionShape2D').shape.extents.y + 
 		$CollisionShape2D.shape.height + extraOffset)
-
 
 # Lot of functions are called automatically by the engine. These include _ready, _process, etc.
 # This gets called on every physics frame. Sort of like FixedUpdate() in Unity.
