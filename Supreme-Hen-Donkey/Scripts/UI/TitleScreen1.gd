@@ -17,8 +17,7 @@ func _ready():
 
 
 func _on_Multiplayer_pressed():
-
-	get_tree().change_scene("res://DemoScene.tscn")
+	get_tree().change_scene("res://Scenes/Levels/DemoScene.tscn")
 
 
 func _on_Single_Player_pressed():
@@ -39,5 +38,5 @@ func _on_Settings_pressed():
 
 
 func _on_Transition_finished():
-	get_tree().change_scene("res://1-1.tscn")
+	get_tree().change_scene("res://Scenes/Levels/1-1.tscn")
 	

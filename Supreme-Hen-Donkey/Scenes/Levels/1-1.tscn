@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://GCS - SHD/irl-test/video3.jpg" type="Texture" id=1]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://NextScene.gd" type="Script" id=3]
-[ext_resource path="res://Death barrier.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/NextScene.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Objects/Death barrier.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 131.5, 62 )
@@ -75,7 +75,7 @@ scale = Vector2( 0.333333, 0.333333 )
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 3 )
-worldScene = "1-2.tscn"
+worldScene = "res://Scenes/Levels/1-2.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Goal"]
 position = Vector2( 1408, -1165 )
@@ -99,7 +99,7 @@ scale = Vector2( 0.333333, 0.333333 )
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 3 )
-worldScene = "1-1.tscn"
+worldScene = "res://Scenes/Levels/1-1.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Death barrier2"]
 position = Vector2( 2350, -1835 )
@@ -112,7 +112,7 @@ scale = Vector2( 0.333333, 0.333333 )
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 3 )
-worldScene = "1-1.tscn"
+worldScene = "res://Scenes/Levels/1-1.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Death barrier3"]
 position = Vector2( -344, -1420 )
@@ -125,7 +125,7 @@ scale = Vector2( 0.333333, 0.333333 )
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 3 )
-worldScene = "1-1.tscn"
+worldScene = "res://Scenes/Levels/1-1.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Death barrier4"]
 position = Vector2( 639, -3504 )

@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://NextScene.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/NextScene.gd" type="Script" id=1]
 [ext_resource path="res://GCS - SHD/irl-test/1-2.JPG" type="Texture" id=2]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://GCS - SHD/blocks and stuff/Spikes-removebg-preview.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -51,7 +51,7 @@ shape = SubResource( 1 )
 position = Vector2( -26.7573, 3.11017 )
 rotation = 0.0349066
 script = ExtResource( 1 )
-worldScene = "1-2.tscn"
+worldScene = "res://Scenes/Levels/1-2.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Spikes"]
 position = Vector2( -82.9231, -749.282 )
@@ -66,7 +66,7 @@ texture = ExtResource( 5 )
 position = Vector2( -101.662, 826.193 )
 rotation = 0.0349066
 script = ExtResource( 1 )
-worldScene = "1-2.tscn"
+worldScene = "res://Scenes/Levels/1-2.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Spikes2"]
 position = Vector2( -82.9231, -749.282 )
@@ -81,7 +81,7 @@ texture = ExtResource( 5 )
 position = Vector2( -365.68, 1412.82 )
 rotation = 0.0349066
 script = ExtResource( 1 )
-worldScene = "1-2.tscn"
+worldScene = "res://Scenes/Levels/1-2.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Spikes3"]
 position = Vector2( -82.9231, -749.282 )
@@ -96,7 +96,7 @@ texture = ExtResource( 5 )
 position = Vector2( 153.439, 1416.88 )
 rotation = 0.0349066
 script = ExtResource( 1 )
-worldScene = "1-2.tscn"
+worldScene = "res://Scenes/Levels/1-2.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Spikes4"]
 position = Vector2( -82.9231, -749.282 )
@@ -111,7 +111,7 @@ texture = ExtResource( 5 )
 position = Vector2( 143.919, 1416.63 )
 rotation = 0.0349066
 script = ExtResource( 1 )
-worldScene = "1-2.tscn"
+worldScene = "res://Scenes/Levels/1-2.tscn"
 
 [node name="Bound" type="CollisionShape2D" parent="StaticBody2D/Respawn"]
 position = Vector2( -228.362, -2630.41 )

@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://paint_control.gd" type="Script" id=1]
-[ext_resource path="res://tools_panel.gd" type="Script" id=2]
-[ext_resource path="res://paint_tools.png" type="Texture" id=3]
+[ext_resource path="res://gd_paint/paint_control.gd" type="Script" id=1]
+[ext_resource path="res://gd_paint/tools_panel.gd" type="Script" id=2]
+[ext_resource path="res://gd_paint/paint_tools.png" type="Texture" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 1, 1, 1 )
@@ -282,5 +282,5 @@ rect_min_size = Vector2( 400, 140 )
 resizable = true
 access = 2
 filters = PoolStringArray( "*.png" )
-current_dir = "/Users/Dominick/Documents/draw-test-thing/gd_paint"
-current_path = "/Users/Dominick/Documents/draw-test-thing/gd_paint/"
+current_dir = "/Files/Programming/Godot/Suprreme-Hen-Donkey/Supreme-Hen-Donkey"
+current_path = "/Files/Programming/Godot/Suprreme-Hen-Donkey/Supreme-Hen-Donkey/"

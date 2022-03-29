@@ -14,4 +14,4 @@ func _on_Start_pressed():
 	$Transition.play()
 	
 func _on_Transition_finished():
-	 get_tree().change_scene("res://MainMenu.tscn")
+	 get_tree().change_scene("res://Scenes/UI/MainMenu.tscn")

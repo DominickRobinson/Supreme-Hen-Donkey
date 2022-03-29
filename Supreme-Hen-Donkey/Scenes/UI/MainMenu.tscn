@@ -1,79 +1,70 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Main menu.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/UI/TitleScreen1.gd" type="Script" id=1]
+[ext_resource path="res://GCS - SHD/irl-test/video2.jpg" type="Texture" id=2]
+[ext_resource path="res://GCS - SHD/irl-test/trim2.webm" type="VideoStream" id=3]
 
-[node name="Main menu" type="Control"]
+[node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -6.0
-margin_right = -6.0
+margin_top = 2.0
+margin_bottom = 2.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Transition" type="VideoPlayer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+stream = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_left = 0.54
-anchor_top = 0.524
-anchor_right = 0.54
-anchor_bottom = 0.524
-margin_left = -189.96
-margin_top = -98.4
-margin_right = -21.96
-margin_bottom = 17.6
-rect_scale = Vector2( 2.40224, 2.97447 )
+show_behind_parent = true
+margin_left = 549.0
+margin_top = 118.0
+margin_right = 698.0
+margin_bottom = 278.0
+rect_scale = Vector2( 2.08764, 1.70291 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Multiplayer" type="Button" parent="VBoxContainer"]
-margin_right = 168.0
+margin_right = 149.0
 margin_bottom = 20.0
-text = "Multiplayer"
 
 [node name="Single Player" type="Button" parent="VBoxContainer"]
 margin_top = 24.0
-margin_right = 168.0
+margin_right = 149.0
 margin_bottom = 44.0
-text = "Single Player"
+rect_pivot_offset = Vector2( -729, -326 )
 
 [node name="Level Editor" type="Button" parent="VBoxContainer"]
 margin_top = 48.0
-margin_right = 168.0
+margin_right = 149.0
 margin_bottom = 68.0
-text = "Level Editor"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Character Customization" type="Button" parent="VBoxContainer"]
 margin_top = 72.0
-margin_right = 168.0
+margin_right = 149.0
 margin_bottom = 92.0
-text = "Character Customization"
 
 [node name="Settings" type="Button" parent="VBoxContainer"]
 margin_top = 96.0
-margin_right = 168.0
+margin_right = 149.0
 margin_bottom = 116.0
-text = "Settings"
 
-[node name="Title" type="Label" parent="."]
-anchor_left = 0.558
-anchor_top = 0.166
-anchor_right = 0.558
-anchor_bottom = 0.166
-margin_left = -309.392
-margin_top = -65.6
-margin_right = -170.392
-margin_bottom = -51.6
-rect_scale = Vector2( 4.44491, 9.38443 )
-text = "Supreme Hen Donkey"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -7 )
+scale = Vector2( 0.532812, 0.555556 )
+texture = ExtResource( 2 )
+centered = false
 
+[connection signal="finished" from="Transition" to="." method="_on_Transition_finished"]
 [connection signal="pressed" from="VBoxContainer/Multiplayer" to="." method="_on_Multiplayer_pressed"]
 [connection signal="pressed" from="VBoxContainer/Single Player" to="." method="_on_Single_Player_pressed"]
 [connection signal="pressed" from="VBoxContainer/Level Editor" to="." method="_on_Level_Editor_pressed"]

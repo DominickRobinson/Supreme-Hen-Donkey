@@ -17,7 +17,7 @@ func _ready():
 
 
 func _on_Multiplayer_pressed():
-	get_tree().change_scene("res://DemoScene.tscn")
+	get_tree().change_scene("res://Scenes/Levels/DemoScene.tscn")
 
 
 func _on_Single_Player_pressed():

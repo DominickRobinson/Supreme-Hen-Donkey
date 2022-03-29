@@ -1,34 +1,31 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://TitleScreen1.gd" type="Script" id=1]
-[ext_resource path="res://GCS - SHD/irl-test/video2.jpg" type="Texture" id=2]
-[ext_resource path="res://GCS - SHD/irl-test/trim2.webm" type="VideoStream" id=3]
+[ext_resource path="res://GCS - SHD/music/me_when_the_jimmy_deans_microwave_breakfast_is_done.wav" type="AudioStream" id=1]
+[ext_resource path="res://Scripts/UI/TitleScreen1.gd" type="Script" id=2]
+[ext_resource path="res://GCS - SHD/screens/shd-title.png" type="Texture" id=3]
 
-[node name="MainMenu" type="Control"]
+[node name="Main menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 2.0
 margin_bottom = 2.0
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Transition" type="VideoPlayer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-stream = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 513, 297 )
+scale = Vector2( 1.16167, 1.03 )
+texture = ExtResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 show_behind_parent = true
-margin_left = 549.0
-margin_top = 118.0
-margin_right = 698.0
-margin_bottom = 278.0
-rect_scale = Vector2( 2.08764, 1.70291 )
+margin_left = 362.0
+margin_top = 312.0
+margin_right = 511.0
+margin_bottom = 472.0
+rect_scale = Vector2( 2.16888, 2.17318 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -58,13 +55,10 @@ margin_top = 96.0
 margin_right = 149.0
 margin_bottom = 116.0
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -7 )
-scale = Vector2( 0.532812, 0.555556 )
-texture = ExtResource( 2 )
-centered = false
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+autoplay = true
 
-[connection signal="finished" from="Transition" to="." method="_on_Transition_finished"]
 [connection signal="pressed" from="VBoxContainer/Multiplayer" to="." method="_on_Multiplayer_pressed"]
 [connection signal="pressed" from="VBoxContainer/Single Player" to="." method="_on_Single_Player_pressed"]
 [connection signal="pressed" from="VBoxContainer/Level Editor" to="." method="_on_Level_Editor_pressed"]
