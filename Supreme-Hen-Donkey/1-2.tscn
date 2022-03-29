@@ -1,0 +1,137 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://NextScene.gd" type="Script" id=1]
+[ext_resource path="res://GCS - SHD/irl-test/1-2.JPG" type="Texture" id=2]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GCS - SHD/blocks and stuff/Spikes-removebg-preview.png" type="Texture" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 130.75, 63.3125 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 157.189, 23.3576 )
+
+[node name="1-2" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+rotation = -0.0261799
+scale = Vector2( 1.05, 1.05 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+position = Vector2( 2835.31, -623.994 )
+scale = Vector2( 1.4, 1.4 )
+texture = ExtResource( 2 )
+offset = Vector2( -2835, 611 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -1007.1, -811.641 )
+polygon = PoolVector2Array( -3.52747, -18.0986, 762.843, 15.9744, 764.905, 90.0537, 1080.85, 96.3263, 1080.92, 17.301, 1352.51, 36.4171, 1339.41, 231.141, 938.022, 240.637, 118.696, 204.177, 101.912, 1418.15, 417.935, 1421.43, 419.425, 1494.83, 743.121, 1494.96, 740.588, 1438.88, 932.758, 1434.91, 935.029, 1500.99, 1270.02, 1505.76, 1264.51, 1448.6, 1537.39, 1456.74, 1535.17, 1579.73, 100.194, 1560.16, 94.4485, 2085.19, 544.687, 2081.97, 544.995, 2223.03, 30.0664, 2213.55, 35.2756, 2014.61, -34.4124, 2001.79 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -73.6499, 1284.51 )
+polygon = PoolVector2Array( 203.956, 4.34058, 199.475, 137.269, -5.37613, 128.904, -2.76337, -9.07532 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 457.116, 1300.41 )
+polygon = PoolVector2Array( 325.203, -3.4884, 326.379, 142.593, -5.37613, 128.904, -2.76337, -9.07532, 255.358, -10.3191, 264.316, -1116.46, -1107.61, -1137.38, -1091.7, -1592.12, -777.962, -1577.91, -784.805, -1201.96, -461.126, -1185.48, -457.435, -1326.43, 129.259, -1307.06, 132.518, -2348.34, 333.449, -2343.07, 332.345, -1116.68 )
+
+[node name="Goal" type="Area2D" parent="StaticBody2D"]
+rotation = 0.0261799
+scale = Vector2( 0.952381, 0.952381 )
+script = ExtResource( 1 )
+worldScene = "1-1.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Goal"]
+position = Vector2( -722, 1284 )
+shape = SubResource( 1 )
+
+[node name="Spikes" type="Area2D" parent="StaticBody2D"]
+position = Vector2( -26.7573, 3.11017 )
+rotation = 0.0349066
+script = ExtResource( 1 )
+worldScene = "1-2.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Spikes"]
+position = Vector2( -82.9231, -749.282 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D/Spikes/CollisionShape2D"]
+position = Vector2( -0.955284, -14.0015 )
+scale = Vector2( 0.645316, 0.353894 )
+texture = ExtResource( 5 )
+
+[node name="Spikes2" type="Area2D" parent="StaticBody2D"]
+position = Vector2( -101.662, 826.193 )
+rotation = 0.0349066
+script = ExtResource( 1 )
+worldScene = "1-2.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Spikes2"]
+position = Vector2( -82.9231, -749.282 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D/Spikes2/CollisionShape2D"]
+position = Vector2( -0.955284, -14.0015 )
+scale = Vector2( 0.645316, 0.353894 )
+texture = ExtResource( 5 )
+
+[node name="Spikes3" type="Area2D" parent="StaticBody2D"]
+position = Vector2( -365.68, 1412.82 )
+rotation = 0.0349066
+script = ExtResource( 1 )
+worldScene = "1-2.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Spikes3"]
+position = Vector2( -82.9231, -749.282 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D/Spikes3/CollisionShape2D"]
+position = Vector2( -0.955284, -14.0015 )
+scale = Vector2( 0.645316, 0.353894 )
+texture = ExtResource( 5 )
+
+[node name="Spikes4" type="Area2D" parent="StaticBody2D"]
+position = Vector2( 153.439, 1416.88 )
+rotation = 0.0349066
+script = ExtResource( 1 )
+worldScene = "1-2.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Spikes4"]
+position = Vector2( -82.9231, -749.282 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D/Spikes4/CollisionShape2D"]
+position = Vector2( -0.955284, -14.0015 )
+scale = Vector2( 0.645316, 0.353894 )
+texture = ExtResource( 5 )
+
+[node name="Respawn" type="Area2D" parent="StaticBody2D"]
+position = Vector2( 143.919, 1416.63 )
+rotation = 0.0349066
+script = ExtResource( 1 )
+worldScene = "1-2.tscn"
+
+[node name="Bound" type="CollisionShape2D" parent="StaticBody2D/Respawn"]
+position = Vector2( -228.362, -2630.41 )
+scale = Vector2( 10.0793, -2.23058 )
+shape = SubResource( 2 )
+
+[node name="Bound2" type="CollisionShape2D" parent="StaticBody2D/Respawn"]
+position = Vector2( 1027.97, -1154.41 )
+scale = Vector2( 0.954638, -68.2065 )
+shape = SubResource( 2 )
+
+[node name="Bound3" type="CollisionShape2D" parent="StaticBody2D/Respawn"]
+position = Vector2( -3559.9, -1267.1 )
+scale = Vector2( 0.954638, -68.2065 )
+shape = SubResource( 2 )
+
+[node name="Bound4" type="CollisionShape2D" parent="StaticBody2D/Respawn"]
+position = Vector2( -573.352, 268.847 )
+scale = Vector2( 20.0368, -1.81508 )
+shape = SubResource( 2 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( -680, -923 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Launcher.tscn" type="PackedScene" id=2]
@@ -8,10 +8,23 @@
 [ext_resource path="res://Prefabs/MovingPlatform.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=7]
 [ext_resource path="res://UI.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Prefabs/StartBlock.tscn" type="PackedScene" id=9]
+[ext_resource path="res://GCS - SHD/enemies/red circle.png" type="Texture" id=9]
+[ext_resource path="res://GCS - SHD/enemies/chicken.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/DraggableTileBlock.gd" type="Script" id=11]
+[ext_resource path="res://GCS - SHD/blocks and stuff/Block.png" type="Texture" id=12]
+[ext_resource path="res://GCS - SHD/blocks and stuff/Ice_.png" type="Texture" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30, 30 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 50.0899
+
+[sub_resource type="PhysicsMaterial" id=4]
+friction = 0.15
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 176.226, 30.301 )
 
 [node name="DemoScene" type="Node2D"]
 
@@ -22,12 +35,10 @@ playerNP = NodePath("../Player")
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 200, 557 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 10000, 1500 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
@@ -37,9 +48,6 @@ margin_right = 44.0
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 63, 376 )
-HORIZONTAL_MAX_SPEED = 500.0
-FLOOR_ACCELERATION = 30.0
-WALL_JUMP_HORIZONTAL_SPEED = 600.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 3
@@ -49,13 +57,47 @@ __meta__ = {
 }
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PoolVector2Array( -13, 502, 215, 505, 219, 406, 293, 404, 293, 302, 381, 298, 378, 518, 553, 520, 552, 243, 636, 239, 639, 705, 742, 707, 732, 236, 1081, 231, 1212, 357, 1417, 491, 1695, 601, 1952, 651, 2077, 654, 2257, 605, 2249, 752, 1079, 758, -80, 740, -70, 496 )
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2( -2, -5 )
+polygon = PoolVector2Array( -77, 503, 215, 505, 216, 403, 303, 403, 304, 298, 387, 297, 389, 505, 552, 503, 552, 243, 639, 244, 639, 705, 734, 706, 732, 236, 1080, 236, 1212, 357, 1417, 491, 1695, 601, 1952, 651, 2077, 654, 2257, 605, 2249, 752, 616, 714, 291, 552, -73, 554 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D/CollisionPolygon2D"]
+position = Vector2( -412.718, 585.972 )
+scale = Vector2( 1.43618, 0.209944 )
+texture = ExtResource( 12 )
+offset = Vector2( 483, -263 )
+
+[node name="Sprite2" type="Sprite" parent="StaticBody2D/CollisionPolygon2D"]
+position = Vector2( 566.434, 983.064 )
+scale = Vector2( 0.702, 1.928 )
+texture = ExtResource( 12 )
+offset = Vector2( 483, -263 )
+
+[node name="Sprite3" type="Sprite" parent="StaticBody2D/CollisionPolygon2D"]
+position = Vector2( 506.128, 977.648 )
+scale = Vector2( 0.184, 1.896 )
+texture = ExtResource( 12 )
+offset = Vector2( 483, -263 )
+
+[node name="Sprite4" type="Sprite" parent="StaticBody2D/CollisionPolygon2D"]
+position = Vector2( 592.871, 726 )
+scale = Vector2( 0.189808, 0.0612163 )
+texture = ExtResource( 12 )
+offset = Vector2( 483, -263 )
+
+[node name="Sprite5" type="Sprite" parent="StaticBody2D/CollisionPolygon2D"]
+position = Vector2( 133.843, 638.069 )
+scale = Vector2( 0.3481, 0.601952 )
+texture = ExtResource( 12 )
+offset = Vector2( 483, -263 )
+
+[node name="Sprite6" type="Sprite" parent="StaticBody2D/CollisionPolygon2D"]
+position = Vector2( 263.644, 531 )
+scale = Vector2( 0.172381, 0.601952 )
+texture = ExtResource( 12 )
+offset = Vector2( 483, -263 )
 
 [node name="Launcher" parent="." instance=ExtResource( 2 )]
-position = Vector2( 66, 457 )
+position = Vector2( 463, 457 )
 
 [node name="Box" type="RigidBody2D" parent="."]
 position = Vector2( 373, 236 )
@@ -67,17 +109,82 @@ mass = 0.5
 shape = SubResource( 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
+position = Vector2( -17, 23 )
 format = 1
 
 [node name="DraggableTile2" parent="." instance=ExtResource( 5 )]
-position = Vector2( -185, 544 )
+position = Vector2( -269, 525 )
 
 [node name="DraggableTile" parent="." instance=ExtResource( 4 )]
-position = Vector2( -235, 377 )
+position = Vector2( -168, 664 )
 
 [node name="MovingPlatform" parent="DraggableTile" instance=ExtResource( 6 )]
+show_behind_parent = true
+HEIGHT = 18.0
+WIDTH = 202.0
+ROTATION = 0
 
-[node name="StartBlock" parent="." instance=ExtResource( 9 )]
-position = Vector2( 73, 536 )
+[node name="Sprite" type="Sprite" parent="DraggableTile/MovingPlatform"]
+position = Vector2( 0.75, 0 )
+scale = Vector2( 0.811, 0.118 )
+texture = ExtResource( 12 )
 
-[connection signal="switchMode" from="GameManager" to="Player" method="_on_GameManager_switchMode"]
+[node name="DraggableTile3" parent="." instance=ExtResource( 4 )]
+position = Vector2( -22, 237 )
+scale = Vector2( 0.05, 0.05 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="DraggableTile3"]
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite" parent="DraggableTile3/KinematicBody2D"]
+position = Vector2( 3.05176e-05, 0 )
+texture = ExtResource( 9 )
+
+[node name="Sprite" type="Sprite" parent="DraggableTile3/KinematicBody2D/Sprite"]
+position = Vector2( 20, -40 )
+scale = Vector2( 2.48828, 2.32227 )
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DraggableTile3/KinematicBody2D"]
+scale = Vector2( 20, 20 )
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+scale = Vector2( 2.17644, 1.04487 )
+collision_layer = 3
+collision_mask = 3
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
+position = Vector2( -2712, -119 )
+polygon = PoolVector2Array( 737, 737, 732, 236, 1080, 236, 1081, 611, 2258, 615, 2250, 742 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D2/CollisionPolygon2D"]
+position = Vector2( 463.282, 820.072 )
+scale = Vector2( 2.44944, 0.543999 )
+texture = ExtResource( 12 )
+offset = Vector2( 483, -263 )
+
+[node name="Sprite2" type="Sprite" parent="StaticBody2D2/CollisionPolygon2D"]
+position = Vector2( 566.434, 1026.52 )
+scale = Vector2( 0.702, 2.04 )
+texture = ExtResource( 12 )
+offset = Vector2( 483, -263 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2( -791, 582 )
+scale = Vector2( 1.11561, 2.28185 )
+collision_layer = 3
+collision_mask = 3
+physics_material_override = SubResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2( -0.000183105, 1.52588e-05 )
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D3/CollisionShape2D"]
+position = Vector2( 1.38837, -0.134968 )
+scale = Vector2( 0.707958, 0.242988 )
+texture = ExtResource( 13 )

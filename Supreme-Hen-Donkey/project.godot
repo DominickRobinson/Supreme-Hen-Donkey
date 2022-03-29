@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "RigidBody2D",
 "class": "Player",
 "language": "GDScript",
-"path": "res://Scripts/Player.gd"
+"path": "res://Player.gd"
 } ]
 _global_script_class_icons={
 "Player": ""
@@ -21,16 +21,26 @@ _global_script_class_icons={
 [application]
 
 config/name="Supreme-Hen-Donkey"
-run/main_scene="res://DemoScene.tscn"
+run/main_scene="res://Title.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Globals="*res://Scripts/Globals.gd"
+MusicController="*res://autoloads/MusicController.tscn"
+
+[display]
+
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [gdnative]
 
 singletons=[  ]
+
+[global]
+
+stretch=false
 
 [input]
 
