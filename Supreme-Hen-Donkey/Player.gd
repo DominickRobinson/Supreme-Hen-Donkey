@@ -12,12 +12,23 @@ export var WALL_JUMP_HORIZONTAL_SPEED := 250.0
 var resetPosNextFrame = false
 var startPos: Vector2
 
+var resetPosNextFrame = false
+var startPos: Vector2
+
 # The `onready` keyword tells Godot to only bind this variable once the scene is fully loaded
 # The `$` operator gets the node of that name relative to this node
 onready var left_zone = $LeftJumpZone
 onready var right_zone = $RightJumpZone
 onready var bottom_zone = $BottomJumpZone
 onready var center_zone = $CenterJumpZone
+onready var start = get_node('../StartBlock')
+
+func _ready():
+	var startBlock = get_node('../StartBlock/')
+	var extraOffset = 0
+	startPos = startBlock.position - Vector2(0, 
+		startBlock.get_node('CollisionShape2D').shape.extents.y + 
+		$CollisionShape2D.shape.height + extraOffset)
 
 func _ready():
 	var startBlock = get_node('../StartBlock/')

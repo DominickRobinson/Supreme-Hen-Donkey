@@ -67,6 +67,17 @@ func advanceRound():
 	print(currPlayer)
 	emit_signal('switchPlayer', currPlayer)
 
+	elif currMode == Globals.Modes.BUILDING:
+		currPlayer = getNextPlayer()
+		if !bothBuilt:
+			bothBuilt = true
+		else:
+			bothBuilt = false
+			switchMode()
+
+	print(currPlayer)
+	emit_signal('switchPlayer', currPlayer)
+
 
 func switchMode():
 	if currMode == Globals.Modes.PLAYING:
