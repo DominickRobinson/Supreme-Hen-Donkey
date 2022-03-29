@@ -22,10 +22,9 @@ func _ready():
 			break
 	
 	collision = kinematicChild.get_node('CollisionShape2D')
-	add_child(collision.duplicate())
-	kinematicChild.remove_child(collision)
+#	add_child(collision.duplicate())
+#	kinematicChild.remove_child(collision)
 	
-#	mouseOffset = collision.shape.extents
 	mouseOffset = tileMap.cell_size / 2
 	
 	get_node("../GameManager/").connect('switchMode', self, '_on_switchMode')
@@ -63,15 +62,17 @@ func followMouse():
 
 
 func pickupTile():
-	kinematicChild.remove_child(collision)
+	pass
+#	kinematicChild.remove_child(collision)
 
 
 # Places tile at current location
 func placeTile():
-	var tilePos = tileMap.world_to_map(position)
-	var tileType = 0
-	kinematicChild.add_child(collision)
-	collision.position = Vector2.ZERO
+	pass
+#	var tilePos = tileMap.world_to_map(position)
+#	var tileType = 0
+#	kinematicChild.add_child(collision)
+#	collision.position = Vector2.ZERO
 
 
 func _on_switchMode(mode):
@@ -84,11 +85,22 @@ func _on_switchMode(mode):
 
 
 func switchModePlaying():
+	collision.position = Vector2.ZERO
+	
+	kinematicChild.add_child(collision)
+	remove_child(get_node('CollisionShape2D'))
 	kinematicChild.enabled = true
+	
 	canDrag = false
 	canPlace = false
 
 
 func switchModeBuilding():
+	kinematicChild.position = Vector2.ZERO
+	
+	collision = kinematicChild.get_node('CollisionShape2D')
+	add_child(collision.duplicate())
+	kinematicChild.remove_child(collision)
 	kinematicChild.enabled = false
+	
 	canDrag = true
