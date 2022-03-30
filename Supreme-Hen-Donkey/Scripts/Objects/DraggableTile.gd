@@ -1,8 +1,6 @@
 extends Area2D
+class_name DraggableTile
 
-
-export(NodePath) var tileMapNP: NodePath
-onready var tileMap = get_node(tileMapNP)
 
 var mouseOffset
 var following := false
@@ -11,6 +9,8 @@ var canPlace := true
 var collision: CollisionShape2D
 var startPos: Vector2
 var kinematicChild: KinematicBody2D
+
+onready var tileMap = get_tree().current_scene.get_node('TileMap')
 
 
 func _ready():
@@ -22,12 +22,13 @@ func _ready():
 			break
 	
 	collision = kinematicChild.get_node('CollisionShape2D')
-#	add_child(collision.duplicate())
-#	kinematicChild.remove_child(collision)
 	
 	mouseOffset = tileMap.cell_size / 2
 	
-	get_node("../GameManager/").connect('switchMode', self, '_on_switchMode')
+	if Globals.GM.currMode == Globals.Modes.BUILDING:
+		switchModeBuilding()
+	
+	get_tree().current_scene.get_node("GameManager").connect('switchMode', self, '_on_switchMode')
 
 
 func _physics_process(delta):
@@ -42,7 +43,6 @@ func _input_event(viewport, event, shape_idx):
 	# Start dragging when clicked on
 	if event.is_action_pressed("click"):
 		if event.is_pressed() && canDrag:
-			print(canDrag)
 			following = true
 			pickupTile()
 			
@@ -62,7 +62,7 @@ func followMouse():
 
 
 func pickupTile():
-	pass
+	Globals.GM.changeParentage(self)
 #	kinematicChild.remove_child(collision)
 
 

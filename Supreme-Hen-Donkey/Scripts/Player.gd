@@ -12,12 +12,18 @@ export var WALL_JUMP_HORIZONTAL_SPEED := 250.0
 var resetPosNextFrame = false
 var startPos: Vector2
 
+signal finished()
+
 # The `onready` keyword tells Godot to only bind this variable once the scene is fully loaded
 # The `$` operator gets the node of that name relative to this node
 onready var left_zone = $LeftJumpZone
 onready var right_zone = $RightJumpZone
 onready var bottom_zone = $BottomJumpZone
 onready var center_zone = $CenterJumpZone
+
+export(NodePath) var deathNP: NodePath
+onready var deathNode = get_node(deathNP)
+
 
 func _ready():
 	var startBlock = get_node('../StartBlock/')
@@ -77,6 +83,7 @@ func _physics_process(_delta: float):
 			linear_velocity.y = -WALL_JUMP_VERTICAL_SPEED
 		# Otherwise, we're not on a wall or floor, so don't jump
 	
+	checkFell()
 	
 	if is_on_floor():
 	
@@ -89,6 +96,8 @@ func _physics_process(_delta: float):
 	
 			if abs(linear_velocity.x) > 10:
 				$AnimatedSprite.animation = "SlidingFloor"
+		
+		checkFinished()
 	
 	else:
 		
@@ -141,6 +150,25 @@ func test():
 	print('Test')
 
 
+# See if we've completed the level
+func checkFinished():
+	var overlap = center_zone.get_overlapping_bodies()
+	for body in overlap:
+		if body.name == 'EndBlock':
+			emit_signal("finished")
+			break
+
+
+# See if we've fallen off the edge
+func checkFell():
+	if deathNode != null:
+		if position.y > deathNode.position.y:
+			Globals.GM.die()
+			return true
+	return false
+
+
 func _on_GameManager_switchMode(mode):
 	if mode == Globals.Modes.PLAYING:
 		resetPosition()
+		$Camera2D.make_current()

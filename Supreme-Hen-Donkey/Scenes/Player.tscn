@@ -56,20 +56,10 @@ animations = [ {
 "name": "Falling",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 15 ), ExtResource( 20 ), ExtResource( 23 ) ],
-"loop": true,
-"name": "Jumping",
-"speed": 15.0
-}, {
 "frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "Running",
 "speed": 15.0
-}, {
-"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 10.0
 }, {
 "frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 32 ) ],
 "loop": true,
@@ -80,6 +70,16 @@ animations = [ {
 "loop": true,
 "name": "SlidingWall",
 "speed": 15.0
+}, {
+"frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 15 ), ExtResource( 20 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "Jumping",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 10.0
 } ]
 
 [node name="Player" type="RigidBody2D"]
@@ -160,4 +160,5 @@ smoothing_enabled = true
 scale = Vector2( 0.125, 0.125 )
 frames = SubResource( 7 )
 animation = "SlidingWall"
+frame = 1
 playing = true

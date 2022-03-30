@@ -4,7 +4,10 @@ var debugOn := true
 
 func _ready():
 	Globals.debugText = self
+	
 	$ModeText.set_text('Mode: Playing\nYou cannot drag tiles and can move\nPress e to switch\n')
+	$PlayingText.set_text('Player 1\n')
+	
 	Globals.GM.connect('switchMode', self, 'textMode')
 	Globals.GM.connect('switchPlayer', self, 'textPlayer')
 
@@ -19,4 +22,4 @@ func textMode(mode):
 
 
 func textPlayer(player):
-	$PlayingText.set_text('Player %d' % player)
+	$PlayingText.set_text('Player %d\n' % player)
