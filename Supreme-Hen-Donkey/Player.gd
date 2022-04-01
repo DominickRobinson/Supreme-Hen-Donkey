@@ -2,8 +2,8 @@ extends RigidBody2D
 class_name Player
 
 # The `export` keyword tells Godot to show this variable in the Inspector
-export var HORIZONTAL_MAX_SPEED := 635.0
-export var FLOOR_ACCELERATION := 40.0
+export var HORIZONTAL_MAX_SPEED := 630.0
+export var FLOOR_ACCELERATION := 35.0
 export var AIR_ACCELERATION := 15.0
 export var JUMP_SPEED := 600.0
 export var WALL_JUMP_VERTICAL_SPEED := 650.0
@@ -19,15 +19,15 @@ onready var right_zone = $RightJumpZone
 onready var bottom_zone = $BottomJumpZone
 onready var center_zone = $CenterJumpZone
 
-func _ready():
-	var startBlock = get_node('../StartBlock/')
-	var extraOffset = 0
-	if startBlock != null:
-		startPos = startBlock.position - Vector2(0, 
-			startBlock.get_node('CollisionShape2D').shape.extents.y + 
-			$CollisionShape2D.shape.height + extraOffset)
-	else:
-		startPos = Vector2(0,0)
+#func _ready():
+#	var startBlock = get_node('../StartBlock/')
+#	var extraOffset = 0
+#	if startBlock != null:
+#		startPos = startBlock.position - Vector2(0, 
+#			startBlock.get_node('CollisionShape2D').shape.extents.y + 
+#			$CollisionShape2D.shape.height + extraOffset)
+#	else:
+#		startPos = Vector2(0,0)
 
 # Lot of functions are called automatically by the engine. These include _ready, _process, etc.
 # This gets called on every physics frame. Sort of like FixedUpdate() in Unity.
@@ -78,7 +78,7 @@ func _physics_process(_delta: float):
 	if is_on_floor():
 	
 		if x != 0:
-			$AnimatedSprite.speed_scale = 0.3 + 2 * abs(linear_velocity.x) / HORIZONTAL_MAX_SPEED
+			$AnimatedSprite.speed_scale = 0.3 + 2.2 * abs(linear_velocity.x) / HORIZONTAL_MAX_SPEED
 			$AnimatedSprite.animation = "Running"
 			physics_material_override.friction = 0.3
 		else:			

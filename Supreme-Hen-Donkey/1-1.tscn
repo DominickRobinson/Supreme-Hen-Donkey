@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://GCS - SHD/irl-test/video3.jpg" type="Texture" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://NextScene.gd" type="Script" id=3]
 [ext_resource path="res://Block Scenes/Trampoline.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Block Scenes/FlamePillar.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 131.5, 62 )
@@ -78,7 +79,7 @@ script = ExtResource( 3 )
 worldScene = "1-2.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Goal"]
-position = Vector2( 1408, -1165 )
+position = Vector2( 1410.99, -1178 )
 shape = SubResource( 1 )
 
 [node name="Death barrier" type="Area2D" parent="StaticBody2D"]
@@ -134,7 +135,15 @@ scale = Vector2( 39.2343, -1.36354 )
 shape = SubResource( 1 )
 
 [node name="Trampoline" parent="." instance=ExtResource( 4 )]
-position = Vector2( 600, 358 )
+position = Vector2( 547, -495 )
+impulse_no_jump = -800.0
+impulse_jump = -1200.0
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 119, 314 )
+
+[node name="FlamePillar" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1019, 415 )
+worldScene = "1-1.tscn"
+seconds_on = 2
+seconds_off = 3

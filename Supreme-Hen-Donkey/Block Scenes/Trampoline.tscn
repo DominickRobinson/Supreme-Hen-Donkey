@@ -14,21 +14,21 @@
 [ext_resource path="res://GCS - SHD/Blocks/Trampoline/Trampoline-4.png" type="Texture" id=12]
 [ext_resource path="res://Scripts/Trampoline.gd" type="Script" id=13]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 33.7651, 17.375 )
-
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 5 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 11 ), ExtResource( 8 ), ExtResource( 4 ) ],
-"loop": false,
-"name": "Boing",
-"speed": 15.0
-}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": false,
 "name": "Idle",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 11 ), ExtResource( 8 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "Boing",
+"speed": 15.0
 } ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 33.7651, 17.375 )
 
 [node name="Trampoline" type="Node2D"]
 position = Vector2( 3, -1 )
@@ -36,13 +36,20 @@ script = ExtResource( 13 )
 impulse_no_jump = -1000.0
 impulse_jump = -1500.0
 
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 7.99999, -22 )
+scale = Vector2( 0.238057, 0.36216 )
+frames = SubResource( 1 )
+animation = "Idle"
+playing = true
+
 [node name="Base" type="StaticBody2D" parent="."]
 scale = Vector2( 1.26215, 1.65201 )
 collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Base"]
-position = Vector2( -39.6149, -14.5278 )
+position = Vector2( -38.8226, -14.5278 )
 polygon = PoolVector2Array( 90, 4, 90, 29, -1, 29, -1, 5 )
 
 [node name="Sprite" type="Sprite" parent="Base"]
@@ -56,15 +63,8 @@ position = Vector2( 24, -12 )
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BounceArea"]
-position = Vector2( -12.7651, -21 )
+position = Vector2( -15, 12 )
 shape = SubResource( 2 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 7.99999, -22 )
-scale = Vector2( 0.238057, 0.36216 )
-frames = SubResource( 1 )
-animation = "Idle"
-playing = true
-
-[connection signal="body_entered" from="BounceArea" to="." method="_on_BounceArea_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="body_entered" from="BounceArea" to="." method="_on_BounceArea_body_entered"]

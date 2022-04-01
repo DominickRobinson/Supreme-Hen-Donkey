@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://IceBlock.gd" type="Script" id=1]
+[ext_resource path="res://GCS - SHD/Blocks/Ice_.png" type="Texture" id=2]
+
+[sub_resource type="PhysicsMaterial" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 247.5, 123.5 )
+
+[node name="IceBlock" type="Node2D"]
+scale = Vector2( 0.533721, 0.547527 )
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Block" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+physics_material_override = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block"]
+position = Vector2( 0.5, -0.5 )
+shape = SubResource( 2 )
