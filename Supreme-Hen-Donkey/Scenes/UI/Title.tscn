@@ -34,5 +34,5 @@ texture = ExtResource( 1 )
 centered = false
 
 [connection signal="finished" from="Transition" to="." method="_on_Transition_finished"]
-[connection signal="pressed" from="Start" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="Start" to="." method="_on_Button_pressed"]
