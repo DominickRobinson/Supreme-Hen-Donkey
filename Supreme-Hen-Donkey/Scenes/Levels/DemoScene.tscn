@@ -30,6 +30,8 @@ friction = 0.15
 extents = Vector2( 176.226, 30.301 )
 
 [node name="DemoScene" type="Node2D"]
+position = Vector2( 144, 75 )
+scale = Vector2( 1.76, 1.76 )
 
 [node name="GameManager" type="Node2D" parent="."]
 position = Vector2( 66, 457 )
@@ -50,8 +52,8 @@ layer = 0
 [node name="UI" parent="CanvasLayer" instance=ExtResource( 8 )]
 margin_right = 44.0
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 63, 376 )
+[node name="Player" parent="." groups=["Player"] instance=ExtResource( 1 )]
+position = Vector2( 63.0682, 376.136 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 3
@@ -119,8 +121,12 @@ format = 1
 [node name="DraggableTile2" parent="." instance=ExtResource( 5 )]
 position = Vector2( -269, 525 )
 
+[node name="GearPlatform" parent="." instance=ExtResource( 13 )]
+position = Vector2( -155, 379 )
+
 [node name="DraggableTile" parent="." instance=ExtResource( 4 )]
 position = Vector2( -168, 664 )
+collision_mask = 3
 
 [node name="MovingPlatform" parent="DraggableTile" instance=ExtResource( 6 )]
 show_behind_parent = true
@@ -132,6 +138,11 @@ ROTATION = 0
 position = Vector2( 0.75, 0 )
 scale = Vector2( 0.811, 0.118 )
 texture = ExtResource( 12 )
+
+[node name="Chicken" parent="." instance=ExtResource( 14 )]
+position = Vector2( 176.136, 446.591 )
+rotation = 0.38587
+scale = Vector2( 0.227271, 0.227271 )
 
 [node name="DraggableTile3" parent="." instance=ExtResource( 4 )]
 position = Vector2( -22, 237 )
@@ -162,7 +173,7 @@ __meta__ = {
 }
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
-position = Vector2( -2712, -119 )
+position = Vector2( -2710.8, -118.75 )
 polygon = PoolVector2Array( 737, 737, 732, 236, 1080, 236, 1081, 611, 2258, 615, 2250, 742 )
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D2/CollisionPolygon2D"]
