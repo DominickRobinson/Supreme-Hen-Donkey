@@ -7,6 +7,7 @@ onready var tileMap = get_node(tileMapNP)
 var mouseOffset
 var following := false
 var canDrag := false
+var canPlace := true
 var collision: CollisionShape2D
 var startPos: Vector2
 var kinematicChild: KinematicBody2D
@@ -36,6 +37,9 @@ func _physics_process(delta):
 
 
 func _input_event(viewport, event, shape_idx):
+	if !canPlace:
+		return
+		
 	# Start dragging when clicked on
 	if event.is_action_pressed("click"):
 		if event.is_pressed() && canDrag:
@@ -82,6 +86,7 @@ func _on_switchMode(mode):
 func switchModePlaying():
 	kinematicChild.enabled = true
 	canDrag = false
+	canPlace = false
 
 
 func switchModeBuilding():

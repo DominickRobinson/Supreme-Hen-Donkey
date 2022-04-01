@@ -6,7 +6,7 @@
 [ext_resource path="res://Prefabs/DraggableTile.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Prefabs/DraggableTileBlock.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Prefabs/MovingPlatform.tscn" type="PackedScene" id=6]
-[ext_resource path="res://GameManager.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/GameManager.gd" type="Script" id=7]
 [ext_resource path="res://UI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://GCS - SHD/enemies/red circle.png" type="Texture" id=9]
 [ext_resource path="res://GCS - SHD/enemies/chicken.png" type="Texture" id=10]

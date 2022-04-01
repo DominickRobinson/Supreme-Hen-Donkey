@@ -9,12 +9,25 @@ export var JUMP_SPEED := 600.0
 export var WALL_JUMP_VERTICAL_SPEED := 650.0
 export var WALL_JUMP_HORIZONTAL_SPEED := 250.0
 
+var resetPosNextFrame = false
+var startPos: Vector2
+
 # The `onready` keyword tells Godot to only bind this variable once the scene is fully loaded
 # The `$` operator gets the node of that name relative to this node
 onready var left_zone = $LeftJumpZone
 onready var right_zone = $RightJumpZone
 onready var bottom_zone = $BottomJumpZone
 onready var center_zone = $CenterJumpZone
+
+func _ready():
+	var startBlock = get_node('../StartBlock/')
+	var extraOffset = 0
+	if startBlock != null:
+		startPos = startBlock.position - Vector2(0, 
+			startBlock.get_node('CollisionShape2D').shape.extents.y + 
+			$CollisionShape2D.shape.height + extraOffset)
+	else:
+		startPos = Vector2(0,0)
 
 # Lot of functions are called automatically by the engine. These include _ready, _process, etc.
 # This gets called on every physics frame. Sort of like FixedUpdate() in Unity.
@@ -108,4 +121,26 @@ func is_on_left_wall():
 	return !left_zone.get_overlapping_bodies().empty()
 func is_on_right_wall():
 	return !right_zone.get_overlapping_bodies().empty()
+
+
+
+func _integrate_forces(state):
+	if resetPosNextFrame:
+		var xform = state.get_transform()
+		xform.origin.x = startPos.x
+		xform.origin.y = startPos.y
+		state.set_transform(xform)
+		resetPosNextFrame = false
 	
+	
+func resetPosition():
+	resetPosNextFrame = true
+
+
+func test():
+	print('Test')
+
+
+func _on_GameManager_switchMode(mode):
+	if mode == Globals.Modes.PLAYING:
+		resetPosition()
