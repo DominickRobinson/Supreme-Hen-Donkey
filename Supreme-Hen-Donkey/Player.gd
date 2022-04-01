@@ -2,8 +2,8 @@ extends RigidBody2D
 class_name Player
 
 # The `export` keyword tells Godot to show this variable in the Inspector
-export var HORIZONTAL_MAX_SPEED := 625.0
-export var FLOOR_ACCELERATION := 50.0
+export var HORIZONTAL_MAX_SPEED := 635.0
+export var FLOOR_ACCELERATION := 40.0
 export var AIR_ACCELERATION := 15.0
 export var JUMP_SPEED := 600.0
 export var WALL_JUMP_VERTICAL_SPEED := 650.0
@@ -67,9 +67,11 @@ func _physics_process(_delta: float):
 		if x != 0:
 			$AnimatedSprite.speed_scale = 0.3 + 2 * abs(linear_velocity.x) / HORIZONTAL_MAX_SPEED
 			$AnimatedSprite.animation = "Running"
+			physics_material_override.friction = 0.3
 		else:			
 			$AnimatedSprite.speed_scale = 1;
 			$AnimatedSprite.animation = "Idle"
+			physics_material_override.friction = 1
 	
 			if abs(linear_velocity.x) > 10:
 				$AnimatedSprite.animation = "SlidingFloor"
@@ -106,3 +108,4 @@ func is_on_left_wall():
 	return !left_zone.get_overlapping_bodies().empty()
 func is_on_right_wall():
 	return !right_zone.get_overlapping_bodies().empty()
+	

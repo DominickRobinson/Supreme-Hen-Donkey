@@ -14,6 +14,7 @@
 [ext_resource path="res://GCS - SHD/blocks and stuff/Block.png" type="Texture" id=12]
 [ext_resource path="res://GCS - SHD/blocks and stuff/Ice_.png" type="Texture" id=13]
 
+
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30, 30 )
 
@@ -182,7 +183,6 @@ physics_material_override = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
 position = Vector2( -0.000183105, 1.52588e-05 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D3/CollisionShape2D"]

@@ -3,6 +3,7 @@
 [ext_resource path="res://Scripts/MovingPlatform.gd" type="Script" id=1]
 
 
+
 [sub_resource type="RectangleShape2D" id=3]
 resource_local_to_scene = true
 extents = Vector2( 200, 16 )
