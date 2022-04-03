@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://GCS - SHD/irl-test/video3.jpg" type="Texture" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://NextScene.gd" type="Script" id=3]
 [ext_resource path="res://Block Scenes/Trampoline.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/Camera.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Block Scenes/FlamePillar.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -157,3 +158,5 @@ position = Vector2( 1019, 415 )
 worldScene = "1-1.tscn"
 seconds_on = 2
 seconds_off = 3
+
+[node name="Camera2D" parent="." instance=ExtResource( 5 )]

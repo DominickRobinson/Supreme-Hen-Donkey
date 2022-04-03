@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Launcher.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Prefabs/MovingPlatform.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/GameManagerMP.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/UI/UI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Prefabs/GearPlatform.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Prefabs/StartBlock.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Prefabs/BuilderView.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Prefabs/EndBlock.tscn" type="PackedScene" id=16]
@@ -110,9 +111,6 @@ position = Vector2( -168, 664 )
 
 [node name="MovingPlatform" parent="DraggableTile" instance=ExtResource( 6 )]
 show_behind_parent = true
-HEIGHT = 18.0
-WIDTH = 202.0
-ROTATION = 0
 
 [node name="Sprite" type="Sprite" parent="DraggableTile/MovingPlatform"]
 position = Vector2( 0.75, 0 )
@@ -164,6 +162,12 @@ position = Vector2( 1298, 307 )
 
 [node name="BuilderView" parent="." instance=ExtResource( 15 )]
 
-[node name="RigidBody2D2" parent="." instance=ExtResource( 17 )]
-position = Vector2( 590, 185 )
-scale = Vector2( 0.2, 0.2 )
+[node name="GearPlatform" parent="." instance=ExtResource( 9 )]
+position = Vector2( -132, 259 )
+
+[node name="MovingPlatform" parent="." instance=ExtResource( 6 )]
+position = Vector2( 740, 158 )
+enabled = true
+
+[node name="Chicken" parent="." instance=ExtResource( 17 )]
+position = Vector2( 770, -109 )

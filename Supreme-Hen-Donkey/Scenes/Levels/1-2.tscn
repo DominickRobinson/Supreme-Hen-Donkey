@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://NextScene.gd" type="Script" id=1]
 [ext_resource path="res://GCS - SHD/irl-test/1-2.JPG" type="Texture" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Block Scenes/Spikes.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/Camera.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 88.0141, 64.3471 )
@@ -79,6 +80,9 @@ shape = SubResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -680, -923 )
+
+[node name="Camera2D" parent="." instance=ExtResource( 5 )]
+position = Vector2( -1133, 209 )
 
 [node name="Spikes" parent="." instance=ExtResource( 4 )]
 position = Vector2( -109, -795 )
