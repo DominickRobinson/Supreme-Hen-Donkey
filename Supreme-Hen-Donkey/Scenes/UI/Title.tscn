@@ -29,8 +29,8 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.533854, 0.55463 )
-texture = ExtResource( 1 )
+scale = Vector2( 0.666667, 0.665741 )
+texture = ExtResource( 4 )
 centered = false
 
 [connection signal="finished" from="Transition" to="." method="_on_Transition_finished"]

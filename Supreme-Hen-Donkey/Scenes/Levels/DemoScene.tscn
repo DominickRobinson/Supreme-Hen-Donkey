@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=2]
 
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Launcher.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GCS - SHD/blocks and stuff/notebook1.png" type="Texture" id=3]
 [ext_resource path="res://Prefabs/DraggableTile.tscn" type="PackedScene" id=4]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Prefabs/BuilderView.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Prefabs/EndBlock.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Chicken.tscn" type="PackedScene" id=17]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30, 30 )

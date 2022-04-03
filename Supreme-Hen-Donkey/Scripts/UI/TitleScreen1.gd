@@ -1,21 +1,6 @@
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
 func _on_Multiplayer_pressed():
 	get_tree().change_scene("res://Scenes/Levels/BlankMultiplayerScene.tscn")
 
@@ -25,12 +10,12 @@ func _on_Single_Player_pressed():
 	$Transition.play()
 	
 
-func _on_Level_Editor_pressed():
+func _on_How_to_Play_pressed():
 	pass # Replace with function body.
 
 
 func _on_Character_Customization_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene("res://paint_root.tscn")
 
 
 func _on_Settings_pressed():

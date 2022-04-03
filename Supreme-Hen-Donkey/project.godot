@@ -27,12 +27,20 @@ _global_script_class_icons={
 [application]
 
 config/name="Supreme-Hen-Donkey"
-run/main_scene="res://Scenes/UI/Title.tscn"
+run/main_scene="res://Scenes/Levels/1-1.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Globals="*res://Scripts/Globals.gd"
+MusicController="*res://autoloads/MusicController.tscn"
+
+[display]
+
+window/size/width=1280
+window/size/height=720
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [gdnative]
 

@@ -1,0 +1,93 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Block Scenes/FallingBlock.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Block Scenes/IceBlock.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Block Scenes/Spikes.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Block Scenes/BasicBlock.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Block Scenes/Trampoline.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Block Scenes/FlamePillar.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://GCS - SHD/screens/lined-notebook-paper.jpg" type="Texture" id=8]
+
+[node name="BlockDemo" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 356, 137 )
+scale = Vector2( 2.88379, 2.75195 )
+texture = ExtResource( 8 )
+
+[node name="FallingBlock" parent="." instance=ExtResource( 1 )]
+position = Vector2( -107, -162 )
+
+[node name="IceBlock" parent="." instance=ExtResource( 2 )]
+position = Vector2( 640, 494 )
+scale = Vector2( 1.69704, 0.5543 )
+
+[node name="BasicBlock2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1054, -11 )
+scale = Vector2( 1.61783, -1.75662 )
+
+[node name="Spikes" parent="." instance=ExtResource( 3 )]
+position = Vector2( 716, -54 )
+scale = Vector2( 1.33619, 1.58191 )
+worldScene = "BlockDemo.tscn"
+
+[node name="Trampoline" parent="." instance=ExtResource( 5 )]
+position = Vector2( 352, -156 )
+scale = Vector2( 1.51111, 1.70732 )
+impulse_no_jump = -600.0
+impulse_jump = -1000.0
+
+[node name="BasicBlock3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 355, -57 )
+
+[node name="BasicBlock" parent="." instance=ExtResource( 4 )]
+position = Vector2( -631, -229 )
+scale = Vector2( 2.46267, 2.03285 )
+
+[node name="BasicBlock5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1271, 489 )
+scale = Vector2( 2.97957, -2.13775 )
+
+[node name="BasicBlock6" parent="." instance=ExtResource( 4 )]
+position = Vector2( -166, 500 )
+scale = Vector2( 5.6304, 2.3435 )
+
+[node name="BasicBlock7" parent="." instance=ExtResource( 4 )]
+position = Vector2( -743, 459 )
+rotation = 1.5708
+scale = Vector2( 9.11849, -1.57676 )
+
+[node name="BasicBlock10" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1640, 108 )
+rotation = 1.5708
+scale = Vector2( 9.11849, -1.57676 )
+
+[node name="BasicBlock8" parent="." instance=ExtResource( 4 )]
+position = Vector2( -391, 905 )
+scale = Vector2( 4.42565, 2.25438 )
+
+[node name="FallingBlock2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 265, 899 )
+
+[node name="FallingBlock3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 735, 903 )
+
+[node name="BasicBlock9" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1415, 945 )
+scale = Vector2( 3.39739, 3.34906 )
+
+[node name="FlamePillar" parent="." instance=ExtResource( 6 )]
+position = Vector2( 0, 452 )
+worldScene = "BlockDemo.tscn"
+seconds_on = 2
+seconds_off = 3
+
+[node name="FlamePillar2" parent="." instance=ExtResource( 6 )]
+position = Vector2( -330, 453 )
+worldScene = "BlockDemo.tscn"
+seconds_on = 2
+seconds_off = 1
+
+[node name="Player" parent="." instance=ExtResource( 7 )]
+position = Vector2( -624, -361 )
