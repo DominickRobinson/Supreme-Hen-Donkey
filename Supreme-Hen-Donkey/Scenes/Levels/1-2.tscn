@@ -12,6 +12,9 @@ extents = Vector2( 88.0141, 64.3471 )
 extents = Vector2( 157.189, 23.3576 )
 
 [node name="1-2" type="Node2D"]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 rotation = -0.0261799
@@ -20,7 +23,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D"]
-position = Vector2( 2835.31, -623.994 )
+position = Vector2( 2839.12, -623.894 )
 scale = Vector2( 1.4, 1.4 )
 texture = ExtResource( 2 )
 offset = Vector2( -2835, 611 )
@@ -45,7 +48,7 @@ position = Vector2( 52.4442, -2.65655 )
 rotation = 0.0261799
 scale = Vector2( 1.43031, 0.932255 )
 script = ExtResource( 1 )
-worldScene = "1-1.tscn"
+worldScene = "res://Scenes/Levels/1-1.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Goal"]
 position = Vector2( -514.022, 1310.93 )
@@ -82,16 +85,16 @@ position = Vector2( -680, -923 )
 
 [node name="Spikes" parent="." instance=ExtResource( 4 )]
 position = Vector2( -109, -795 )
-worldScene = "1-2.tscn"
+worldScene = "res://Scenes/Levels/1-2.tscn"
 
 [node name="Spikes2" parent="." instance=ExtResource( 4 )]
 position = Vector2( -167, 76 )
-worldScene = "1-2.tscn"
+worldScene = "res://Scenes/Levels/1-2.tscn"
 
 [node name="Spikes3" parent="." instance=ExtResource( 4 )]
 position = Vector2( -430, 690 )
-worldScene = "1-2.tscn"
+worldScene = "res://Scenes/Levels/1-2.tscn"
 
 [node name="Spikes4" parent="." instance=ExtResource( 4 )]
 position = Vector2( 118, 687 )
-worldScene = "1-2.tscn"
+worldScene = "res://Scenes/Levels/1-2.tscn"

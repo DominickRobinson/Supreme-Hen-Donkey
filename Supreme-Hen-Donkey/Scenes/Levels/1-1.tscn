@@ -25,6 +25,9 @@ __meta__ = {
 position = Vector2( 0, 0.666626 )
 texture = ExtResource( 1 )
 centered = false
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 visible = false
@@ -98,10 +101,10 @@ scale = Vector2( 0.333333, 0.333333 )
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 3 )
-worldScene = "1-1.tscn"
+worldScene = "res://Scenes/Levels/1-1.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Death barrier"]
-position = Vector2( 686, -610 )
+position = Vector2( 686.002, -565.99 )
 scale = Vector2( 39.2343, -1.36354 )
 shape = SubResource( 1 )
 
@@ -154,6 +157,6 @@ position = Vector2( 119, 314 )
 
 [node name="FlamePillar" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1019, 415 )
-worldScene = "1-1.tscn"
-seconds_on = 2
-seconds_off = 3
+worldScene = "res://Scenes/Levels/1-1.tscn"
+seconds_on = 3.0
+seconds_off = 2.0

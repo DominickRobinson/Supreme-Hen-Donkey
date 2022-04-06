@@ -2,8 +2,8 @@ extends Node2D
 
 export(String, FILE, ".tscn") var worldScene
 
-export var seconds_on: int
-export var seconds_off: int
+export var seconds_on: float
+export var seconds_off: float
 
 var is_on = false
 
