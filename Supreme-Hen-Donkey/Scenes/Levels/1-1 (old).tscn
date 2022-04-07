@@ -1,0 +1,167 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Block Scenes/Trampoline.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Block Scenes/FlamePillar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://NextScene.gd" type="Script" id=4]
+[ext_resource path="res://GCS - SHD/irl-test/video3.jpg" type="Texture" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 131.5, 62 )
+
+[node name="1-1 (old)" type="Node2D"]
+position = Vector2( 4, 0 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( -3445, -2327 )
+scale = Vector2( 3, 3 )
+collision_layer = 3
+collision_mask = 3
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+position = Vector2( 0, 0.666626 )
+texture = ExtResource( 5 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+visible = false
+position = Vector2( -0.333374, 0 )
+polygon = PoolVector2Array( 1137.67, 902.667, 1554.33, 907.667, 1553.33, 976.667, 1136.67, 972.667 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+visible = false
+position = Vector2( 160.667, -111 )
+polygon = PoolVector2Array( 1458.33, 822, 1528, 818.667, 1527.67, 1086.67, 1456.67, 1084 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+visible = false
+position = Vector2( -4.33337, -153.333 )
+polygon = PoolVector2Array( 1399, 905.667, 1554, 910, 1552, 972, 1399, 971.333 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
+visible = false
+position = Vector2( -156.333, -155 )
+polygon = PoolVector2Array( 1399, 905.667, 1467.67, 905.667, 1465.67, 971.667, 1399, 971.333 )
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="StaticBody2D"]
+visible = false
+position = Vector2( -262, -157.333 )
+polygon = PoolVector2Array( 1401.33, 737, 1462.67, 733.667, 1471, 740.333, 1463.67, 974, 1399, 971.333 )
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="StaticBody2D"]
+visible = false
+position = Vector2( -113.333, -285 )
+polygon = PoolVector2Array( 1399, 905.667, 1488, 903.333, 1489.33, 949.667, 1399.67, 951 )
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="StaticBody2D"]
+visible = false
+position = Vector2( 62.3334, -263.333 )
+polygon = PoolVector2Array( 1396.67, 904.333, 1491.67, 908, 1491, 954, 1397.33, 951.666 )
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="StaticBody2D"]
+visible = false
+position = Vector2( -322.667, -334 )
+polygon = PoolVector2Array( 1401, 734.667, 1462, 736, 1461, 868.333, 1400.67, 868.667 )
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="StaticBody2D"]
+visible = false
+position = Vector2( -200, -332.333 )
+polygon = PoolVector2Array( 1401, 734.667, 1467.67, 735, 1468, 823.333, 1401.67, 823 )
+
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="StaticBody2D"]
+visible = false
+position = Vector2( -28.3334, -328 )
+polygon = PoolVector2Array( 1401, 733.333, 1691, 734, 1691.67, 799.333, 1401, 798.667 )
+
+[node name="Start" type="Node2D" parent="StaticBody2D"]
+position = Vector2( 1175.33, 876.333 )
+scale = Vector2( 0.333333, 0.333333 )
+
+[node name="Goal" type="Area2D" parent="StaticBody2D"]
+position = Vector2( 1146.67, 780 )
+scale = Vector2( 0.333333, 0.333333 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 4 )
+worldScene = "res://Scenes/Levels/1-2.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Goal"]
+position = Vector2( 1410.99, -1178 )
+shape = SubResource( 1 )
+
+[node name="Death barrier" type="Area2D" parent="StaticBody2D"]
+position = Vector2( 826.333, 1252.33 )
+scale = Vector2( 0.333333, 0.333333 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 4 )
+worldScene = "res://Scenes/Levels/1-1 (old).tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Death barrier"]
+position = Vector2( 686.002, -565.99 )
+scale = Vector2( 39.2343, -1.36354 )
+shape = SubResource( 1 )
+
+[node name="Death barrier2" type="Area2D" parent="StaticBody2D"]
+position = Vector2( 1100, 1111 )
+scale = Vector2( 0.333333, 0.333333 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 4 )
+worldScene = "res://Scenes/Levels/1-1 (old).tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Death barrier2"]
+position = Vector2( 2350, -1835 )
+scale = Vector2( 1.56492, -28.6393 )
+shape = SubResource( 1 )
+
+[node name="Death barrier3" type="Area2D" parent="StaticBody2D"]
+position = Vector2( 380, 943.333 )
+scale = Vector2( 0.333333, 0.333333 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 4 )
+worldScene = "res://Scenes/Levels/1-1 (old).tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Death barrier3"]
+position = Vector2( -344, -1420 )
+scale = Vector2( 1.56492, -28.6393 )
+shape = SubResource( 1 )
+
+[node name="Death barrier4" type="Area2D" parent="StaticBody2D"]
+position = Vector2( 826.333, 1252.33 )
+scale = Vector2( 0.333333, 0.333333 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 4 )
+worldScene = "res://Scenes/Levels/1-1.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Death barrier4"]
+position = Vector2( 639, -3504 )
+scale = Vector2( 39.2343, -1.36354 )
+shape = SubResource( 1 )
+
+[node name="Trampoline" parent="." instance=ExtResource( 2 )]
+position = Vector2( 547, -495 )
+impulse_no_jump = -800.0
+impulse_jump = -1200.0
+
+[node name="Trampoline2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 610, 363 )
+impulse_no_jump = -800.0
+impulse_jump = -1200.0
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 119, 314 )
+
+[node name="FlamePillar" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1019, 415 )
+worldScene = "res://Scenes/Levels/1-1 (old).tscn"
+seconds_on = 3.0
+seconds_off = 2.0

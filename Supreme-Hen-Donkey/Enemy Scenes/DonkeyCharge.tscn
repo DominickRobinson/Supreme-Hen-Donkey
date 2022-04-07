@@ -39,4 +39,3 @@ shape = SubResource( 1 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 2 )
 animation = "Charging"
-frame = 2

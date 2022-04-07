@@ -1,0 +1,113 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://NextScene.gd" type="Script" id=2]
+[ext_resource path="res://GCS - SHD/Levels/0-0.JPG" type="Texture" id=3]
+[ext_resource path="res://Assets/abstract-platformer-370-assets/PNG/Other/blockRed_key.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 621.192, 452.427 )
+
+[node name="0-0" type="Node"]
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 908, -832, 1258, -838, 1261, -764, 1602, -767, 1600, -622, 561, -607, 566, -751, 906, -756 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 288, -1034, 299, -262, 914, -266, 912, -126, 306, -114, 321, 1207, 1072, 1189, 1060, 634, 1695, 621, 1695, 767, 1212, 772, 1219, 1204, 1353, 1204, 1356, 1335, 181, 1375, 151, -1034 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 1912, 1329, 2057, 1329, 2018, -1044, 1867, -1043, 1882, -276, 1264, -274, 1264, 214, 639, 223, 652, 1002, 867, 988, 857, 359, 1692, 368, 1691, 209, 1417, 208, 1412, -116, 1882, -131 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1084, -868 )
+
+[node name="Goal" type="Area2D" parent="."]
+position = Vector2( 1200, 606 )
+scale = Vector2( 0.333333, 0.333333 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 2 )
+worldScene = "res://Scenes/Levels/1-1.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+position = Vector2( 1073.62, -1351.85 )
+shape = SubResource( 1 )
+
+[node name="Death barrier" type="Area2D" parent="."]
+position = Vector2( 826.333, 1252.33 )
+scale = Vector2( 0.333333, 0.333333 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 2 )
+worldScene = "res://Scenes/Levels/1-1.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death barrier"]
+position = Vector2( -1564, 1418.01 )
+scale = Vector2( 39.2343, -1.36354 )
+shape = SubResource( 1 )
+
+[node name="Death barrier2" type="Area2D" parent="."]
+position = Vector2( 1100, 1111 )
+scale = Vector2( 0.333333, 0.333333 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 2 )
+worldScene = "res://Scenes/Levels/1-1.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death barrier2"]
+position = Vector2( 4746, -3204 )
+scale = Vector2( 1.56492, -28.6393 )
+shape = SubResource( 1 )
+
+[node name="Death barrier3" type="Area2D" parent="."]
+position = Vector2( 380, 943.333 )
+scale = Vector2( 0.333333, 0.333333 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 2 )
+worldScene = "res://Scenes/Levels/1-1.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death barrier3"]
+position = Vector2( -9153.01, -2743 )
+scale = Vector2( 1.56492, -28.6393 )
+shape = SubResource( 1 )
+
+[node name="Goal2" type="Area2D" parent="."]
+position = Vector2( 1600, 808 )
+scale = Vector2( 0.111111, 0.111111 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 2 )
+worldScene = "res://Scenes/Levels/BlockDemo.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal2"]
+position = Vector2( -12249, -17244 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Goal2/CollisionShape2D"]
+position = Vector2( -0.00439453, 44.999 )
+scale = Vector2( 22.1563, 14.4219 )
+texture = ExtResource( 4 )
+
+[node name="Death barrier4" type="Area2D" parent="."]
+position = Vector2( 826.333, 1252.33 )
+scale = Vector2( 0.333333, 0.333333 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 2 )
+worldScene = "res://Scenes/Levels/1-1.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death barrier4"]
+position = Vector2( -1654, -8860 )
+scale = Vector2( 39.2343, -1.36354 )
+shape = SubResource( 1 )

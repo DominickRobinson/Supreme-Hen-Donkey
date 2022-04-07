@@ -33,7 +33,6 @@ margin_right = 44.0
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1, -84 )
 HORIZONTAL_MAX_SPEED = 500.0
-FLOOR_ACCELERATION = 30.0
 WALL_JUMP_HORIZONTAL_SPEED = 600.0
 deathNP = NodePath("../Death")
 
