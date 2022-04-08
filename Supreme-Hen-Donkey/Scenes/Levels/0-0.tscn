@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/abstract-platformer-370-assets/PNG/Other/blockRed_key.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 621.192, 452.427 )
+extents = Vector2( 412.5, 189 )
 
 [node name="0-0" type="Node"]
 
@@ -39,7 +39,7 @@ script = ExtResource( 2 )
 worldScene = "res://Scenes/Levels/1-1.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
-position = Vector2( 1073.62, -1351.85 )
+position = Vector2( 1054.5, -1383 )
 shape = SubResource( 1 )
 
 [node name="Death barrier" type="Area2D" parent="."]
@@ -48,10 +48,10 @@ scale = Vector2( 0.333333, 0.333333 )
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 2 )
-worldScene = "res://Scenes/Levels/1-1.tscn"
+worldScene = "res://Scenes/Levels/0-0.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death barrier"]
-position = Vector2( -1564, 1418.01 )
+position = Vector2( -1618, 995.011 )
 scale = Vector2( 39.2343, -1.36354 )
 shape = SubResource( 1 )
 
@@ -61,10 +61,10 @@ scale = Vector2( 0.333333, 0.333333 )
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 2 )
-worldScene = "res://Scenes/Levels/1-1.tscn"
+worldScene = "res://Scenes/Levels/0-0.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death barrier2"]
-position = Vector2( 4746, -3204 )
+position = Vector2( 4518, -3192 )
 scale = Vector2( 1.56492, -28.6393 )
 shape = SubResource( 1 )
 
@@ -74,30 +74,12 @@ scale = Vector2( 0.333333, 0.333333 )
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 2 )
-worldScene = "res://Scenes/Levels/1-1.tscn"
+worldScene = "res://Scenes/Levels/0-0.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death barrier3"]
-position = Vector2( -9153.01, -2743 )
+position = Vector2( -10407, -2683 )
 scale = Vector2( 1.56492, -28.6393 )
 shape = SubResource( 1 )
-
-[node name="Goal2" type="Area2D" parent="."]
-position = Vector2( 1600, 808 )
-scale = Vector2( 0.111111, 0.111111 )
-collision_layer = 3
-collision_mask = 3
-script = ExtResource( 2 )
-worldScene = "res://Scenes/Levels/BlockDemo.tscn"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal2"]
-position = Vector2( -12249, -17244 )
-scale = Vector2( 1, 1 )
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="Goal2/CollisionShape2D"]
-position = Vector2( -0.00439453, 44.999 )
-scale = Vector2( 22.1563, 14.4219 )
-texture = ExtResource( 4 )
 
 [node name="Death barrier4" type="Area2D" parent="."]
 position = Vector2( 826.333, 1252.33 )
@@ -105,9 +87,26 @@ scale = Vector2( 0.333333, 0.333333 )
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 2 )
-worldScene = "res://Scenes/Levels/1-1.tscn"
+worldScene = "res://Scenes/Levels/0-0.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death barrier4"]
-position = Vector2( -1654, -8860 )
+position = Vector2( -1639, -8713 )
 scale = Vector2( 39.2343, -1.36354 )
 shape = SubResource( 1 )
+
+[node name="BlockDemo" type="Area2D" parent="."]
+position = Vector2( 1600, 808 )
+scale = Vector2( 0.111111, 0.111111 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 2 )
+worldScene = "res://Scenes/Levels/BlockDemo.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlockDemo"]
+position = Vector2( -12249, -17244 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="BlockDemo/CollisionShape2D"]
+position = Vector2( -0.00439453, 44.999 )
+scale = Vector2( 22.1563, 14.4219 )
+texture = ExtResource( 4 )

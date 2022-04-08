@@ -8,10 +8,10 @@
 [ext_resource path="res://Prefabs/MovingPlatform.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/GameManagerMP.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/UI/UI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://GCS - SHD/screens/lined-notebook-paper.jpg" type="Texture" id=10]
 [ext_resource path="res://Prefabs/StartBlock.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Prefabs/BuilderView.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Prefabs/EndBlock.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Chicken.tscn" type="PackedScene" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30, 30 )
@@ -33,6 +33,7 @@ builderViewNP = NodePath("../BuilderView")
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 200, 557 )
 scale = Vector2( 2, 2 )
+texture = ExtResource( 10 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 10000, 1500 )
 
@@ -43,7 +44,7 @@ layer = 0
 margin_right = 44.0
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource( 1 )]
-position = Vector2( -1833, 446 )
+position = Vector2( -2151, 447 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 3
@@ -163,15 +164,3 @@ position = Vector2( 76, 529 )
 position = Vector2( 1298, 307 )
 
 [node name="BuilderView" parent="." instance=ExtResource( 15 )]
-
-[node name="RigidBody2D2" parent="." instance=ExtResource( 17 )]
-position = Vector2( -1050, 389 )
-scale = Vector2( 0.703491, 0.539915 )
-
-[node name="RigidBody2D3" parent="." instance=ExtResource( 17 )]
-position = Vector2( -1078, 199 )
-scale = Vector2( 0.703491, 0.539915 )
-
-[node name="RigidBody2D4" parent="." instance=ExtResource( 17 )]
-position = Vector2( -1069, 28 )
-scale = Vector2( 0.703491, 0.539915 )

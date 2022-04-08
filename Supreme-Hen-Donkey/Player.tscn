@@ -58,9 +58,9 @@ animations = [ {
 "name": "Jumping",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
 "loop": true,
-"name": "Running",
+"name": "SlidingWall",
 "speed": 15.0
 }, {
 "frames": [ ExtResource( 16 ), ExtResource( 22 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 21 ) ],
@@ -68,20 +68,20 @@ animations = [ {
 "name": "Falling",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
-"loop": true,
-"name": "SlidingWall",
-"speed": 15.0
-}, {
 "frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 32 ) ],
 "loop": true,
 "name": "SlidingFloor",
 "speed": 15.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "Running",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 10.0
 } ]
 
 [node name="Player" type="RigidBody2D"]
@@ -155,7 +155,7 @@ __meta__ = {
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 1.25, 1.25 )
+zoom = Vector2( 1, 1.25 )
 smoothing_enabled = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]

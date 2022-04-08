@@ -3,7 +3,7 @@ class_name Player
 
 # The `export` keyword tells Godot to show this variable in the Inspector
 export var HORIZONTAL_MAX_SPEED := 650.0
-export var FLOOR_ACCELERATION := 30.0
+export var FLOOR_ACCELERATION := 27.0
 export var AIR_ACCELERATION := 15.0
 export var JUMP_SPEED := 600.0
 export var WALL_JUMP_VERTICAL_SPEED := 650.0
@@ -82,6 +82,13 @@ func _physics_process(_delta: float):
 			linear_velocity.x = -WALL_JUMP_HORIZONTAL_SPEED
 			linear_velocity.y = -WALL_JUMP_VERTICAL_SPEED
 		# Otherwise, we're not on a wall or floor, so don't jump
+	
+	#air resistance
+	if not is_on_floor():
+		if x == 0:
+			linear_velocity.x *= .995
+			
+
 	
 	checkFell()
 	

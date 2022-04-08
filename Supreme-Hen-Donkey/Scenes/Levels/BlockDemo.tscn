@@ -80,14 +80,10 @@ scale = Vector2( 3.39739, 3.34906 )
 [node name="FlamePillar" parent="." instance=ExtResource( 4 )]
 position = Vector2( 0, 452 )
 worldScene = "BlockDemo.tscn"
-seconds_on = 2
-seconds_off = 3
 
 [node name="FlamePillar2" parent="." instance=ExtResource( 4 )]
 position = Vector2( -330, 453 )
 worldScene = "BlockDemo.tscn"
-seconds_on = 2
-seconds_off = 1
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -624, -361 )

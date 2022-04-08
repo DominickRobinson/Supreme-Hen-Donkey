@@ -84,7 +84,6 @@ worldScene = "res://Scenes/Levels/1-2.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
 position = Vector2( -1071, 1437 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
 [node name="Respawn" type="Area2D" parent="."]
