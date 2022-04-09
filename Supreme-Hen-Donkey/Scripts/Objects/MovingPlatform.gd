@@ -2,18 +2,13 @@ extends KinematicBody2D
 
 export var HORIZONTAL_SPEED := 60.0
 export var TRAVEL_DISTANCE := 200.0
-export var HEIGHT := 120.0
-export var WIDTH := 120.0
-export var ROTATION := 24
+export var ROTATION := 0
 
-var enabled := false
+export var enabled := false
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$CollisionShape2D.shape.extents.x = WIDTH
-	$CollisionShape2D.shape.extents.y = HEIGHT
-	$CollisionShape2D.shape.extents.y = HEIGHT
 	rotation = deg2rad(ROTATION)
 	
 

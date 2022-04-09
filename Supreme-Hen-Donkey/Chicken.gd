@@ -1,7 +1,8 @@
-extends KinematicBody2D
+extends RigidBody2D
+export var speed := 400
+export var angle := 20
 
 var Egg = preload("res://Egg.tscn")
-var speed = 200
 var time_start = OS.get_unix_time()
 
 func get_input():
@@ -12,10 +13,9 @@ func get_input():
 		#shoot()
 	var dist = get_tree().get_nodes_in_group("Player")[0].global_position - $Muzzle.global_position
 	var angle_distance = fmod(rad2deg(dist.angle())+180 - rad2deg(rotation),360)
-	var freedom = 20
 	if($AnimatedSprite.animation == "shoot" and OS.get_unix_time() - time_start > .8):
 		$AnimatedSprite.animation = "idle"
-	if(OS.get_unix_time() - time_start > 1 and (angle_distance < freedom or angle_distance > 360 - freedom)):
+	if(OS.get_unix_time() - time_start > 1 and (angle_distance < angle or angle_distance > 360 - angle)):
 		$AnimatedSprite.animation = "shoot"
 		time_start = OS.get_unix_time()
 		shoot()

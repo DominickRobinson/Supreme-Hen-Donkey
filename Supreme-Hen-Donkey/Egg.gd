@@ -1,4 +1,5 @@
 extends KinematicBody2D
+export var gravity := 1200
 
 var speed = 750
 var velocity = Vector2()
@@ -10,6 +11,7 @@ func start(pos, dir):
 	velocity = Vector2(speed, 0).rotated(rotation+deg2rad(180))
 
 func _physics_process(delta):
+	velocity.y += gravity * delta
 	var collision = move_and_collide(velocity * delta)
 	if collision:
 		velocity = velocity.bounce(collision.normal)

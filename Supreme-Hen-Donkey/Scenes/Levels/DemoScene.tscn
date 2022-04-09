@@ -111,9 +111,6 @@ position = Vector2( -168, 664 )
 
 [node name="MovingPlatform" parent="DraggableTile" instance=ExtResource( 6 )]
 show_behind_parent = true
-HEIGHT = 18.0
-WIDTH = 202.0
-ROTATION = 0
 
 [node name="Sprite" type="Sprite" parent="DraggableTile/MovingPlatform"]
 position = Vector2( 0.75, 0 )
