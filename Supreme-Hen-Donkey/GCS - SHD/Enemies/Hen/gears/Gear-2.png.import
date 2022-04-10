@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Gear-2.png-4b38c5c91fed514fcf82675a688cd6c8.stex"
+path="res://.import/Gear-2.png-3bbea38a79320702e69b43c4a773778c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GCS - SHD/enemies/Hen/gears/Gear-2.png"
-dest_files=[ "res://.import/Gear-2.png-4b38c5c91fed514fcf82675a688cd6c8.stex" ]
+source_file="res://GCS - SHD/Enemies/Hen/gears/Gear-2.png"
+dest_files=[ "res://.import/Gear-2.png-3bbea38a79320702e69b43c4a773778c.stex" ]
 
 [params]
 
