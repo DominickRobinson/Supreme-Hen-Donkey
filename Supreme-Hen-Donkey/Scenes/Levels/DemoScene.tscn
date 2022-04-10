@@ -45,7 +45,7 @@ layer = 0
 margin_right = 44.0
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource( 1 )]
-position = Vector2( -2151, 447 )
+position = Vector2( -1716, 452 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 3
@@ -128,7 +128,7 @@ __meta__ = {
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
 position = Vector2( -2712, -119 )
-polygon = PoolVector2Array( 737, 737, 732, 236, 1080, 236, 1081, 611, 2258, 615, 2250, 742 )
+polygon = PoolVector2Array( 737, 737, 732, 236, 1080, 236, 1081, 611, 2463.43, 611.884, 2468.94, 742.044 )
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D2/CollisionPolygon2D"]
 position = Vector2( 463.282, 820.072 )
@@ -148,7 +148,7 @@ collision_mask = 3
 physics_material_override = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2( -0.000183105, 1.52588e-05 )
+position = Vector2( -61.8496, 87.6482 )
 shape = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D3/CollisionShape2D"]
@@ -164,4 +164,5 @@ position = Vector2( 1298, 307 )
 [node name="BuilderView" parent="." instance=ExtResource( 15 )]
 
 [node name="Chicken" parent="." instance=ExtResource( 9 )]
-position = Vector2( -1377, 457 )
+position = Vector2( -1407, 463 )
+launch_angle = 90
