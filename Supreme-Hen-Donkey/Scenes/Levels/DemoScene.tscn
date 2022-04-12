@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Launcher.tscn" type="PackedScene" id=2]
@@ -8,20 +8,15 @@
 [ext_resource path="res://Prefabs/MovingPlatform.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/GameManagerMP.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/UI/UI.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Chicken.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Block Scenes/Rocket.tscn" type="PackedScene" id=9]
 [ext_resource path="res://GCS - SHD/screens/lined-notebook-paper.jpg" type="Texture" id=10]
+[ext_resource path="res://Block Scenes/BasicBlock.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Prefabs/StartBlock.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Prefabs/BuilderView.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Prefabs/EndBlock.tscn" type="PackedScene" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30, 30 )
-
-[sub_resource type="PhysicsMaterial" id=4]
-friction = 0.15
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 176.226, 30.301 )
 
 [node name="DemoScene" type="Node2D"]
 
@@ -32,7 +27,7 @@ playerNP = NodePath("../Player")
 builderViewNP = NodePath("../BuilderView")
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( 200, 557 )
+position = Vector2( 279, 548 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 10 )
 region_enabled = true
@@ -45,7 +40,7 @@ layer = 0
 margin_right = 44.0
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource( 1 )]
-position = Vector2( -2151, 447 )
+position = Vector2( -2379, 398 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 3
@@ -126,42 +121,23 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
-position = Vector2( -2712, -119 )
-polygon = PoolVector2Array( 737, 737, 732, 236, 1080, 236, 1081, 611, 2258, 615, 2250, 742 )
-
-[node name="Sprite" type="Sprite" parent="StaticBody2D2/CollisionPolygon2D"]
-position = Vector2( 463.282, 820.072 )
-scale = Vector2( 2.44944, 0.543999 )
-offset = Vector2( 483, -263 )
-
-[node name="Sprite2" type="Sprite" parent="StaticBody2D2/CollisionPolygon2D"]
-position = Vector2( 566.434, 1026.52 )
-scale = Vector2( 0.702, 2.04 )
-offset = Vector2( 483, -263 )
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2( -791, 582 )
-scale = Vector2( 1.11561, 2.28185 )
-collision_layer = 3
-collision_mask = 3
-physics_material_override = SubResource( 4 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2( -0.000183105, 1.52588e-05 )
-shape = SubResource( 3 )
-
-[node name="Sprite" type="Sprite" parent="StaticBody2D3/CollisionShape2D"]
-position = Vector2( 1.38837, -0.134968 )
-scale = Vector2( 0.707958, 0.242988 )
-
 [node name="StartBlock" parent="." instance=ExtResource( 14 )]
-position = Vector2( 76, 529 )
+position = Vector2( 8, 412 )
 
 [node name="EndBlock" parent="." instance=ExtResource( 16 )]
 position = Vector2( 1298, 307 )
 
 [node name="BuilderView" parent="." instance=ExtResource( 15 )]
 
-[node name="Chicken" parent="." instance=ExtResource( 9 )]
-position = Vector2( -1377, 457 )
+[node name="Rocket" parent="." instance=ExtResource( 9 )]
+position = Vector2( -1586, -54 )
+move_speed = 200
+radius = 200
+
+[node name="BasicBlock" parent="." instance=ExtResource( 11 )]
+position = Vector2( -1755, 541 )
+scale = Vector2( 17.7847, 2.01809 )
+
+[node name="BasicBlock2" parent="." instance=ExtResource( 11 )]
+position = Vector2( -2720, 263 )
+scale = Vector2( -3.58283, 7.72515 )

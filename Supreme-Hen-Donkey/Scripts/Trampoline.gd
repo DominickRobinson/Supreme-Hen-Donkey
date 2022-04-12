@@ -14,6 +14,5 @@ func _on_BounceArea_body_entered(body):
 		anim.animation = "Boing"
 
 
-
 func _on_AnimatedSprite_animation_finished():
 	anim.animation = "Idle"

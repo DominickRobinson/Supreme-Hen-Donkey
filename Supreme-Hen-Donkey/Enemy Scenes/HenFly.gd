@@ -53,13 +53,14 @@ func check_for_player():
 		
 		if body is Player:
 			
-				player_found = true
+			player_found = true
 			
-				attack_mode = true
+			attack_mode = true
 			
-				var dist = (body.position - self.position).normalized()
+			var dist = (body.position - self.position).normalized()
 				
-				linear_velocity = dist * FLIGHT_SPEED
+			self.linear_velocity = dist * FLIGHT_SPEED
+
 				
 	if not player_found:
 		attack_mode = false
