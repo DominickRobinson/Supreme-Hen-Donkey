@@ -34,6 +34,7 @@ script = ExtResource( 10 )
 scale = Vector2( 0.182107, 0.184139 )
 frames = SubResource( 1 )
 animation = "idle"
+frame = 2
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

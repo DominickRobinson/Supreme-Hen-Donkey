@@ -67,7 +67,7 @@ margin_bottom = 116.0
 [connection signal="finished" from="Transition" to="." method="_on_Transition_finished"]
 [connection signal="pressed" from="VBoxContainer/Multiplayer" to="." method="_on_Multiplayer_pressed"]
 [connection signal="pressed" from="VBoxContainer/Single Player" to="." method="_on_Single_Player_pressed"]
-[connection signal="pressed" from="VBoxContainer/How to Play" to="." method="_on_How_to_Play_pressed"]
 [connection signal="pressed" from="VBoxContainer/How to Play" to="." method="_on_Level_Editor_pressed"]
+[connection signal="pressed" from="VBoxContainer/How to Play" to="." method="_on_How_to_Play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Character Customization" to="." method="_on_Character_Customization_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_Settings_pressed"]

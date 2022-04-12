@@ -8,7 +8,7 @@ func start(pos, dir):
 	rotation = dir
 	position = pos
 	#print(rotation)
-	velocity = Vector2(speed, 0).rotated(deg2rad(rotation + 180))
+	velocity = Vector2(speed, 0).rotated(deg2rad(rotation))
 
 	#velocity.x = cos(deg2rad(rotation)) * speed
 	#velocity.y = -sin(deg2rad(rotation)) * speed

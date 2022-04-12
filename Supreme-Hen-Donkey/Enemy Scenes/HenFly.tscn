@@ -10,14 +10,14 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 2 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "Flying",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Idle",
 "speed": 5.0
 } ]
 
@@ -41,7 +41,6 @@ position = Vector2( 5, -14 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 1 )
 animation = "Flying"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -57,6 +56,7 @@ position = Vector2( -1, 32 )
 shape = SubResource( 3 )
 
 [node name="SightZone" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SightZone"]
 shape = SubResource( 4 )
