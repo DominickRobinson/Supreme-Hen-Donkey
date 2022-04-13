@@ -150,4 +150,4 @@ launch_angle = 135
 
 [node name="Honkey" parent="." instance=ExtResource( 13 )]
 position = Vector2( -1332, 343 )
-shoot_speed = 200
+shoot_speed = 500
