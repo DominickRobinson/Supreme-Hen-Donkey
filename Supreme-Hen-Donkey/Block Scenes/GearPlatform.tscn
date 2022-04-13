@@ -1,18 +1,18 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/GearPlatform.gd" type="Script" id=1]
-[ext_resource path="res://GCS - SHD/Blocks/Gear/Gear-2.png" type="Texture" id=2]
-[ext_resource path="res://GCS - SHD/Blocks/Gear/Gear-1.png" type="Texture" id=3]
-[ext_resource path="res://GCS - SHD/Blocks/Gear/Gear-3.png" type="Texture" id=4]
+[ext_resource path="res://GCS - SHD/Blocks/Gear/Gear-3.png" type="Texture" id=2]
+[ext_resource path="res://GCS - SHD/Blocks/Gear/Gear-2.png" type="Texture" id=3]
+[ext_resource path="res://GCS - SHD/Blocks/Gear/Gear-1.png" type="Texture" id=4]
 
 [sub_resource type="AnimatedTexture" id=4]
 flags = 4
 frames = 3
 fps = 6.0
-frame_0/texture = ExtResource( 3 )
-frame_1/texture = ExtResource( 2 )
+frame_0/texture = ExtResource( 4 )
+frame_1/texture = ExtResource( 3 )
 frame_1/delay_sec = 0.0
-frame_2/texture = ExtResource( 4 )
+frame_2/texture = ExtResource( 2 )
 frame_2/delay_sec = 0.0
 
 [node name="GearPlatform" type="KinematicBody2D"]

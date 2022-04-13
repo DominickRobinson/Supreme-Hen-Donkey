@@ -5,15 +5,17 @@
 
 [sub_resource type="RectangleShape2D" id=3]
 resource_local_to_scene = true
-extents = Vector2( 200, 16 )
+extents = Vector2( 200, 36.5 )
 
 [node name="MovingPlatform" type="KinematicBody2D"]
 collision_layer = 3
 script = ExtResource( 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 3 )
-
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.798973, 0.128943 )
+position = Vector2( 0, 20.9411 )
+scale = Vector2( 0.798973, 0.296472 )
 texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 20.5 )
+shape = SubResource( 3 )

@@ -10,6 +10,7 @@ export var WALL_JUMP_VERTICAL_SPEED := 650.0
 export var WALL_JUMP_HORIZONTAL_SPEED := 250.0
 
 export var CUSTOM_CHARACTER := false
+export var IN_LOW_GRAVITY := false
 
 var resetPosNextFrame = false
 var startPos: Vector2
@@ -25,9 +26,15 @@ onready var center_zone = $CenterJumpZone
 
 export(NodePath) var deathNP: NodePath
 onready var deathNode = get_node(deathNP)
-
+	
 
 func _ready():
+	
+	if IN_LOW_GRAVITY:
+		HORIZONTAL_MAX_SPEED /= 1.3
+		JUMP_SPEED *= 1.2
+		WALL_JUMP_VERTICAL_SPEED *= 1.2
+	
 	var startBlock = get_node('../StartBlock/')
 	var extraOffset = 0
 	if startBlock != null:
@@ -56,7 +63,9 @@ func _physics_process(_delta: float):
 		gravity_scale = .7
 	else:
 		gravity_scale = 1
-	
+		
+	if IN_LOW_GRAVITY:
+		gravity_scale /= 2
 		
 	# Apply horizontal acceleration movement
 	var accel := AIR_ACCELERATION
@@ -91,7 +100,6 @@ func _physics_process(_delta: float):
 			linear_velocity.x *= .995
 			
 
-	
 	checkFell()
 	
 	if is_on_floor():
@@ -105,7 +113,7 @@ func _physics_process(_delta: float):
 			$AnimatedSprite.animation = "Idle"
 			physics_material_override.friction = 1
 	
-			if abs(linear_velocity.x) > 10:
+			if abs(linear_velocity.x) > 100:
 				$AnimatedSprite.animation = "SlidingFloor"
 		
 		checkFinished()
