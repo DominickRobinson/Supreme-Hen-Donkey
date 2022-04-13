@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Launcher.tscn" type="PackedScene" id=2]
@@ -8,8 +8,9 @@
 [ext_resource path="res://Prefabs/MovingPlatform.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/GameManagerMP.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/UI/UI.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Chicken.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Enemy Scenes/Chicken.tscn" type="PackedScene" id=9]
 [ext_resource path="res://GCS - SHD/screens/lined-notebook-paper.jpg" type="Texture" id=10]
+[ext_resource path="res://Enemy Scenes/Honkey.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Prefabs/StartBlock.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Prefabs/BuilderView.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Prefabs/EndBlock.tscn" type="PackedScene" id=16]
@@ -164,4 +165,9 @@ position = Vector2( 1298, 307 )
 [node name="BuilderView" parent="." instance=ExtResource( 15 )]
 
 [node name="Chicken" parent="." instance=ExtResource( 9 )]
-position = Vector2( -1377, 457 )
+position = Vector2( -276, 446 )
+
+[node name="Honkey" parent="." instance=ExtResource( 11 )]
+position = Vector2( -1313, 397 )
+rotation = 1.29959
+shoot_speed = 5000
