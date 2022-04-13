@@ -11,7 +11,7 @@ func _on_Single_Player_pressed():
 	
 
 func _on_How_to_Play_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene("res://Scenes/Levels/DemoScene.tscn")
 
 
 func _on_Character_Customization_pressed():
@@ -23,5 +23,5 @@ func _on_Settings_pressed():
 
 
 func _on_Transition_finished():
-	get_tree().change_scene("res://Scenes/Levels/1-1.tscn")
+	get_tree().change_scene("res://Scenes/Levels/0-0.tscn")
 	

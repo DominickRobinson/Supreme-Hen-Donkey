@@ -9,12 +9,12 @@ var attack_mode = false
 func _ready():
 	pass # Replace with function body.
 
-
+func _integrate_forces(state):
+	self.rotation = 0
 
 func _process(delta):
 	
 	check_for_player()
-
 
 	if attack_mode:
 		$AnimatedSprite.animation = "Charging"
@@ -43,8 +43,8 @@ func check_for_player():
 			
 				attack_mode = true
 			
-				var dist = body.position.x - self.position.x
-				
+				var dist = body.global_position.x - self.global_position.x
+												
 				linear_velocity.x = sign(dist) * CHARGE_SPEED
 				
 	if not player_found:

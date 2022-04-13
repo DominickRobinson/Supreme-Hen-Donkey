@@ -23,8 +23,8 @@ func _process(delta):
 				
 				if body is Player:
 		
-					body.linear_velocity.x = cos(deg2rad(KICK_ANGLE)) * KICK_STRENGTH
-					body.linear_velocity.y = -sin(deg2rad(KICK_ANGLE)) * KICK_STRENGTH
+					body.linear_velocity.x = -cos(deg2rad(KICK_ANGLE + self.rotation_degrees)) * KICK_STRENGTH
+					body.linear_velocity.y = -sin(deg2rad(KICK_ANGLE + self.rotation_degrees)) * KICK_STRENGTH
 					
 	#_on_AnimatedSprite_animation_finished()
 

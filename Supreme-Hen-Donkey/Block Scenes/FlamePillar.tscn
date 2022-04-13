@@ -52,7 +52,7 @@ rotation = 3.44589e-15
 scale = Vector2( 2.062, 1.6 )
 frames = SubResource( 1 )
 animation = "On"
-frame = 4
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeadlyPart"]
