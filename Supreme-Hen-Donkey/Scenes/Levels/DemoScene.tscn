@@ -151,6 +151,10 @@ launch_angle = 135
 
 [node name="Honkey" parent="." instance=ExtResource( 13 )]
 position = Vector2( -1332, 343 )
+<<<<<<< HEAD
 shoot_speed = 500
 =======
 >>>>>>> Stashed changes
+=======
+shoot_speed = 200
+>>>>>>> parent of 2f8a626 (Change speed)
