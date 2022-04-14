@@ -1,24 +1,18 @@
-<<<<<<< Updated upstream
 [gd_scene load_steps=18 format=2]
-=======
-[gd_scene load_steps=15 format=2]
->>>>>>> Stashed changes
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Launcher.tscn" type="PackedScene" id=2]
+[ext_resource path="res://GCS - SHD/Blocks/Moving_Block.png" type="Texture" id=3]
 [ext_resource path="res://Prefabs/DraggableTile.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Prefabs/DraggableTileBlock.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Block Scenes/MovingPlatform.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefabs/MovingPlatform.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/GameManagerMP.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/UI/UI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Block Scenes/Rocket.tscn" type="PackedScene" id=9]
 [ext_resource path="res://GCS - SHD/screens/lined-notebook-paper.jpg" type="Texture" id=10]
 [ext_resource path="res://Block Scenes/BasicBlock.tscn" type="PackedScene" id=11]
-<<<<<<< Updated upstream
 [ext_resource path="res://Enemy Scenes/Chicken.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Enemy Scenes/Honkey.tscn" type="PackedScene" id=13]
-=======
->>>>>>> Stashed changes
 [ext_resource path="res://Prefabs/StartBlock.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Prefabs/BuilderView.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Prefabs/EndBlock.tscn" type="PackedScene" id=16]
@@ -48,7 +42,7 @@ layer = 0
 margin_right = 44.0
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource( 1 )]
-position = Vector2( -1545, 236 )
+position = Vector2( -2379, 398 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 3
@@ -114,6 +108,12 @@ position = Vector2( -269, 525 )
 position = Vector2( -168, 664 )
 
 [node name="MovingPlatform" parent="DraggableTile" instance=ExtResource( 6 )]
+show_behind_parent = true
+
+[node name="Sprite" type="Sprite" parent="DraggableTile/MovingPlatform"]
+position = Vector2( 0.75, 0 )
+scale = Vector2( 0.811, 0.118 )
+texture = ExtResource( 3 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 scale = Vector2( 2.17644, 1.04487 )
@@ -124,7 +124,7 @@ __meta__ = {
 }
 
 [node name="StartBlock" parent="." instance=ExtResource( 14 )]
-position = Vector2( -328, 343 )
+position = Vector2( 8, 412 )
 
 [node name="EndBlock" parent="." instance=ExtResource( 16 )]
 position = Vector2( 1298, 307 )
@@ -132,7 +132,7 @@ position = Vector2( 1298, 307 )
 [node name="BuilderView" parent="." instance=ExtResource( 15 )]
 
 [node name="Rocket" parent="." instance=ExtResource( 9 )]
-position = Vector2( -1656, -89 )
+position = Vector2( -1584, -85 )
 move_speed = 10
 radius = 200
 
@@ -143,7 +143,6 @@ scale = Vector2( 17.7847, 2.01809 )
 [node name="BasicBlock2" parent="." instance=ExtResource( 11 )]
 position = Vector2( -2720, 263 )
 scale = Vector2( -3.58283, 7.72515 )
-<<<<<<< Updated upstream
 
 [node name="Chicken" parent="." instance=ExtResource( 12 )]
 position = Vector2( -1938, 356 )
@@ -152,5 +151,3 @@ launch_angle = 135
 [node name="Honkey" parent="." instance=ExtResource( 13 )]
 position = Vector2( -1332, 343 )
 shoot_speed = 500
-=======
->>>>>>> Stashed changes

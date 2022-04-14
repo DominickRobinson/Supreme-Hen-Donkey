@@ -63,6 +63,11 @@ animations = [ {
 "name": "Running",
 "speed": 15.0
 }, {
+"frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 15 ), ExtResource( 20 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "Jumping",
+"speed": 15.0
+}, {
 "frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "Idle",
@@ -72,11 +77,6 @@ animations = [ {
 "loop": true,
 "name": "SlidingWall",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 15 ), ExtResource( 20 ), ExtResource( 23 ) ],
-"loop": true,
-"name": "Jumping",
-"speed": 15.0
 }, {
 "frames": [ ExtResource( 16 ), ExtResource( 22 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 21 ) ],
 "loop": true,
@@ -161,10 +161,6 @@ smoothing_enabled = true
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.125, 0.125 )
 frames = SubResource( 7 )
-<<<<<<< Updated upstream
 animation = "SlidingWall"
 frame = 2
-=======
-animation = "Falling"
->>>>>>> Stashed changes
 playing = true
