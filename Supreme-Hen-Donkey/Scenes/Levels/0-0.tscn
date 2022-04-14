@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://NextScene.gd" type="Script" id=2]
 [ext_resource path="res://GCS - SHD/Levels/0-0.JPG" type="Texture" id=3]
 [ext_resource path="res://Assets/abstract-platformer-370-assets/PNG/Other/blockRed_key.png" type="Texture" id=4]
-[ext_resource path="res://Prefabs/Camera.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 412.5, 189 )
@@ -111,7 +110,3 @@ shape = SubResource( 1 )
 position = Vector2( -0.00439453, 44.999 )
 scale = Vector2( 22.1563, 14.4219 )
 texture = ExtResource( 4 )
-
-[node name="Camera2D" parent="." instance=ExtResource( 5 )]
-position = Vector2( -21, -10 )
-zoom = Vector2( 4.5, 4.5 )

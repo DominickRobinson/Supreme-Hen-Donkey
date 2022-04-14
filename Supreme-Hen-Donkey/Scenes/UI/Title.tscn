@@ -4,7 +4,6 @@
 [ext_resource path="res://Scripts/UI/Control.gd" type="Script" id=2]
 [ext_resource path="res://GCS - SHD/irl-test/trim1.webm" type="VideoStream" id=3]
 
-
 [node name="Title" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0

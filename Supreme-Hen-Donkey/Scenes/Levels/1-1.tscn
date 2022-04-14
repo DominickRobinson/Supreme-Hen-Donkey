@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://GCS - SHD/Levels/1-1.JPG" type="Texture" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Block Scenes/Spikes.tscn" type="PackedScene" id=3]
 [ext_resource path="res://NextScene.gd" type="Script" id=4]
-[ext_resource path="res://Prefabs/Camera.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 396.383, 211.851 )
@@ -38,42 +37,42 @@ position = Vector2( 596, -920 )
 [node name="Spikes" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1255, -842 )
 scale = Vector2( 1.69573, 0.674764 )
-worldScene = "res://Scenes/Levels/1-1.tscn"
+worldScene = "res://Scenes/Levels/1-2.tscn"
 
 [node name="Spikes2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 859, -310 )
 scale = Vector2( 1.69573, 0.674764 )
-worldScene = "res://Scenes/Levels/1-1.tscn"
+worldScene = "res://Scenes/Levels/1-2.tscn"
 
 [node name="Spikes3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1394, -311 )
 scale = Vector2( 1.69573, 0.674764 )
-worldScene = "res://Scenes/Levels/1-1.tscn"
+worldScene = "res://Scenes/Levels/1-2.tscn"
 
 [node name="Spikes4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1478, 431 )
 scale = Vector2( 1.69573, 0.674764 )
-worldScene = "res://Scenes/Levels/1-1.tscn"
+worldScene = "res://Scenes/Levels/1-2.tscn"
 
 [node name="Spikes5" parent="." instance=ExtResource( 3 )]
 position = Vector2( 998, 437 )
 scale = Vector2( 1.69573, 0.674764 )
-worldScene = "res://Scenes/Levels/1-1.tscn"
+worldScene = "res://Scenes/Levels/1-2.tscn"
 
 [node name="Spikes6" parent="." instance=ExtResource( 3 )]
 position = Vector2( 539, 1293 )
 scale = Vector2( 1.80878, 1.80328 )
-worldScene = "res://Scenes/Levels/1-1.tscn"
+worldScene = "res://Scenes/Levels/1-2.tscn"
 
 [node name="Spikes7" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1496, 1277 )
 scale = Vector2( 1.6341, 1.80328 )
-worldScene = "res://Scenes/Levels/1-1.tscn"
+worldScene = "res://Scenes/Levels/1-2.tscn"
 
 [node name="Spikes8" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1157, 1280 )
 scale = Vector2( 1.7722, 1.80328 )
-worldScene = "res://Scenes/Levels/1-1.tscn"
+worldScene = "res://Scenes/Levels/1-2.tscn"
 
 [node name="Goal" type="Area2D" parent="."]
 position = Vector2( 1200, 606 )
@@ -111,7 +110,3 @@ shape = SubResource( 2 )
 position = Vector2( 432.081, 27.3699 )
 scale = Vector2( 20.0368, -1.81508 )
 shape = SubResource( 2 )
-
-[node name="Camera2D" parent="." instance=ExtResource( 5 )]
-position = Vector2( -21, -10 )
-zoom = Vector2( 4.5, 4.5 )

@@ -9,8 +9,6 @@ export var JUMP_SPEED := 600.0
 export var WALL_JUMP_VERTICAL_SPEED := 650.0
 export var WALL_JUMP_HORIZONTAL_SPEED := 250.0
 
-export var CUSTOM_CHARACTER := false
-
 var resetPosNextFrame = false
 var startPos: Vector2
 
