@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
+[gd_scene load_steps=18 format=2]
+=======
 [gd_scene load_steps=15 format=2]
+>>>>>>> Stashed changes
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Launcher.tscn" type="PackedScene" id=2]
@@ -10,6 +14,11 @@
 [ext_resource path="res://Block Scenes/Rocket.tscn" type="PackedScene" id=9]
 [ext_resource path="res://GCS - SHD/screens/lined-notebook-paper.jpg" type="Texture" id=10]
 [ext_resource path="res://Block Scenes/BasicBlock.tscn" type="PackedScene" id=11]
+<<<<<<< Updated upstream
+[ext_resource path="res://Enemy Scenes/Chicken.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Enemy Scenes/Honkey.tscn" type="PackedScene" id=13]
+=======
+>>>>>>> Stashed changes
 [ext_resource path="res://Prefabs/StartBlock.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Prefabs/BuilderView.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Prefabs/EndBlock.tscn" type="PackedScene" id=16]
@@ -143,13 +152,9 @@ launch_angle = 135
 [node name="Honkey" parent="." instance=ExtResource( 13 )]
 position = Vector2( -1332, 343 )
 <<<<<<< HEAD
-<<<<<<< HEAD
 shoot_speed = 500
 =======
 >>>>>>> Stashed changes
-=======
-shoot_speed = 200
->>>>>>> parent of 2f8a626 (Change speed)
 =======
 shoot_speed = 200
 >>>>>>> parent of 2f8a626 (Change speed)
