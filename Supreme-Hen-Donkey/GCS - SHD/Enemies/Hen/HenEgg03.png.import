@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/HenEgg03.png-b82eecc0fefafcf9087bd6d3f843e0a2.stex"
+path="res://.import/HenEgg03.png-72a3440b74d86a03d98ede7014eca07b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GCS - SHD/Enemies/Hen/HenEgg03.png"
-dest_files=[ "res://.import/HenEgg03.png-b82eecc0fefafcf9087bd6d3f843e0a2.stex" ]
+source_file="res://GCS - SHD/enemies/Hen/HenEgg03.png"
+dest_files=[ "res://.import/HenEgg03.png-72a3440b74d86a03d98ede7014eca07b.stex" ]
 
 [params]
 
