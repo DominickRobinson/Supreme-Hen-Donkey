@@ -2,7 +2,7 @@ extends RigidBody2D
 export var speed := 400
 export var angle := 20
 
-var Egg = preload("res://Enemy Scenes/Egg.tscn")
+var Egg = preload("res://Egg.tscn")
 var time_start = OS.get_unix_time()
 
 func get_input():
