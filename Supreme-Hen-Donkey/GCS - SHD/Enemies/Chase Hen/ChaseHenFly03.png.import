@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ChaseHenFly03.png-4b8acaaa23209cbb9f5868d8d4f26b3f.stex"
+path="res://.import/ChaseHenFly03.png-85841b1f2b922d03888cce1a10faa891.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GCS - SHD/Enemies/Chase Hen/ChaseHenFly03.png"
-dest_files=[ "res://.import/ChaseHenFly03.png-4b8acaaa23209cbb9f5868d8d4f26b3f.stex" ]
+source_file="res://GCS - SHD/enemies/Chase Hen/ChaseHenFly03.png"
+dest_files=[ "res://.import/ChaseHenFly03.png-85841b1f2b922d03888cce1a10faa891.stex" ]
 
 [params]
 
