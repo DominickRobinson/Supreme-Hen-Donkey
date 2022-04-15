@@ -4,6 +4,7 @@ export var RADIUS := 60.0
 export var ROTATION_SPEED := 1
 
 var enabled := true
+onready var dragCollider = $CollisionPolygon2D
 
 # Declare member variables here. Examples:
 # var a = 2

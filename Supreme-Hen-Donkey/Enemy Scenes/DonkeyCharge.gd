@@ -5,6 +5,9 @@ export var CHARGE_SPEED := 400
 
 var attack_mode = false
 
+var enabled := true
+onready var dragCollider = $CollisionShape2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

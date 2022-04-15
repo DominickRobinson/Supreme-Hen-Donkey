@@ -9,6 +9,7 @@ export var JUMP_SPEED := 600.0
 export var WALL_JUMP_VERTICAL_SPEED := 650.0
 export var WALL_JUMP_HORIZONTAL_SPEED := 250.0
 
+var dead = false
 var resetPosNextFrame = false
 var startPos: Vector2
 
@@ -150,6 +151,7 @@ func _integrate_forces(state):
 		xform.origin.y = startPos.y
 		state.set_transform(xform)
 		resetPosNextFrame = false
+		dead = false
 	
 	
 func resetPosition():

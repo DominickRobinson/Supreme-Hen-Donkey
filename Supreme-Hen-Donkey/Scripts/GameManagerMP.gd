@@ -1,5 +1,5 @@
 # A game manager for MULTIPLAYER mode only
-
+class_name GameManagerMP
 extends Node2D
 
 var currPlayer := 1
@@ -26,7 +26,9 @@ func _ready():
 
 
 func die():
-	respawn()
+	if !player.dead:
+		player.dead = true
+		respawn()
 
 
 func gameOver():
@@ -90,6 +92,7 @@ func switchModePlaying():
 	currMode = Globals.Modes.PLAYING
 	changeEnabled(player, true)
 	changeEnabled(builderView, false)
+	Physics2DServer.set_active(true)
 	emit_signal('switchMode', Globals.Modes.PLAYING)
 
 
@@ -97,6 +100,7 @@ func switchModeBuilding():
 	currMode = Globals.Modes.BUILDING
 	changeEnabled(player, false)
 	changeEnabled(builderView, true)
+	
 	emit_signal('switchMode', Globals.Modes.BUILDING)
 
 

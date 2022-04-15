@@ -5,6 +5,10 @@ export var impulse_jump: float
 
 onready var anim = $AnimatedSprite
 
+var enabled := true
+onready var dragCollider = $Base/CollisionPolygon2D
+
+
 func _on_BounceArea_body_entered(body):
 	if body is Player:
 		if Input.is_action_pressed("jump"):

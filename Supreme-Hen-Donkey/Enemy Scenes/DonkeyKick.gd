@@ -5,6 +5,9 @@ export var KICK_ANGLE := 90
 
 var attack_mode = false
 
+var enabled := true
+onready var dragCollider = $CollisionShape2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimatedSprite.animation = "Idle"
@@ -12,6 +15,8 @@ func _ready():
 
 
 func _process(delta):
+	if not enabled:
+		return
 	
 	check_for_player()
 

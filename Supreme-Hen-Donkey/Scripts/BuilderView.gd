@@ -6,6 +6,7 @@ onready var endBlock = get_tree().current_scene.get_node('EndBlock')
 const draggableTile = preload("res://Prefabs/DraggableTile.tscn")
 
 export(Array, String, FILE) var possibleTiles
+export(Array, float) var tileScalings
 
 export var VELOCITY := 800.0
 
@@ -110,12 +111,12 @@ func respawnDraggables():
 	obj.position = Vector2(0, -250)
 	
 	# Get random object to place inside the tile
-	var randomPath = Globals.choose(possibleTiles)
-	obj.childResourcePath = randomPath
-	
+	var i = Globals.rng.randi() % possibleTiles.size()
+#	i = 4
+	obj.childResourcePath = possibleTiles[i]
+	obj.childResourceScaling = tileScalings[i]
 	# Add to the world
 	add_child(obj)
-
 
 
 

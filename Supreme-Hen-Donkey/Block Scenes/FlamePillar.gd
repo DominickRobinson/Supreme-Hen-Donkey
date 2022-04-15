@@ -7,12 +7,14 @@ export var seconds_off: float
 
 var is_on = false
 
-
-
+var enabled := true
+onready var dragCollider = $DragCollider
 
 
 func _on_DeadlyPart_body_entered(body):
 	if body is Player:
+		if Globals.GM is GameManagerMP:
+			Globals.GM.die()
 		get_tree().change_scene(worldScene) # Replace with function body.
 
 
