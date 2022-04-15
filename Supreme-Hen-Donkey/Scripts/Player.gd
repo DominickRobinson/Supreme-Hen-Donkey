@@ -10,6 +10,7 @@ export var WALL_JUMP_VERTICAL_SPEED := 650.0
 export var WALL_JUMP_HORIZONTAL_SPEED := 250.0
 
 var dead = false
+var finished = false
 var resetPosNextFrame = false
 var startPos: Vector2
 
@@ -21,6 +22,7 @@ onready var left_zone = $LeftJumpZone
 onready var right_zone = $RightJumpZone
 onready var bottom_zone = $BottomJumpZone
 onready var center_zone = $CenterJumpZone
+onready var finishTimer = $FinishTimer
 
 export(NodePath) var deathNP: NodePath
 onready var deathNode = get_node(deathNP)
@@ -38,6 +40,8 @@ func _ready():
 	
 	if Globals.GM != null:
 		Globals.GM.connect("switchMode", self, "_on_GameManager_switchMode")
+		Globals.GM.changeEnabled(self, false)
+
 
 # Lot of functions are called automatically by the engine. These include _ready, _process, etc.
 # This gets called on every physics frame. Sort of like FixedUpdate() in Unity.
@@ -152,7 +156,7 @@ func _integrate_forces(state):
 		state.set_transform(xform)
 		resetPosNextFrame = false
 		dead = false
-	
+
 	
 func resetPosition():
 	resetPosNextFrame = true
@@ -164,10 +168,15 @@ func test():
 
 # See if we've completed the level
 func checkFinished():
+	if finished:
+		return
+	
 	var overlap = center_zone.get_overlapping_bodies()
 	for body in overlap:
 		if body.name == 'EndBlock':
 			emit_signal("finished")
+			finished = true
+			finishTimer.start()
 			break
 
 
@@ -184,3 +193,7 @@ func _on_GameManager_switchMode(mode):
 	if mode == Globals.Modes.PLAYING:
 		resetPosition()
 		$Camera2D.make_current()
+
+
+func _on_Timer_timeout():
+	finished = false

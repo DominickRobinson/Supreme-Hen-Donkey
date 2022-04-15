@@ -5,7 +5,7 @@ onready var tilemap_cell_size = get_parent().cell_size
 onready var color = Color(0.0, 1.0, 0.0)
 
 func _ready():
-	visible = false
+	visible = true
 	Globals.GM.connect("switchMode", self, "_on_GameManager_switchMode")
 	set_process(true)
 

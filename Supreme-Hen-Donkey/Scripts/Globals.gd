@@ -1,10 +1,12 @@
 extends Node
 
 enum Modes {PLAYING, BUILDING}
-
-
 enum Difficulties {EASY, DIFFICULT, IMPOSSIBLE}
+
+const MAX_ROUNDS = 5
+
 var lives = -1
+var winTally = [0, 0]
 
 var GM = null
 var debugText = null

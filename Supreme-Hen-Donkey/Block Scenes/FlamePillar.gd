@@ -12,7 +12,7 @@ onready var dragCollider = $DragCollider
 
 
 func _on_DeadlyPart_body_entered(body):
-	if body is Player:
+	if body is Player and !body.dead:
 		if Globals.GM is GameManagerMP:
 			Globals.GM.die()
 		get_tree().change_scene(worldScene) # Replace with function body.
