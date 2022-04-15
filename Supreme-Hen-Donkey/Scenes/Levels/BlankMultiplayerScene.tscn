@@ -48,9 +48,10 @@ script = ExtResource( 8 )
 [node name="StartBlock" parent="." instance=ExtResource( 1 )]
 
 [node name="EndBlock" parent="." instance=ExtResource( 2 )]
-position = Vector2( 689, -94 )
+position = Vector2( 1211, -211 )
 
 [node name="Death" type="Position2D" parent="."]
 position = Vector2( 360, 742 )
 
 [node name="BuilderView" parent="." instance=ExtResource( 7 )]
+possibleTiles = [ "res://Prefabs/Block.tscn", "res://Prefabs/GearPlatform.tscn", "res://Prefabs/MovingPlatform.tscn" ]

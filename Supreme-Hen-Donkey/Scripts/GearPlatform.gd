@@ -3,6 +3,8 @@ extends KinematicBody2D
 export var RADIUS := 60.0
 export var ROTATION_SPEED := 1
 
+var enabled := true
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -17,4 +19,7 @@ export var ROTATION_SPEED := 1
 #func _process(delta):
 #	pass
 func _physics_process(delta):
+	if not enabled:
+		return
+	
 	rotation += delta*ROTATION_SPEED

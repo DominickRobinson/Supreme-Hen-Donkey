@@ -4,7 +4,7 @@ export var HORIZONTAL_SPEED := 60.0
 export var TRAVEL_DISTANCE := 200.0
 export var ROTATION := 0
 
-export var enabled := false
+export var enabled := true
 
 
 # Called when the node enters the scene tree for the first time.
