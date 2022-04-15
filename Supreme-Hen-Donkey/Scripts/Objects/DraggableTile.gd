@@ -111,10 +111,13 @@ func switchModePlaying():
 	
 	draggedChild.enabled = true
 	draggedChild.set_physics_process(true)
+	draggedChild.set_process(true)
 	
 	if draggedChild is RigidBody2D:
-		print('rigid')
 		draggedChild.gravity_scale = 1
+		for bit in [0, 1]:
+			draggedChild.set_collision_layer_bit(bit, true)
+			draggedChild.set_collision_mask_bit(bit, true)
 	
 	canDrag = false
 	canPlace = false
@@ -132,10 +135,13 @@ func switchModeBuilding():
 		add_child(collision)
 	
 	if draggedChild is RigidBody2D:
-		print('rigid')
 		draggedChild.gravity_scale = 0
-	
+		for bit in [0, 1]:
+			draggedChild.set_collision_layer_bit(bit, false)
+			draggedChild.set_collision_mask_bit(bit, false)
+			
 	draggedChild.enabled = false
 	draggedChild.set_physics_process(false)
+	draggedChild.set_process(false)
 	
 	canDrag = true

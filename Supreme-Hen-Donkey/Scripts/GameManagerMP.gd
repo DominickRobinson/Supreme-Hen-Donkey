@@ -2,10 +2,14 @@
 class_name GameManagerMP
 extends Node2D
 
+var roundsLeft = Globals.MAX_ROUNDS
 var currPlayer := 1
-var currMode = Globals.Modes.PLAYING
+var currMode = Globals.Modes.BUILDING
 var difficulty = Globals.Difficulties.EASY
 var bothBuilt := false
+
+var onePlayerWon := false
+var mustWin := false
 
 export(NodePath) var playerNP: NodePath
 onready var player = get_node(playerNP)
@@ -20,25 +24,33 @@ signal switchPlayer(player)
 func _ready():
 	Globals.GM = self
 	
-	changeEnabled(builderView, false)
+	player.connect("finished", self, "playerFinished")
 	
-	player.connect("finished", self, "resetMultiplayerLevel")
+	switchModeBuilding()
 
 
 func die():
+	if mustWin:
+		var winningPlayer = getNextPlayer()
+		matchOver(winningPlayer)
+	
 	if !player.dead:
 		player.dead = true
 		respawn()
+		advanceRound()
 
 
-func gameOver():
-	return
+func matchOver(winningPlayer):
+	if winningPlayer != -1:
+		print('Player %d won!' % winningPlayer)
+		Globals.winTally[winningPlayer-1] += 1
+	
+	resetMultiplayerLevel()
 
 
 func respawn():
 	player.resetPosition()
-	advanceRound()
-	
+
 
 func changeEnabled(obj, enabled):
 	obj.visible = enabled
@@ -65,6 +77,12 @@ func getNextPlayer():
 func advanceRound():
 	# If we're playing, switch to building
 	if currMode == Globals.Modes.PLAYING:
+		# Update rounds left
+		roundsLeft -= 1
+		if roundsLeft == 0:
+			matchOver(-1)
+			return
+			
 		currPlayer = getNextPlayer()
 		switchMode()
 	
@@ -92,7 +110,6 @@ func switchModePlaying():
 	currMode = Globals.Modes.PLAYING
 	changeEnabled(player, true)
 	changeEnabled(builderView, false)
-	Physics2DServer.set_active(true)
 	emit_signal('switchMode', Globals.Modes.PLAYING)
 
 
@@ -100,9 +117,46 @@ func switchModeBuilding():
 	currMode = Globals.Modes.BUILDING
 	changeEnabled(player, false)
 	changeEnabled(builderView, true)
-	
 	emit_signal('switchMode', Globals.Modes.BUILDING)
+
+
+# What to do if a player completes the level
+func playerFinished():
+	respawn()
+	# Nobody has won before, so the next player must win or else lose
+	if !onePlayerWon:
+		onePlayerWon = true
+		mustWin = true
+		currPlayer = getNextPlayer()
+		switchModeBuilding()
+		switchModePlaying()
+		
+		print('Player %d must finish or else they will lose!' % currPlayer)
+		emit_signal('switchPlayer', currPlayer)
+	
+	# Both players have won, so go back to the building stage
+	else:
+		onePlayerWon = false
+		mustWin = false
+		advanceRound()
 
 
 func resetMultiplayerLevel():
 	get_tree().change_scene("res://Scenes/Levels/BlankMultiplayerScene.tscn")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

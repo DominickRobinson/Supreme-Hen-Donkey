@@ -31,6 +31,7 @@ func _ready():
 	maxZoom = getMaxZoom()
 	
 	resetPosition()
+	respawnDraggables()
 	
 	Globals.GM.connect("switchMode", self, "_on_GameManager_switchMode")
 	Globals.GM.connect("switchPlayer", self, "_on_GameManager_switchPlayer")
