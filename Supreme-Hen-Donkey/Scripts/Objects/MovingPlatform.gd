@@ -5,7 +5,7 @@ export var TRAVEL_DISTANCE := 200.0
 export var ROTATION := 0
 
 export var enabled := true
-
+onready var dragCollider = $CollisionShape2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -7,11 +7,16 @@ onready var bottom_zone = $BottomZone
 
 var attack_mode = false
 
+var enabled := true
+onready var dragCollider = $CollisionShape2D
+
 func _ready():
 	pass # Replace with function body.
 
 
 func _process(delta):
+	if not enabled:
+		return
 	
 	check_for_player()
 		
