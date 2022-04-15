@@ -6,22 +6,23 @@ var mouseOffset
 var following := false
 var canDrag := false
 var canPlace := true
-var collision: CollisionShape2D
+var collision
 var startPos: Vector2
-var kinematicChild: KinematicBody2D
+var draggedChild
+var childResourcePath = "res://Prefabs/Block.tscn"
 
 onready var tileMap = get_tree().current_scene.get_node('TileMap')
 
-
 func _ready():
 	startPos = position
-	# Get kinematic child
-	for child in get_children():
-		if child is KinematicBody2D:
-			kinematicChild = child
-			break
 	
-	collision = kinematicChild.get_node('CollisionShape2D')
+	# Load kinematic body
+	draggedChild = load(childResourcePath).instance()
+	draggedChild.enabled = false
+	add_child(draggedChild)
+	
+	# Collision shape to drag
+	collision = getCollidable(draggedChild)
 	
 	mouseOffset = tileMap.cell_size / 2
 	
@@ -29,6 +30,7 @@ func _ready():
 		switchModeBuilding()
 	
 	get_tree().current_scene.get_node("GameManager").connect('switchMode', self, '_on_switchMode')
+	get_tree().current_scene.get_node("GameManager").connect('switchPlayer', self, '_on_switchPlayer')
 
 
 func _physics_process(delta):
@@ -63,16 +65,19 @@ func followMouse():
 
 func pickupTile():
 	Globals.GM.changeParentage(self)
-#	kinematicChild.remove_child(collision)
+#	draggedChild.remove_child(collision)
 
 
 # Places tile at current location
 func placeTile():
 	pass
-#	var tilePos = tileMap.world_to_map(position)
-#	var tileType = 0
-#	kinematicChild.add_child(collision)
-#	collision.position = Vector2.ZERO
+
+
+# Gets the collidable node, that we drag
+func getCollidable(obj):
+	for child in obj.get_children():
+		if child is CollisionShape2D or child is CollisionPolygon2D:
+			return child
 
 
 func _on_switchMode(mode):
@@ -84,23 +89,34 @@ func _on_switchMode(mode):
 			switchModeBuilding()
 
 
+func _on_switchPlayer(player):
+	# When the player switches, lock in the position
+	canPlace = false
+
+
 func switchModePlaying():
 	collision.position = Vector2.ZERO
 	
-	kinematicChild.add_child(collision)
-	remove_child(get_node('CollisionShape2D'))
-	kinematicChild.enabled = true
+	draggedChild.add_child(collision)
+	remove_child(getCollidable(self))
+	draggedChild.enabled = true
 	
 	canDrag = false
 	canPlace = false
 
 
 func switchModeBuilding():
-	kinematicChild.position = Vector2.ZERO
+	# Reset kinematic child if we're already in the world
+	if !canPlace:
+		draggedChild.queue_free()
+		draggedChild = load(childResourcePath).instance()
+		add_child(draggedChild)
 	
-	collision = kinematicChild.get_node('CollisionShape2D')
+	draggedChild.position = Vector2.ZERO
+	
+	collision = getCollidable(draggedChild)
 	add_child(collision.duplicate())
-	kinematicChild.remove_child(collision)
-	kinematicChild.enabled = false
+	draggedChild.remove_child(collision)
+	draggedChild.enabled = false
 	
 	canDrag = true

@@ -3,11 +3,10 @@ extends RigidBody2D
 onready var startBlock = get_tree().current_scene.get_node('StartBlock')
 onready var endBlock = get_tree().current_scene.get_node('EndBlock')
 
-const draggableTileBlock = preload("res://Prefabs/DraggableTileBlock.tscn")
+const draggableTile = preload("res://Prefabs/DraggableTile.tscn")
 
+export(Array, String, FILE) var possibleTiles
 
-export var MAX_SPEED := 625.0
-export var ACCELERATION := 50.0
 export var VELOCITY := 800.0
 
 var limits = Rect2()
@@ -106,8 +105,15 @@ func resetPosition():
 
 # Spawn a new block when we're in build mode
 func respawnDraggables():
-	var obj = draggableTileBlock.instance()
+	# Spawn draggable tile
+	var obj = draggableTile.instance()
 	obj.position = Vector2(0, -250)
+	
+	# Get random object to place inside the tile
+	var randomPath = Globals.choose(possibleTiles)
+	obj.childResourcePath = randomPath
+	
+	# Add to the world
 	add_child(obj)
 
 
