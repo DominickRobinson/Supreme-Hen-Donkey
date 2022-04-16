@@ -29,18 +29,19 @@ onready var deathNode = get_node(deathNP)
 
 
 func _ready():
-	var startBlock = get_node('../StartBlock/')
-	var extraOffset = 0
-	if startBlock != null:
-		startPos = startBlock.position - Vector2(0, 
-			startBlock.get_node('CollisionShape2D').shape.extents.y + 
-			$CollisionShape2D.shape.height + extraOffset)
-	else:
-		startPos = Vector2(0,0)
+	startPos = Vector2(0,0)
 	
 	if Globals.GM != null:
 		Globals.GM.connect("switchMode", self, "_on_GameManager_switchMode")
 		Globals.GM.changeEnabled(self, false)
+		
+		if Globals.GM is GameManagerMP:
+			var startBlock = get_node('../StartBlock/')
+			var extraOffset = 0
+			if startBlock != null:
+				startPos = startBlock.get_node('Node2D').position
+			else:
+				startPos = Vector2(0,0)
 
 
 # Lot of functions are called automatically by the engine. These include _ready, _process, etc.
