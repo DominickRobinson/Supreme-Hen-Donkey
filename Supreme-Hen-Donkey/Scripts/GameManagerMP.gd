@@ -15,6 +15,11 @@ export(NodePath) var playerNP: NodePath
 onready var player = get_node(playerNP)
 export(NodePath) var builderViewNP: NodePath
 onready var builderView = get_node(builderViewNP)
+export(NodePath) var startBlockNP: NodePath
+onready var startBlock = get_node(startBlockNP)
+export(NodePath) var endBlockNP: NodePath
+onready var endBlock = get_node(endBlockNP)
+
 
 signal switchMode(mode)
 signal switchPlayer(player)

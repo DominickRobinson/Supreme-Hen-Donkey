@@ -1,6 +1,8 @@
 extends Area2D
 class_name DraggableTile
 
+const blockBuffer := 3
+var blockBufferPx
 
 var mouseOffset
 var following := false
@@ -9,10 +11,14 @@ var canPlace := true
 var collision
 var startPos: Vector2
 var draggedChild
+
 var childResourcePath = "res://Prefabs/Block.tscn"
 var childResourceScaling := 1.0
+var startBlock
+var endBlock
 
 onready var tileMap = get_tree().current_scene.get_node('TileMap')
+
 
 func _ready():
 	startPos = position
@@ -31,13 +37,22 @@ func _ready():
 	
 	collision.visible = true
 	
+	# Editor dragging
 	mouseOffset = tileMap.cell_size / 2
+	blockBufferPx = blockBuffer * tileMap.cell_size[0]
 	
 	if Globals.GM.currMode == Globals.Modes.BUILDING:
 		switchModeBuilding()
 	
 	get_tree().current_scene.get_node("GameManager").connect('switchMode', self, '_on_switchMode')
 	get_tree().current_scene.get_node("GameManager").connect('switchPlayer', self, '_on_switchPlayer')
+
+
+func init(childResourcePath, childResourceScaling, startBlock, endBlock):
+	self.childResourcePath = childResourcePath
+	self.childResourceScaling = childResourceScaling
+	self.startBlock = startBlock
+	self.endBlock = endBlock
 
 
 func _physics_process(delta):
@@ -66,8 +81,11 @@ func _input(event):
 
 # Update position to snap to grid
 func followMouse():
-	position = tileMap.map_to_world(tileMap.world_to_map(get_global_mouse_position()))
-	position += mouseOffset
+	var newPos = tileMap.map_to_world(tileMap.world_to_map(get_global_mouse_position()))
+	if (newPos.distance_to(startBlock.position) > blockBufferPx) && \
+		(newPos.distance_to(endBlock.position) > blockBufferPx):
+		position = newPos
+		position += mouseOffset
 
 
 func pickupTile():
