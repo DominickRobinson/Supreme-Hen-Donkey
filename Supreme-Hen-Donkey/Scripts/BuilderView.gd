@@ -112,8 +112,9 @@ func respawnDraggables():
 	obj.position = Vector2(0, -250)
 	
 	# Get random object to place inside the tile
-	var i = Globals.rng.randi() % possibleTiles.size()
-	obj.init(possibleTiles[i], tileScalings[i], Globals.GM.startBlock, Globals.GM.endBlock)
+	if possibleTiles.size() > 0:
+		var i = Globals.rng.randi() % possibleTiles.size()
+		obj.init(possibleTiles[i], tileScalings[i], Globals.GM.startBlock, Globals.GM.endBlock)
 #	i = -1
 #	obj.childResourcePath = possibleTiles[i]
 #	obj.childResourceScaling = tileScalings[i]

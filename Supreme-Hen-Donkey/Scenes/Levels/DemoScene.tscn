@@ -8,8 +8,8 @@
 [ext_resource path="res://Prefabs/MovingPlatform.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/GameManagerMP.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/UI/UI.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Chicken.tscn" type="PackedScene" id=9]
 [ext_resource path="res://GCS - SHD/screens/lined-notebook-paper.jpg" type="Texture" id=10]
+[ext_resource path="res://Enemy Scenes/Honkey.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Prefabs/StartBlock.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Prefabs/BuilderView.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Prefabs/EndBlock.tscn" type="PackedScene" id=16]
@@ -161,7 +161,7 @@ position = Vector2( 76, 529 )
 [node name="EndBlock" parent="." instance=ExtResource( 16 )]
 position = Vector2( 1298, 307 )
 
-[node name="BuilderView" parent="." instance=ExtResource( 15 )]
+[node name="Honkey" parent="." instance=ExtResource( 13 )]
+position = Vector2( 890, -31 )
 
-[node name="Chicken" parent="." instance=ExtResource( 9 )]
-position = Vector2( -1377, 457 )
+[node name="BuilderView" parent="." instance=ExtResource( 15 )]

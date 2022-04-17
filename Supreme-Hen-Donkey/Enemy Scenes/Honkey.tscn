@@ -1,0 +1,37 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Enemy Scenes/Honkey.gd" type="Script" id=1]
+[ext_resource path="res://GCS - SHD/enemies/Honkey/HonkeyIdle01.png" type="Texture" id=2]
+[ext_resource path="res://GCS - SHD/enemies/Honkey/HonkeyIdle02.png" type="Texture" id=3]
+[ext_resource path="res://GCS - SHD/enemies/Honkey/HonkeyIdle07.png" type="Texture" id=4]
+[ext_resource path="res://GCS - SHD/enemies/Honkey/HonkeyIdle04.png" type="Texture" id=5]
+[ext_resource path="res://GCS - SHD/enemies/Honkey/HonkeyIdle03.png" type="Texture" id=6]
+[ext_resource path="res://GCS - SHD/enemies/Honkey/HonkeyIdle05.png" type="Texture" id=7]
+[ext_resource path="res://GCS - SHD/enemies/Honkey/HonkeyIdle06.png" type="Texture" id=8]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+} ]
+
+[node name="Honkey" type="RigidBody2D"]
+mass = 16.73
+script = ExtResource( 1 )
+shoot_speed = 5
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 5 )
+animation = "idle"
+frame = 2
+playing = true
+
+[node name="Muzzle" type="Position2D" parent="."]
+position = Vector2( -238.636, -90.9091 )
+scale = Vector2( 10, 10 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( -110, 237, -22, 239, -32, 120, 37, 127, 53, 240, 173, 241, 216, 4, -40, -20, -78, -237, -140, -237, -225, -90, -201, -14, -149, 2, -127, 81 )
