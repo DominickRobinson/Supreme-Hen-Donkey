@@ -3,7 +3,7 @@ extends RigidBody2D
 export var interval := 1
 export var shoot_speed := 100
 
-var Chicken = preload("res://Chicken.tscn")
+var Chicken = preload("res://Enemy Scenes/Chicken.tscn")
 var DonkeyKick = preload("res://Enemy Scenes/DonkeyKick.tscn")
 var DonkeyCharge = preload("res://Enemy Scenes/DonkeyCharge.tscn")
 var HenFly = preload("res://Enemy Scenes/HenFly.tscn")
@@ -29,9 +29,9 @@ func shoot(linear_velocity):
 	for i in range(0,probdistribution.size()):
 		if rand < probdistribution[i]:
 			var b = sprites[i].instance()
-			b.position = $Muzzle.position
+			b.position = $Muzzle.position+self.position
 			b.apply_central_impulse(linear_velocity)
-			add_child(b)
+			get_tree().get_root().add_child(b)
 			break
 
 func _physics_process(delta):

@@ -1,6 +1,7 @@
 extends RigidBody2D
 export var speed := 400
 export var angle := 20
+export var launch_angle := 0
 
 var Egg = preload("res://Egg.tscn")
 var time_start = OS.get_unix_time()
@@ -23,8 +24,10 @@ func get_input():
 func shoot():
 	# "Muzzle" is a Position2D placed at the barrel of the gun.
 	var b = Egg.instance()
-	b.start($Muzzle.position, rotation)
-	add_child(b)
+	get_tree().get_root().add_child(b)
+	b.start($Muzzle.position + self.position, launch_angle)
+
+	print(get_tree().get_root())
 
 func _physics_process(delta):
 	get_input()

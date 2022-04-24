@@ -29,14 +29,14 @@ animations = [ {
 } ]
 
 [node name="Honkey" type="RigidBody2D"]
-mass = 16.73
+mass = 83.6799
 script = ExtResource( 1 )
 shoot_speed = 5
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
 animation = "shoot"
-frame = 4
+frame = 1
 playing = true
 
 [node name="Muzzle" type="Position2D" parent="."]

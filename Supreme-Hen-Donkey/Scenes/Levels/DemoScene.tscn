@@ -163,7 +163,7 @@ position = Vector2( 76, 529 )
 position = Vector2( 1298, 307 )
 
 [node name="Honkey" parent="." instance=ExtResource( 13 )]
-position = Vector2( 890, -31 )
+position = Vector2( 882, -29 )
 
 [node name="BuilderView" parent="." instance=ExtResource( 15 )]
 
