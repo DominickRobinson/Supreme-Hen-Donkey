@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Launcher.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Prefabs/MovingPlatform.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/GameManagerMP.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/UI/UI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Block Scenes/Rocket.tscn" type="PackedScene" id=9]
 [ext_resource path="res://GCS - SHD/screens/lined-notebook-paper.jpg" type="Texture" id=10]
 [ext_resource path="res://Enemy Scenes/Honkey.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Prefabs/StartBlock.tscn" type="PackedScene" id=14]
@@ -165,3 +166,6 @@ position = Vector2( 1298, 307 )
 position = Vector2( 890, -31 )
 
 [node name="BuilderView" parent="." instance=ExtResource( 15 )]
+
+[node name="Rocket" parent="." instance=ExtResource( 9 )]
+position = Vector2( -1787, 103 )

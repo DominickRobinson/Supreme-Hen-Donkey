@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Enemy Scenes/Honkey.gd" type="Script" id=1]
 [ext_resource path="res://GCS - SHD/enemies/Honkey/HonkeyIdle01.png" type="Texture" id=2]
@@ -8,12 +8,23 @@
 [ext_resource path="res://GCS - SHD/enemies/Honkey/HonkeyIdle03.png" type="Texture" id=6]
 [ext_resource path="res://GCS - SHD/enemies/Honkey/HonkeyIdle05.png" type="Texture" id=7]
 [ext_resource path="res://GCS - SHD/enemies/Honkey/HonkeyIdle06.png" type="Texture" id=8]
+[ext_resource path="res://GCS - SHD/Enemies/Honkey/HonkeyAttack05.png" type="Texture" id=9]
+[ext_resource path="res://GCS - SHD/Enemies/Honkey/HonkeyAttack03.png" type="Texture" id=10]
+[ext_resource path="res://GCS - SHD/Enemies/Honkey/HonkeyAttack04.png" type="Texture" id=11]
+[ext_resource path="res://GCS - SHD/Enemies/Honkey/HonkeyAttack01.png" type="Texture" id=12]
+[ext_resource path="res://GCS - SHD/Enemies/Honkey/HonkeyAttack02.png" type="Texture" id=13]
+[ext_resource path="res://GCS - SHD/Enemies/Honkey/HonkeyAttack06.png" type="Texture" id=14]
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "idle",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "shoot",
 "speed": 5.0
 } ]
 
@@ -24,8 +35,8 @@ shoot_speed = 5
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
-animation = "idle"
-frame = 2
+animation = "shoot"
+frame = 4
 playing = true
 
 [node name="Muzzle" type="Position2D" parent="."]
