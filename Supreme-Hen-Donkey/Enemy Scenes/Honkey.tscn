@@ -36,7 +36,7 @@ shoot_speed = 5
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
 animation = "shoot"
-frame = 1
+frame = 3
 playing = true
 
 [node name="Muzzle" type="Position2D" parent="."]
