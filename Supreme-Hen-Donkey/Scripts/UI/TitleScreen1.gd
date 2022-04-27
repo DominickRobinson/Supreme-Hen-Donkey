@@ -1,6 +1,9 @@
 extends Control
 
 
+func _ready():
+	print("dab")
+
 func _on_Multiplayer_pressed():
 	get_tree().change_scene("res://Scenes/Levels/BlankMultiplayerScene.tscn")
 

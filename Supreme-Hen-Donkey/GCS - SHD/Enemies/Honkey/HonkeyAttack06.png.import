@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/HonkeyAttack06.png-ea2f754c195c5ab1c55b3e67c94cbecc.stex"
+path="res://.import/HonkeyAttack06.png-5e3c50fe85b5aeb39173d93c7da639db.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GCS - SHD/enemies/Honkey/HonkeyAttack06.png"
-dest_files=[ "res://.import/HonkeyAttack06.png-ea2f754c195c5ab1c55b3e67c94cbecc.stex" ]
+source_file="res://GCS - SHD/Enemies/Honkey/HonkeyAttack06.png"
+dest_files=[ "res://.import/HonkeyAttack06.png-5e3c50fe85b5aeb39173d93c7da639db.stex" ]
 
 [params]
 
