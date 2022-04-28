@@ -14,6 +14,7 @@ var limits = Rect2()
 var maxZoom: float
 var startPos: Vector2
 var resetPosNextFrame := false
+var draggingTile := false
 
 
 func _ready():
@@ -74,11 +75,11 @@ func _integrate_forces(state):
 
 func _input(event):
 	# Zoom
-	if event.is_action_released('wheel_down') and $BuilderViewCam.zoom.x < maxZoom:
+	if event.is_action_released('wheel_down') and $BuilderViewCam.zoom.x < maxZoom and !draggingTile:
 		$BuilderViewCam.zoom.x += 0.25
 		$BuilderViewCam.zoom.y += 0.25
 	
-	elif event.is_action_released('wheel_up') and $BuilderViewCam.zoom.x > 1:
+	elif event.is_action_released('wheel_up') and $BuilderViewCam.zoom.x > 1 and !draggingTile:
 		$BuilderViewCam.zoom.x -= 0.25
 		$BuilderViewCam.zoom.y -= 0.25
 

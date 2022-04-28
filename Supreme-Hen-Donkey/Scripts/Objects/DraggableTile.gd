@@ -2,6 +2,7 @@ extends Area2D
 class_name DraggableTile
 
 const blockBuffer := 3
+const rotateSteps := 10
 var blockBufferPx
 
 var mouseOffset
@@ -11,6 +12,7 @@ var canPlace := true
 var collision
 var startPos: Vector2
 var draggedChild
+var rotatedBy := 0
 
 var childResourcePath = "res://Prefabs/Block.tscn"
 var childResourceScaling := 1.0
@@ -68,6 +70,7 @@ func _input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("click"):
 		if event.is_pressed() && canDrag:
 			following = true
+			Globals.GM.builderView.draggingTile = true
 			pickupTile()
 			
 
@@ -76,7 +79,14 @@ func _input(event):
 	if event.is_action_released("click"):
 		if following:
 			following = false
+			Globals.GM.builderView.draggingTile = false
 			placeTile()
+	
+	if following:
+		if event.is_action_released('wheel_down'):
+			rotate(-1)
+		elif event.is_action_released('wheel_up'):
+			rotate(+1)
 
 
 # Update position to snap to grid
@@ -126,6 +136,7 @@ func switchModePlaying():
 	var oldPos = position
 	Globals.GM.changeParentage(draggedChild)
 	draggedChild.position = oldPos
+	draggedChild.rotation += rotation
 	
 	draggedChild.enabled = true
 	draggedChild.set_physics_process(true)
@@ -163,3 +174,18 @@ func switchModeBuilding():
 	draggedChild.set_process(false)
 	
 	canDrag = true
+
+
+# Rotates by the number of steps
+func rotate(steps):
+	rotatedBy = (rotatedBy + steps) % rotateSteps
+	
+	rotation = rotatedBy * 2*PI/rotateSteps
+
+
+
+
+
+
+
+
