@@ -30,7 +30,7 @@ func _ready():
 	Globals.GM = self
 	
 	player.connect("finished", self, "playerFinished")
-	get_tree().current_scene.get_node('CanvasLayer/UI_BR/Button').connect("pressed", self, "advanceRound")
+#	get_tree().current_scene.get_node('CanvasLayer/UI_BR/Button').connect("pressed", self, "advanceRound")
 	
 	switchModeBuilding()
 
