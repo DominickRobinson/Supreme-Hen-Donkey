@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/HenIdle02.png-11221b1ae3e6718c3b268ba64709505f.stex"
+path="res://.import/HenIdle02.png-6da6bb1e1721079b50ca14911e928145.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GCS - SHD/enemies/Hen/HenIdle02.png"
-dest_files=[ "res://.import/HenIdle02.png-11221b1ae3e6718c3b268ba64709505f.stex" ]
+source_file="res://GCS - SHD/Enemies/Hen/HenIdle02.png"
+dest_files=[ "res://.import/HenIdle02.png-6da6bb1e1721079b50ca14911e928145.stex" ]
 
 [params]
 
