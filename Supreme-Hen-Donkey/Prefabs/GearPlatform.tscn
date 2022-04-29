@@ -5,7 +5,6 @@
 [ext_resource path="res://GCS - SHD/Blocks/Gear/Gear-1.png" type="Texture" id=3]
 [ext_resource path="res://GCS - SHD/Blocks/Gear/Gear-3.png" type="Texture" id=4]
 
-
 [sub_resource type="AnimatedTexture" id=4]
 flags = 4
 frames = 3

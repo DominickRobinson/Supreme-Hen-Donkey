@@ -9,7 +9,7 @@
 [ext_resource path="res://Prefabs/BuilderView.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Levels/TilemapDraw.gd" type="Script" id=8]
 
-[node name="DemoScene" type="Node2D"]
+[node name="DemoScene2" type="Node2D"]
 
 [node name="GameManager" type="Node2D" parent="."]
 position = Vector2( 67, 457 )

@@ -23,4 +23,4 @@ func _physics_process(delta):
 	if not enabled:
 		return
 	
-	rotation += delta*ROTATION_SPEED
+	rotation += delta*ROTATION_SPEED*.5
