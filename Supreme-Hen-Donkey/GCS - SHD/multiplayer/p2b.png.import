@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/p2b.png-6577544ea39fb08139e0168e958c50fe.stex"
+path="res://.import/p2b.png-490418b14bc0f99d27506ccaaea21d4f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GCS - SHD/multiplayer transitions/p2b.png"
-dest_files=[ "res://.import/p2b.png-6577544ea39fb08139e0168e958c50fe.stex" ]
+source_file="res://GCS - SHD/multiplayer/p2b.png"
+dest_files=[ "res://.import/p2b.png-490418b14bc0f99d27506ccaaea21d4f.stex" ]
 
 [params]
 

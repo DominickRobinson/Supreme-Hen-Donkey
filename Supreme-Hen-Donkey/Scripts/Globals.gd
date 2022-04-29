@@ -10,6 +10,7 @@ var winTally = [0, 0]
 
 var GM = null
 var debugText = null
+var UI = null
 
 var rng = RandomNumberGenerator.new()
 
@@ -18,4 +19,4 @@ func _ready():
 
 # Gets a random element of an array
 func choose(a):
-	return a[randi() % a.size()]
+	return a[rng.randi() % a.size()]

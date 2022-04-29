@@ -6,10 +6,15 @@ const rotateSteps := 16
 var blockBufferPx
 
 var mouseOffset
+
+var insideBank := true
+
 var following := false
 var canDrag := false
+
 var canPlace := true
 var placed := false
+
 var collision
 var startPos: Vector2
 var draggedChild
@@ -68,14 +73,17 @@ func _physics_process(delta):
 
 
 func _input_event(viewport, event, shape_idx):
+	# Clicking events only occur if placed
 	if !canPlace:
 		return
 		
 	# Start dragging when clicked on
 	if event.is_action_pressed("click"):
 		if event.is_pressed() && canDrag:
-			following = true
 			var bv = Globals.GM.builderView
+			insideBank = false
+			following = true
+			bv.clearTiles()
 			bv.draggingTile = true
 			if bv.wasRigid:
 				draggedChild.mode = RigidBody2D.MODE_RIGID
@@ -217,23 +225,6 @@ func rotate(steps):
 	
 	rotation = rotatedBy * 2*PI/rotateSteps
 
-
-# Erases if possible
-func erase():
-	pass
-#	for body in get_overlapping_bodies():
-#		while true:
-#			if (body.name == 'Eraser') and (draggedChild != body):
-#				queue_free()
-#				print(body.get_parent().name)
-#				break
-#
-#			body = body.get_parent()
-#			if body == get_tree().current_scene:
-#				break
-#
-#	draggedChild.queue_free()
-#	queue_free()
 
 
 

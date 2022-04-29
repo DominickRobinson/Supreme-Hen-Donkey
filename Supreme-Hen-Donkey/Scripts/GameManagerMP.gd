@@ -20,7 +20,6 @@ onready var startBlock = get_node(startBlockNP)
 export(NodePath) var endBlockNP: NodePath
 onready var endBlock = get_node(endBlockNP)
 
-
 signal switchMode(mode)
 signal switchPlayer(player)
 

@@ -20,6 +20,7 @@ var draggingTile := false
 var wasRigid := false
 var totalTileWeights := 0
 
+
 func _ready():
 	var buffer = 150
 	
@@ -37,6 +38,7 @@ func _ready():
 	# Get loot table
 	totalTileWeights = sum_array(tileWeights)
 	
+	Globals.UI.get_node('Bank').getTilePos()
 	resetPosition()
 	respawnDraggables()
 	
@@ -135,32 +137,38 @@ func resetPosition():
 
 # Spawn a new block when we're in build mode
 func respawnDraggables():
-	# Spawn draggable tile
-	var dragTileObj = draggableTile.instance()
-	dragTileObj.position = Vector2(0, -250)
-	
-	# Get random dragTileObj to place inside the tile
-	if possibleTiles.size() > 0:
-		var amountBy = (Globals.rng.randi() / 4294967295.0) * totalTileWeights
-		var i = 0
-		for j in range(possibleTiles.size()):
-			if amountBy <= tileWeights[j]:
-				i = j
-				break
-			amountBy -= tileWeights[j]
+	for tileNum in range(3):
+		# Spawn draggable tile
+		var dragTileObj = draggableTile.instance()
+		var dragX = Globals.UI.get_node('Bank').tileX[tileNum]
+		var dragY = Globals.UI.get_node('Bank').tileY
+		var dragPos = Vector2(dragX, dragY) + Vector2(-1000, 0)
+		dragTileObj.position = Vector2(dragPos.x, dragPos.y) #Vector2(0, -250)
 		
-#		var i = Globals.rng.randi() % possibleTiles.size()
-#		if Globals.rng.randi() % 2 == 0:
-#			i = -1
-		dragTileObj.init(possibleTiles[i], tileScalings[i], Globals.GM.startBlock, Globals.GM.endBlock)
-	
-	# Add to the world
-	add_child(dragTileObj)
+		# Get random dragTileObj to place inside the tile
+		if possibleTiles.size() > 0:
+			var amountBy = (Globals.rng.randi() / 4294967295.0) * totalTileWeights
+			var i = 0
+			for j in range(possibleTiles.size()):
+				if amountBy <= tileWeights[j]:
+					i = j
+					break
+				amountBy -= tileWeights[j]
+			
+#			var i = Globals.rng.randi() % possibleTiles.size()
+#			if Globals.rng.randi() % 2 == 0:
+#				i = -1
+			dragTileObj.init(possibleTiles[i], tileScalings[i], Globals.GM.startBlock, Globals.GM.endBlock)
+		
+		# Add to the world
+		add_child(dragTileObj)
 
 
-
-
-
+# Removes all tiles in the bank
+func clearTiles():
+	for child in get_children():
+		if (child is DraggableTile) and (child.insideBank):
+			child.queue_free()
 
 
 
