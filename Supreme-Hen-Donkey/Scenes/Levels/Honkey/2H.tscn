@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://NextScene.gd" type="Script" id=1]
 [ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Single Player/2.H.jpg" type="Texture" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Single Player/mask-removebg-preview.png" type="Texture" id=4]
+[ext_resource path="res://Enemy Scenes/Honkey.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 188.156, 180 )
@@ -28,7 +29,7 @@ scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 966, -585 )
+position = Vector2( -1016, -81 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 2, 61 )
@@ -80,3 +81,6 @@ shape = SubResource( 5 )
 position = Vector2( -409.813, 179.5 )
 scale = Vector2( 3.7805, 3.88352 )
 texture = ExtResource( 4 )
+
+[node name="Honkey" parent="." instance=ExtResource( 5 )]
+position = Vector2( 479, -221 )
