@@ -10,6 +10,7 @@ export(Array, float) var tileScalings
 
 export var VELOCITY := 800.0
 
+var erasableTileNames = []
 var limits = Rect2()
 var maxZoom: float
 var startPos: Vector2
@@ -34,6 +35,11 @@ func _ready():
 	resetPosition()
 	respawnDraggables()
 	
+	# Things that can be erased
+	for node in possibleTiles:
+		erasableTileNames.append(load(node).instance().name)
+	
+	# Signals
 	Globals.GM.connect("switchMode", self, "_on_GameManager_switchMode")
 	Globals.GM.connect("switchPlayer", self, "_on_GameManager_switchPlayer")
 
@@ -109,18 +115,18 @@ func resetPosition():
 # Spawn a new block when we're in build mode
 func respawnDraggables():
 	# Spawn draggable tile
-	var obj = draggableTile.instance()
-	obj.position = Vector2(0, -250)
+	var dragTileObj = draggableTile.instance()
+	dragTileObj.position = Vector2(0, -250)
 	
-	# Get random object to place inside the tile
+	# Get random dragTileObj to place inside the tile
 	if possibleTiles.size() > 0:
 		var i = Globals.rng.randi() % possibleTiles.size()
-		obj.init(possibleTiles[i], tileScalings[i], Globals.GM.startBlock, Globals.GM.endBlock)
-#	i = -1
-#	obj.childResourcePath = possibleTiles[i]
-#	obj.childResourceScaling = tileScalings[i]
+		if Globals.rng.randi() % 2 == 0:
+			i = -1
+		dragTileObj.init(possibleTiles[i], tileScalings[i], Globals.GM.startBlock, Globals.GM.endBlock)
+	
 	# Add to the world
-	add_child(obj)
+	add_child(dragTileObj)
 
 
 

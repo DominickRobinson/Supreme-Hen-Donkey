@@ -2,13 +2,14 @@ extends Area2D
 class_name DraggableTile
 
 const blockBuffer := 3
-const rotateSteps := 10
+const rotateSteps := 16
 var blockBufferPx
 
 var mouseOffset
 var following := false
 var canDrag := false
 var canPlace := true
+var placed := false
 var collision
 var startPos: Vector2
 var draggedChild
@@ -80,7 +81,7 @@ func _input(event):
 		if following:
 			following = false
 			Globals.GM.builderView.draggingTile = false
-			placeTile()
+			placed = true
 	
 	if following:
 		if event.is_action_released('wheel_down'):
@@ -96,16 +97,33 @@ func followMouse():
 		(newPos.distance_to(endBlock.position) > blockBufferPx):
 		position = newPos
 		position += mouseOffset
+	
+	# Try to get something to erase
+	if draggedChild is Eraser:
+		var newToErase = []
+		for body in get_overlapping_bodies():
+			while true:
+				if (body.name != 'Eraser') and (body.name in Globals.GM.builderView.erasableTileNames):
+					newToErase.append(body)
+					newToErase.append(body.get_parent())
+					body.modulate.a = 0.3
+					break
+
+				body = body.get_parent()
+				if body == get_tree().current_scene:
+					break
+		
+		# Check what we're not over any longer and make visible
+		for body in draggedChild.toErase:
+			if not (body in newToErase):
+				body.modulate.a = 1
+		
+		draggedChild.toErase = newToErase
 
 
 func pickupTile():
 	Globals.GM.changeParentage(self)
 #	draggedChild.remove_child(collision)
-
-
-# Places tile at current location
-func placeTile():
-	pass
 
 
 # Gets the collidable node, that we drag
@@ -130,26 +148,35 @@ func _on_switchPlayer(player):
 
 
 func switchModePlaying():
-	collision.position = Vector2.ZERO
-	remove_child(collision)
+	# Erase if possible
+	if draggedChild is Eraser:
+		draggedChild.erase()
+		queue_free()
 	
-	var oldPos = position
-	Globals.GM.changeParentage(draggedChild)
-	draggedChild.position = oldPos
-	draggedChild.rotation += rotation
+	if placed:
+		collision.position = Vector2.ZERO
+		remove_child(collision)
+		
+		var oldPos = position
+		Globals.GM.changeParentage(draggedChild)
+		draggedChild.position = oldPos
+		draggedChild.rotation += rotation
+		
+		draggedChild.enabled = true
+		draggedChild.set_physics_process(true)
+		draggedChild.set_process(true)
+		
+		if draggedChild is RigidBody2D:
+			draggedChild.gravity_scale = 1
+			for bit in [0, 1]:
+				draggedChild.set_collision_layer_bit(bit, true)
+				draggedChild.set_collision_mask_bit(bit, true)
+		
+		canDrag = false
+		canPlace = false
 	
-	draggedChild.enabled = true
-	draggedChild.set_physics_process(true)
-	draggedChild.set_process(true)
-	
-	if draggedChild is RigidBody2D:
-		draggedChild.gravity_scale = 1
-		for bit in [0, 1]:
-			draggedChild.set_collision_layer_bit(bit, true)
-			draggedChild.set_collision_mask_bit(bit, true)
-	
-	canDrag = false
-	canPlace = false
+	else:
+		queue_free()
 
 
 func switchModeBuilding():
@@ -183,6 +210,22 @@ func rotate(steps):
 	rotation = rotatedBy * 2*PI/rotateSteps
 
 
+# Erases if possible
+func erase():
+	pass
+#	for body in get_overlapping_bodies():
+#		while true:
+#			if (body.name == 'Eraser') and (draggedChild != body):
+#				queue_free()
+#				print(body.get_parent().name)
+#				break
+#
+#			body = body.get_parent()
+#			if body == get_tree().current_scene:
+#				break
+#
+#	draggedChild.queue_free()
+#	queue_free()
 
 
 

@@ -30,7 +30,6 @@ func _ready():
 	Globals.GM = self
 	
 	player.connect("finished", self, "playerFinished")
-#	get_tree().current_scene.get_node('CanvasLayer/UI_BR/Button').connect("pressed", self, "advanceRound")
 	
 	switchModeBuilding()
 
@@ -114,7 +113,7 @@ func switchMode():
 
 func switchModePlaying():
 	currMode = Globals.Modes.PLAYING
-	changeEnabled(player, true)
+	# Player is re-enabled after sticky note hides itself
 	changeEnabled(builderView, false)
 	emit_signal('switchMode', Globals.Modes.PLAYING)
 
