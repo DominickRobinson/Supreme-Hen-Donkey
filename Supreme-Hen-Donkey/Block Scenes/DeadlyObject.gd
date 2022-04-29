@@ -12,4 +12,5 @@ func _process(delta):
 		if body.name == "Player":
 			if Globals.GM is GameManagerMP:
 				Globals.GM.die()
-			get_tree().change_scene(worldScene)
+			else:
+				get_tree().change_scene(worldScene)

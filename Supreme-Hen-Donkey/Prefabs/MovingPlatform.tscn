@@ -8,6 +8,7 @@ resource_local_to_scene = true
 extents = Vector2( 200, 16 )
 
 [node name="MovingPlatform" type="KinematicBody2D"]
+scale = Vector2( 0.59, 2.51077 )
 collision_layer = 3
 script = ExtResource( 1 )
 
