@@ -1,20 +1,26 @@
-extends RigidBody2D
+extends KinematicBody2D
 
 export var CHARGE_SPEED := 400
+export (int) var gravity = 1200
 
 
 var attack_mode = false
+
+var linear_velocity = Vector2(0,0)
+
+var enabled := true
+onready var dragCollider = $CollisionShape2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-func _integrate_forces(state):
-	self.rotation = 0
 
-func _process(delta):
+
+func _physics_process(delta):
 	
 	check_for_player()
+
 
 	if attack_mode:
 		$AnimatedSprite.animation = "Charging"
@@ -23,11 +29,13 @@ func _process(delta):
 		$AnimatedSprite.animation = "Idle"
 		$AnimatedSprite.speed_scale = 1
 		
-	
+	print(linear_velocity)
 	if linear_velocity.x > 0:
 		$AnimatedSprite.flip_h = true
 	elif linear_velocity.x < 0:
 		$AnimatedSprite.flip_h = false
+	linear_velocity.y = gravity
+	move_and_slide(linear_velocity, Vector2(0,0),false,4, 0.785298, false)
 		
 
 
@@ -43,8 +51,8 @@ func check_for_player():
 			
 				attack_mode = true
 			
-				var dist = body.global_position.x - self.global_position.x
-												
+				var dist = body.position.x - self.position.x
+				
 				linear_velocity.x = sign(dist) * CHARGE_SPEED
 				
 	if not player_found:
