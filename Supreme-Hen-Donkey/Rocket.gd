@@ -3,7 +3,7 @@ extends KinematicBody2D
 export var move_speed := 100  # pixels/sec
 export var radius := 150  # pixels
 
-var enabled := false
+export var enabled := false
 onready var dragCollider = $CollisionPolygon2D
 
 func _physics_process(delta):

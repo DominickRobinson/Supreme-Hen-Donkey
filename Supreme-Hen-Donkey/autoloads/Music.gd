@@ -7,5 +7,6 @@ func _ready():
 
 func play_music():
 	
+	pass
 	$Music.stream = main_theme
 	$Music.play()
