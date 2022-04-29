@@ -75,7 +75,7 @@ scale = Vector2( 0.763122, -0.485793 )
 position = Vector2( -13.1302, -136.816 )
 shape = SubResource( 1 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="StaticBody2D" parent="."]
 collision_layer = 3
 collision_mask = 3
 

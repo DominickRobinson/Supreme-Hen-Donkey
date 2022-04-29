@@ -40,6 +40,7 @@ func _ready():
 			var extraOffset = 0
 			if startBlock != null:
 				startPos = startBlock.get_node('Node2D').position
+				resetPosNextFrame = true
 			else:
 				startPos = Vector2(0,0)
 
