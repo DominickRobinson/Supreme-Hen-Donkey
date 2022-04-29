@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/DonkeyKick06.png-b87c8a7ad8b67d5c7612245b95aa67ff.stex"
+path="res://.import/DonkeyKick06.png-ac27b724062657a26522eaa204e90afc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GCS - SHD/Enemies/Donkey/DonkeyKick06.png"
-dest_files=[ "res://.import/DonkeyKick06.png-b87c8a7ad8b67d5c7612245b95aa67ff.stex" ]
+source_file="res://GCS - SHD/enemies/Donkey/DonkeyKick06.png"
+dest_files=[ "res://.import/DonkeyKick06.png-ac27b724062657a26522eaa204e90afc.stex" ]
 
 [params]
 

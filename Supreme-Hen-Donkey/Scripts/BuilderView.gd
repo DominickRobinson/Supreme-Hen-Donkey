@@ -7,7 +7,7 @@ const draggableTile = preload("res://Prefabs/DraggableTile.tscn")
 
 export(Array, String, FILE) var possibleTiles
 export(Array, float) var tileScalings
-export(Array, float) var tileWeights
+var tileWeights = [1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1, 0.25, 0.25, 0.5, 2]
 
 export var VELOCITY := 800.0
 
@@ -76,12 +76,15 @@ func _physics_process(_delta: float):
 	var velocity = VELOCITY*$BuilderViewCam.zoom.x
 	linear_velocity = Vector2.ZERO
 	
-	if (x < 0 && limits.position.x < position.x) || (x > 0 && position.x < limits.end.x):
-		 linear_velocity.x = x*velocity
+	linear_velocity.x = x*velocity
+	linear_velocity.y = y*velocity
 	
-	# Within y bounds, move
-	if (y < 0 && limits.position.y < position.y) || (y > 0 && position.y < limits.end.y):
-		 linear_velocity.y = y*velocity
+#	if (x < 0 && limits.position.x < position.x) || (x > 0 && position.x < limits.end.x):
+#		 linear_velocity.x = x*velocity
+#
+#	# Within y bounds, move
+#	if (y < 0 && limits.position.y < position.y) || (y > 0 && position.y < limits.end.y):
+#		 linear_velocity.y = y*velocity
 	
 	# Force rigid bodies to keep up
 	if (linear_velocity != Vector2.ZERO):

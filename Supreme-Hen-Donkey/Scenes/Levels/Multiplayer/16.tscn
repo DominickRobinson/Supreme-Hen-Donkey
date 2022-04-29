@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/GameManagerMP.gd" type="Script" id=1]
 [ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Multiplayer/1.6.jpg" type="Texture" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://Prefabs/EndBlock.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/UI/UI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Prefabs/StartBlock.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Prefabs/Camera.tscn" type="PackedScene" id=9]
 
 [node name="Node2D2" type="Node2D"]
 
@@ -32,10 +31,6 @@ region_rect = Rect2( 4.3136, 0, 9995.69, 2147.9 )
 layer = 0
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource( 7 )]
-margin_left = 1481.25
-margin_top = 642.25
-margin_right = 1525.25
-margin_bottom = 710.25
 
 [node name="TileMap" type="TileMap" parent="."]
 format = 1
@@ -108,7 +103,3 @@ polygon = PoolVector2Array( 325, -3, 323, 123, -9, 117, -7, -12 )
 [node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="Area2D"]
 position = Vector2( -627, -200 )
 polygon = PoolVector2Array( 2, -4, 2631, 35, 2484, 153, 141, 119, 138, 1831, 2456, 1839, 2490, 155, 2637, 31, 2584, 1971, 0, 1969 )
-
-[node name="Camera2D" parent="." instance=ExtResource( 9 )]
-position = Vector2( 689, 1008 )
-zoom = Vector2( 2.5, 4 )
