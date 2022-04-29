@@ -71,6 +71,8 @@ func _physics_process(_delta: float):
 	if abs(linear_velocity.x) < HORIZONTAL_MAX_SPEED or sign(linear_velocity.x) != sign(x):
 		apply_central_impulse(Vector2(x*accel, 0))
 	
+	
+	
 	# Jumping
 	if Input.is_action_just_pressed("jump"):
 		# If we're fully on floor, or we've just walked off a ledge (grace zone), jump normally
@@ -88,6 +90,11 @@ func _physics_process(_delta: float):
 			linear_velocity.x = -WALL_JUMP_HORIZONTAL_SPEED
 			linear_velocity.y = -WALL_JUMP_VERTICAL_SPEED
 		# Otherwise, we're not on a wall or floor, so don't jump
+	elif Input.is_action_just_pressed("ui_home"):
+		print("exit")
+		get_tree().change_scene("res://Scenes/BinderFlips/Main menu/00.tscn")
+	
+	
 	
 	#air resistance
 	if not is_on_floor():

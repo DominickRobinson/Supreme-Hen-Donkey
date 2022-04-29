@@ -36,6 +36,10 @@ func _input(event):
 		
 	elif event.is_action_pressed("jump") and UNDER_SCENE != "":
 		flip("u")
+		
+	elif event.is_action_pressed("ui_home"):
+		print("exit")
+		get_tree().change_scene("res://Scenes/BinderFlips/Main menu/00.tscn")
 
 
 func flip(dir):
