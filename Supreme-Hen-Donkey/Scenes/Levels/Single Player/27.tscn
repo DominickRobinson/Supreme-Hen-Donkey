@@ -1,10 +1,15 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Single Player/2.7.jpg" type="Texture" id=1]
 [ext_resource path="res://NextScene.gd" type="Script" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Block Scenes/BasicBlock.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Egg.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Enemy Scenes/Chicken.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemy Scenes/HenFly.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Enemy Scenes/DonkeyKick.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Enemy Scenes/DonkeyCharge.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Prefabs/Camera.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 188.156, 180 )
@@ -47,7 +52,7 @@ position = Vector2( -448, 334 )
 position = Vector2( -370.667, 333.333 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( -1423, -701 )
+position = Vector2( -760, -321 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 2, 61 )
@@ -134,3 +139,27 @@ scale = Vector2( 1.92858, 2.48305 )
 [node name="BasicBlock5" parent="Node2D" instance=ExtResource( 4 )]
 position = Vector2( 75, 786 )
 scale = Vector2( 2.12919, 3.3563 )
+
+[node name="BasicBlock6" parent="Node2D" instance=ExtResource( 4 )]
+position = Vector2( -1739, -561 )
+scale = Vector2( 1.92858, 2.48305 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Chicken" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( -225, 152 )
+
+[node name="HenFly" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( -1114, -283 )
+
+[node name="DonkeyKick" parent="Enemies/HenFly" instance=ExtResource( 8 )]
+position = Vector2( 101, 388 )
+
+[node name="DonkeyCharge" parent="Enemies/HenFly" instance=ExtResource( 9 )]
+position = Vector2( 230, 827 )
+
+[node name="HenFly" parent="Enemies/HenFly" instance=ExtResource( 7 )]
+position = Vector2( 409, 729 )
+
+[node name="Camera2D" parent="." instance=ExtResource( 10 )]
+position = Vector2( -40.0002, 78 )

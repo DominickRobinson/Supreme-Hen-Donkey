@@ -1,8 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Single Player/2.9.jpg" type="Texture" id=1]
 [ext_resource path="res://NextScene.gd" type="Script" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Enemy Scenes/Chicken.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Enemy Scenes/HenFly.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Enemy Scenes/DonkeyKick.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemy Scenes/DonkeyCharge.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Prefabs/Camera.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 487.078, 166.5 )
@@ -74,3 +79,117 @@ shape = SubResource( 4 )
 [node name="Barrier4" type="CollisionShape2D" parent="Death barrier"]
 position = Vector2( -9941.51, -4098.99 )
 shape = SubResource( 5 )
+
+[node name="Enemies" type="Node2D" parent="."]
+position = Vector2( -32, -109 )
+
+[node name="DonkeyCharge" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( -119, 858 )
+
+[node name="Chicken" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 106, 817 )
+
+[node name="DonkeyKick" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( 410, 844 )
+
+[node name="HenFly" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( -594, 841 )
+
+[node name="DonkeyCharge2" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( -357, 859 )
+
+[node name="Chicken2" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( -357, 859 )
+
+[node name="DonkeyKick2" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( -535, 886 )
+
+[node name="HenFly2" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( -931, 837 )
+
+[node name="DonkeyCharge3" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 566, 925 )
+
+[node name="Chicken3" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 230, 916 )
+
+[node name="DonkeyKick3" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( 20, 921 )
+
+[node name="HenFly3" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 741, 906 )
+
+[node name="DonkeyCharge4" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 290, 796 )
+
+[node name="Chicken4" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 515, 755 )
+
+[node name="DonkeyKick4" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( 819, 782 )
+
+[node name="HenFly4" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( -185, 779 )
+
+[node name="DonkeyCharge5" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 52, 797 )
+
+[node name="Chicken5" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 52, 797 )
+
+[node name="DonkeyKick5" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( -126, 824 )
+
+[node name="HenFly5" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( -522, 775 )
+
+[node name="DonkeyCharge6" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 975, 863 )
+
+[node name="Chicken6" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 639, 854 )
+
+[node name="DonkeyKick6" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( 429, 859 )
+
+[node name="HenFly6" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 1150, 844 )
+
+[node name="DonkeyCharge7" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( -393, 971 )
+
+[node name="Chicken7" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( -168, 930 )
+
+[node name="DonkeyKick7" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( 136, 957 )
+
+[node name="HenFly7" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( -868, 954 )
+
+[node name="DonkeyCharge8" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( -631, 972 )
+
+[node name="Chicken8" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( -631, 972 )
+
+[node name="DonkeyKick8" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( -809, 999 )
+
+[node name="HenFly8" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( -1205, 950 )
+
+[node name="DonkeyCharge9" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 292, 1038 )
+
+[node name="Chicken9" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( -44, 1029 )
+
+[node name="DonkeyKick9" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( -254, 1034 )
+
+[node name="HenFly9" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 467, 1019 )
+
+[node name="Camera2D" parent="." instance=ExtResource( 8 )]
+position = Vector2( -40.0002, 78 )

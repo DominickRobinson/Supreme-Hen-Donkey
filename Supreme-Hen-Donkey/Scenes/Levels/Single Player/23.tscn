@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Single Player/2.3.jpg" type="Texture" id=1]
 [ext_resource path="res://NextScene.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Block Scenes/FlamePillar.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Prefabs/GearPlatform.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Block Scenes/Spikes.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Prefabs/Camera.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 470.669, 216.201 )
@@ -196,3 +197,6 @@ shape = SubResource( 4 )
 position = Vector2( -7694.12, -3464.3 )
 rotation = -0.120428
 shape = SubResource( 5 )
+
+[node name="Camera2D" parent="." instance=ExtResource( 9 )]
+position = Vector2( -40.0002, 78 )

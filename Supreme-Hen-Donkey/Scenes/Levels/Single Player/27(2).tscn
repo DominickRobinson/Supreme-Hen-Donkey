@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://NextScene.gd" type="Script" id=1]
 [ext_resource path="res://Enemy Scenes/DonkeyKick.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Single Player/2.7.jpg" type="Texture" id=5]
 [ext_resource path="res://Egg.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefabs/Camera.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 265.078, 154.5 )
@@ -102,3 +103,6 @@ timer = 20
 [node name="Egg3" parent="Enemies" instance=ExtResource( 6 )]
 position = Vector2( 1292, -192 )
 timer = 20
+
+[node name="Camera2D" parent="." instance=ExtResource( 7 )]
+position = Vector2( -40.0002, 78 )

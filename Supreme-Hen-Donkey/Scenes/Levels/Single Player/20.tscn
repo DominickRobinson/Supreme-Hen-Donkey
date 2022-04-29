@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://NextScene.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Single Player/2.0.jpg" type="Texture" id=3]
+[ext_resource path="res://Prefabs/Camera.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 395.25, 186 )
@@ -79,3 +80,6 @@ shape = SubResource( 4 )
 [node name="Barrier4" type="CollisionShape2D" parent="Death barrier"]
 position = Vector2( -9941.51, -4098.99 )
 shape = SubResource( 5 )
+
+[node name="Camera2D" parent="." instance=ExtResource( 4 )]
+position = Vector2( 122, 88 )

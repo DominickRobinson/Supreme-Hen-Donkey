@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Supreme-Hen-Donkey"
-run/main_scene="res://Scenes/Levels/DemoScene.tscn"
+run/main_scene="res://Scenes/BinderFlips/Main menu/Intro.tscn"
 config/icon="res://icon.png"
 
 [autoload]

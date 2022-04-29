@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Single Player/2.A.jpg" type="Texture" id=1]
 [ext_resource path="res://NextScene.gd" type="Script" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://GCS - SHD/Levels/solar system/moon.png" type="Texture" id=14]
 [ext_resource path="res://Scenes/GearPlatform.gd" type="Script" id=15]
 [ext_resource path="res://Block Scenes/Rocket.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Prefabs/Camera.tscn" type="PackedScene" id=17]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 412.5, 189 )
@@ -328,3 +329,6 @@ enabled = true
 position = Vector2( -1327, 731 )
 move_speed = 500
 enabled = true
+
+[node name="Camera2D" parent="." instance=ExtResource( 17 )]
+position = Vector2( -40.0002, 78 )
