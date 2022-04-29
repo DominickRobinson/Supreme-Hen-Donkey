@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Single Player/2.A.jpg" type="Texture" id=1]
-[ext_resource path="res://NextScene.gd" type="Script" id=2]
+[ext_resource path="res://NextScene.gd" type="Script" id=1]
+[ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Single Player/2.H.jpg" type="Texture" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Single Player/mask-removebg-preview.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 188.156, 180 )
@@ -22,28 +23,32 @@ extents = Vector2( 868.501, 5076.01 )
 [node name="Node" type="Node"]
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 5, 9 )
+position = Vector2( -221, -360 )
 scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1832, 97 )
+position = Vector2( -1585, 123 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 2, 61 )
 collision_layer = 3
 collision_mask = 3
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -1633, 139 )
+polygon = PoolVector2Array( 2398, -175, 2453, -269, 2510, -283, 2565, -394, 2614, -414, 2647, -553, 2683, -560, 2712, -611, 2972, -659, 3118, -1247, 3255, -1233, 3374, -1165, 3406, 451, -63, 454, -101, 45 )
+
 [node name="Goal" type="Area2D" parent="."]
-position = Vector2( 1200, 606 )
+position = Vector2( 964, 242 )
 scale = Vector2( 0.333333, 0.333333 )
 collision_layer = 3
 collision_mask = 3
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 worldScene = "res://Scenes/BinderFlips/Single Player/22.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
-position = Vector2( 2046.85, -3957 )
+position = Vector2( 678, -2313 )
 shape = SubResource( 1 )
 
 [node name="Death barrier" type="Area2D" parent="."]
@@ -51,22 +56,27 @@ position = Vector2( 826.333, 1252.33 )
 scale = Vector2( 0.333333, 0.333333 )
 collision_layer = 3
 collision_mask = 3
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 worldScene = "res://Scenes/Levels/Single Player/22.tscn"
 
 [node name="Barrier1" type="CollisionShape2D" parent="Death barrier"]
-position = Vector2( -1618, 995.011 )
+position = Vector2( -1468, 254.01 )
 scale = Vector2( 39.2343, -1.36354 )
 shape = SubResource( 2 )
 
 [node name="Barrier2" type="CollisionShape2D" parent="Death barrier"]
-position = Vector2( -2123.5, -8600.5 )
+position = Vector2( -2185, -9538 )
 shape = SubResource( 3 )
 
 [node name="Barrier3" type="CollisionShape2D" parent="Death barrier"]
-position = Vector2( 6170.01, -3594.99 )
+position = Vector2( 4523.01, -3525.99 )
 shape = SubResource( 4 )
 
 [node name="Barrier4" type="CollisionShape2D" parent="Death barrier"]
-position = Vector2( -9941.51, -4098.99 )
+position = Vector2( -8983.01, -4050.99 )
 shape = SubResource( 5 )
+
+[node name="Mask" type="Sprite" parent="."]
+position = Vector2( -409.813, 179.5 )
+scale = Vector2( 3.7805, 3.88352 )
+texture = ExtResource( 4 )
