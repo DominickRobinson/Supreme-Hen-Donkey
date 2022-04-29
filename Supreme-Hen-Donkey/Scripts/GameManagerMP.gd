@@ -146,7 +146,7 @@ func playerFinished():
 
 
 func resetMultiplayerLevel():
-	get_tree().change_scene("res://Scenes/Levels/BlankMultiplayerScene.tscn")
+	get_tree().change_scene(get_tree().current_scene.filename)
 
 
 

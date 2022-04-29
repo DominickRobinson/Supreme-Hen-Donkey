@@ -78,7 +78,6 @@ scale = Vector2( 0.763122, -0.485793 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BuilderView/CollisionShape2D"]
 position = Vector2( -13.1302, -136.816 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
