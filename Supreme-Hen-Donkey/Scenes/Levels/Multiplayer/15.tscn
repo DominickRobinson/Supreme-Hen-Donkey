@@ -1,0 +1,81 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Multiplayer/1.5.jpg" type="Texture" id=1]
+[ext_resource path="res://Scenes/UI/UI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Prefabs/BuilderView.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/StartBlock.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prefabs/EndBlock.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scripts/GameManagerMP.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/Levels/TilemapDraw.gd" type="Script" id=8]
+[ext_resource path="res://Prefabs/Camera.tscn" type="PackedScene" id=9]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="GameManager" type="Node2D" parent="."]
+position = Vector2( 1528.25, 1079.25 )
+script = ExtResource( 7 )
+playerNP = NodePath("../Player")
+builderViewNP = NodePath("../BuilderView")
+startBlockNP = NodePath("../StartBlock")
+endBlockNP = NodePath("../EndBlock")
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 4360.25, 18.2498 )
+rotation = -0.00872665
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 4.3136, 0, 9995.69, 2147.9 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource( 2 )]
+margin_left = 1481.25
+margin_top = 642.25
+margin_right = 1525.25
+margin_bottom = 710.25
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Node2D" type="Node2D" parent="TileMap"]
+position = Vector2( 1461.25, 622.25 )
+script = ExtResource( 8 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 281, 852 )
+deathNP = NodePath("../Death")
+
+[node name="StartBlock" parent="." instance=ExtResource( 5 )]
+visible = false
+position = Vector2( 269, 1041 )
+scale = Vector2( 1.35533, 1.67567 )
+
+[node name="EndBlock" parent="." instance=ExtResource( 6 )]
+visible = false
+position = Vector2( 791, 26 )
+scale = Vector2( 1.06218, 1.69818 )
+
+[node name="Death" type="Position2D" parent="."]
+position = Vector2( 768.25, 1337.25 )
+
+[node name="BuilderView" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1794.25, 549.25 )
+possibleTiles = [ "res://Prefabs/Block.tscn", "res://Prefabs/GearPlatform.tscn", "res://Prefabs/MovingPlatform.tscn", "res://Block Scenes/FallingBlock.tscn", "res://Block Scenes/FlamePillar.tscn", "res://Block Scenes/IceBlock.tscn", "res://Block Scenes/Spikes.tscn", "res://Block Scenes/Trampoline.tscn", "res://Enemy Scenes/HenFly.tscn", "res://Enemy Scenes/DonkeyKick.tscn", "res://Enemy Scenes/DonkeyCharge.tscn", "res://Block Scenes/Rocket.tscn" ]
+tileScalings = [ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.5, 1.0, 1.0, 1.0, 1.0, 1.0 ]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2( 22, 973 )
+polygon = PoolVector2Array( -20, 0, 1726, 1, 1695, -1809, 104, -1782, 107, -565, 1210, -554, 1216, -1248, 659, -1241, 649, -971, 932, -966, 930, -825, 504, -819, 510, -1376, 1356, -1374, 1369, -422, -33, -417, -31, -1924, 1851, -1955, 1873, 143, -27, 142 )
+
+[node name="Camera2D" parent="." instance=ExtResource( 9 )]
+position = Vector2( -234, 77 )

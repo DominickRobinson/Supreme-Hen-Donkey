@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/boss1.mp3-459c88a2784953c2c264b2be6e44d0c8.mp3str"
+
+[deps]
+
+source_file="res://GCS - SHD/music/honkey-music/boss1.mp3"
+dest_files=[ "res://.import/boss1.mp3-459c88a2784953c2c264b2be6e44d0c8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

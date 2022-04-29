@@ -28,11 +28,12 @@ radius = 47.0425
 extents = Vector2( 30.7188, 13.5508 )
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 446.0
+radius = 313.04
 
 [node name="HenFly" type="RigidBody2D"]
 collision_layer = 3
 collision_mask = 3
+mass = 0.0416667
 gravity_scale = 0.0
 script = ExtResource( 7 )
 
@@ -41,7 +42,6 @@ position = Vector2( 5, -14 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 1 )
 animation = "Flying"
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

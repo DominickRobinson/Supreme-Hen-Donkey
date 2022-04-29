@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://NextScene.gd" type="Script" id=1]
+[ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Single Player/F2.0.jpg" type="Texture" id=2]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Prefabs/Camera.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 604.125, 186 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 412.5, 189 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10798.5, 472.502 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 915.751, 5577.01 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 868.501, 5076.01 )
+
+[node name="Node" type="Node"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -280, -78 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 2 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1087, -846 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 2, 61 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 935, -810, 1255, -810, 1260, -744, 1581, -734, 1581, -611, 602, -617, 608, -753, 934, -743 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 5, -62 )
+polygon = PoolVector2Array( 347, -974, 349, -245, 930, -241, 934, -102, 349, -103, 347, 1150, 1075, 1167, 1064, 626, 1642, 626, 1658, 770, 1212, 772, 1211, 1162, 1221, 1297, 213, 1308, 212, -978 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 1, -7 )
+polygon = PoolVector2Array( 1877, 1252, 2016, 1267, 1968, -978, 1835, -979, 1845, -272, 1262, -283, 1255, 174, 654, 171, 660, 907, 865, 906, 863, 297, 1666, 314, 1663, 171, 1400, 174, 1397, -150, 1854, -146 )
+
+[node name="Goal" type="Area2D" parent="."]
+position = Vector2( 1203, 1799 )
+scale = Vector2( 0.333333, 0.333333 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 1 )
+worldScene = "res://Scenes/BinderFlips/Single Player/Final play scene.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+position = Vector2( 1198.88, -1320 )
+shape = SubResource( 1 )
+
+[node name="Death barrier" type="Area2D" parent="."]
+position = Vector2( 826.333, 1252.33 )
+scale = Vector2( 0.333333, 0.333333 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 1 )
+worldScene = "res://Scenes/Levels/Single Player/1-0.tscn"
+
+[node name="Barrier1" type="CollisionShape2D" parent="Death barrier"]
+position = Vector2( -1618, 995.011 )
+scale = Vector2( 39.2343, -1.36354 )
+shape = SubResource( 2 )
+
+[node name="Barrier2" type="CollisionShape2D" parent="Death barrier"]
+position = Vector2( -2123.5, -8600.5 )
+shape = SubResource( 3 )
+
+[node name="Barrier3" type="CollisionShape2D" parent="Death barrier"]
+position = Vector2( 6764.01, -3594.99 )
+shape = SubResource( 4 )
+
+[node name="Barrier4" type="CollisionShape2D" parent="Death barrier"]
+position = Vector2( -9941.51, -4098.99 )
+shape = SubResource( 5 )
+
+[node name="Camera2D" parent="." instance=ExtResource( 4 )]
+position = Vector2( -376, -23 )

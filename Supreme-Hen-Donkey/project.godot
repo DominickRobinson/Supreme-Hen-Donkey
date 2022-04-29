@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Supreme-Hen-Donkey"
-run/main_scene="res://Scenes/Levels/DemoScene.tscn"
+run/main_scene="res://Scenes/BinderFlips/Main menu/Intro.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -61,6 +61,11 @@ singletons=[  ]
 
 [input]
 
+ui_home={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":true,"meta":false,"command":true,"pressed":false,"scancode":77,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
 up={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":87,"unicode":0,"echo":false,"script":null)
@@ -120,6 +125,11 @@ wheel_up={
 switch={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":80,"unicode":0,"echo":false,"script":null)
+ ]
+}
+reset_level={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":true,"meta":false,"command":true,"pressed":false,"scancode":0,"physical_scancode":82,"unicode":0,"echo":false,"script":null)
  ]
 }
 

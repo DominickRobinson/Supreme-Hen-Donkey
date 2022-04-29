@@ -1,0 +1,183 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Single Player/2.8.jpg" type="Texture" id=1]
+[ext_resource path="res://NextScene.gd" type="Script" id=2]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Prefabs/GearPlatform.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/Block.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Block Scenes/Spikes.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemy Scenes/DonkeyKick.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Enemy Scenes/HenFly.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Enemy Scenes/Chicken.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Enemy Scenes/DonkeyCharge.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Block Scenes/FlamePillar.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Prefabs/Camera.tscn" type="PackedScene" id=12]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 304.078, 180 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 412.5, 189 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10798.5, 472.502 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 915.751, 5577.01 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 868.501, 5076.01 )
+
+[node name="Node" type="Node"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 5, 9 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 494, -1134 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 2, 61 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 380, -1127 )
+polygon = PoolVector2Array( 1097, 11, 1103, 149, 1311, 136, 1246, 338, 1019, 341, 1027, 411, 1109, 411, 1112, 476, 54, 532, 39, 346, -142, 340, -116, 259, -2, 141, 3, 6 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 698, 116 )
+polygon = PoolVector2Array( -1, 17, 1404, 27, 1420, 109, 1480, 81, 1669, 92, 1480, 373, 506, 367, 507, 279, 9, 286 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 400, 1098 )
+polygon = PoolVector2Array( 15, 8, 1756, 10, 1733, 59, 13, 40 )
+
+[node name="Goal" type="Area2D" parent="."]
+position = Vector2( 1081, 1403 )
+scale = Vector2( 0.333333, 0.333333 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 2 )
+worldScene = "res://Scenes/BinderFlips/Single Player/28.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+position = Vector2( 2719.93, -897.001 )
+shape = SubResource( 1 )
+
+[node name="Death barrier" type="Area2D" parent="."]
+position = Vector2( 826.333, 1252.33 )
+scale = Vector2( 0.333333, 0.333333 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 2 )
+worldScene = "res://Scenes/Levels/Single Player/22.tscn"
+
+[node name="Barrier1" type="CollisionShape2D" parent="Death barrier"]
+position = Vector2( -1618, 995.011 )
+scale = Vector2( 39.2343, -1.36354 )
+shape = SubResource( 2 )
+
+[node name="Barrier2" type="CollisionShape2D" parent="Death barrier"]
+position = Vector2( -2123.5, -8600.5 )
+shape = SubResource( 3 )
+
+[node name="Barrier3" type="CollisionShape2D" parent="Death barrier"]
+position = Vector2( 5648.01, -3570.99 )
+shape = SubResource( 4 )
+
+[node name="Barrier4" type="CollisionShape2D" parent="Death barrier"]
+position = Vector2( -2707, -3567.99 )
+shape = SubResource( 5 )
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="GearPlatform" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 2012, -371 )
+
+[node name="GearPlatform2" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 714, -32 )
+
+[node name="GearPlatform3" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 933, -351 )
+
+[node name="GearPlatform4" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 1380, -383 )
+
+[node name="GearPlatform5" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 1171, -70 )
+
+[node name="GearPlatform6" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 1710, -87 )
+
+[node name="KinematicBody2D" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( 387, 236 )
+rotation = 1.5708
+scale = Vector2( 15.8019, 1.02786 )
+
+[node name="GearPlatform7" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 1777, -670 )
+
+[node name="GearPlatform8" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 2210, -806 )
+
+[node name="KinematicBody2D2" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( 2396, 253 )
+rotation = 1.5708
+scale = Vector2( 15.8019, 1.02786 )
+
+[node name="Spikes" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 884, 166 )
+
+[node name="Spikes2" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 1218, 166 )
+
+[node name="Spikes3" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 1556, 164 )
+
+[node name="Spikes4" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 1890, 160 )
+
+[node name="Spikes5" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 2220, 170 )
+
+[node name="FlamePillar" parent="Objects" instance=ExtResource( 11 )]
+position = Vector2( 1756, 1196 )
+worldScene = "res://Scenes/Levels/Single Player/28.tscn"
+
+[node name="FlamePillar2" parent="Objects" instance=ExtResource( 11 )]
+position = Vector2( 1309, 1188 )
+worldScene = "res://Scenes/Levels/Single Player/28.tscn"
+
+[node name="FlamePillar3" parent="Objects" instance=ExtResource( 11 )]
+position = Vector2( 809, 1192 )
+worldScene = "res://Scenes/Levels/Single Player/28.tscn"
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Chicken" parent="Enemies" instance=ExtResource( 9 )]
+position = Vector2( 1599, 1098 )
+speed = 700
+angle = 90
+
+[node name="Chicken2" parent="Enemies" instance=ExtResource( 9 )]
+position = Vector2( 1120, 891 )
+speed = 600
+angle = 70
+
+[node name="DonkeyCharge" parent="Enemies" instance=ExtResource( 10 )]
+position = Vector2( 1300, 1097 )
+
+[node name="DonkeyKick" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 1248, 1058 )
+
+[node name="HenFly" parent="Enemies" instance=ExtResource( 8 )]
+position = Vector2( 949, 970 )
+
+[node name="HenFly2" parent="Enemies" instance=ExtResource( 8 )]
+position = Vector2( 1438, 1098 )
+
+[node name="Camera2D" parent="." instance=ExtResource( 12 )]
+position = Vector2( -40.0002, 78 )

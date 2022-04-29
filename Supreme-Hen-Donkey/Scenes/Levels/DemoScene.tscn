@@ -165,10 +165,10 @@ position = Vector2( 1298, 307 )
 
 [node name="DonkeyCharge" parent="." instance=ExtResource( 11 )]
 position = Vector2( -3648, 55 )
-motion/sync_to_physics = false
 CHARGE_SPEED = 800
 
 [node name="BuilderView" parent="." instance=ExtResource( 15 )]
 
 [node name="Rocket" parent="." instance=ExtResource( 9 )]
 position = Vector2( -1787, 103 )
+enabled = true

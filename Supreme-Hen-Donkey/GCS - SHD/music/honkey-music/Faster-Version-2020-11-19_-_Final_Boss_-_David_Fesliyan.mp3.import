@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Faster-Version-2020-11-19_-_Final_Boss_-_David_Fesliyan.mp3-479470d258a0eb4128d9d70c3d4bce7a.mp3str"
+
+[deps]
+
+source_file="res://GCS - SHD/music/honkey-music/Faster-Version-2020-11-19_-_Final_Boss_-_David_Fesliyan.mp3"
+dest_files=[ "res://.import/Faster-Version-2020-11-19_-_Final_Boss_-_David_Fesliyan.mp3-479470d258a0eb4128d9d70c3d4bce7a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,108 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://NextScene.gd" type="Script" id=1]
+[ext_resource path="res://Enemy Scenes/DonkeyKick.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Enemy Scenes/HenFly.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Single Player/2.7.jpg" type="Texture" id=5]
+[ext_resource path="res://Egg.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefabs/Camera.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 265.078, 154.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 412.5, 189 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10798.5, 472.502 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 915.751, 5577.01 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 868.501, 5076.01 )
+
+[node name="Node" type="Node"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 5, 15 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 5 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1891, 67 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 2, 61 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 2029, 207 )
+polygon = PoolVector2Array( 186, 462, 50, 572, -747, 586, -772, 718, 36, 728, 12, 932, 34, 1138, -992, 1272, -1328, 1098, -1423, -941, -753, -943, -743, -846, -644, -849, -654, -770, -832, -756, -820, -675, -1076, -675, -1079, -530, -901, -518, -888, -483, -956, -464, -964, -344, -896, -336, -878, -258, -495, -280, -454.516, -133.732, 84, -130 )
+
+[node name="Goal" type="Area2D" parent="."]
+position = Vector2( 1200, 606 )
+scale = Vector2( 0.333333, 0.333333 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 1 )
+worldScene = "res://Scenes/BinderFlips/Single Player/27.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+position = Vector2( -364.922, -3931.5 )
+shape = SubResource( 1 )
+
+[node name="Death barrier" type="Area2D" parent="."]
+position = Vector2( 826.333, 1252.33 )
+scale = Vector2( 0.333333, 0.333333 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 1 )
+worldScene = "res://Scenes/Levels/Single Player/22.tscn"
+
+[node name="Barrier1" type="CollisionShape2D" parent="Death barrier"]
+position = Vector2( -1618, 995.011 )
+scale = Vector2( 39.2343, -1.36354 )
+shape = SubResource( 2 )
+
+[node name="Barrier2" type="CollisionShape2D" parent="Death barrier"]
+position = Vector2( -2123.5, -8600.5 )
+shape = SubResource( 3 )
+
+[node name="Barrier3" type="CollisionShape2D" parent="Death barrier"]
+position = Vector2( 6776.01, -3438.99 )
+shape = SubResource( 4 )
+
+[node name="Barrier4" type="CollisionShape2D" parent="Death barrier"]
+position = Vector2( -2308, -3594.99 )
+shape = SubResource( 5 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="HenFly" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 1026, -327 )
+
+[node name="DonkeyKick" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 1507, -83 )
+KICK_ANGLE = 45
+
+[node name="DonkeyKick2" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 1988, 79 )
+KICK_ANGLE = 135
+
+[node name="Egg" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( 1783, -108 )
+timer = 20
+
+[node name="Egg2" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( 2051, -224 )
+timer = 20
+
+[node name="Egg3" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( 1292, -192 )
+timer = 20
+
+[node name="Camera2D" parent="." instance=ExtResource( 7 )]
+position = Vector2( -40.0002, 78 )

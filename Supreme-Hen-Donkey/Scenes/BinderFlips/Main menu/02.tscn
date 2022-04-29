@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/BinderFlips/GenericPageFlip.tscn" type="PackedScene" id=1]
+
+[node name="Node" type="Node"]
+
+[node name="Control" parent="." instance=ExtResource( 1 )]
+IMAGE = "res://GCS - SHD/SHD-live/SHD_photos/Main Menu/02.jpg"
+LEFT_VIDEO = "res://GCS - SHD/SHD-live/SHD_videos/Main Menu/r02-1.webm"
+RIGHT_VIDEO = "res://GCS - SHD/SHD-live/SHD_videos/Main Menu/02-3.webm"
+LEFT_SCENE = "res://Scenes/BinderFlips/Main menu/01.tscn"
+RIGHT_SCENE = "res://Scenes/BinderFlips/Main menu/03.tscn"
+UNDER_SCENE = "res://Scenes/BinderFlips/Single Player/20.tscn"
+MUSIC_NUM = 1

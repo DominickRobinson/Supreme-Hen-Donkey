@@ -12,14 +12,24 @@ func get_input():
 	#if Input.is_action_just_pressed('click'):
 		#print(get_viewport().get_mouse_position());
 		#shoot()
-	var dist = get_tree().get_nodes_in_group("Player")[0].global_position - $Muzzle.global_position
-	var angle_distance = fmod(rad2deg(dist.angle())+180 - rad2deg(rotation),360)
-	if($AnimatedSprite.animation == "shoot" and OS.get_unix_time() - time_start > .8):
-		$AnimatedSprite.animation = "idle"
-	if(OS.get_unix_time() - time_start > 1 and (angle_distance < angle or angle_distance > 360 - angle)):
+		
+	
+#	var dist = get_tree().get_nodes_in_group("Player")[0].global_position - $Muzzle.global_position
+#	var angle_distance = fmod(rad2deg(dist.angle())+180 - rad2deg(rotation),360)
+#	if($AnimatedSprite.animation == "shoot" and OS.get_unix_time() - time_start > .8):
+#		$AnimatedSprite.animation = "idle"
+#	if(OS.get_unix_time() - time_start > 1 and (angle_distance < angle or angle_distance > 360 - angle)):
+#		$AnimatedSprite.animation = "shoot"
+#		time_start = OS.get_unix_time()
+#		shoot()
+	if ($AnimatedSprite.animation == "shoot" and OS.get_unix_time() - time_start > .8):
+			$AnimatedSprite.animation = "idle"
+			
+	if (OS.get_unix_time() - time_start > 1):
 		$AnimatedSprite.animation = "shoot"
 		time_start = OS.get_unix_time()
 		shoot()
+
 
 func shoot():
 	# "Muzzle" is a Position2D placed at the barrel of the gun.

@@ -1,0 +1,165 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Single Player/2.4.jpg" type="Texture" id=1]
+[ext_resource path="res://NextScene.gd" type="Script" id=2]
+[ext_resource path="res://Enemy Scenes/DonkeyKick.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Block Scenes/Spikes.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Enemy Scenes/DonkeyCharge.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefabs/Camera.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 319.313, 180 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 412.5, 189 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10798.5, 472.502 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 915.751, 5577.01 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 868.501, 5076.01 )
+
+[node name="Node" type="Node"]
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1466, -925 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 2, 61 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -268, -189 )
+polygon = PoolVector2Array( 854, -970, 411, -970, 417, -334, 666, -312, 667, -128, 994, -123, 1000, -327, 1326, -322, 1329, -123, 1653, -119, 1668, -316, 1848, -310, 1855, 15, 414, 10, 408, 723, 601, 737, 604, 873, 1743, 874, 1740, 745, 1870, 749, 1877, 1083, 1743, 1080, 1749, 1010, 598, 1006, 605, 1197, 396, 1210, 399, 1417, 601, 1416, 603, 1610, 272, 1631, 279, -1121, 863, -1103 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 1198, 545 )
+scale = Vector2( 0.333333, 0.333333 )
+polygon = PoolVector2Array( 1764, -1155, 1719, -3909, -2211, -3909, -2196.72, -3731.41, -2382, -3723, -2400, -4296, 1713, -4320, 1725, -5103.01, 327, -5136.01, 333, -5490.01, 2112, -5478.01, 2283, 2634, 645.001, 2709, 663.001, 1674, 1833, 1641, 1782, -741.001, -2598, -792.001, -2577, -1779, -1986, -1740, -1998, -1194 )
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Spikes" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 1263, 720 )
+scale = Vector2( 2.21769, 1.1158 )
+worldScene = "res://Scenes/Levels/Single Player/24.tscn"
+
+[node name="Spikes2" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 864, 710 )
+scale = Vector2( 1.92111, 1.10427 )
+worldScene = "res://Scenes/Levels/Single Player/24.tscn"
+
+[node name="Spikes3" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 502, 698 )
+scale = Vector2( 1.79014, 1.09646 )
+worldScene = "res://Scenes/Levels/Single Player/24.tscn"
+
+[node name="Spikes4" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 571, -284 )
+worldScene = "res://Scenes/Levels/Single Player/24.tscn"
+
+[node name="Spikes5" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 1234, -290 )
+worldScene = "res://Scenes/Levels/Single Player/24.tscn"
+
+[node name="Spikes6" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 621, -703 )
+rotation = 3.14159
+worldScene = "res://Scenes/Levels/Single Player/24.tscn"
+
+[node name="Spikes7" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 1289, -706 )
+rotation = 3.14159
+worldScene = "res://Scenes/Levels/Single Player/24.tscn"
+
+[node name="Spikes8" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 954, -708 )
+rotation = 3.14159
+worldScene = "res://Scenes/Levels/Single Player/24.tscn"
+
+[node name="Spikes9" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 1611, -699 )
+rotation = 3.14159
+worldScene = "res://Scenes/Levels/Single Player/24.tscn"
+
+[node name="Spikes10" parent="Objects" instance=ExtResource( 4 )]
+position = Vector2( 385, 1396 )
+rotation = 1.5708
+scale = Vector2( 1, 0.822 )
+worldScene = "res://Scenes/Levels/Single Player/24.tscn"
+
+[node name="Goal" type="Area2D" parent="."]
+position = Vector2( 1200, 606 )
+scale = Vector2( 0.333333, 0.333333 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 2 )
+worldScene = "res://Scenes/BinderFlips/Single Player/24.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+position = Vector2( -2847, 1809 )
+shape = SubResource( 1 )
+
+[node name="Death barrier" type="Area2D" parent="."]
+position = Vector2( 826.333, 1252.33 )
+scale = Vector2( 0.333333, 0.333333 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 2 )
+worldScene = "res://Scenes/Levels/Single Player/22.tscn"
+
+[node name="Barrier1" type="CollisionShape2D" parent="Death barrier"]
+position = Vector2( -1618, 995.011 )
+scale = Vector2( 39.2343, -1.36354 )
+shape = SubResource( 2 )
+
+[node name="Barrier2" type="CollisionShape2D" parent="Death barrier"]
+position = Vector2( -2123.5, -8600.5 )
+shape = SubResource( 3 )
+
+[node name="Barrier3" type="CollisionShape2D" parent="Death barrier"]
+position = Vector2( 6170.01, -3594.99 )
+shape = SubResource( 4 )
+
+[node name="Barrier4" type="CollisionShape2D" parent="Death barrier"]
+position = Vector2( -9941.51, -4098.99 )
+shape = SubResource( 5 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="DonkeyKick" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 1021, -887 )
+KICK_STRENGTH = 500
+
+[node name="DonkeyKick2" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 1526, -509 )
+KICK_STRENGTH = 800
+
+[node name="DonkeyKick3" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 944, -499 )
+KICK_STRENGTH = 800
+
+[node name="DonkeyCharge" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( 1107, 65 )
+CHARGE_SPEED = 300
+
+[node name="DonkeyCharge2" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( 888, 566 )
+CHARGE_SPEED = 300
+
+[node name="DonkeyKick4" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 1631, 1094 )
+KICK_STRENGTH = 2000
+KICK_ANGLE = 170
+
+[node name="Camera2D" parent="." instance=ExtResource( 7 )]
+position = Vector2( -40.0002, 78 )

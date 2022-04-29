@@ -13,16 +13,28 @@ var probdistribution = [.25,.5,.75,1.0]
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+var enemy_count = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	MusicController.play_music(3)
 	pass # Replace with function body.
 
 var time_start = OS.get_unix_time()
 
 var rng = RandomNumberGenerator.new()
 func shoot(linear_velocity):
+	
+	print("Enemy count: ")
+	print(enemy_count)
+	print("\n")
+	
+	if enemy_count > 7:
+		pass
+	
+	enemy_count += 1
+		
+		
 	# "Muzzle" is a Position2D placed at the barrel of the gun.
 	rng.randomize()
 	var rand = rng.randf_range(0.0, 1.0)
@@ -30,7 +42,7 @@ func shoot(linear_velocity):
 		if rand < probdistribution[i]:
 			var b = sprites[i].instance()
 			b.position = $Muzzle.position+self.position
-			b.apply_central_impulse(linear_velocity)
+			#b.apply_central_impulse(linear_velocity)
 			get_tree().get_root().add_child(b)
 			break
 
@@ -38,10 +50,10 @@ func _physics_process(delta):
 	if(OS.get_unix_time() - time_start > interval):
 		$AnimatedSprite.animation = "shoot"
 		time_start = OS.get_unix_time()
-		print(rad2deg(rotation))
+		#print(rad2deg(rotation))
 		shoot(shoot_speed*Vector2(-1*cos(rotation),-1*sin(rotation)))
-
-
+		
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

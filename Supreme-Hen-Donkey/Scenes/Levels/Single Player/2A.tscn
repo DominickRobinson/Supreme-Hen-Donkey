@@ -1,0 +1,334 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Single Player/2.A.jpg" type="Texture" id=1]
+[ext_resource path="res://NextScene.gd" type="Script" id=2]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GCS - SHD/Levels/solar system/honkey_planet.png" type="Texture" id=4]
+[ext_resource path="res://GCS - SHD/Levels/solar system/saturn.png" type="Texture" id=5]
+[ext_resource path="res://GCS - SHD/Levels/solar system/jupiter.png" type="Texture" id=6]
+[ext_resource path="res://GCS - SHD/Levels/solar system/neptune.png" type="Texture" id=7]
+[ext_resource path="res://GCS - SHD/Levels/solar system/uranus.png" type="Texture" id=8]
+[ext_resource path="res://GCS - SHD/Levels/solar system/venus.png" type="Texture" id=9]
+[ext_resource path="res://GCS - SHD/Levels/solar system/earth.png" type="Texture" id=10]
+[ext_resource path="res://GCS - SHD/Levels/solar system/mercury.png" type="Texture" id=11]
+[ext_resource path="res://GCS - SHD/Levels/solar system/mars.png" type="Texture" id=12]
+[ext_resource path="res://GCS - SHD/Levels/solar system/sun.png" type="Texture" id=13]
+[ext_resource path="res://GCS - SHD/Levels/solar system/moon.png" type="Texture" id=14]
+[ext_resource path="res://Scenes/GearPlatform.gd" type="Script" id=15]
+[ext_resource path="res://Block Scenes/Rocket.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Prefabs/Camera.tscn" type="PackedScene" id=17]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 412.5, 189 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10798.5, 472.502 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 915.751, 5577.01 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 868.501, 5076.01 )
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 593.021
+
+[sub_resource type="CircleShape2D" id=7]
+radius = 489.148
+
+[node name="Node" type="Node"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 5, 9 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 901, -79 )
+gravity_scale = 0.1
+HORIZONTAL_MAX_SPEED = 800.0
+AIR_ACCELERATION = 20.0
+JUMP_SPEED = 1000.0
+WALL_JUMP_VERTICAL_SPEED = 1200.0
+
+[node name="Death barrier" type="Area2D" parent="."]
+position = Vector2( 826.333, 1252.33 )
+scale = Vector2( 0.333333, 0.333333 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 2 )
+worldScene = "res://Scenes/Levels/Single Player/2A.tscn"
+
+[node name="Barrier1" type="CollisionShape2D" parent="Death barrier"]
+position = Vector2( -1555, 1439.01 )
+scale = Vector2( 39.2343, -1.36354 )
+shape = SubResource( 2 )
+
+[node name="Barrier2" type="CollisionShape2D" parent="Death barrier"]
+position = Vector2( -2113, -9076 )
+shape = SubResource( 3 )
+
+[node name="Barrier3" type="CollisionShape2D" parent="Death barrier"]
+position = Vector2( 6170.01, -3594.99 )
+shape = SubResource( 4 )
+
+[node name="Barrier4" type="CollisionShape2D" parent="Death barrier"]
+position = Vector2( -9941.51, -4098.99 )
+shape = SubResource( 5 )
+
+[node name="Planets" type="Node2D" parent="."]
+
+[node name="Sun" type="KinematicBody2D" parent="Planets"]
+position = Vector2( 131, 72 )
+scale = Vector2( 2, 2 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planets/Sun"]
+position = Vector2( 10, 25 )
+scale = Vector2( 0.2, 0.2 )
+shape = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="Planets/Sun/CollisionShape2D"]
+position = Vector2( -10, 5 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 13 )
+
+[node name="Jupiter" type="KinematicBody2D" parent="Planets/Sun"]
+position = Vector2( -345, 401 )
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 15 )
+ROTATION_SPEED = -1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planets/Sun/Jupiter"]
+position = Vector2( 10, 25 )
+scale = Vector2( 0.2, 0.2 )
+shape = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="Planets/Sun/Jupiter/CollisionShape2D"]
+position = Vector2( -4, 71 )
+scale = Vector2( 18, 18 )
+texture = ExtResource( 6 )
+
+[node name="Mars" type="KinematicBody2D" parent="Planets/Sun"]
+position = Vector2( 337, 312 )
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 15 )
+ROTATION_SPEED = -1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planets/Sun/Mars"]
+position = Vector2( -81, 77 )
+scale = Vector2( 0.2, 0.2 )
+shape = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="Planets/Sun/Mars/CollisionShape2D"]
+position = Vector2( 25, -40 )
+scale = Vector2( 18, 18 )
+texture = ExtResource( 12 )
+
+[node name="Rocket3" parent="Planets/Sun/Mars" instance=ExtResource( 16 )]
+position = Vector2( -40, -209 )
+move_speed = 0
+enabled = true
+
+[node name="Mercury" type="KinematicBody2D" parent="Planets/Sun"]
+position = Vector2( 256.5, -293.5 )
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 15 )
+ROTATION_SPEED = -1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planets/Sun/Mercury"]
+position = Vector2( 56, 36 )
+scale = Vector2( 0.2, 0.2 )
+shape = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="Planets/Sun/Mercury/CollisionShape2D"]
+position = Vector2( 205, 75 )
+scale = Vector2( 18, 18 )
+texture = ExtResource( 11 )
+
+[node name="Neptune" type="KinematicBody2D" parent="Planets/Sun"]
+position = Vector2( 0, 403 )
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 15 )
+ROTATION_SPEED = -1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planets/Sun/Neptune"]
+position = Vector2( 10, 25 )
+scale = Vector2( 0.2, 0.2 )
+shape = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="Planets/Sun/Neptune/CollisionShape2D"]
+position = Vector2( 30, -165 )
+scale = Vector2( 18, 18 )
+texture = ExtResource( 7 )
+
+[node name="Saturn" type="KinematicBody2D" parent="Planets/Sun"]
+position = Vector2( -459.5, -199 )
+scale = Vector2( 0.75, 0.75 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 15 )
+ROTATION_SPEED = -1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planets/Sun/Saturn"]
+position = Vector2( 10, 25 )
+scale = Vector2( 0.2, 0.2 )
+shape = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="Planets/Sun/Saturn/CollisionShape2D"]
+position = Vector2( 35, -105 )
+scale = Vector2( 18, 18 )
+texture = ExtResource( 5 )
+
+[node name="Uranus" type="KinematicBody2D" parent="Planets/Sun"]
+position = Vector2( -268.5, 182.5 )
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 15 )
+ROTATION_SPEED = -1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planets/Sun/Uranus"]
+position = Vector2( 10, 25 )
+scale = Vector2( 0.2, 0.2 )
+shape = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="Planets/Sun/Uranus/CollisionShape2D"]
+position = Vector2( 225, -200 )
+scale = Vector2( 18, 18 )
+texture = ExtResource( 8 )
+
+[node name="Venus" type="KinematicBody2D" parent="Planets/Sun"]
+position = Vector2( -33, -313.5 )
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 15 )
+ROTATION_SPEED = -1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planets/Sun/Venus"]
+position = Vector2( 10, 25 )
+scale = Vector2( 0.2, 0.2 )
+shape = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="Planets/Sun/Venus/CollisionShape2D"]
+position = Vector2( 195, -95 )
+scale = Vector2( 18, 18 )
+texture = ExtResource( 9 )
+
+[node name="HonkeyPlanet" type="KinematicBody2D" parent="Planets/Sun"]
+position = Vector2( -755, 33.5 )
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 15 )
+ROTATION_SPEED = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planets/Sun/HonkeyPlanet"]
+position = Vector2( 10, 25 )
+scale = Vector2( 0.2, 0.2 )
+shape = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="Planets/Sun/HonkeyPlanet/CollisionShape2D"]
+position = Vector2( -4, 71 )
+scale = Vector2( 4.5, 4.5 )
+texture = ExtResource( 4 )
+
+[node name="Rocket" parent="Planets/Sun/HonkeyPlanet" instance=ExtResource( 16 )]
+position = Vector2( 49, -299 )
+move_speed = 0
+radius = 300
+
+[node name="Goal" type="Area2D" parent="Planets/Sun/HonkeyPlanet"]
+position = Vector2( 2579, 467 )
+scale = Vector2( 0.333333, 0.333333 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 2 )
+worldScene = "res://Scenes/BinderFlips/Single Player/2A.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planets/Sun/HonkeyPlanet/Goal"]
+position = Vector2( -7713.01, -1329 )
+shape = SubResource( 7 )
+
+[node name="Earth" type="KinematicBody2D" parent="Planets/Sun"]
+position = Vector2( 392, 16.5 )
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 15 )
+ROTATION_SPEED = -3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planets/Sun/Earth"]
+position = Vector2( 10, 25 )
+scale = Vector2( 0.2, 0.2 )
+shape = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="Planets/Sun/Earth/CollisionShape2D"]
+position = Vector2( -4, 71 )
+scale = Vector2( 18, 18 )
+texture = ExtResource( 10 )
+
+[node name="Moon" type="KinematicBody2D" parent="Planets/Sun/Earth"]
+position = Vector2( 345, 92 )
+scale = Vector2( 0.6, 0.6 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planets/Sun/Earth/Moon"]
+position = Vector2( 10, 25 )
+scale = Vector2( 0.2, 0.2 )
+shape = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="Planets/Sun/Earth/Moon/CollisionShape2D"]
+position = Vector2( 5, -160 )
+scale = Vector2( 18, 18 )
+texture = ExtResource( 14 )
+
+[node name="Goal" type="Area2D" parent="Planets/Sun"]
+position = Vector2( 2579, 467 )
+scale = Vector2( 0.333333, 0.333333 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 2 )
+worldScene = "res://Scenes/Levels/Single Player/2A.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planets/Sun/Goal"]
+position = Vector2( -7713.01, -1329 )
+shape = SubResource( 7 )
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Rocket" parent="Objects" instance=ExtResource( 16 )]
+position = Vector2( -701, 156 )
+move_speed = 500
+enabled = true
+
+[node name="Rocket2" parent="Objects" instance=ExtResource( 16 )]
+position = Vector2( 1644, -743 )
+move_speed = 500
+enabled = true
+
+[node name="Rocket3" parent="Objects" instance=ExtResource( 16 )]
+position = Vector2( 1548, 668 )
+move_speed = 500
+enabled = true
+
+[node name="Rocket4" parent="Objects" instance=ExtResource( 16 )]
+position = Vector2( -1327, 731 )
+move_speed = 500
+enabled = true
+
+[node name="Camera2D" parent="." instance=ExtResource( 17 )]
+position = Vector2( -40.0002, 78 )
