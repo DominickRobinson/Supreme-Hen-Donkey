@@ -8,3 +8,4 @@
 IMAGE = "res://GCS - SHD/SHD-live/SHD_photos/Single Player/F2.0.jpg"
 UNDER_VIDEO = "res://GCS - SHD/SHD-live/SHD_videos/Single Player/FINAL_CUTSCENE.webm"
 UNDER_SCENE = "res://Scenes/BinderFlips/Single Player/20.tscn"
+MUSIC_NUM = 1

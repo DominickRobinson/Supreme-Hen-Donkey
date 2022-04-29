@@ -10,3 +10,4 @@ LEFT_VIDEO = "res://GCS - SHD/SHD-live/SHD_videos/Main Menu/r03-2.webm"
 RIGHT_VIDEO = "res://GCS - SHD/SHD-live/SHD_videos/Main Menu/03-4.webm"
 LEFT_SCENE = "res://Scenes/BinderFlips/Main menu/02.tscn"
 RIGHT_SCENE = "res://Scenes/BinderFlips/Main menu/04.tscn"
+MUSIC_NUM = 1

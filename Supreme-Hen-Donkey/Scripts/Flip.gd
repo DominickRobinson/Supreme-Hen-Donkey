@@ -14,17 +14,20 @@ export(String, FILE, ".tscn") var LEFT_SCENE := ""
 export(String, FILE, ".tscn") var RIGHT_SCENE := ""
 export(String, FILE, ".tscn") var UNDER_SCENE := ""
 
+export var MUSIC_NUM := 0
+
 onready var image = $Image
 onready var video = $Video
 
-
+#var music_player = get_node("res://autoloads/MusicController.tscn")
 
 func _ready():
 	
 	image.texture = load(IMAGE)
 	image.expand = true
 	video.expand = true
-
+	MusicController.play_music(MUSIC_NUM)
+	
 
 func _input(event):
 	

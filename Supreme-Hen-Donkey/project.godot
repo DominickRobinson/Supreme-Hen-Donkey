@@ -39,7 +39,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Globals="*res://Scripts/Globals.gd"
-MusicController="res://autoloads/MusicController.tscn"
+MusicController="*res://autoloads/MusicController.tscn"
 
 [display]
 
