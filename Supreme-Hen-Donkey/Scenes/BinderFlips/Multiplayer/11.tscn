@@ -7,6 +7,6 @@
 [node name="Control" parent="." instance=ExtResource( 1 )]
 IMAGE = "res://GCS - SHD/SHD-live/SHD_photos/Multiplayer/1.1.jpg"
 LEFT_VIDEO = "res://GCS - SHD/SHD-live/SHD_videos/Main Menu/r01-0.webm"
-RIGHT_VIDEO = "res://GCS - SHD/SHD-live/SHD_videos/Main Menu/1.1-2.webm"
+RIGHT_VIDEO = "res://GCS - SHD/SHD-live/SHD_videos/Multiplayer/1.1-2.webm"
 LEFT_SCENE = "res://Scenes/BinderFlips/Main menu/00.tscn"
 RIGHT_SCENE = "res://Scenes/BinderFlips/Multiplayer/12.tscn"
