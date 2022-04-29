@@ -106,7 +106,6 @@ worldScene = "res://Scenes/BinderFlips/Single Player/22.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
 position = Vector2( -2847, 1809 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
 [node name="Death barrier" type="Area2D" parent="."]
