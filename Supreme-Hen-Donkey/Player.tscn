@@ -201,7 +201,7 @@ smoothing_enabled = true
 scale = Vector2( 0.125, 0.125 )
 frames = SubResource( 7 )
 animation = "Victory"
-frame = 12
+frame = 11
 playing = true
 
 [node name="FinishTimer" type="Timer" parent="."]
