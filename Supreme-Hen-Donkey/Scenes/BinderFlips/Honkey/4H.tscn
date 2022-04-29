@@ -5,8 +5,7 @@
 [node name="Node" type="Node"]
 
 [node name="Control" parent="." instance=ExtResource( 1 )]
-IMAGE = "res://GCS - SHD/SHD-live/SHD_photos/Single Player/2.1.jpg"
-RIGHT_VIDEO = "res://GCS - SHD/SHD-live/SHD_videos/Single Player/2.1-2.webm"
-LEFT_SCENE = "res://Scenes/BinderFlips/Single Player/20.tscn"
+RIGHT_VIDEO = "res://GCS - SHD/SHD-live/SHD_videos/Single Player/2.H-0.webm"
+LEFT_SCENE = "res://Scenes/BinderFlips/Single Player/2A.tscn"
 RIGHT_SCENE = "res://Scenes/BinderFlips/Single Player/22.tscn"
 UNDER_SCENE = "res://Scenes/Levels/Single Player/21.tscn"

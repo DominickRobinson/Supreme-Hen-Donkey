@@ -45,7 +45,7 @@ scale = Vector2( 0.333333, 0.333333 )
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 2 )
-worldScene = "res://Scenes/BinderFlips/Single Player/22.tscn"
+worldScene = "res://Scenes/BinderFlips/Single Player/25.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
 position = Vector2( 2046.85, -3957 )

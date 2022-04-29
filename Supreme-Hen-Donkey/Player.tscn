@@ -87,11 +87,6 @@ animations = [ {
 "name": "Idle",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 54 ), ExtResource( 55 ), ExtResource( 59 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 61 ), ExtResource( 60 ), ExtResource( 58 ), ExtResource( 57 ), ExtResource( 59 ), ExtResource( 55 ), ExtResource( 54 ) ],
-"loop": true,
-"name": "Victory",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
 "loop": true,
 "name": "SlidingWall",
@@ -102,24 +97,29 @@ animations = [ {
 "name": "Falling",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 32 ) ],
+"frames": [ ExtResource( 54 ), ExtResource( 55 ), ExtResource( 59 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 61 ), ExtResource( 60 ), ExtResource( 58 ), ExtResource( 57 ), ExtResource( 59 ), ExtResource( 55 ), ExtResource( 54 ) ],
 "loop": true,
-"name": "SlidingFloor",
-"speed": 15.0
+"name": "Victory",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "Running",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 15 ), ExtResource( 20 ), ExtResource( 23 ) ],
+"frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 32 ) ],
 "loop": true,
-"name": "Jumping",
+"name": "SlidingFloor",
 "speed": 15.0
 }, {
 "frames": [ ExtResource( 56 ), ExtResource( 47 ), ExtResource( 35 ), ExtResource( 22 ), ExtResource( 36 ), ExtResource( 18 ), ExtResource( 41 ), ExtResource( 37 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 17 ), ExtResource( 40 ), ExtResource( 33 ), ExtResource( 38 ), ExtResource( 34 ), ExtResource( 42 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 43 ), ExtResource( 39 ), ExtResource( 21 ), ExtResource( 44 ) ],
 "loop": true,
 "name": "Death",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 15 ), ExtResource( 20 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "Jumping",
 "speed": 15.0
 } ]
 
@@ -201,7 +201,7 @@ smoothing_enabled = true
 scale = Vector2( 0.125, 0.125 )
 frames = SubResource( 7 )
 animation = "Victory"
-frame = 10
+frame = 4
 playing = true
 
 [node name="FinishTimer" type="Timer" parent="."]
