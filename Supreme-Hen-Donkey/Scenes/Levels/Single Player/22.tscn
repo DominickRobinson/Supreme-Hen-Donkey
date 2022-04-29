@@ -31,7 +31,7 @@ scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 519, 1067 )
+position = Vector2( 521, 1103 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 2, 61 )
@@ -73,7 +73,7 @@ position = Vector2( 849, 24 )
 scale = Vector2( 2.95526, 5.84121 )
 
 [node name="MovingPlatform2" parent="Objects" instance=ExtResource( 5 )]
-position = Vector2( 1338, -936 )
+position = Vector2( 1202, -951 )
 TRAVEL_DISTANCE = 250.0
 
 [node name="Spikes" parent="Objects" instance=ExtResource( 7 )]
