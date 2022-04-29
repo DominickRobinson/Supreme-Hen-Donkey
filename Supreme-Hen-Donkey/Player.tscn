@@ -87,6 +87,16 @@ animations = [ {
 "name": "SlidingWall",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
+"loop": true,
+"name": "SlidingWall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 32 ) ],
+"loop": true,
+"name": "SlidingFloor",
+"speed": 15.0
+}, {
 "frames": [ ExtResource( 56 ), ExtResource( 47 ), ExtResource( 35 ), ExtResource( 22 ), ExtResource( 36 ), ExtResource( 18 ), ExtResource( 41 ), ExtResource( 37 ), ExtResource( 16 ), ExtResource( 19 ), ExtResource( 17 ), ExtResource( 40 ), ExtResource( 33 ), ExtResource( 38 ), ExtResource( 34 ), ExtResource( 42 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 43 ), ExtResource( 39 ), ExtResource( 21 ), ExtResource( 44 ) ],
 "loop": true,
 "name": "Death",
@@ -97,6 +107,7 @@ animations = [ {
 "name": "Running",
 "speed": 15.0
 }, {
+
 "frames": [ ExtResource( 49 ), ExtResource( 50 ), ExtResource( 48 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ) ],
 "loop": true,
 "name": "Falling",
@@ -113,9 +124,10 @@ animations = [ {
 "speed": 15.0
 }, {
 "frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 32 ) ],
+
 "loop": true,
-"name": "SlidingFloor",
-"speed": 15.0
+"name": "Victory",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,

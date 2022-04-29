@@ -11,7 +11,7 @@ var enabled := true
 onready var dragCollider = $CollisionShape2D
 
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 func _process(delta):

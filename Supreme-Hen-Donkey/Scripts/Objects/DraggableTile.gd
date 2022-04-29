@@ -2,15 +2,23 @@ extends Area2D
 class_name DraggableTile
 
 const blockBuffer := 3
+const rotateSteps := 16
 var blockBufferPx
 
 var mouseOffset
+
+var insideBank := true
+
 var following := false
 var canDrag := false
+
 var canPlace := true
+var placed := false
+
 var collision
 var startPos: Vector2
 var draggedChild
+var rotatedBy := 0
 
 var childResourcePath = "res://Prefabs/Block.tscn"
 var childResourceScaling := 1.0
@@ -37,6 +45,10 @@ func _ready():
 	
 	collision.visible = true
 	
+	# Hen is weird
+	if draggedChild.name == 'HenFly':
+		draggedChild.position = Vector2.ZERO
+	
 	# Editor dragging
 	mouseOffset = tileMap.cell_size / 2
 	blockBufferPx = blockBuffer * tileMap.cell_size[0]
@@ -61,13 +73,21 @@ func _physics_process(delta):
 
 
 func _input_event(viewport, event, shape_idx):
+	# Clicking events only occur if placed
 	if !canPlace:
 		return
 		
 	# Start dragging when clicked on
 	if event.is_action_pressed("click"):
 		if event.is_pressed() && canDrag:
+			var bv = Globals.GM.builderView
+			insideBank = false
 			following = true
+			bv.clearTiles()
+			bv.draggingTile = true
+			if bv.wasRigid:
+				draggedChild.mode = RigidBody2D.MODE_RIGID
+				bv.wasRigid = false
 			pickupTile()
 			
 
@@ -76,7 +96,14 @@ func _input(event):
 	if event.is_action_released("click"):
 		if following:
 			following = false
-			placeTile()
+			Globals.GM.builderView.draggingTile = false
+			placed = true
+	
+	if following:
+		if event.is_action_released('wheel_down'):
+			rotate(-1)
+		elif event.is_action_released('wheel_up'):
+			rotate(+1)
 
 
 # Update position to snap to grid
@@ -86,16 +113,33 @@ func followMouse():
 		(newPos.distance_to(endBlock.position) > blockBufferPx):
 		position = newPos
 		position += mouseOffset
+	
+	# Try to get something to erase
+	if draggedChild is Eraser:
+		var newToErase = []
+		for body in get_overlapping_bodies():
+			while true:
+				if (body.name != 'Eraser') and (body.name in Globals.GM.builderView.erasableTileNames):
+					newToErase.append(body)
+					newToErase.append(body.get_parent())
+					body.modulate.a = 0.3
+					break
+
+				body = body.get_parent()
+				if body == get_tree().current_scene:
+					break
+		
+		# Check what we're not over any longer and make visible
+		for body in draggedChild.toErase:
+			if not (body in newToErase):
+				body.modulate.a = 1
+		
+		draggedChild.toErase = newToErase
 
 
 func pickupTile():
 	Globals.GM.changeParentage(self)
 #	draggedChild.remove_child(collision)
-
-
-# Places tile at current location
-func placeTile():
-	pass
 
 
 # Gets the collidable node, that we drag
@@ -120,25 +164,35 @@ func _on_switchPlayer(player):
 
 
 func switchModePlaying():
-	collision.position = Vector2.ZERO
-	remove_child(collision)
+	# Erase if possible
+	if draggedChild is Eraser:
+		draggedChild.erase()
+		queue_free()
 	
-	var oldPos = position
-	Globals.GM.changeParentage(draggedChild)
-	draggedChild.position = oldPos
+	if placed:
+		collision.position = Vector2.ZERO
+		remove_child(collision)
+		
+		var oldPos = position
+		Globals.GM.changeParentage(draggedChild)
+		draggedChild.position = oldPos
+		draggedChild.rotation += rotation
+		
+		draggedChild.enabled = true
+		draggedChild.set_physics_process(true)
+		draggedChild.set_process(true)
+		
+		if draggedChild is RigidBody2D:
+			draggedChild.gravity_scale = 1
+			for bit in [0, 1]:
+				draggedChild.set_collision_layer_bit(bit, true)
+				draggedChild.set_collision_mask_bit(bit, true)
+		
+		canDrag = false
+		canPlace = false
 	
-	draggedChild.enabled = true
-	draggedChild.set_physics_process(true)
-	draggedChild.set_process(true)
-	
-	if draggedChild is RigidBody2D:
-		draggedChild.gravity_scale = 1
-		for bit in [0, 1]:
-			draggedChild.set_collision_layer_bit(bit, true)
-			draggedChild.set_collision_mask_bit(bit, true)
-	
-	canDrag = false
-	canPlace = false
+	else:
+		queue_free()
 
 
 func switchModeBuilding():
@@ -163,3 +217,17 @@ func switchModeBuilding():
 	draggedChild.set_process(false)
 	
 	canDrag = true
+
+
+# Rotates by the number of steps
+func rotate(steps):
+	rotatedBy = (rotatedBy + steps) % rotateSteps
+	
+	rotation = rotatedBy * 2*PI/rotateSteps
+
+
+
+
+
+
+

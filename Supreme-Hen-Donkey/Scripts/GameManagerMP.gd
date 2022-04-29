@@ -20,7 +20,6 @@ onready var startBlock = get_node(startBlockNP)
 export(NodePath) var endBlockNP: NodePath
 onready var endBlock = get_node(endBlockNP)
 
-
 signal switchMode(mode)
 signal switchPlayer(player)
 
@@ -113,7 +112,7 @@ func switchMode():
 
 func switchModePlaying():
 	currMode = Globals.Modes.PLAYING
-	changeEnabled(player, true)
+	# Player is re-enabled after sticky note hides itself
 	changeEnabled(builderView, false)
 	emit_signal('switchMode', Globals.Modes.PLAYING)
 
