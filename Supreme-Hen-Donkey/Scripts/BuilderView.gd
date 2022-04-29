@@ -7,6 +7,7 @@ const draggableTile = preload("res://Prefabs/DraggableTile.tscn")
 
 export(Array, String, FILE) var possibleTiles
 export(Array, float) var tileScalings
+export(Array, float) var tileWeights
 
 export var VELOCITY := 800.0
 
@@ -17,7 +18,7 @@ var startPos: Vector2
 var resetPosNextFrame := false
 var draggingTile := false
 var wasRigid := false
-
+var totalTileWeights := 0
 
 func _ready():
 	var buffer = 150
@@ -33,6 +34,9 @@ func _ready():
 	startPos = limits.position + 0.5*limits.size
 	maxZoom = getMaxZoom()
 	
+	# Get loot table
+	totalTileWeights = sum_array(tileWeights)
+	
 	resetPosition()
 	respawnDraggables()
 	
@@ -43,6 +47,13 @@ func _ready():
 	# Signals
 	Globals.GM.connect("switchMode", self, "_on_GameManager_switchMode")
 	Globals.GM.connect("switchPlayer", self, "_on_GameManager_switchPlayer")
+
+
+static func sum_array(array):
+	var sum = 0.0
+	for element in array:
+		 sum += element
+	return sum
 
 
 func getMaxZoom():
@@ -130,7 +141,15 @@ func respawnDraggables():
 	
 	# Get random dragTileObj to place inside the tile
 	if possibleTiles.size() > 0:
-		var i = Globals.rng.randi() % possibleTiles.size()
+		var amountBy = (Globals.rng.randi() / 4294967295.0) * totalTileWeights
+		var i = 0
+		for j in range(possibleTiles.size()):
+			if amountBy <= tileWeights[j]:
+				i = j
+				break
+			amountBy -= tileWeights[j]
+		
+#		var i = Globals.rng.randi() % possibleTiles.size()
 #		if Globals.rng.randi() % 2 == 0:
 #			i = -1
 		dragTileObj.init(possibleTiles[i], tileScalings[i], Globals.GM.startBlock, Globals.GM.endBlock)
