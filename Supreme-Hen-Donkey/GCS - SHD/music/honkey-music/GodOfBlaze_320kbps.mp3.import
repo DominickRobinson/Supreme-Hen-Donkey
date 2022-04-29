@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GodOfBlaze_320kbps.mp3-430a2644c5bafd31686f119d5ed89767.mp3str"
+
+[deps]
+
+source_file="res://GCS - SHD/music/honkey-music/GodOfBlaze_320kbps.mp3"
+dest_files=[ "res://.import/GodOfBlaze_320kbps.mp3-430a2644c5bafd31686f119d5ed89767.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

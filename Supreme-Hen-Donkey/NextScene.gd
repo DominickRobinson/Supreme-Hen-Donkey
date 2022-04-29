@@ -13,3 +13,7 @@ func _process(_delta):
 		if body is Player:
 			get_tree().change_scene(worldScene)
 			
+func _input(event):
+	if event.is_action_pressed("reset_level"):
+		get_tree().change_scene(get_tree().current_scene.filename)
+			

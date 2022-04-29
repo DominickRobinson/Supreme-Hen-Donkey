@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/FASTER-TEMPO-2020-07-05_-_Dragon_Boss_Fight_-_David_Fesliyan.mp3-00eab48edf93cfe3cde633ee47f20ce7.mp3str"
+
+[deps]
+
+source_file="res://GCS - SHD/music/honkey-music/FASTER-TEMPO-2020-07-05_-_Dragon_Boss_Fight_-_David_Fesliyan.mp3"
+dest_files=[ "res://.import/FASTER-TEMPO-2020-07-05_-_Dragon_Boss_Fight_-_David_Fesliyan.mp3-00eab48edf93cfe3cde633ee47f20ce7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
