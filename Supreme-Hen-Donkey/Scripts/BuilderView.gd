@@ -16,6 +16,7 @@ var maxZoom: float
 var startPos: Vector2
 var resetPosNextFrame := false
 var draggingTile := false
+var wasRigid := false
 
 
 func _ready():
@@ -68,6 +69,14 @@ func _physics_process(_delta: float):
 	# Within y bounds, move
 	if (y < 0 && limits.position.y < position.y) || (y > 0 && position.y < limits.end.y):
 		 linear_velocity.y = y*velocity
+	
+	# Force rigid bodies to keep up
+	if (linear_velocity != Vector2.ZERO):
+		for child in get_children():
+			if (child is DraggableTile) and (child.draggedChild is RigidBody2D):
+				child.draggedChild.mode = RigidBody2D.MODE_KINEMATIC
+				child.draggedChild.position = Vector2.ZERO
+				wasRigid = true
 
 
 func _integrate_forces(state):
@@ -103,6 +112,7 @@ func _on_GameManager_switchPlayer(player):
 # Resets position on switch mode
 func _on_GameManager_switchMode(mode):
 	resetPosition()
+	wasRigid = false
 
 
 # Centers and zooms out as much as possible
@@ -121,8 +131,8 @@ func respawnDraggables():
 	# Get random dragTileObj to place inside the tile
 	if possibleTiles.size() > 0:
 		var i = Globals.rng.randi() % possibleTiles.size()
-		if Globals.rng.randi() % 2 == 0:
-			i = -1
+#		if Globals.rng.randi() % 2 == 0:
+#			i = -1
 		dragTileObj.init(possibleTiles[i], tileScalings[i], Globals.GM.startBlock, Globals.GM.endBlock)
 	
 	# Add to the world

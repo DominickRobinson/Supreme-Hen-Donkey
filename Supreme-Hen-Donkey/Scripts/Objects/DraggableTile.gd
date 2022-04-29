@@ -40,6 +40,10 @@ func _ready():
 	
 	collision.visible = true
 	
+	# Hen is weird
+	if draggedChild.name == 'HenFly':
+		draggedChild.position = Vector2.ZERO
+	
 	# Editor dragging
 	mouseOffset = tileMap.cell_size / 2
 	blockBufferPx = blockBuffer * tileMap.cell_size[0]
@@ -71,7 +75,11 @@ func _input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("click"):
 		if event.is_pressed() && canDrag:
 			following = true
-			Globals.GM.builderView.draggingTile = true
+			var bv = Globals.GM.builderView
+			bv.draggingTile = true
+			if bv.wasRigid:
+				draggedChild.mode = RigidBody2D.MODE_RIGID
+				bv.wasRigid = false
 			pickupTile()
 			
 
