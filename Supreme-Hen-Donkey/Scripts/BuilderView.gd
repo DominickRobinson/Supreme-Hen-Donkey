@@ -7,7 +7,7 @@ const draggableTile = preload("res://Prefabs/DraggableTile.tscn")
 
 export(Array, String, FILE) var possibleTiles
 export(Array, float) var tileScalings
-var tileWeights = [1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1, 0.25, 0.25, 0.5, 2]
+var tileWeights = [1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1, 0.25, 0.25, 0.5, 0.25, 2]
 
 export var VELOCITY := 800.0
 
@@ -161,6 +161,7 @@ func respawnDraggables():
 #			var i = Globals.rng.randi() % possibleTiles.size()
 #			if Globals.rng.randi() % 2 == 0:
 #				i = -1
+			print(i)
 			dragTileObj.init(possibleTiles[i], tileScalings[i], Globals.GM.startBlock, Globals.GM.endBlock)
 		
 		# Add to the world
