@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Rocket.gd" type="Script" id=1]
 [ext_resource path="res://GCS - SHD/Blocks/Rocket.png" type="Texture" id=2]
 [ext_resource path="res://GCS - SHD/Blocks/Flame pillar/Fire-4.png" type="Texture" id=3]
 [ext_resource path="res://GCS - SHD/Blocks/Flame pillar/Fire-5.png" type="Texture" id=4]
 [ext_resource path="res://GCS - SHD/Blocks/Flame pillar/Fire-3.png" type="Texture" id=5]
+[ext_resource path="res://Block Scenes/DeadlyObject.gd" type="Script" id=6]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -13,6 +14,10 @@ animations = [ {
 "name": "Zooming",
 "speed": 20.0
 } ]
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 26.0
+height = 74.0
 
 [node name="Rocket" type="KinematicBody2D"]
 collision_layer = 3
@@ -35,3 +40,13 @@ texture = ExtResource( 2 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( -111, 2 )
 polygon = PoolVector2Array( 13, -41, 39, -49, -5, -73, -5, -94, 69, -96, 127, -68, 186, -43, 235, -3, 187, 39, 127, 54, 75, 83, -2, 81, -5, 60, 33, 43, 6, 29, -11, 0 )
+
+[node name="Flame" type="Node2D" parent="."]
+script = ExtResource( 6 )
+
+[node name="DeadlyPart" type="Area2D" parent="Flame"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flame/DeadlyPart"]
+position = Vector2( -156, -2 )
+rotation = 1.5708
+shape = SubResource( 3 )

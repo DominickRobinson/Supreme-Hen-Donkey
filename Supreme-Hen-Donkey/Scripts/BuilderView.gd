@@ -74,6 +74,7 @@ func _physics_process(_delta: float):
 	var y := Input.get_action_strength("down") - Input.get_action_strength("up")
 	
 	var velocity = VELOCITY*$BuilderViewCam.zoom.x
+	#var velocity = VELOCITY*$BuilderViewCam.zoom.x + VELOCITY*$BuilderViewCam.zoom.y
 	linear_velocity = Vector2.ZERO
 	
 	linear_velocity.x = x*velocity

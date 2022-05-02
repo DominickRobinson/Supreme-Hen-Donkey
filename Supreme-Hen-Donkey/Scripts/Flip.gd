@@ -4,6 +4,8 @@ extends ColorRect
 var next_scene
 var next_video
 
+export var TURN_CURR_MUSIC_OFF := false
+
 export(String, FILE, ".jpg") var IMAGE := ""
 
 export(String, FILE, ".webm") var LEFT_VIDEO := ""
@@ -26,12 +28,20 @@ func _ready():
 	image.texture = load(IMAGE)
 	image.expand = true
 	video.expand = true
-	MusicController.play_music(MUSIC_NUM)
 	
-
+	if TURN_CURR_MUSIC_OFF:
+		print("should turn off music\n")
+		MusicController.turn_off()
+	else:
+		MusicController.play_music(MUSIC_NUM)
+ 
 func _input(event):
 	
-	if event.is_action_pressed("right") and RIGHT_SCENE != "":	
+	if video.is_playing() and event.is_action_pressed("skip_video"):
+		print("should skip video")
+		_on_Video_finished()
+	
+	elif event.is_action_pressed("right") and RIGHT_SCENE != "":	
 		flip("r")
 		
 	elif event.is_action_pressed("left") and LEFT_SCENE != "":
@@ -43,7 +53,6 @@ func _input(event):
 	elif event.is_action_pressed("ui_home"):
 		print("exit")
 		get_tree().change_scene("res://Scenes/BinderFlips/Main menu/00.tscn")
-
 
 func flip(dir):
 

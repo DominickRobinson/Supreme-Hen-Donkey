@@ -4,7 +4,7 @@ class_name Player
 # The `export` keyword tells Godot to show this variable in the Inspector
 export var HORIZONTAL_MAX_SPEED := 650.0
 export var FLOOR_ACCELERATION := 27.0
-export var AIR_ACCELERATION := 15.0
+export var AIR_ACCELERATION := 18.0
 export var JUMP_SPEED := 600.0
 export var WALL_JUMP_VERTICAL_SPEED := 650.0
 export var WALL_JUMP_HORIZONTAL_SPEED := 250.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Block Scenes/BasicBlock.tscn" type="PackedScene" id=2]
@@ -8,6 +8,10 @@
 [ext_resource path="res://Block Scenes/Spikes.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Block Scenes/Trampoline.tscn" type="PackedScene" id=7]
 [ext_resource path="res://GCS - SHD/screens/lined-notebook-paper.jpg" type="Texture" id=8]
+[ext_resource path="res://NextScene.gd" type="Script" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1936.5, 186 )
 
 [node name="BlockDemo" type="Node2D"]
 
@@ -46,8 +50,8 @@ position = Vector2( -631, -229 )
 scale = Vector2( 2.46267, 2.03285 )
 
 [node name="BasicBlock5" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1271, 489 )
-scale = Vector2( 2.97957, -2.13775 )
+position = Vector2( 1312, 491 )
+scale = Vector2( 3.74846, -2.49726 )
 
 [node name="BasicBlock6" parent="." instance=ExtResource( 2 )]
 position = Vector2( -166, 500 )
@@ -87,3 +91,16 @@ worldScene = "BlockDemo.tscn"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -624, -361 )
+
+[node name="Goal" type="Area2D" parent="."]
+position = Vector2( 1370, 1134 )
+scale = Vector2( 0.0919951, 0.347019 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 9 )
+worldScene = "res://Scenes/Levels/0-0.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+position = Vector2( 474.001, -1026 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 1 )

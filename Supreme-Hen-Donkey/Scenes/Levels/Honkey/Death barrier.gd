@@ -1,19 +1,18 @@
-extends Node2D
+extends Area2D
 
-export(String, FILE, ".tscn") var worldScene
 
-var enabled := true
-onready var dragCollider = $DragCollider
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
 
-export var FLAME_DEADLY := false
 
 # Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
 func _process(delta):
-	
-	if not FLAME_DEADLY:
-		return
-	
-	var bodies = $DeadlyPart.get_overlapping_bodies()
+	var bodies = get_overlapping_bodies()
 	for body in bodies:
 		if body.name == "Player":
 			if Globals.GM is GameManagerMP:
@@ -21,3 +20,7 @@ func _process(delta):
 			else:
 				#get_tree().change_scene(worldScene)
 				get_tree().change_scene(get_tree().current_scene.filename)
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass

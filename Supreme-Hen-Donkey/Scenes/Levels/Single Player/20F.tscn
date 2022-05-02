@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://NextScene.gd" type="Script" id=1]
 [ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Single Player/F2.0.jpg" type="Texture" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Prefabs/Camera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Block Scenes/DeadlyObject.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 604.125, 186 )
+extents = Vector2( 1936.5, 186 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 412.5, 189 )
@@ -55,7 +56,8 @@ script = ExtResource( 1 )
 worldScene = "res://Scenes/BinderFlips/Single Player/Final play scene.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
-position = Vector2( 1198.88, -1320 )
+position = Vector2( 474.001, -1026 )
+scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
 [node name="Death barrier" type="Area2D" parent="."]
@@ -63,8 +65,7 @@ position = Vector2( 826.333, 1252.33 )
 scale = Vector2( 0.333333, 0.333333 )
 collision_layer = 3
 collision_mask = 3
-script = ExtResource( 1 )
-worldScene = "res://Scenes/Levels/Single Player/1-0.tscn"
+script = ExtResource( 5 )
 
 [node name="Barrier1" type="CollisionShape2D" parent="Death barrier"]
 position = Vector2( -1618, 995.011 )
@@ -85,3 +86,18 @@ shape = SubResource( 5 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 4 )]
 position = Vector2( -376, -23 )
+
+[node name="ObjectsEnemies" type="Node2D" parent="."]
+
+[node name="Easter egg" type="Area2D" parent="."]
+position = Vector2( 1503, 485 )
+scale = Vector2( 0.064301, 0.310701 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 1 )
+worldScene = "res://Scenes/Levels/BlockDemo.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Easter egg"]
+position = Vector2( 474.001, -1026 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 1 )

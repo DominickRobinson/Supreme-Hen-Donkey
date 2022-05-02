@@ -5,6 +5,7 @@
 [node name="Node" type="Node"]
 
 [node name="Control" parent="." instance=ExtResource( 1 )]
+TURN_CURR_MUSIC_OFF = true
 IMAGE = "res://GCS - SHD/SHD-live/SHD_photos/Single Player/2.H.jpg"
 RIGHT_VIDEO = "res://GCS - SHD/SHD-live/SHD_videos/Single Player/2.H-0.webm"
 RIGHT_SCENE = "res://Scenes/Levels/Single Player/20F.tscn"

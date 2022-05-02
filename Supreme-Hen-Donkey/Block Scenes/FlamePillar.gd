@@ -15,8 +15,8 @@ func _on_DeadlyPart_body_entered(body):
 	if body is Player and !body.dead:
 		if Globals.GM is GameManagerMP:
 			Globals.GM.die()
-		get_tree().change_scene(worldScene) # Replace with function body.
-
+		#get_tree().change_scene(worldScene) # Replace with function body.
+		get_tree().change_scene(get_tree().current_scene.filename)
 
 func _on_Timer_timeout():
 	if (is_on):

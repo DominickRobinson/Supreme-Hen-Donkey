@@ -13,6 +13,8 @@ func _ready():
 
 func play_music(num):
 	
+	$Music.stream_paused = false
+	
 	if num != curr_num:
 	
 		if num == 0:
@@ -47,6 +49,7 @@ func play_boss():
 	
 func turn_off():
 	$Music.stop()
+	$Music.stream_paused = true
 	
 func _on_Music_finished():
 	$Music.play()
