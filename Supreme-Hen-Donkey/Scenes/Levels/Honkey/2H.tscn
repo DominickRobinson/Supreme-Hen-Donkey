@@ -30,9 +30,6 @@ position = Vector2( -221, -360 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( -1016, -81 )
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 2, 61 )
 collision_layer = 3
@@ -40,7 +37,7 @@ collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2( -1633, 139 )
-polygon = PoolVector2Array( 2398, -175, 2453, -269, 2510, -283, 2565, -394, 2614, -414, 2647, -553, 2683, -560, 2712, -611, 2972, -659, 3097, -1196, 3265, -1202, 3352, -1142, 3406, 451, -63, 454, -101, 45 )
+polygon = PoolVector2Array( 2398, -175, 2453, -269, 2510, -283, 2565, -394, 2614, -414, 2647, -553, 2683, -560, 2712, -611, 2972, -659, 3097, -1196, 3265, -1202, 3352, -1142, 3406, 451, -90, 891, -101, 45 )
 
 [node name="Goal" type="Area2D" parent="."]
 position = Vector2( 964, 242 )
@@ -52,7 +49,6 @@ worldScene = "res://Scenes/BinderFlips/Single Player/20F.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
 position = Vector2( 672.001, -2115 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
 [node name="Death barrier" type="Area2D" parent="."]
@@ -79,14 +75,17 @@ shape = SubResource( 4 )
 position = Vector2( -9991.01, -4167.99 )
 shape = SubResource( 5 )
 
+[node name="Honkey" parent="." instance=ExtResource( 5 )]
+position = Vector2( 446, -319 )
+mass = 8.33333
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( -1016, -81 )
+
 [node name="Mask" type="Sprite" parent="."]
 position = Vector2( -409.813, 179.5 )
 scale = Vector2( 3.7805, 3.88352 )
 texture = ExtResource( 4 )
-
-[node name="Honkey" parent="." instance=ExtResource( 5 )]
-position = Vector2( 446, -319 )
-mass = 8.33333
 
 [node name="Camera2D" parent="." instance=ExtResource( 6 )]
 position = Vector2( -44, -280 )

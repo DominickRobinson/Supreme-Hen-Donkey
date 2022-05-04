@@ -40,8 +40,18 @@ func _input(event):
 	if video.is_playing() and event.is_action_pressed("skip_video"):
 		print("should skip video")
 		_on_Video_finished()
+		
+	if video.is_playing():
+		
+		if next_scene == RIGHT_SCENE and event.is_action_pressed("right"):
+			_on_Video_finished()
+		elif next_scene == LEFT_SCENE and event.is_action_pressed("left"):
+			_on_Video_finished()	
+		elif next_scene == UNDER_SCENE and event.is_action_pressed("jump"):
+			_on_Video_finished()
+		
 	
-	elif event.is_action_pressed("right") and RIGHT_SCENE != "":	
+	if event.is_action_pressed("right") and RIGHT_SCENE != "":	
 		flip("r")
 		
 	elif event.is_action_pressed("left") and LEFT_SCENE != "":

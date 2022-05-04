@@ -2,6 +2,7 @@
 extends RigidBody2D
 export var interval := 1
 export var shoot_speed := 100
+export var max_enemies := 10
 
 var Chicken = preload("res://Enemy Scenes/Chicken.tscn")
 var DonkeyKick = preload("res://Enemy Scenes/DonkeyKick.tscn")
@@ -29,8 +30,8 @@ func shoot(linear_velocity):
 	print(enemy_count)
 	print("\n")
 	
-	if enemy_count > 7:
-		pass
+	if enemy_count > max_enemies:
+		return
 	
 	enemy_count += 1
 		
@@ -47,7 +48,7 @@ func shoot(linear_velocity):
 			break
 
 func _physics_process(delta):
-	if(OS.get_unix_time() - time_start > interval):
+	if(OS.get_unix_time() - time_start > 0.1 * interval):
 		$AnimatedSprite.animation = "shoot"
 		time_start = OS.get_unix_time()
 		#print(rad2deg(rotation))
