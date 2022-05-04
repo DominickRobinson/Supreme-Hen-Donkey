@@ -40,7 +40,7 @@ var undo_element_list_num = -1
 
 # The current brush settings: The mode, size, color, and shape we have currently selected.
 var brush_mode = BrushModes.PENCIL
-var brush_size = 32
+var brush_size = 10
 var brush_color = Color.black
 var brush_shape = BrushShapes.CIRCLE;
 

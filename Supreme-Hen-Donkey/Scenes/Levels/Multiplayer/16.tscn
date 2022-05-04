@@ -33,10 +33,8 @@ layer = 0
 [node name="UI" parent="CanvasLayer" instance=ExtResource( 7 )]
 
 [node name="TileMap" type="TileMap" parent="."]
+position = Vector2( -46, -38 )
 format = 1
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Node2D" type="Node2D" parent="TileMap"]
 position = Vector2( 1461.25, 622.25 )
@@ -53,7 +51,7 @@ scale = Vector2( 1.70671, 1.58183 )
 
 [node name="EndBlock" parent="." instance=ExtResource( 6 )]
 visible = false
-position = Vector2( 1330, 1202 )
+position = Vector2( 1335, 1217 )
 scale = Vector2( 1.26492, 1.3027 )
 
 [node name="Death" type="Position2D" parent="."]
@@ -61,7 +59,7 @@ position = Vector2( 768.25, 1337.25 )
 
 [node name="BuilderView" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1794.25, 549.25 )
-possibleTiles = [ "res://Prefabs/Block.tscn", "res://Prefabs/GearPlatform.tscn", "res://Prefabs/MovingPlatform.tscn", "res://Block Scenes/FallingBlock.tscn", "res://Block Scenes/FlamePillar.tscn", "res://Block Scenes/IceBlock.tscn", "res://Block Scenes/Spikes.tscn", "res://Block Scenes/Trampoline.tscn", "res://Enemy Scenes/HenFly.tscn", "res://Enemy Scenes/DonkeyKick.tscn", "res://Enemy Scenes/DonkeyCharge.tscn", "res://Block Scenes/Rocket.tscn" ]
+possibleTiles = [ "res://Block Scenes/BasicBlock.tscn", "res://Prefabs/GearPlatform.tscn", "res://Prefabs/MovingPlatform.tscn", "res://Block Scenes/FallingBlock.tscn", "res://Block Scenes/FlamePillar.tscn", "res://Block Scenes/IceBlock.tscn", "res://Block Scenes/Spikes.tscn", "res://Block Scenes/Trampoline.tscn", "res://Enemy Scenes/HenFly.tscn", "res://Enemy Scenes/DonkeyKick.tscn", "res://Enemy Scenes/DonkeyCharge.tscn", "res://Block Scenes/Rocket.tscn" ]
 tileScalings = [ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.5, 1.0, 1.0, 1.0, 1.0, 1.0 ]
 
 [node name="Area2D" type="StaticBody2D" parent="."]

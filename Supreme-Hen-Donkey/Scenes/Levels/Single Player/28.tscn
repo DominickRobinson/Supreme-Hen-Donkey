@@ -98,10 +98,10 @@ shape = SubResource( 5 )
 position = Vector2( 2012, -371 )
 
 [node name="GearPlatform2" parent="Objects" instance=ExtResource( 4 )]
-position = Vector2( 714, -32 )
+position = Vector2( 807, -7 )
 
 [node name="GearPlatform3" parent="Objects" instance=ExtResource( 4 )]
-position = Vector2( 933, -351 )
+position = Vector2( 933, -355 )
 
 [node name="GearPlatform4" parent="Objects" instance=ExtResource( 4 )]
 position = Vector2( 1380, -383 )
@@ -129,19 +129,19 @@ rotation = 1.5708
 scale = Vector2( 15.8019, 1.02786 )
 
 [node name="Spikes" parent="Objects" instance=ExtResource( 6 )]
-position = Vector2( 884, 166 )
+position = Vector2( 871, 208 )
 
 [node name="Spikes2" parent="Objects" instance=ExtResource( 6 )]
-position = Vector2( 1218, 166 )
+position = Vector2( 1213, 206 )
 
 [node name="Spikes3" parent="Objects" instance=ExtResource( 6 )]
-position = Vector2( 1556, 164 )
+position = Vector2( 1546, 208 )
 
 [node name="Spikes4" parent="Objects" instance=ExtResource( 6 )]
-position = Vector2( 1890, 160 )
+position = Vector2( 1885, 211 )
 
 [node name="Spikes5" parent="Objects" instance=ExtResource( 6 )]
-position = Vector2( 2220, 170 )
+position = Vector2( 2223, 216 )
 
 [node name="FlamePillar" parent="Objects" instance=ExtResource( 11 )]
 position = Vector2( 1756, 1196 )
