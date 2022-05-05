@@ -5,7 +5,7 @@ const UNDO_MODE_SHAPE = -2
 # A constant for whether or not we can undo.
 const UNDO_NONE = -1
 # How large is the image (it's actually the size of DrawingAreaBG, because that's our background canvas).
-const IMAGE_SIZE = Vector2(930, 720)
+const IMAGE_SIZE = Vector2(315, 315)
 
 # Enums for the various modes and brush shapes that can be applied.
 enum BrushModes {
@@ -255,3 +255,5 @@ func save_picture(path):
 
 	# Save the image with the passed in path we got from the save dialog.
 	cropped_image.save_png(path)
+
+	

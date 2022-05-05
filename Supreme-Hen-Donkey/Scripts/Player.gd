@@ -9,6 +9,11 @@ export var JUMP_SPEED := 600.0
 export var WALL_JUMP_VERTICAL_SPEED := 650.0
 export var WALL_JUMP_HORIZONTAL_SPEED := 250.0
 
+export var CURRENT_SPRITE := "0"
+export var CUSTOM_SPRITE_ROTATION_SPEED := 0
+export var WOBBLE := 0
+var step = 1
+
 var dead = false
 var finished = false
 var resetPosNextFrame = false
@@ -30,6 +35,8 @@ onready var deathNode = get_node(deathNP)
 
 func _ready():
 	startPos = Vector2(0,0)
+	
+	change_sprite(CURRENT_SPRITE)
 	
 	if Globals.GM != null:
 		Globals.GM.connect("switchMode", self, "_on_GameManager_switchMode")
@@ -111,6 +118,13 @@ func _physics_process(_delta: float):
 			$AnimatedSprite.speed_scale = 0.3 + 2.2 * abs(linear_velocity.x) / HORIZONTAL_MAX_SPEED
 			$AnimatedSprite.animation = "Running"
 			physics_material_override.friction = 0.3
+			$CustomSprite.rotation_degrees = WOBBLE * step
+			
+			if step == 1:
+				step = -1
+			else:
+				step = 1
+			
 		else:			
 			$AnimatedSprite.speed_scale = 1;
 			$AnimatedSprite.animation = "Idle"
@@ -118,6 +132,8 @@ func _physics_process(_delta: float):
 	
 			if abs(linear_velocity.x) > 10:
 				$AnimatedSprite.animation = "SlidingFloor"
+		
+			$CustomSprite.rotation_degrees = 0
 		
 		checkFinished()
 	
@@ -142,6 +158,17 @@ func _physics_process(_delta: float):
 		$AnimatedSprite.flip_h = false
 	elif x < 0:
 		$AnimatedSprite.flip_h = true
+		
+	$CustomSprite.flip_h = $AnimatedSprite.flip_h
+	
+	var rotation_dir = 1
+	if $CustomSprite.flip_h == true:
+		rotation_dir = -1
+	
+	if not is_on_right_wall() and not is_on_left_wall():
+		$CustomSprite.rotation_degrees += CUSTOM_SPRITE_ROTATION_SPEED * rotation_dir
+	
+	
 ## Helper functions
 # Gets if the center jump zone detects a floor (player is definitely on a floor)
 func is_on_floor():
@@ -205,3 +232,18 @@ func _on_GameManager_switchMode(mode):
 
 func _on_Timer_timeout():
 	finished = false
+
+
+
+func change_sprite(spr_num):	
+	var custom_file = "res://Custom Character Designs/custom#.png"
+	
+	if CURRENT_SPRITE != "0" and spr_num == "0":
+		$CustomSprite.visible = false
+		$AnimatedSprite.visible = true
+		
+	elif spr_num == "1" or spr_num == "2":
+		$CustomSprite.visible = true
+		$AnimatedSprite.visible = false
+		custom_file = custom_file.replace("#", spr_num)	
+		$CustomSprite.texture = load(custom_file)

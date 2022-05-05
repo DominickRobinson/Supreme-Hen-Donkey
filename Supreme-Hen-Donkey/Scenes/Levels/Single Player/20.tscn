@@ -28,6 +28,9 @@ texture = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1084, -852 )
+CURRENT_SPRITE = "1"
+CUSTOM_SPRITE_ROTATION_SPEED = 15
+WOBBLE = 4
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 2, 61 )

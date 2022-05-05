@@ -27,12 +27,20 @@ __meta__ = {
 [node name="Frame" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 706.0
-margin_top = 243.0
-margin_right = -515.0
-margin_bottom = -388.0
-rect_scale = Vector2( 5.51471, 3.18919 )
+margin_left = 699.0
+margin_top = 186.0
+margin_right = -236.0
+margin_bottom = -189.0
 color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Frame"]
+margin_left = 12.0
+margin_top = 11.0
+margin_right = 332.0
+margin_bottom = 332.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -40,10 +48,10 @@ __meta__ = {
 [node name="DrawingAreaBG" type="Panel" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 716.0
-margin_top = 253.0
-margin_right = -257.0
-margin_bottom = -202.0
+margin_left = 714.0
+margin_top = 200.0
+margin_right = -251.0
+margin_bottom = -205.0
 custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -58,7 +66,7 @@ __meta__ = {
 }
 
 [node name="TLPos" type="Position2D" parent="PaintControl"]
-position = Vector2( 350, 0 )
+position = Vector2( 714, 200 )
 
 [node name="ToolsPanel" type="Panel" parent="."]
 margin_left = -371.0
@@ -294,6 +302,7 @@ margin_right = 1468.0
 margin_bottom = 549.0
 rect_scale = Vector2( 0.40688, 1.22353 )
 text = "Save picture"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -317,5 +326,6 @@ rect_min_size = Vector2( 400, 140 )
 resizable = true
 access = 2
 filters = PoolStringArray( "*.png" )
-current_dir = "/Users/Dominick/Documents/GitHub/Supreme-Hen-Donkey/Supreme-Hen-Donkey"
-current_path = "/Users/Dominick/Documents/GitHub/Supreme-Hen-Donkey/Supreme-Hen-Donkey/"
+current_dir = "/Users/Dominick/Documents/GitHub/Supreme-Hen-Donkey/Supreme-Hen-Donkey/Custom Character Designs"
+current_file = "custom1.png"
+current_path = "/Users/Dominick/Documents/GitHub/Supreme-Hen-Donkey/Supreme-Hen-Donkey/Custom Character Designs/custom1.png"
