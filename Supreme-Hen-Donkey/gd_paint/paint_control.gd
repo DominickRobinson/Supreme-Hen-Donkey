@@ -5,7 +5,11 @@ const UNDO_MODE_SHAPE = -2
 # A constant for whether or not we can undo.
 const UNDO_NONE = -1
 # How large is the image (it's actually the size of DrawingAreaBG, because that's our background canvas).
-const IMAGE_SIZE = Vector2(315, 315)
+#const IMAGE_SIZE = Vector2(315, 315)
+onready var bg = get_parent().get_node("DrawingAreaBG")
+
+var IMAGE_SIZE = Vector2(315, 315)
+
 
 # Enums for the various modes and brush shapes that can be applied.
 enum BrushModes {
@@ -52,6 +56,8 @@ func _ready():
 	# Get the top left position node. We need this to find out whether or not the mouse is inside the canvas.
 	TL_node = get_node("TLPos")
 	set_process(true)
+	
+	IMAGE_SIZE = bg.rect_size
 
 
 func _process(_delta):

@@ -247,7 +247,7 @@ func _on_Timer_timeout():
 func change_sprite(spr_num):	
 	var custom_file = "res://Custom Character Designs/custom#.png"
 	
-	if CURRENT_SPRITE != "0" and spr_num == "0":
+	if spr_num == "0":
 		$CustomSprite.visible = false
 		$AnimatedSprite.visible = true
 		
