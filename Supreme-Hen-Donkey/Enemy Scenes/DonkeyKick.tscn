@@ -13,15 +13,15 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "Kicking",
-"speed": 20.0
-}, {
 "frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Kicking",
+"speed": 20.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
@@ -42,7 +42,7 @@ script = ExtResource( 10 )
 scale = Vector2( 0.196983, 0.2 )
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 1
+frame = 2
 playing = true
 
 [node name="SightZone" type="Area2D" parent="."]
@@ -52,6 +52,8 @@ position = Vector2( -78, 8 )
 shape = SubResource( 3 )
 
 [node name="KickZone" type="Area2D" parent="."]
+position = Vector2( -15, 18 )
+scale = Vector2( 0.923446, 0.807178 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KickZone"]
 position = Vector2( -54, -4.875 )

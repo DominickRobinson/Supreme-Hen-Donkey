@@ -1,9 +1,54 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Custom Character/3.0.jpg" type="Texture" id=1]
 [ext_resource path="res://Custom Character Designs/custom1.png" type="Texture" id=2]
 [ext_resource path="res://GCS - SHD/animation/Stick people/Running/Run-1.png" type="Texture" id=3]
 [ext_resource path="res://Custom Character Designs/custom2.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Levels/Custom Character/CharacterSelect.gd" type="Script" id=5]
+[ext_resource path="res://GCS - SHD/Misc/gold_star.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/BinderFlips/GenericPageFlip.tscn" type="PackedScene" id=7]
+
+[sub_resource type="Shader" id=5]
+code = "shader_type canvas_item;
+
+uniform vec4 from_color : hint_color;
+uniform vec4 to_color : hint_color;
+
+void fragment() {
+    vec4 curr_color = texture(TEXTURE, UV);
+
+    if (curr_color == from_color){
+        COLOR = to_color;
+    }else{
+        COLOR = curr_color;
+    }
+}"
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
+shader_param/from_color = Color( 1, 1, 1, 1 )
+shader_param/to_color = Color( 0, 0, 0, 0 )
+
+[sub_resource type="Shader" id=3]
+code = "shader_type canvas_item;
+
+uniform vec4 from_color : hint_color;
+uniform vec4 to_color : hint_color;
+
+void fragment() {
+    vec4 curr_color = texture(TEXTURE, UV);
+
+    if (curr_color == from_color){
+        COLOR = to_color;
+    }else{
+        COLOR = curr_color;
+    }
+}"
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 3 )
+shader_param/from_color = Color( 1, 1, 1, 1 )
+shader_param/to_color = Color( 0, 0, 0, 0 )
 
 [node name="Node" type="Control"]
 anchor_right = 1.0
@@ -12,7 +57,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="TextureRect" parent="."]
+[node name="Control" parent="." instance=ExtResource( 7 )]
+RIGHT_VIDEO = "res://GCS - SHD/SHD-live/SHD_videos/Custom Character/3.0-1.webm"
+LEFT_SCENE = "res://Scenes/BinderFlips/Main menu/03.tscn"
+RIGHT_SCENE = "res://Scenes/BinderFlips/Custom Character/31.tscn"
+
+[node name="Extra" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="TextureRect" parent="Extra"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_rotation = 0.5
@@ -22,26 +79,30 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="P1Select" type="VBoxContainer" parent="."]
+[node name="P1Select" type="VBoxContainer" parent="Extra"]
+material = SubResource( 6 )
 margin_left = 711.0
 margin_top = 251.0
 margin_right = 811.0
 margin_bottom = 616.0
 custom_constants/separation = 30
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureButton" type="Button" parent="P1Select"]
+[node name="S0" type="Button" parent="Extra/P1Select"]
 margin_right = 100.0
 margin_bottom = 101.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+toggle_mode = true
 icon = ExtResource( 3 )
 flat = true
 expand_icon = true
 
-[node name="TextureButton2" type="Button" parent="P1Select"]
+[node name="S1" type="Button" parent="Extra/P1Select"]
+use_parent_material = true
 margin_top = 131.0
 margin_right = 100.0
 margin_bottom = 233.0
@@ -51,7 +112,8 @@ icon = ExtResource( 2 )
 flat = true
 expand_icon = true
 
-[node name="TextureButton3" type="Button" parent="P1Select"]
+[node name="S2" type="Button" parent="Extra/P1Select"]
+use_parent_material = true
 margin_top = 263.0
 margin_right = 100.0
 margin_bottom = 365.0
@@ -61,18 +123,26 @@ icon = ExtResource( 4 )
 flat = true
 expand_icon = true
 
-[node name="P2Select" type="VBoxContainer" parent="."]
+[node name="Star" type="Sprite" parent="Extra/P1Select"]
+position = Vector2( -42, 47 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 6 )
+
+[node name="P2Select" type="VBoxContainer" parent="Extra"]
+material = SubResource( 4 )
 margin_left = 888.0
 margin_top = 251.0
 margin_right = 988.0
 margin_bottom = 616.0
 rect_min_size = Vector2( 100, 100 )
 custom_constants/separation = 30
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+PLAYER_NUM = "2"
 
-[node name="TextureButton" type="Button" parent="P2Select"]
+[node name="S0" type="Button" parent="Extra/P2Select"]
 margin_right = 100.0
 margin_bottom = 101.0
 size_flags_horizontal = 3
@@ -81,7 +151,8 @@ icon = ExtResource( 3 )
 flat = true
 expand_icon = true
 
-[node name="TextureButton2" type="Button" parent="P2Select"]
+[node name="S1" type="Button" parent="Extra/P2Select"]
+use_parent_material = true
 margin_top = 131.0
 margin_right = 100.0
 margin_bottom = 233.0
@@ -91,7 +162,8 @@ icon = ExtResource( 2 )
 flat = true
 expand_icon = true
 
-[node name="TextureButton3" type="Button" parent="P2Select"]
+[node name="S2" type="Button" parent="Extra/P2Select"]
+use_parent_material = true
 margin_top = 263.0
 margin_right = 100.0
 margin_bottom = 365.0
@@ -100,3 +172,15 @@ size_flags_vertical = 3
 icon = ExtResource( 4 )
 flat = true
 expand_icon = true
+
+[node name="Star" type="Sprite" parent="Extra/P2Select"]
+position = Vector2( 147, 53 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 6 )
+
+[connection signal="pressed" from="Extra/P1Select/S0" to="Extra/P1Select" method="_on_S0_pressed"]
+[connection signal="pressed" from="Extra/P1Select/S1" to="Extra/P1Select" method="_on_S1_pressed"]
+[connection signal="pressed" from="Extra/P1Select/S2" to="Extra/P1Select" method="_on_S2_pressed"]
+[connection signal="pressed" from="Extra/P2Select/S0" to="Extra/P2Select" method="_on_S0_pressed"]
+[connection signal="pressed" from="Extra/P2Select/S1" to="Extra/P2Select" method="_on_S1_pressed"]
+[connection signal="pressed" from="Extra/P2Select/S2" to="Extra/P2Select" method="_on_S2_pressed"]

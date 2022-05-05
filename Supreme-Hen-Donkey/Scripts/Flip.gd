@@ -78,6 +78,10 @@ func flip(dir):
 		next_scene = UNDER_SCENE
 		next_video = UNDER_VIDEO
 		
+	
+	if get_parent().get_node("Extra") != null:
+		get_parent().get_node("Extra").visible = false
+		
 	if next_video != "":
 		video.stream = load(next_video)
 	else:

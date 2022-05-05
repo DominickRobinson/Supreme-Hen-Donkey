@@ -12,6 +12,7 @@ func _process(_delta):
 	for body in bodies:
 		if body is Player:
 			get_tree().change_scene(worldScene)
+			#get_tree().change_scene(get_tree().current_scene.filename)
 			
 func _input(event):
 	if event.is_action_pressed("reset_level"):

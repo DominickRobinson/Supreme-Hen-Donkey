@@ -11,10 +11,13 @@ onready var dragCollider = $Base/CollisionPolygon2D
 
 func _on_BounceArea_body_entered(body):
 	if body is Player:
+		var imp
 		if Input.is_action_pressed("jump"):
-			body.apply_central_impulse(Vector2(0, impulse_jump))
+			imp = impulse_jump			
 		else:
-			body.apply_central_impulse(Vector2(0, impulse_no_jump))
+			imp = impulse_no_jump
+
+		body.apply_central_impulse(Vector2(imp * sin(rotation_degrees), imp * cos(rotation_degrees)))
 		anim.animation = "Boing"
 
 

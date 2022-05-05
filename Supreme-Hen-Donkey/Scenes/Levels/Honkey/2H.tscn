@@ -6,7 +6,7 @@
 [ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Single Player/mask-removebg-preview.png" type="Texture" id=4]
 [ext_resource path="res://Enemy Scenes/Honkey.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Prefabs/Camera.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Levels/Honkey/Death barrier.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/Death barrier.gd" type="Script" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 328.078, 296.999 )

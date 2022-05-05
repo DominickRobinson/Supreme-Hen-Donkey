@@ -7,4 +7,6 @@
 [node name="Control" parent="." instance=ExtResource( 1 )]
 IMAGE = "res://GCS - SHD/SHD-live/SHD_photos/Custom Character/3.2.jpg"
 LEFT_VIDEO = "res://GCS - SHD/SHD-live/SHD_videos/Custom Character/r3.2-1.webm"
+UNDER_VIDEO = "res://GCS - SHD/SHD-live/SHD_videos/Custom Character/3.2en.webm"
 LEFT_SCENE = "res://Scenes/BinderFlips/Custom Character/31.tscn"
+UNDER_SCENE = "res://Scenes/Levels/Custom Character/32.tscn"

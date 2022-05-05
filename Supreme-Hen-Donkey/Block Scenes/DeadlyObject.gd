@@ -5,7 +5,7 @@ export(String, FILE, ".tscn") var worldScene
 var enabled := true
 onready var dragCollider = $DragCollider
 
-export var FLAME_DEADLY := false
+export var FLAME_DEADLY := true
 
 # Called when the node enters the scene tree for the first time.
 func _process(delta):

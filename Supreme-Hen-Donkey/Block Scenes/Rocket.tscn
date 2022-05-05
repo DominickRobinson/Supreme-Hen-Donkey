@@ -29,7 +29,7 @@ position = Vector2( -178, -5 )
 scale = Vector2( 0.323876, -0.436466 )
 frames = SubResource( 2 )
 animation = "Zooming"
-frame = 2
+frame = 3
 playing = true
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -43,6 +43,7 @@ polygon = PoolVector2Array( 13, -41, 39, -49, -5, -73, -5, -94, 69, -96, 127, -6
 
 [node name="Flame" type="Node2D" parent="."]
 script = ExtResource( 6 )
+FLAME_DEADLY = false
 
 [node name="DeadlyPart" type="Area2D" parent="Flame"]
 

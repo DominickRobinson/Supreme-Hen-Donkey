@@ -22,7 +22,7 @@ func _process(delta):
 
 	if $AnimatedSprite.animation == "Kicking":
 			
-		if 14 <= $AnimatedSprite.frame and $AnimatedSprite.frame <= 21:
+		if 14 <= $AnimatedSprite.frame and $AnimatedSprite.frame <= 17:
 			
 			for body in $KickZone.get_overlapping_bodies():
 				

@@ -9,9 +9,13 @@ export var JUMP_SPEED := 600.0
 export var WALL_JUMP_VERTICAL_SPEED := 650.0
 export var WALL_JUMP_HORIZONTAL_SPEED := 250.0
 
-export var CURRENT_SPRITE := "0"
+export var CURRENT_PLAYER := "1"
 export var CUSTOM_SPRITE_ROTATION_SPEED := 0
 export var WOBBLE := 0
+
+var CURRENT_SPRITE
+
+
 var step = 1
 
 var dead = false
@@ -35,6 +39,12 @@ onready var deathNode = get_node(deathNP)
 
 func _ready():
 	startPos = Vector2(0,0)
+	
+	if CURRENT_PLAYER == "1":
+		CURRENT_SPRITE = Globals.P1Sprite
+	else:
+		CURRENT_SPRITE = Globals.P2Sprite
+	
 	
 	change_sprite(CURRENT_SPRITE)
 	
@@ -118,7 +128,7 @@ func _physics_process(_delta: float):
 			$AnimatedSprite.speed_scale = 0.3 + 2.2 * abs(linear_velocity.x) / HORIZONTAL_MAX_SPEED
 			$AnimatedSprite.animation = "Running"
 			physics_material_override.friction = 0.3
-			$CustomSprite.rotation_degrees = WOBBLE * step
+			wobble_sprite()
 			
 			if step == 1:
 				step = -1
@@ -165,7 +175,7 @@ func _physics_process(_delta: float):
 	if $CustomSprite.flip_h == true:
 		rotation_dir = -1
 	
-	if not is_on_right_wall() and not is_on_left_wall():
+	if not is_on_right_wall() and not is_on_left_wall() and not is_on_floor():
 		$CustomSprite.rotation_degrees += CUSTOM_SPRITE_ROTATION_SPEED * rotation_dir
 	
 	
@@ -234,7 +244,6 @@ func _on_Timer_timeout():
 	finished = false
 
 
-
 func change_sprite(spr_num):	
 	var custom_file = "res://Custom Character Designs/custom#.png"
 	
@@ -247,3 +256,11 @@ func change_sprite(spr_num):
 		$AnimatedSprite.visible = false
 		custom_file = custom_file.replace("#", spr_num)	
 		$CustomSprite.texture = load(custom_file)
+
+var wobble_dir = 1
+func wobble_sprite():
+	if $CustomSprite.rotation_degrees > WOBBLE:
+		wobble_dir = -1
+	elif $CustomSprite.rotation_degrees < -WOBBLE:
+		wobble_dir = 1
+	$CustomSprite.rotation_degrees += 3*wobble_dir

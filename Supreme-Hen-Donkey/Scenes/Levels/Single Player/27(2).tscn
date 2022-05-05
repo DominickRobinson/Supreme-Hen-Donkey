@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://NextScene.gd" type="Script" id=1]
 [ext_resource path="res://Enemy Scenes/DonkeyKick.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Single Player/2.7.jpg" type="Texture" id=5]
 [ext_resource path="res://Egg.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Prefabs/Camera.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/Death barrier.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 265.078, 154.5 )
@@ -59,8 +60,7 @@ position = Vector2( 826.333, 1252.33 )
 scale = Vector2( 0.333333, 0.333333 )
 collision_layer = 3
 collision_mask = 3
-script = ExtResource( 1 )
-worldScene = "res://Scenes/Levels/Single Player/27(2).tscn"
+script = ExtResource( 8 )
 
 [node name="Barrier1" type="CollisionShape2D" parent="Death barrier"]
 position = Vector2( -1618, 995.011 )

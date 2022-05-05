@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Single Player/2.A.jpg" type="Texture" id=1]
 [ext_resource path="res://NextScene.gd" type="Script" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Scenes/GearPlatform.gd" type="Script" id=15]
 [ext_resource path="res://Block Scenes/Rocket.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Prefabs/Camera.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scripts/Death barrier.gd" type="Script" id=18]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 412.5, 189 )
@@ -48,16 +49,15 @@ position = Vector2( 901, -79 )
 gravity_scale = 0.1
 HORIZONTAL_MAX_SPEED = 800.0
 AIR_ACCELERATION = 20.0
-JUMP_SPEED = 1000.0
-WALL_JUMP_VERTICAL_SPEED = 1200.0
+JUMP_SPEED = 800.0
+WALL_JUMP_VERTICAL_SPEED = 1000.0
 
 [node name="Death barrier" type="Area2D" parent="."]
 position = Vector2( 826.333, 1252.33 )
 scale = Vector2( 0.333333, 0.333333 )
 collision_layer = 3
 collision_mask = 3
-script = ExtResource( 2 )
-worldScene = "res://Scenes/Levels/Single Player/2A.tscn"
+script = ExtResource( 18 )
 
 [node name="Barrier1" type="CollisionShape2D" parent="Death barrier"]
 position = Vector2( -1555, 1439.01 )
