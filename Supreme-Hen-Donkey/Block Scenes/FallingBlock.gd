@@ -6,7 +6,7 @@ var enabled := true
 onready var dragCollider = $Body/CollisionShape2D
 
 func _on_Area2D_body_entered(body):
-	if body is Player:
+	if body is Player and enabled:
 		anim.animation = "Falling"
 		anim.play()
 

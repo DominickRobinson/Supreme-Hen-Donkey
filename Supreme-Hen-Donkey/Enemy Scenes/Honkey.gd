@@ -16,6 +16,9 @@ var probdistribution = [.25,.5,.75,1.0]
 # var b = "text"
 var enemy_count = 0
 
+var enabled = true
+onready var dragCollider = $CollisionPolygon2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	MusicController.play_music(3)
@@ -48,6 +51,9 @@ func shoot(linear_velocity):
 			break
 
 func _physics_process(delta):
+	if !enabled:
+		return
+	
 	if(OS.get_unix_time() - time_start > 0.1 * interval):
 		$AnimatedSprite.animation = "shoot"
 		time_start = OS.get_unix_time()

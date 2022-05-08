@@ -36,7 +36,7 @@ var maxZoom: float
 var startPos: Vector2
 var resetPosNextFrame := false
 var draggingTile := false
-var wasRigid := false
+var wasRigid = [false, false, false]
 var totalTileWeights := 0
 
 
@@ -52,7 +52,7 @@ func _ready():
 	limits.position = Vector2(limit_left, limit_top)
 	limits.end = Vector2(limit_right, limit_bottom)
 	startPos = limits.position + 0.5*limits.size
-	maxZoom = getMaxZoom()
+	maxZoom = 2
 	
 	# Extract tiles
 	for lootEntry in lootTable:
@@ -119,7 +119,6 @@ func _physics_process(_delta: float):
 			if (child is DraggableTile) and (child.draggedChild is RigidBody2D):
 				child.draggedChild.mode = RigidBody2D.MODE_KINEMATIC
 				child.draggedChild.position = Vector2.ZERO
-				wasRigid = true
 
 
 func _integrate_forces(state):
@@ -132,14 +131,15 @@ func _integrate_forces(state):
 
 
 func _input(event):
+	pass
 	# Zoom
-	if event.is_action_released('wheel_down') and $BuilderViewCam.zoom.x < maxZoom and !draggingTile:
-		$BuilderViewCam.zoom.x += 0.25
-		$BuilderViewCam.zoom.y += 0.25
-	
-	elif event.is_action_released('wheel_up') and $BuilderViewCam.zoom.x > 1 and !draggingTile:
-		$BuilderViewCam.zoom.x -= 0.25
-		$BuilderViewCam.zoom.y -= 0.25
+#	if event.is_action_released('wheel_down') and $BuilderViewCam.zoom.x < maxZoom and !draggingTile:
+#		$BuilderViewCam.zoom.x += 0.25
+#		$BuilderViewCam.zoom.y += 0.25
+#
+#	elif event.is_action_released('wheel_up') and $BuilderViewCam.zoom.x > 1 and !draggingTile:
+#		$BuilderViewCam.zoom.x -= 0.25
+#		$BuilderViewCam.zoom.y -= 0.25
 
 
 func _on_GameManager_switchPlayer(player):
@@ -155,7 +155,7 @@ func _on_GameManager_switchPlayer(player):
 # Resets position on switch mode
 func _on_GameManager_switchMode(mode):
 	resetPosition()
-	wasRigid = false
+	wasRigid = [false, false, false]
 
 
 # Centers and zooms out as much as possible
@@ -186,7 +186,13 @@ func respawnDraggables():
 #			var i = Globals.rng.randi() % possibleTiles.size()
 #			if Globals.rng.randi() % 2 == 0:
 #				i = -1
+			
 			dragTileObj.init(possibleTiles[i], tileScalings[i], Globals.GM.startBlock, Globals.GM.endBlock)
+			
+			if (dragTileObj is RigidBody2D):
+				wasRigid[tileNum] = true
+				dragTileObj.draggedChild.mode = RigidBody2D.MODE_KINEMATIC
+				dragTileObj.draggedChild.position = Vector2.ZERO
 		
 		# Add to the world
 		add_child(dragTileObj)
@@ -202,9 +208,17 @@ func resetDraggablePosition(dragTileObj, tileNum):
 
 # Removes all tiles in the bank
 func clearTiles():
+	var pickedUp = 0
+	var i = 0
 	for child in get_children():
-		if (child is DraggableTile) and (child.insideBank):
-			child.queue_free()
+		if child is DraggableTile:
+			if child.insideBank:
+				child.queue_free()
+			else:
+				pickedUp = i
+			i += 1
+	
+	return pickedUp
 
 
 

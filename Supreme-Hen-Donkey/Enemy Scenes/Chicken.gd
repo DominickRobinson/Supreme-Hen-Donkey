@@ -6,6 +6,9 @@ export var launch_angle := 0
 var Egg = preload("res://Egg.tscn")
 var time_start = OS.get_unix_time()
 
+var enabled = true
+onready var dragCollider = $CollisionPolygon2D
+
 func get_input():
 	# Add these actions in Project Settings -> Input Map.
 	#velocity = Vector2(speed, 0).rotated(rotation)
@@ -40,4 +43,7 @@ func shoot():
 	print(get_tree().get_root())
 
 func _physics_process(delta):
+	if !enabled:
+		return
+	
 	get_input()

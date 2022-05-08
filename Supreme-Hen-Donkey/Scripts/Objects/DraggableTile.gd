@@ -83,11 +83,11 @@ func _input_event(viewport, event, shape_idx):
 			var bv = Globals.GM.builderView
 			insideBank = false
 			following = true
-			bv.clearTiles()
+			var whichTile = bv.clearTiles()
 			bv.draggingTile = true
-			if bv.wasRigid:
+			if bv.wasRigid[whichTile]:
 				draggedChild.mode = RigidBody2D.MODE_RIGID
-				bv.wasRigid = false
+				bv.wasRigid = [false, false, false]
 			pickupTile()
 			
 

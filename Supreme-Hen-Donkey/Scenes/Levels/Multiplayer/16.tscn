@@ -55,7 +55,7 @@ position = Vector2( 1335, 1217 )
 scale = Vector2( 1.26492, 1.3027 )
 
 [node name="Death" type="Position2D" parent="."]
-position = Vector2( 768.25, 1337.25 )
+position = Vector2( 704, 1485 )
 
 [node name="BuilderView" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1794.25, 549.25 )

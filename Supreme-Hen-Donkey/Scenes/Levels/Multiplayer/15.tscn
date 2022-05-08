@@ -20,7 +20,7 @@ startBlockNP = NodePath("../StartBlock")
 endBlockNP = NodePath("../EndBlock")
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( 4360.25, 18.2498 )
+position = Vector2( 4089.02, -861.395 )
 rotation = -0.00872665
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 1 )
@@ -43,26 +43,27 @@ position = Vector2( 1461.25, 622.25 )
 script = ExtResource( 8 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 281, 852 )
+position = Vector2( 9, -2 )
 deathNP = NodePath("../Death")
 
 [node name="StartBlock" parent="." instance=ExtResource( 5 )]
 visible = false
-position = Vector2( 269, 1041 )
+position = Vector2( -2.2334, 161.355 )
 scale = Vector2( 1.35533, 1.67567 )
 
 [node name="EndBlock" parent="." instance=ExtResource( 6 )]
 visible = false
-position = Vector2( 791, 26 )
+position = Vector2( 539.767, -811.645 )
 scale = Vector2( 1.06218, 1.69818 )
 
 [node name="Death" type="Position2D" parent="."]
-position = Vector2( 768.25, 1337.25 )
+position = Vector2( -290, 398 )
 
 [node name="BuilderView" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1794.25, 549.25 )
 
 [node name="Area2D" type="StaticBody2D" parent="."]
+position = Vector2( -271.233, -879.645 )
 collision_layer = 3
 collision_mask = 3
 
