@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/HonkeyIdle07.png-8a11efc821bc03bb5e314e21070df769.stex"
+path="res://.import/HonkeyIdle07.png-e2fc200853cdf852bdd232491efc2eb9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GCS - SHD/Enemies/Honkey/HonkeyIdle07.png"
-dest_files=[ "res://.import/HonkeyIdle07.png-8a11efc821bc03bb5e314e21070df769.stex" ]
+source_file="res://GCS - SHD/enemies/Honkey/HonkeyIdle07.png"
+dest_files=[ "res://.import/HonkeyIdle07.png-e2fc200853cdf852bdd232491efc2eb9.stex" ]
 
 [params]
 

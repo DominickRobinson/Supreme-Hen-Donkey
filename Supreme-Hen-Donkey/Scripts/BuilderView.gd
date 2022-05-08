@@ -5,9 +5,28 @@ onready var endBlock = get_tree().current_scene.get_node('EndBlock')
 
 const draggableTile = preload("res://Prefabs/DraggableTile.tscn")
 
-export(Array, String, FILE) var possibleTiles
-export(Array, float) var tileScalings
-var tileWeights = [1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1, 0.25, 0.25, 0.5, 2]
+var lootTable = [
+#	name, scaling, weight
+	['res://Prefabs/Block.tscn', 1, 1],
+	['res://Prefabs/GearPlatform.tscn', 1, 0.5],
+	['res://Prefabs/MovingPlatform.tscn', 1, 0.5],
+	['res://Block Scenes/FallingBlock.tscn', 1, 0.5],
+	['res://Block Scenes/FlamePillar.tscn', 1, 0.5],
+	['res://Block Scenes/IceBlock.tscn', 1, 0.5],
+	['res://Block Scenes/Spikes.tscn', 0.5, 0.5],
+	['res://Block Scenes/Trampoline.tscn', 1, 1],
+	['res://Enemy Scenes/HenFly.tscn', 1, 0.25],
+	['res://Enemy Scenes/DonkeyKick.tscn', 1, 0.25],
+	['res://Enemy Scenes/DonkeyCharge.tscn', 1, 0.25],
+	['res://Enemy Scenes/Chicken.tscn', 1, 0.25],
+	['res://Enemy Scenes/Honkey.tscn', 1, 0.01],
+	['res://Block Scenes/Rocket.tscn', 1, 0.5],
+	['res://Block Scenes/Eraser.tscn', 1, 2],
+#	('', ),
+]
+var possibleTiles = []
+var tileScalings = []
+var tileWeights = []
 
 export var VELOCITY := 800.0
 
@@ -35,6 +54,12 @@ func _ready():
 	startPos = limits.position + 0.5*limits.size
 	maxZoom = getMaxZoom()
 	
+	# Extract tiles
+	for lootEntry in lootTable:
+		possibleTiles.append(lootEntry[0])
+		tileScalings.append(lootEntry[1])
+		tileWeights.append(lootEntry[2])
+	
 	# Get loot table
 	totalTileWeights = sum_array(tileWeights)
 	
@@ -44,6 +69,7 @@ func _ready():
 	
 	# Things that can be erased
 	for node in possibleTiles:
+		print(node)
 		erasableTileNames.append(load(node).instance().name)
 	
 	# Signals
@@ -141,13 +167,11 @@ func resetPosition():
 
 # Spawn a new block when we're in build mode
 func respawnDraggables():
+	Globals.UI.get_node('Bank').getTilePos()
 	for tileNum in range(3):
 		# Spawn draggable tile
 		var dragTileObj = draggableTile.instance()
-		var dragX = Globals.UI.get_node('Bank').tileX[tileNum]
-		var dragY = Globals.UI.get_node('Bank').tileY
-		var dragPos = Vector2(dragX, dragY) + Vector2(-1000, 0)
-		dragTileObj.position = Vector2(dragPos.x, dragPos.y) #Vector2(0, -250)
+		resetDraggablePosition(dragTileObj, tileNum)
 		
 		# Get random dragTileObj to place inside the tile
 		if possibleTiles.size() > 0:
@@ -168,14 +192,19 @@ func respawnDraggables():
 		add_child(dragTileObj)
 
 
+# When adjusting zoom or position, repositions draggables
+func resetDraggablePosition(dragTileObj, tileNum):
+	var dragX = Globals.UI.get_node('Bank').tileX[tileNum]
+	var dragY = Globals.UI.get_node('Bank').tileY
+	var dragPos = Vector2(dragX, dragY) + Vector2(-1000, 0)
+	dragTileObj.position = Vector2(dragPos.x, dragPos.y) #Vector2(0, -250)
+
+
 # Removes all tiles in the bank
 func clearTiles():
 	for child in get_children():
 		if (child is DraggableTile) and (child.insideBank):
 			child.queue_free()
-
-
-
 
 
 
