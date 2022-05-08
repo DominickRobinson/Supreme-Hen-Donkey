@@ -18,7 +18,8 @@ func play_music(num):
 	if num != curr_num:
 	
 		if num == 0:
-			turn_off()
+			#turn_off()
+			pass
 			
 		elif num == 1:
 			play_slow()
