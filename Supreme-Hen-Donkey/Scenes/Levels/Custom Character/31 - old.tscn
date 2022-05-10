@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://gd_paint/paint_tools.png" type="Texture" id=1]
-[ext_resource path="res://gd_paint/paint_control.gd" type="Script" id=2]
-[ext_resource path="res://gd_paint/tools_panel.gd" type="Script" id=3]
-[ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Custom Character/3.2en.jpg" type="Texture" id=4]
+[ext_resource path="res://gd_paint/paint_control.gd" type="Script" id=1]
+[ext_resource path="res://gd_paint/tools_panel.gd" type="Script" id=2]
+[ext_resource path="res://gd_paint/paint_tools.png" type="Texture" id=3]
+[ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Custom Character/3.1en.jpg" type="Texture" id=4]
 [ext_resource path="res://Scenes/BinderFlips/GenericPageFlip.tscn" type="PackedScene" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -15,8 +18,8 @@ __meta__ = {
 }
 
 [node name="Control" parent="." instance=ExtResource( 5 )]
-LEFT_VIDEO = "res://GCS - SHD/SHD-live/SHD_videos/Custom Character/3.2ex.webm"
-LEFT_SCENE = "res://Scenes/BinderFlips/Custom Character/32.tscn"
+LEFT_VIDEO = "res://GCS - SHD/SHD-live/SHD_videos/Custom Character/3.1ex.webm"
+LEFT_SCENE = "res://Scenes/BinderFlips/Custom Character/31.tscn"
 
 [node name="Extra" type="Control" parent="."]
 anchor_right = 1.0
@@ -44,11 +47,10 @@ __meta__ = {
 [node name="Frame" type="ColorRect" parent="Extra/PaintRoot"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 711.0
-margin_top = 163.0
-margin_right = -224.0
-margin_bottom = -212.0
-rect_scale = Vector2( 1.1, 1.1 )
+margin_left = 699.0
+margin_top = 186.0
+margin_right = -236.0
+margin_bottom = -189.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -64,33 +66,38 @@ __meta__ = {
 }
 
 [node name="DrawingAreaBG" type="Panel" parent="Extra/PaintRoot"]
-self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 727.0
-margin_top = 179.0
-margin_right = 1072.0
-margin_bottom = 524.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 714.0
+margin_top = 200.0
+margin_right = -251.0
+margin_bottom = -205.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="PaintControl" type="Control" parent="Extra/PaintRoot"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TLPos" type="Position2D" parent="Extra/PaintRoot/PaintControl"]
-position = Vector2( 726, 177 )
+position = Vector2( 714, 200 )
 
 [node name="ToolsPanel" type="Panel" parent="Extra/PaintRoot"]
 margin_left = -371.0
 margin_top = 40.0
 margin_right = -21.0
 margin_bottom = 760.0
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-playerNum = 2
+playerNum = 1
 
 [node name="LabelTools" type="Label" parent="Extra/PaintRoot/ToolsPanel"]
 margin_left = 20.0
@@ -116,7 +123,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="Extra/PaintRoot/ToolsPanel/ButtonToolPencil"]
 position = Vector2( 30, 30 )
 scale = Vector2( 2.5, 2.5 )
-texture = ExtResource( 1 )
+texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 16, 16 )
 
@@ -133,7 +140,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="Extra/PaintRoot/ToolsPanel/ButtonToolEraser"]
 position = Vector2( 30, 30 )
 scale = Vector2( 2.5, 2.5 )
-texture = ExtResource( 1 )
+texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 16, 0, 16, 16 )
 
@@ -149,7 +156,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="Extra/PaintRoot/ToolsPanel/ButtonToolRectangle"]
 position = Vector2( 30, 30 )
 scale = Vector2( 2.5, 2.5 )
-texture = ExtResource( 1 )
+texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 0, 16, 16, 16 )
 
@@ -165,7 +172,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="Extra/PaintRoot/ToolsPanel/ButtonToolCircle"]
 position = Vector2( 30, 30 )
 scale = Vector2( 2.5, 2.5 )
-texture = ExtResource( 1 )
+texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 16, 16, 16, 16 )
 
@@ -181,10 +188,10 @@ __meta__ = {
 }
 
 [node name="ColorPickerBrush" type="ColorPickerButton" parent="Extra/PaintRoot/ToolsPanel"]
-margin_left = 613.0
-margin_top = 158.0
-margin_right = 791.0
-margin_bottom = 322.0
+margin_left = 603.0
+margin_top = 200.0
+margin_right = 781.0
+margin_bottom = 364.0
 flat = true
 expand_icon = true
 __meta__ = {
@@ -192,10 +199,10 @@ __meta__ = {
 }
 
 [node name="BrushSettings" type="Control" parent="Extra/PaintRoot/ToolsPanel"]
-margin_left = 612.0
-margin_top = 16.0
-margin_right = 962.0
-margin_bottom = 191.0
+margin_left = 619.0
+margin_top = 53.0
+margin_right = 969.0
+margin_bottom = 228.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -247,7 +254,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="Extra/PaintRoot/ToolsPanel/BrushSettings/ButtonShapeBox"]
 position = Vector2( 30, 30 )
 scale = Vector2( 2.5, 2.5 )
-texture = ExtResource( 1 )
+texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 0, 16, 16, 16 )
 
@@ -263,7 +270,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="Extra/PaintRoot/ToolsPanel/BrushSettings/ButtonShapeCircle"]
 position = Vector2( 30, 30 )
 scale = Vector2( 2.5, 2.5 )
-texture = ExtResource( 1 )
+texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 16, 16, 16, 16 )
 
@@ -312,10 +319,10 @@ __meta__ = {
 }
 
 [node name="ButtonSave" type="Button" parent="Extra/PaintRoot/ToolsPanel"]
-margin_left = 1183.0
-margin_top = 531.0
-margin_right = 1513.0
-margin_bottom = 571.0
+margin_left = 1138.0
+margin_top = 509.0
+margin_right = 1468.0
+margin_bottom = 549.0
 rect_scale = Vector2( 0.40688, 1.22353 )
 text = "Save picture"
 flat = true
@@ -324,10 +331,10 @@ __meta__ = {
 }
 
 [node name="ButtonClear" type="Button" parent="Extra/PaintRoot/ToolsPanel"]
-margin_left = 877.0
-margin_top = 284.0
-margin_right = 1207.0
-margin_bottom = 324.0
+margin_left = 882.0
+margin_top = 316.0
+margin_right = 1212.0
+margin_bottom = 356.0
 rect_scale = Vector2( 0.184262, 3.21283 )
 text = "Clear picture"
 flat = true
@@ -343,5 +350,5 @@ resizable = true
 access = 2
 filters = PoolStringArray( "*.png" )
 current_dir = "/Files/Programming/Godot/Suprreme-Hen-Donkey/Supreme-Hen-Donkey/Custom Character Designs"
-current_file = "custom2.png"
-current_path = "/Files/Programming/Godot/Suprreme-Hen-Donkey/Supreme-Hen-Donkey/Custom Character Designs/custom2.png"
+current_file = "custom1.png"
+current_path = "/Files/Programming/Godot/Suprreme-Hen-Donkey/Supreme-Hen-Donkey/Custom Character Designs/custom1.png"

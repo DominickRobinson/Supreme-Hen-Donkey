@@ -10,6 +10,9 @@ onready var _parent = get_parent()
 onready var save_dialog = _parent.get_node(@"SaveFileDialog")
 onready var paint_control = _parent.get_node(@"PaintControl")
 
+export var playerNum: int
+
+
 func _ready():
 	# warning-ignore-all:return_value_discarded
 	# Assign all of the needed signals for the oppersation buttons.
@@ -77,7 +80,9 @@ func button_pressed(button_name):
 		paint_control.brush_data_list = []
 		paint_control.update()
 	elif button_name == "save_picture":
-		save_dialog.popup_centered()
+		var path = save_dialog.current_dir + '/custom' + str(playerNum) + '.png'
+		save_file_selected(path)
+#		save_dialog.popup_centered()
 	elif button_name == "undo_stroke":
 		paint_control.undo_stroke()
 

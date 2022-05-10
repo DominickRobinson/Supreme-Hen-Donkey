@@ -280,5 +280,5 @@ rect_min_size = Vector2( 400, 140 )
 resizable = true
 access = 2
 filters = PoolStringArray( "*.png" )
-current_dir = "/Users/Dominick/Documents/GitHub/Supreme-Hen-Donkey/Supreme-Hen-Donkey"
-current_path = "/Users/Dominick/Documents/GitHub/Supreme-Hen-Donkey/Supreme-Hen-Donkey/"
+current_dir = "/Files/Programming/Godot/Suprreme-Hen-Donkey/Supreme-Hen-Donkey"
+current_path = "/Files/Programming/Godot/Suprreme-Hen-Donkey/Supreme-Hen-Donkey/"
