@@ -42,6 +42,7 @@ var mouse_click_start_pos = null
 # which case we do things a litte differently. See the undo_stroke function for more details).
 var undo_set = false
 var undo_element_list_num = -1
+var continuous = false
 
 # The current brush settings: The mode, size, color, and shape we have currently selected.
 var brush_mode = BrushModes.PENCIL
@@ -52,6 +53,10 @@ var brush_shape = BrushShapes.CIRCLE;
 # The color of the background. We need this for the eraser (see the how we handle the eraser
 # in the _draw function for more details).
 var bg_color = Color.white
+
+# The last point drawn, used for smoothness
+var lastPoint := Vector2()
+
 
 func _ready():
 	# Get the top left position node. We need this to find out whether or not the mouse is inside the canvas.
@@ -74,6 +79,7 @@ func _process(_delta):
 		# If we do not have a position for when the mouse was first clicked, then this must
 		# be the first time is_mouse_button_pressed has been called since the mouse button was
 		# released, so we need to store the position.
+		
 		if mouse_click_start_pos == null:
 			mouse_click_start_pos = mouse_pos
 
@@ -88,11 +94,13 @@ func _process(_delta):
 						undo_set = true
 						undo_element_list_num = brush_data_list.size()
 					# Add the brush object to draw_elements_array.
-					add_brush(mouse_pos, brush_mode)
+					add_brush(mouse_pos, brush_mode, continuous)
+					continuous = true
 
 	else:
-		# We've finished our stroke, so we can set a new undo (if a new storke is made).
+		# We've finished our stroke, so we can set a new undo (if a new stroke is made).
 		undo_set = false
+		continuous = false
 
 		# If the mouse is inside the canvas.
 		if check_if_mouse_is_inside_canvas():
@@ -156,7 +164,7 @@ func undo_stroke():
 	update()
 
 
-func add_brush(mouse_pos, type):
+func add_brush(mouse_pos, type, continuous=false):
 	# Make new brush dictionary that will hold all of the data we need for the brush.
 	var new_brush = {}
 
@@ -167,6 +175,7 @@ func add_brush(mouse_pos, type):
 	new_brush.brush_shape = brush_shape
 	new_brush.brush_size = brush_size
 	new_brush.brush_color = brush_color
+	new_brush.continuous = continuous
 
 	# If the new bursh is a rectangle shape, we need to calculate the top left corner of the rectangle and the
 	# bottom right corner of the rectangle.
@@ -210,6 +219,7 @@ func add_brush(mouse_pos, type):
 
 func _draw():
 	# Go through all of the brushes in brush_data_list.
+	var i = 0
 	for brush in brush_data_list:
 		match brush.brush_type:
 			BrushModes.PENCIL:
@@ -223,6 +233,10 @@ func _draw():
 				# making the radius half of brush size (so the circle is brush size pixels in diameter).
 				elif brush.brush_shape == BrushShapes.CIRCLE:
 					draw_circle(brush.brush_pos, brush.brush_size / 2, brush.brush_color)
+					# Draw a line to the previous brush if a continuous stroke
+					if brush.continuous:
+						draw_line(brush.brush_pos, brush_data_list[i-1].brush_pos, brush.brush_color, brush.brush_size)
+						
 			BrushModes.ERASER:
 				# NOTE: this is a really cheap way of erasing that isn't really erasing!
 				# However, this gives similar results in a fairy simple way!
@@ -234,14 +248,18 @@ func _draw():
 					draw_rect(rect, bg_color)
 				elif brush.brush_shape == BrushShapes.CIRCLE:
 					draw_circle(brush.brush_pos, brush.brush_size / 2, bg_color)
+					
 			BrushModes.RECTANGLE_SHAPE:
 				# We make a Rect2 with the postion at the top left. To get the size we take the bottom right position
 				# and subtract the top left corner's position.
 				var rect = Rect2(brush.brush_pos, brush.brush_shape_rect_pos_BR - brush.brush_pos)
 				draw_rect(rect, brush.brush_color)
+				
 			BrushModes.CIRCLE_SHAPE:
 				# We simply draw a circle using stored in brush.
 				draw_circle(brush.brush_pos, brush.brush_shape_circle_radius, brush.brush_color)
+		
+		i += 1
 
 
 func save_picture(path):
