@@ -7,9 +7,10 @@ const UNDO_NONE = -1
 # How large is the image (it's actually the size of DrawingAreaBG, because that's our background canvas).
 #const IMAGE_SIZE = Vector2(315, 315)
 onready var bg = get_parent().get_node("DrawingAreaBG")
+onready var tools = get_parent().get_node("ToolsPanel")
+
 
 var IMAGE_SIZE = Vector2(315, 315)
-
 
 # Enums for the various modes and brush shapes that can be applied.
 enum BrushModes {
@@ -253,7 +254,7 @@ func save_picture(path):
 	# Crop the image so we only have canvas area.
 #	var cropped_image = img.get_rect(Rect2(TL_node.global_position, IMAGE_SIZE))
 	var cropped_image = img.get_rect(Rect2(get_viewport_transform() * TL_node.global_position, get_viewport_transform()*IMAGE_SIZE ) )
-	get_viewport().global_canvas_transform
+#	get_viewport().global_canvas_transform
 	
 	#var cropped_image = img.get_rect(Rect2(Vector2(600,0), IMAGE_SIZE))
 	#var cropped_image = img
@@ -261,5 +262,15 @@ func save_picture(path):
 
 	# Save the image with the passed in path we got from the save dialog.
 	cropped_image.save_png(path)
-
 	
+	var texture = ImageTexture.new()
+	texture.create_from_image(cropped_image)
+	Globals.customSprites[tools.playerNum-1] = texture
+
+
+
+
+
+
+
+

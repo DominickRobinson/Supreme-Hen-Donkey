@@ -9,12 +9,10 @@ export var JUMP_SPEED := 600.0
 export var WALL_JUMP_VERTICAL_SPEED := 650.0
 export var WALL_JUMP_HORIZONTAL_SPEED := 250.0
 
-export var CURRENT_PLAYER := "1"
+export var CURRENT_PLAYER := 0
+var CUSTOM_SPRITE_NUM
 export var CUSTOM_SPRITE_ROTATION_SPEED := 0
 export var WOBBLE := 0
-
-var CURRENT_SPRITE
-
 
 var step = 1
 
@@ -40,13 +38,8 @@ onready var deathNode = get_node(deathNP)
 func _ready():
 	startPos = Vector2(0,0)
 	
-	if CURRENT_PLAYER == "1":
-		CURRENT_SPRITE = Globals.P1Sprite
-	else:
-		CURRENT_SPRITE = Globals.P2Sprite
-	
-	
-	change_sprite(CURRENT_SPRITE)
+	CUSTOM_SPRITE_NUM = Globals.playerSprites[CURRENT_PLAYER]
+	change_sprite(CUSTOM_SPRITE_NUM)
 	
 	if Globals.GM != null:
 		Globals.GM.connect("switchMode", self, "_on_GameManager_switchMode")
@@ -135,7 +128,7 @@ func _physics_process(_delta: float):
 			else:
 				step = 1
 			
-		else:			
+		else:
 			$AnimatedSprite.speed_scale = 1;
 			$AnimatedSprite.animation = "Idle"
 			physics_material_override.friction = 1
@@ -244,18 +237,16 @@ func _on_Timer_timeout():
 	finished = false
 
 
-func change_sprite(spr_num):	
-	var custom_file = "res://Custom Character Designs/custom#.png"
-	
-	if spr_num == "0":
+func change_sprite(spr_num):
+	if spr_num == 0:
 		$CustomSprite.visible = false
 		$AnimatedSprite.visible = true
-		
-	elif spr_num == "1" or spr_num == "2":
+	
+	else:
 		$CustomSprite.visible = true
 		$AnimatedSprite.visible = false
-		custom_file = custom_file.replace("#", spr_num)	
-		$CustomSprite.texture = load(custom_file)
+		$CustomSprite.texture = Globals.customSprites[spr_num-1]
+
 
 var wobble_dir = 1
 func wobble_sprite():

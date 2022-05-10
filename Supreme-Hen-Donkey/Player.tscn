@@ -81,16 +81,6 @@ animations = [ {
 "name": "Idle",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "Running",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 32 ) ],
-"loop": true,
-"name": "Victory",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 32 ) ],
 "loop": true,
 "name": "SlidingFloor",
@@ -115,6 +105,16 @@ animations = [ {
 "loop": true,
 "name": "SlidingWall",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "Running",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 32 ) ],
+"loop": true,
+"name": "Victory",
+"speed": 10.0
 } ]
 
 [sub_resource type="GDScript" id=10]

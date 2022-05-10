@@ -140,7 +140,7 @@ script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-PLAYER_NUM = "2"
+PLAYER_NUM = 2
 
 [node name="S0" type="Button" parent="Extra/P2Select"]
 margin_right = 100.0

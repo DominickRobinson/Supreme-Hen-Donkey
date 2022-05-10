@@ -314,10 +314,10 @@ __meta__ = {
 }
 
 [node name="ButtonSave" type="Button" parent="Extra/PaintRoot/ToolsPanel"]
-margin_left = 1183.0
-margin_top = 531.0
-margin_right = 1513.0
-margin_bottom = 571.0
+margin_left = 1177.0
+margin_top = 526.0
+margin_right = 1507.0
+margin_bottom = 566.0
 rect_scale = Vector2( 0.40688, 1.22353 )
 text = "Save picture"
 flat = true
@@ -326,10 +326,10 @@ __meta__ = {
 }
 
 [node name="ButtonClear" type="Button" parent="Extra/PaintRoot/ToolsPanel"]
-margin_left = 877.0
-margin_top = 284.0
-margin_right = 1207.0
-margin_bottom = 324.0
+margin_left = 905.0
+margin_top = 323.0
+margin_right = 1235.0
+margin_bottom = 363.0
 rect_scale = Vector2( 0.184262, 3.21283 )
 text = "Clear picture"
 flat = true
