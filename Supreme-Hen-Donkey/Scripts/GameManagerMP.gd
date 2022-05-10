@@ -114,6 +114,8 @@ func switchModePlaying():
 	currMode = Globals.Modes.PLAYING
 	# Player is re-enabled after sticky note hides itself
 	changeEnabled(builderView, false)
+	player.CURRENT_PLAYER = currPlayer
+	player.change_sprite()
 	emit_signal('switchMode', Globals.Modes.PLAYING)
 
 

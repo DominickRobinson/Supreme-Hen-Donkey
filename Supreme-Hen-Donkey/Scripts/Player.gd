@@ -9,7 +9,7 @@ export var JUMP_SPEED := 600.0
 export var WALL_JUMP_VERTICAL_SPEED := 650.0
 export var WALL_JUMP_HORIZONTAL_SPEED := 250.0
 
-export var CURRENT_PLAYER := 0
+export var CURRENT_PLAYER := 1
 var CUSTOM_SPRITE_NUM
 export var CUSTOM_SPRITE_ROTATION_SPEED := 0
 export var WOBBLE := 0
@@ -38,8 +38,7 @@ onready var deathNode = get_node(deathNP)
 func _ready():
 	startPos = Vector2(0,0)
 	
-	CUSTOM_SPRITE_NUM = Globals.playerSprites[CURRENT_PLAYER]
-	change_sprite(CUSTOM_SPRITE_NUM)
+	change_sprite()
 	
 	if Globals.GM != null:
 		Globals.GM.connect("switchMode", self, "_on_GameManager_switchMode")
@@ -237,15 +236,17 @@ func _on_Timer_timeout():
 	finished = false
 
 
-func change_sprite(spr_num):
-	if spr_num == 0:
+func change_sprite():
+	CUSTOM_SPRITE_NUM = Globals.playerSprites[CURRENT_PLAYER-1]
+	
+	if CUSTOM_SPRITE_NUM == 0:
 		$CustomSprite.visible = false
 		$AnimatedSprite.visible = true
 	
 	else:
 		$CustomSprite.visible = true
 		$AnimatedSprite.visible = false
-		$CustomSprite.texture = Globals.customSprites[spr_num-1]
+		$CustomSprite.texture = Globals.customSprites[CUSTOM_SPRITE_NUM-1]
 
 
 var wobble_dir = 1
