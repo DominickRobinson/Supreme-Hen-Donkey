@@ -4,10 +4,12 @@ class_name Player
 # The `export` keyword tells Godot to show this variable in the Inspector
 export var HORIZONTAL_MAX_SPEED := 650.0
 export var FLOOR_ACCELERATION := 27.0
-export var AIR_ACCELERATION := 18.0
+export var AIR_ACCELERATION := 20.0
 export var JUMP_SPEED := 600.0
 export var WALL_JUMP_VERTICAL_SPEED := 650.0
 export var WALL_JUMP_HORIZONTAL_SPEED := 250.0
+export var INITIAL_RUN_VELOCITY := 100
+export var AIR_RESISTANCE := 0.00003 
 
 export var CURRENT_PLAYER := 1
 var CUSTOM_SPRITE_NUM
@@ -70,16 +72,25 @@ func _physics_process(_delta: float):
 	else:
 		gravity_scale = 1
 	
+	if is_on_floor() and x != 0: 
+		if abs(linear_velocity.x) <= INITIAL_RUN_VELOCITY:
+			linear_velocity.x = x * INITIAL_RUN_VELOCITY
 		
+		if sign(linear_velocity.x) != x:
+			linear_velocity.x += x * 5
+			#x = 0	
+	
 	# Apply horizontal acceleration movement
 	var accel := AIR_ACCELERATION
 	if is_on_floor():
 		accel = FLOOR_ACCELERATION
 	
+	
 	# Only allow acceleration when less than the maximum horizontal speed
 	if abs(linear_velocity.x) < HORIZONTAL_MAX_SPEED or sign(linear_velocity.x) != sign(x):
 		apply_central_impulse(Vector2(x*accel, 0))
 	
+
 	
 	
 	# Jumping
@@ -108,7 +119,7 @@ func _physics_process(_delta: float):
 	#air resistance
 	if not is_on_floor():
 		if x == 0:
-			linear_velocity.x *= .995
+			linear_velocity.x += -sign(linear_velocity.x) * AIR_RESISTANCE * linear_velocity.x * linear_velocity.x
 			
 
 	

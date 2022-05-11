@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/GameManagerMP.gd" type="Script" id=1]
 [ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Multiplayer/1.6.jpg" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Prefabs/EndBlock.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/UI/UI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Prefabs/StartBlock.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/UI/PauseMenu.tscn" type="PackedScene" id=9]
 
 [node name="Node2D2" type="Node2D"]
 
@@ -31,6 +32,9 @@ region_rect = Rect2( 4.3136, 0, 9995.69, 2147.9 )
 layer = 0
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource( 7 )]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 9 )]
+LEVEL_SELECT = "res://Scenes/BinderFlips/Multiplayer/146tscn"
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( -46, -38 )

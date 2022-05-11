@@ -21,6 +21,10 @@ export var MUSIC_NUM := 0
 onready var image = $Image
 onready var video = $Video
 
+onready var la = $LeftArrow
+onready var ra = $RightArrow
+onready var da = $DownArrow
+
 #var music_player = get_node("res://autoloads/MusicController.tscn")
 
 func _ready():
@@ -34,6 +38,16 @@ func _ready():
 		MusicController.turn_off()
 	else:
 		MusicController.play_music(MUSIC_NUM)
+		
+	if LEFT_SCENE != "":
+		la.visible = true
+	if RIGHT_SCENE != "":
+		ra.visible = true
+	if UNDER_SCENE != "":
+		da.visible = true
+
+
+
  
 func _input(event):
 	
@@ -47,7 +61,7 @@ func _input(event):
 			_on_Video_finished()
 		elif next_scene == LEFT_SCENE and event.is_action_pressed("left"):
 			_on_Video_finished()	
-		elif next_scene == UNDER_SCENE and event.is_action_pressed("jump"):
+		elif next_scene == UNDER_SCENE and event.is_action_pressed("ui_down"):
 			_on_Video_finished()
 		
 	
@@ -57,7 +71,7 @@ func _input(event):
 	elif event.is_action_pressed("left") and LEFT_SCENE != "":
 		flip("l")
 		
-	elif event.is_action_pressed("jump") and UNDER_SCENE != "":
+	elif event.is_action_pressed("ui_down") and UNDER_SCENE != "":
 		flip("u")
 		
 	elif event.is_action_pressed("ui_home"):

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/Flip.gd" type="Script" id=1]
+[ext_resource path="res://GCS - SHD/Misc/arrow.png" type="Texture" id=2]
 
 [node name="Control" type="ColorRect"]
 anchor_right = 1.0
@@ -26,5 +27,25 @@ expand = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="RightArrow" type="Sprite" parent="."]
+visible = false
+position = Vector2( 1225, 400 )
+scale = Vector2( 0.1, 0.15 )
+texture = ExtResource( 2 )
+
+[node name="LeftArrow" type="Sprite" parent="."]
+visible = false
+position = Vector2( 50, 400 )
+rotation = 3.14159
+scale = Vector2( 0.1, 0.15 )
+texture = ExtResource( 2 )
+
+[node name="DownArrow" type="Sprite" parent="."]
+visible = false
+position = Vector2( 640, 660 )
+rotation = 1.57079
+scale = Vector2( 0.1, 0.15 )
+texture = ExtResource( 2 )
 
 [connection signal="finished" from="Video" to="." method="_on_Video_finished"]

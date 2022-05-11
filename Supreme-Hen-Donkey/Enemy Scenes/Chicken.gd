@@ -2,12 +2,23 @@ extends RigidBody2D
 export var speed := 400
 export var angle := 20
 export var launch_angle := 0
+export var is_flipped := false
 
 var Egg = preload("res://Egg.tscn")
 var time_start = OS.get_unix_time()
 
 var enabled = true
-onready var dragCollider = $CollisionPolygon2D
+#onready var dragCollider = $CollisionPolygon2D
+onready var dragCollider = $CollisionShape2D
+
+func _integrate_forces(state):
+	if is_flipped:
+		scale = Vector2(-1,1)
+		#setScale(-1,1)
+		#$AnimatedSprite.flip_h = true
+		#self.rotation_degrees = 180
+		#$AnimatedSprite.rotation_degrees = 180
+		#pass
 
 func get_input():
 	# Add these actions in Project Settings -> Input Map.
@@ -38,9 +49,9 @@ func shoot():
 	# "Muzzle" is a Position2D placed at the barrel of the gun.
 	var b = Egg.instance()
 	get_tree().get_root().add_child(b)
-	b.start($Muzzle.position + self.position, launch_angle)
+	b.start($Muzzle.global_position, launch_angle + self.rotation_degrees, speed)
+	
 
-	print(get_tree().get_root())
 
 func _physics_process(delta):
 	if !enabled:

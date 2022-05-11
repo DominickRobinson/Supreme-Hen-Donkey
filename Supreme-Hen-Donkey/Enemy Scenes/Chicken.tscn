@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://GCS - SHD/animation/chicken/HenEgg04.png" type="Texture" id=1]
 [ext_resource path="res://Enemy Scenes/Chicken.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://GCS - SHD/animation/chicken/HenIdle02.png" type="Texture" id=8]
 [ext_resource path="res://GCS - SHD/animation/chicken/HenIdle01.png" type="Texture" id=9]
 [ext_resource path="res://GCS - SHD/animation/chicken/HenEgg01.png" type="Texture" id=10]
+[ext_resource path="res://icon.png" type="Texture" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -24,21 +25,31 @@ animations = [ {
 "speed": 8.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 28.072, 22.9977 )
+
 [node name="Chicken" type="RigidBody2D"]
 collision_layer = 3
 collision_mask = 3
+mass = 0.166667
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -1, -17 )
 scale = Vector2( 0.182107, 0.184139 )
 frames = SubResource( 1 )
 animation = "idle"
+frame = 1
 playing = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-scale = Vector2( 0.178107, 0.166111 )
-polygon = PoolVector2Array( -118, 236, 159, 252, 175, 124, 175, 124, 122, 96, 75, -38, 29, -61, 35, -107, -45, -139, -80, -63, -145, 19, -159, 117 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.014265, -0.999797 )
+shape = SubResource( 2 )
 
 [node name="Muzzle" type="Position2D" parent="."]
-position = Vector2( -45, 12 )
+position = Vector2( -46, -5 )
 scale = Vector2( 10, 10 )
+
+[node name="Sprite" type="Sprite" parent="Muzzle"]
+scale = Vector2( 0.03, 0.03 )
+texture = ExtResource( 11 )

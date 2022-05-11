@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Single Player/2.3.jpg" type="Texture" id=1]
 [ext_resource path="res://NextScene.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Block Scenes/Spikes.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Prefabs/Camera.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scripts/Death barrier.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/UI/PauseMenu.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 470.669, 216.201 )
@@ -200,3 +201,8 @@ shape = SubResource( 5 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 9 )]
 position = Vector2( -40.0002, 78 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 11 )]
+LEVEL_SELECT = "res://Scenes/BinderFlips/Single Player/23.tscn"

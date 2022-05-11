@@ -11,3 +11,4 @@ RIGHT_VIDEO = "res://GCS - SHD/SHD-live/SHD_videos/Multiplayer/1.4-5.webm"
 LEFT_SCENE = "res://Scenes/BinderFlips/Multiplayer/13.tscn"
 RIGHT_SCENE = "res://Scenes/BinderFlips/Multiplayer/15.tscn"
 UNDER_SCENE = "res://Scenes/Levels/Multiplayer/14.tscn"
+MUSIC_NUM = 2
