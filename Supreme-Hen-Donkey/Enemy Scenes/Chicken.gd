@@ -8,12 +8,21 @@ var Egg = preload("res://Egg.tscn")
 var time_start = OS.get_unix_time()
 
 var enabled = true
+var pref_scale
 #onready var dragCollider = $CollisionPolygon2D
 onready var dragCollider = $CollisionShape2D
 
+func _ready():
+	pref_scale = scale
+
+
 func _integrate_forces(state):
+	
+	scale = pref_scale
+	
 	if is_flipped:
-		scale = Vector2(-1,1)
+		#scale = Vector2(-1,1)
+		scale.x *= -abs(scale.x)
 		#setScale(-1,1)
 		#$AnimatedSprite.flip_h = true
 		#self.rotation_degrees = 180

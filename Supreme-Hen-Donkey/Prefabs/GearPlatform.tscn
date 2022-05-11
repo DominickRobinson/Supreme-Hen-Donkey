@@ -16,7 +16,6 @@ frame_2/texture = ExtResource( 4 )
 frame_2/delay_sec = 0.0
 
 [node name="GearPlatform" type="KinematicBody2D"]
-scale = Vector2( 1.42517, 1.47814 )
 collision_layer = 3
 script = ExtResource( 1 )
 

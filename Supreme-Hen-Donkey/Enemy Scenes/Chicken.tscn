@@ -26,7 +26,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 28.072, 22.9977 )
+extents = Vector2( 29.5289, 28 )
 
 [node name="Chicken" type="RigidBody2D"]
 collision_layer = 3
@@ -39,11 +39,11 @@ position = Vector2( -1, -17 )
 scale = Vector2( 0.182107, 0.184139 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.014265, -0.999797 )
+position = Vector2( -1.47111, 4.76837e-07 )
 shape = SubResource( 2 )
 
 [node name="Muzzle" type="Position2D" parent="."]

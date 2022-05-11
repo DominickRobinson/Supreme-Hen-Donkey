@@ -33,7 +33,7 @@ scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 864, 1102 )
+position = Vector2( 1906, -306 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 2, 61 )
@@ -114,22 +114,6 @@ position = Vector2( 1649, 1115 )
 
 [node name="HenFly15" parent="Enemies" instance=ExtResource( 4 )]
 position = Vector2( 1348, 449 )
-mass = 0.0583333
-
-[node name="HenFly16" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 1272, -886 )
-
-[node name="HenFly17" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 1595, -873 )
-
-[node name="HenFly18" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 1464, -873 )
-
-[node name="HenFly19" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 1539, -850 )
-
-[node name="HenFly20" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 1331, -834 )
 
 [node name="Chicken" parent="Enemies" instance=ExtResource( 5 )]
 position = Vector2( 1528, -281 )
@@ -208,12 +192,46 @@ angle = 75
 launch_angle = 45
 is_flipped = true
 
-[node name="Chicken13" parent="Enemies" instance=ExtResource( 5 )]
-position = Vector2( 383, -764 )
-speed = 500
+[node name="Chicken14" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 1048, -948 )
+speed = 700
 angle = 75
-launch_angle = 45
 is_flipped = true
+
+[node name="Chicken16" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 1046, -1012 )
+speed = 700
+angle = 75
+launch_angle = 10
+is_flipped = true
+
+[node name="Chicken17" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 1859, -941 )
+speed = 700
+angle = 75
+launch_angle = 180
+
+[node name="Chicken19" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 1863, -1002 )
+speed = 700
+angle = 75
+launch_angle = 170
+
+[node name="Chicken20" parent="Enemies" instance=ExtResource( 5 )]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 1354, -773 )
+scale = Vector2( 2, 2 )
+mass = 83.3333
+gravity_scale = 0.0
+speed = 1500
+angle = 75
+launch_angle = 180
+
+[node name="HenFly16" parent="Enemies" instance=ExtResource( 4 )]
+modulate = Color( 0.054902, 0, 1, 1 )
+self_modulate = Color( 0.14902, 0, 1, 1 )
+position = Vector2( 1434, -784 )
+scale = Vector2( 2, 2 )
 
 [node name="Objects" type="Node2D" parent="."]
 
@@ -300,10 +318,20 @@ rotation = 4.71239
 scale = Vector2( 1.0237, 1.07468 )
 worldScene = "res://Scenes/Levels/Single Player/25.tscn"
 
+[node name="Spikes15" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 1337, -993 )
+rotation = 4.18879
+scale = Vector2( 1.5, 1 )
+
+[node name="Spikes16" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 1568, -991 )
+rotation = 2.0944
+scale = Vector2( 1.5, 1 )
+
 [node name="Camera2D" parent="." instance=ExtResource( 7 )]
 position = Vector2( -40.0002, 78 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 8 )]
+[node name="PauseMenu   p" parent="CanvasLayer" instance=ExtResource( 8 )]
 LEVEL_SELECT = "res://Scenes/BinderFlips/Single Player/25.tscn"

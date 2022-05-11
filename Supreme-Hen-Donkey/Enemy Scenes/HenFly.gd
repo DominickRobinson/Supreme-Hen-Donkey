@@ -2,6 +2,7 @@ extends RigidBody2D
 
 #export var SIGHT_RADIUS := 200
 export var FLIGHT_SPEED := 200
+export var is_flipped := false
 
 onready var bottom_zone = $BottomZone
 
@@ -10,8 +11,26 @@ var attack_mode = false
 var enabled := true
 onready var dragCollider = $CollisionShape2D
 
+var pref_scale
+
 func _ready():
-	pass
+	pref_scale = scale
+
+
+func _integrate_forces(state):
+	
+	scale = pref_scale
+	
+	if is_flipped:
+		#scale = Vector2(-1,1)
+		scale.x *= -abs(scale.x)
+		#setScale(-1,1)
+		#$AnimatedSprite.flip_h = true
+		#self.rotation_degrees = 180
+		#$AnimatedSprite.rotation_degrees = 180
+		#pass
+
+
 
 
 func _process(delta):
