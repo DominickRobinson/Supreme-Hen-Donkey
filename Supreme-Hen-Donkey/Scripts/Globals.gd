@@ -8,7 +8,7 @@ const MAX_ROUNDS = 10
 var lives = -1
 var winTally = [0, 0]
 
-var playerSprites = [0, 0]
+var playerSprites = [1, 0]
 var customSprites = []
 
 var GM = null

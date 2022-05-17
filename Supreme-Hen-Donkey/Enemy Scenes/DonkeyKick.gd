@@ -2,8 +2,10 @@ extends RigidBody2D
 
 export var KICK_STRENGTH := 1000
 export var KICK_ANGLE := 90
+export var is_flipped := false
 
 var attack_mode = false
+var pref_scale
 
 var enabled := true
 onready var dragCollider = $CollisionShape2D
@@ -11,6 +13,14 @@ onready var dragCollider = $CollisionShape2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimatedSprite.animation = "Idle"
+	pref_scale = scale
+
+func _integrate_forces(state):
+	
+	scale = pref_scale
+	
+	if is_flipped:
+		scale.x *= -abs(scale.x)
 
 
 

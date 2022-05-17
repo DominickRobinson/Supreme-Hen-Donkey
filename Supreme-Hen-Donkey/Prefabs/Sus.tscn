@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Sus.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[node name="Sus" type="Node"]
+script = ExtResource( 1 )
+dialogue = "Stay sus, kid."
+
+[node name="Activate" type="Area2D" parent="."]
+position = Vector2( 17, 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Activate"]
+shape = SubResource( 1 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 300.0
+margin_bottom = 100.0
+
+[node name="Dialogue" type="Label" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+text = "daboneisdgdsg
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control/Dialogue"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

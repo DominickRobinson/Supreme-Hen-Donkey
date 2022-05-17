@@ -17,4 +17,4 @@ func _process(_delta):
 func _input(event):
 	if event.is_action_pressed("reset_level"):
 		get_tree().change_scene(get_tree().current_scene.filename)
-			
+		#get_tree().reload_current_scene()	

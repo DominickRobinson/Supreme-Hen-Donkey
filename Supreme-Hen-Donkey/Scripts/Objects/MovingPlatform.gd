@@ -1,15 +1,19 @@
 extends KinematicBody2D
 
-export var HORIZONTAL_SPEED := 60.0
+export var HORIZONTAL_SPEED := 80.0
 export var TRAVEL_DISTANCE := 200.0
 export var ROTATION := 0
+export var TRAVEL_TIMER := 4
 
 export var enabled := true
 onready var dragCollider = $CollisionShape2D
 
+var timer
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rotation = deg2rad(ROTATION)
+	timer = OS.get_unix_time()
 	
 
 
@@ -27,8 +31,16 @@ func _process(delta):
 	else:
 		move_and_collide(delta * Vector2(-1*HORIZONTAL_SPEED,0).rotated(rotation))
 		current_distance += (delta*HORIZONTAL_SPEED)
-	if current_distance > TRAVEL_DISTANCE:
+
+#	if current_distance > TRAVEL_DISTANCE:
+#		travel_forward = not travel_forward
+#		current_distance = 0
+
+	if OS.get_unix_time() - timer > TRAVEL_TIMER:
 		travel_forward = not travel_forward
 		current_distance = 0
+		timer = OS.get_unix_time()
+
+
 #func _physics_process(delta):
 #	rotation = deg2rad(45)

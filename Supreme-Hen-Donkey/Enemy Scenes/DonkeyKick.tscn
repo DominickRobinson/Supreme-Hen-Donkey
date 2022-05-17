@@ -28,7 +28,7 @@ animations = [ {
 extents = Vector2( 61.5625, 74 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 48, 51.125 )
+extents = Vector2( 36.5259, 51.125 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 44.5, 37.5 )
@@ -42,7 +42,6 @@ script = ExtResource( 10 )
 scale = Vector2( 0.196983, 0.2 )
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 2
 playing = true
 
 [node name="SightZone" type="Area2D" parent="."]
@@ -56,7 +55,7 @@ position = Vector2( -15, 18 )
 scale = Vector2( 0.923446, 0.807178 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KickZone"]
-position = Vector2( -54, -4.875 )
+position = Vector2( -42.5259, -4.875 )
 shape = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

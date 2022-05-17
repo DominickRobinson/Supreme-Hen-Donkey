@@ -2,14 +2,19 @@ extends Node2D
 
 export(String, FILE, ".tscn") var worldScene
 
-export var seconds_on: float
-export var seconds_off: float
+#export var seconds_on: float
+#export var seconds_off: float
+export var seconds_on := 2.0
+export var seconds_off := 3.0
+export var stagger := 1.0
 
 var is_on = false
 
 var enabled := true
 onready var dragCollider = $DragCollider
 
+func _ready():
+	$Timer.start(stagger)
 
 func _on_DeadlyPart_body_entered(body):
 	if body is Player and !body.dead:

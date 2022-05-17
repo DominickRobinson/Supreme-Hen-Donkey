@@ -33,7 +33,7 @@ scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 514, 1103 )
+position = Vector2( 794, -1027 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 2, 61 )
@@ -61,7 +61,8 @@ scale = Vector2( 1.60279, 3.53738 )
 position = Vector2( 855, 1139 )
 
 [node name="MovingPlatform" parent="Objects" instance=ExtResource( 5 )]
-position = Vector2( 1578, 715 )
+position = Vector2( 1320, 680 )
+TRAVEL_TIMER = 6
 
 [node name="FallingBlock" parent="Objects" instance=ExtResource( 6 )]
 position = Vector2( 1320, 16 )
@@ -153,8 +154,8 @@ worldScene = "res://Scenes/Levels/Single Player/22.tscn"
 [node name="Trampoline2" parent="Objects" instance=ExtResource( 4 )]
 position = Vector2( 431, 553 )
 scale = Vector2( 1.91909, 1.5456 )
-impulse_no_jump = -2270.0
-impulse_jump = -2270.0
+impulse_no_jump = -2275.0
+impulse_jump = -2275.0
 
 [node name="Goal" type="Area2D" parent="."]
 position = Vector2( 1200, 606 )

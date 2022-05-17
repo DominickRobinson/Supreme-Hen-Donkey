@@ -4,17 +4,18 @@ class_name Player
 # The `export` keyword tells Godot to show this variable in the Inspector
 export var HORIZONTAL_MAX_SPEED := 650.0
 export var FLOOR_ACCELERATION := 27.0
-export var AIR_ACCELERATION := 20.0
+export var AIR_ACCELERATION := 23.0
 export var JUMP_SPEED := 600.0
 export var WALL_JUMP_VERTICAL_SPEED := 650.0
 export var WALL_JUMP_HORIZONTAL_SPEED := 250.0
-export var INITIAL_RUN_VELOCITY := 100
+export var INITIAL_RUN_VELOCITY := 60
 export var AIR_RESISTANCE := 0.00003 
 
 export var CURRENT_PLAYER := 1
 var CUSTOM_SPRITE_NUM
-export var CUSTOM_SPRITE_ROTATION_SPEED := 0
-export var WOBBLE := 0
+export var CUSTOM_SPRITE_ROTATION_SPEED := 12
+export var WOBBLE := 10
+export var GROUND_WOBBLE_SPEED := 4
 
 var step = 1
 
@@ -39,6 +40,7 @@ onready var deathNode = get_node(deathNP)
 
 func _ready():
 	startPos = Vector2(0,0)
+	linear_velocity = Vector2(0,0)
 	
 	change_sprite()
 	
@@ -89,6 +91,7 @@ func _physics_process(_delta: float):
 	# Only allow acceleration when less than the maximum horizontal speed
 	if abs(linear_velocity.x) < HORIZONTAL_MAX_SPEED or sign(linear_velocity.x) != sign(x):
 		apply_central_impulse(Vector2(x*accel, 0))
+		print(applied_force)
 	
 
 	
@@ -179,9 +182,15 @@ func _physics_process(_delta: float):
 		rotation_dir = -1
 	
 	if not is_on_right_wall() and not is_on_left_wall() and not is_on_floor():
-		$CustomSprite.rotation_degrees += CUSTOM_SPRITE_ROTATION_SPEED * rotation_dir
-	
-	
+		$CustomSprite.rotation_degrees += CUSTOM_SPRITE_ROTATION_SPEED * rotation_dir * 1.5
+#		if linear_velocity.y < 0:
+#			pass
+#			$CustomSprite.rotation_degrees += CUSTOM_SPRITE_ROTATION_SPEED * rotation_dir 
+#			$CustomSprite.rotation_degrees *= abs(linear_velocity.y) / 300
+#		elif linear_velocity.y > 0:
+#			CustomSprite.rotation_degrees += CUSTOM_SPRITE_ROTATION_SPEED * rotation_dir * 1.5
+#			$CustomSprite.rotation_degrees *= abs(linear_velocity.y) / 1000
+		
 ## Helper functions
 # Gets if the center jump zone detects a floor (player is definitely on a floor)
 func is_on_floor():
@@ -263,7 +272,9 @@ func change_sprite():
 var wobble_dir = 1
 func wobble_sprite():
 	if $CustomSprite.rotation_degrees > WOBBLE:
+		$CustomSprite.rotation_degrees = WOBBLE
 		wobble_dir = -1
 	elif $CustomSprite.rotation_degrees < -WOBBLE:
+		$CustomSprite.rotation_degrees = -WOBBLE
 		wobble_dir = 1
-	$CustomSprite.rotation_degrees += 3*wobble_dir
+	$CustomSprite.rotation_degrees += GROUND_WOBBLE_SPEED * wobble_dir * abs(linear_velocity.x) / HORIZONTAL_MAX_SPEED

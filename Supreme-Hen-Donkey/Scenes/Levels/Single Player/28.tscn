@@ -51,7 +51,7 @@ polygon = PoolVector2Array( 1097, 11, 1103, 149, 1311, 136, 1246, 338, 1019, 341
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2( 698, 116 )
-polygon = PoolVector2Array( -1, 17, 1404, 27, 1420, 109, 1480, 81, 1669, 92, 1480, 373, 506, 367, 507, 279, 9, 286 )
+polygon = PoolVector2Array( 12, 184, 53.7282, 181.514, 61, 72, 1405, 101, 1420, 109, 1480, 81, 1669, 92, 1480, 373, 506, 367, 507, 279, 9, 286 )
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2( 400, 1098 )
@@ -96,22 +96,31 @@ shape = SubResource( 5 )
 [node name="Objects" type="Node2D" parent="."]
 
 [node name="GearPlatform" parent="Objects" instance=ExtResource( 4 )]
-position = Vector2( 2012, -371 )
+position = Vector2( 2173, -360 )
+ROTATION_SPEED = -2
 
 [node name="GearPlatform2" parent="Objects" instance=ExtResource( 4 )]
-position = Vector2( 807, -7 )
+position = Vector2( 628, -15 )
+scale = Vector2( 2, 2 )
+ROTATION_SPEED = -5
 
 [node name="GearPlatform3" parent="Objects" instance=ExtResource( 4 )]
-position = Vector2( 933, -355 )
+position = Vector2( 1088, -24 )
+scale = Vector2( 2, 2 )
+ROTATION_SPEED = -5
 
 [node name="GearPlatform4" parent="Objects" instance=ExtResource( 4 )]
-position = Vector2( 1380, -383 )
+position = Vector2( 1554, -260 )
+ROTATION_SPEED = -3
 
 [node name="GearPlatform5" parent="Objects" instance=ExtResource( 4 )]
-position = Vector2( 1171, -70 )
+position = Vector2( 853, -234 )
+scale = Vector2( 2, 2 )
+ROTATION_SPEED = 5
 
 [node name="GearPlatform6" parent="Objects" instance=ExtResource( 4 )]
-position = Vector2( 1710, -87 )
+position = Vector2( 1968, -22 )
+ROTATION_SPEED = -2
 
 [node name="KinematicBody2D" parent="Objects" instance=ExtResource( 5 )]
 position = Vector2( 387, 236 )
@@ -119,10 +128,11 @@ rotation = 1.5708
 scale = Vector2( 15.8019, 1.02786 )
 
 [node name="GearPlatform7" parent="Objects" instance=ExtResource( 4 )]
-position = Vector2( 1777, -670 )
+position = Vector2( 1759, -668 )
 
 [node name="GearPlatform8" parent="Objects" instance=ExtResource( 4 )]
 position = Vector2( 2210, -806 )
+ROTATION_SPEED = -1
 
 [node name="KinematicBody2D2" parent="Objects" instance=ExtResource( 5 )]
 position = Vector2( 2396, 253 )
@@ -145,15 +155,58 @@ position = Vector2( 1885, 211 )
 position = Vector2( 2223, 216 )
 
 [node name="FlamePillar" parent="Objects" instance=ExtResource( 11 )]
-position = Vector2( 1756, 1196 )
+position = Vector2( 722, 1182 )
+scale = Vector2( 0.174097, 0.5 )
 worldScene = "res://Scenes/Levels/Single Player/28.tscn"
 
 [node name="FlamePillar2" parent="Objects" instance=ExtResource( 11 )]
-position = Vector2( 1309, 1188 )
+position = Vector2( 602, 1182 )
+scale = Vector2( 0.174097, 0.5 )
 worldScene = "res://Scenes/Levels/Single Player/28.tscn"
 
 [node name="FlamePillar3" parent="Objects" instance=ExtResource( 11 )]
-position = Vector2( 809, 1192 )
+position = Vector2( 482, 1182 )
+scale = Vector2( 0.174, 0.5 )
+worldScene = "res://Scenes/Levels/Single Player/28.tscn"
+
+[node name="FlamePillar4" parent="Objects" instance=ExtResource( 11 )]
+position = Vector2( 1084, 1181 )
+scale = Vector2( 0.174097, 0.5 )
+worldScene = "res://Scenes/Levels/Single Player/28.tscn"
+
+[node name="FlamePillar5" parent="Objects" instance=ExtResource( 11 )]
+position = Vector2( 964, 1181 )
+scale = Vector2( 0.174097, 0.5 )
+worldScene = "res://Scenes/Levels/Single Player/28.tscn"
+
+[node name="FlamePillar6" parent="Objects" instance=ExtResource( 11 )]
+position = Vector2( 844, 1181 )
+scale = Vector2( 0.174, 0.5 )
+worldScene = "res://Scenes/Levels/Single Player/28.tscn"
+
+[node name="FlamePillar7" parent="Objects" instance=ExtResource( 11 )]
+position = Vector2( 1443, 1181 )
+scale = Vector2( 0.174097, 0.5 )
+worldScene = "res://Scenes/Levels/Single Player/28.tscn"
+
+[node name="FlamePillar8" parent="Objects" instance=ExtResource( 11 )]
+position = Vector2( 1323, 1181 )
+scale = Vector2( 0.174097, 0.5 )
+worldScene = "res://Scenes/Levels/Single Player/28.tscn"
+
+[node name="FlamePillar9" parent="Objects" instance=ExtResource( 11 )]
+position = Vector2( 1203, 1181 )
+scale = Vector2( 0.174, 0.5 )
+worldScene = "res://Scenes/Levels/Single Player/28.tscn"
+
+[node name="FlamePillar11" parent="Objects" instance=ExtResource( 11 )]
+position = Vector2( 1686, 1183 )
+scale = Vector2( 0.174097, 0.5 )
+worldScene = "res://Scenes/Levels/Single Player/28.tscn"
+
+[node name="FlamePillar12" parent="Objects" instance=ExtResource( 11 )]
+position = Vector2( 1566, 1183 )
+scale = Vector2( 0.174, 0.5 )
 worldScene = "res://Scenes/Levels/Single Player/28.tscn"
 
 [node name="Enemies" type="Node2D" parent="."]
@@ -175,10 +228,10 @@ position = Vector2( 1300, 1097 )
 position = Vector2( 1248, 1058 )
 
 [node name="HenFly" parent="Enemies" instance=ExtResource( 8 )]
-position = Vector2( 949, 970 )
+position = Vector2( 935, 737 )
 
 [node name="HenFly2" parent="Enemies" instance=ExtResource( 8 )]
-position = Vector2( 1438, 1098 )
+position = Vector2( 1756, 881 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 12 )]
 position = Vector2( -40.0002, 78 )

@@ -47,7 +47,8 @@ func shoot(linear_velocity):
 			var b = sprites[i].instance()
 			b.position = $Muzzle.position+self.position
 			#b.apply_central_impulse(linear_velocity)
-			get_tree().get_root().add_child(b)
+			#get_tree().get_root().add_child(b)
+			get_parent().add_child(b)
 			break
 
 func _physics_process(delta):

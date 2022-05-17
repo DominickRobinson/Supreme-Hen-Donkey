@@ -34,7 +34,7 @@ scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( -1147, -999 )
+position = Vector2( 1635, 543 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 2, 61 )
@@ -88,51 +88,67 @@ position = Vector2( 1313.17, -484.884 )
 worldScene = "res://Scenes/Levels/Single Player/23.tscn"
 
 [node name="FlamePillar2" parent="Objects" instance=ExtResource( 6 )]
-position = Vector2( -808.792, -463.499 )
+position = Vector2( -807.701, -455.915 )
 worldScene = "res://Scenes/Levels/Single Player/23.tscn"
+seconds_off = 2.0
+stagger = 2.0
 
 [node name="FlamePillar3" parent="Objects" instance=ExtResource( 6 )]
 position = Vector2( 516.194, -467.122 )
 worldScene = "res://Scenes/Levels/Single Player/23.tscn"
 
 [node name="FlamePillar4" parent="Objects" instance=ExtResource( 6 )]
-position = Vector2( 210.683, -471.69 )
+position = Vector2( 210.161, -468.604 )
 worldScene = "res://Scenes/Levels/Single Player/23.tscn"
 
 [node name="FlamePillar5" parent="Objects" instance=ExtResource( 6 )]
-position = Vector2( -678.7, -469.59 )
+position = Vector2( -680.878, -456.694 )
 worldScene = "res://Scenes/Levels/Single Player/23.tscn"
+seconds_off = 2.0
 
 [node name="GearPlatform" parent="Objects" instance=ExtResource( 7 )]
 position = Vector2( -265.16, 121.941 )
 
 [node name="GearPlatform2" parent="Objects" instance=ExtResource( 7 )]
 position = Vector2( 691.723, 86.6739 )
+ROTATION_SPEED = 2
 
 [node name="GearPlatform3" parent="Objects" instance=ExtResource( 7 )]
 position = Vector2( 1174.95, 96.1926 )
+ROTATION_SPEED = -2
 
 [node name="GearPlatform5" parent="Objects" instance=ExtResource( 7 )]
-position = Vector2( -492.664, 1005.21 )
+position = Vector2( -550.714, 877.24 )
+scale = Vector2( 2.5, 2.5 )
+ROTATION_SPEED = -20
 
 [node name="GearPlatform4" parent="Objects" instance=ExtResource( 7 )]
-position = Vector2( 1033.44, 897.436 )
+position = Vector2( 1043.86, 955.347 )
+scale = Vector2( 2, 2 )
+ROTATION_SPEED = -10
 
 [node name="FlamePillar6" parent="Objects" instance=ExtResource( 6 )]
-position = Vector2( -101.856, 913.333 )
+position = Vector2( -97.381, 906.832 )
 worldScene = "res://Scenes/Levels/Single Player/23.tscn"
+seconds_on = 3.0
+seconds_off = 2.0
 
 [node name="FlamePillar7" parent="Objects" instance=ExtResource( 6 )]
-position = Vector2( 355.725, 849.194 )
+position = Vector2( 292.125, 856.613 )
 worldScene = "res://Scenes/Levels/Single Player/23.tscn"
+seconds_on = 1.0
+seconds_off = 1.0
+stagger = 2.0
 
 [node name="FlamePillar8" parent="Objects" instance=ExtResource( 6 )]
-position = Vector2( 596.84, 851.907 )
+position = Vector2( 577.526, 858.063 )
 worldScene = "res://Scenes/Levels/Single Player/23.tscn"
+seconds_on = 1.0
+seconds_off = 1.0
 
 [node name="Trampoline" parent="Objects" instance=ExtResource( 4 )]
-position = Vector2( -1013.08, 926.229 )
-scale = Vector2( 1.56376, 1.24047 )
+position = Vector2( -1005.18, 923.663 )
+scale = Vector2( 2.25, 1.24 )
 
 [node name="Spikes" parent="Objects" instance=ExtResource( 8 )]
 position = Vector2( -434.625, 385.084 )
@@ -156,6 +172,11 @@ worldScene = "res://Scenes/Levels/Single Player/23.tscn"
 
 [node name="Spikes6" parent="Objects" instance=ExtResource( 8 )]
 position = Vector2( 791.934, 369.949 )
+worldScene = "res://Scenes/Levels/Single Player/23.tscn"
+
+[node name="Spikes7" parent="Objects" instance=ExtResource( 8 )]
+position = Vector2( 887.881, -994.432 )
+scale = Vector2( 1.25, 0.822 )
 worldScene = "res://Scenes/Levels/Single Player/23.tscn"
 
 [node name="Goal" type="Area2D" parent="."]

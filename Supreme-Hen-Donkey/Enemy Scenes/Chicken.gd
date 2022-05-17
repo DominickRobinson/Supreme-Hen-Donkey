@@ -1,7 +1,7 @@
 extends RigidBody2D
-export var speed := 400
+export var speed := 600
 export var angle := 20
-export var launch_angle := 0
+export var launch_angle := 150
 export var is_flipped := false
 
 var Egg = preload("res://Egg.tscn")
@@ -57,7 +57,8 @@ func get_input():
 func shoot():
 	# "Muzzle" is a Position2D placed at the barrel of the gun.
 	var b = Egg.instance()
-	get_tree().get_root().add_child(b)
+	#get_tree().get_root().add_child(b)
+	get_parent().add_child(b)
 	b.start($Muzzle.global_position, launch_angle + self.rotation_degrees, speed)
 	
 

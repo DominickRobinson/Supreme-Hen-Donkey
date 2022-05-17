@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 #export var SIGHT_RADIUS := 200
-export var FLIGHT_SPEED := 200
+export var FLIGHT_SPEED := 400
 export var is_flipped := false
 
 onready var bottom_zone = $BottomZone
@@ -43,30 +43,20 @@ func _process(delta):
 		
 		$AnimatedSprite.animation = "Flying"
 		$AnimatedSprite.speed_scale = 3
+		gravity_scale = 0
 	
 	else:
 		
+		gravity_scale = 20
 		$AnimatedSprite.speed_scale = 1
-		
-		if is_on_floor():
-			$AnimatedSprite.animation = "Idle"
-		else:
-			$AnimatedSprite.animation = "Flying"
-	
+		$AnimatedSprite.animation = "Idle"
+		#$AnimatedSprite.animation = "Flying"
 	
 	if linear_velocity.x > 0:
 		$AnimatedSprite.flip_h = true
 	elif linear_velocity.x < 0:
 		$AnimatedSprite.flip_h = false
 		
-		
-		
-func is_on_floor(): 
-	return false
-	#return !bottom_zone.get_overlapping_bodies().empty()
-
-#func _integrate_forces(state):
-#	rotation = 0
 
 
 func check_for_player():
@@ -81,10 +71,13 @@ func check_for_player():
 			
 				attack_mode = true
 			
-				var dist = (body.position - self.position).normalized()
+				var dist = (body.global_position - self.global_position).normalized()
 				
-				linear_velocity = dist * FLIGHT_SPEED
+				#linear_velocity = dist * FLIGHT_SPEED
+				#apply_central_impulse(dist * FLIGHT_SPEED)
+				applied_force = dist * FLIGHT_SPEED
 				
 	if not player_found:
 		attack_mode = false
 		linear_velocity *= 0.99
+		#applied_force = Vector2(0,0)
