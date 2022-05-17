@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://NextScene.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Prefabs/Camera.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/Death barrier.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/UI/PauseMenu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefabs/Sus.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 395.25, 186 )
@@ -30,7 +31,7 @@ scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1084, -852 )
+position = Vector2( 1619, 554 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 2, 61 )
@@ -90,3 +91,7 @@ shape = SubResource( 5 )
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 6 )]
 LEVEL_SELECT = "res://Scenes/BinderFlips/Single Player/20.tscn"
+
+[node name="Sus" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1288, 1108 )
+dialogue = "Remember kid, stay [rainbow][wave amp=50] s u s .[/wave][/rainbow]"

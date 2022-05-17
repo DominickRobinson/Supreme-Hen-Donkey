@@ -91,7 +91,7 @@ func _physics_process(_delta: float):
 	# Only allow acceleration when less than the maximum horizontal speed
 	if abs(linear_velocity.x) < HORIZONTAL_MAX_SPEED or sign(linear_velocity.x) != sign(x):
 		apply_central_impulse(Vector2(x*accel, 0))
-		print(applied_force)
+		#print(applied_force)
 	
 
 	

@@ -1,36 +1,43 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Sus.gd" type="Script" id=1]
+[ext_resource path="res://GCS - SHD/Misc/ldfcomicsans-font/Ldfcomicsansbold-zgma.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 74.125, 64.75 )
 
-[node name="Sus" type="Node"]
+[sub_resource type="DynamicFont" id=3]
+size = 32
+extra_spacing_char = 2
+font_data = ExtResource( 2 )
+
+[node name="Sus" type="Node2D"]
+position = Vector2( 370, 436 )
 script = ExtResource( 1 )
-dialogue = "Stay sus, kid."
+dialogue = "Stay [rainbow][wave amp=50]sus[/wave][/rainbow] kid."
 
 [node name="Activate" type="Area2D" parent="."]
-position = Vector2( 17, 19 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Activate"]
 shape = SubResource( 1 )
 
-[node name="Control" type="Control" parent="."]
-margin_right = 300.0
-margin_bottom = 100.0
-
-[node name="Dialogue" type="Label" parent="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="Dialogue" type="RichTextLabel" parent="."]
+margin_left = -75.0
+margin_top = -111.0
+margin_right = 225.0
+margin_bottom = -61.0
+rect_min_size = Vector2( 300, 50 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
-text = "daboneisdgdsg
-"
-align = 1
-valign = 1
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+text = "testing"
+fit_content_height = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="Control/Dialogue"]
+[node name="ColorRect" type="ColorRect" parent="Dialogue"]
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://NextScene.gd" type="Script" id=1]
 [ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Single Player/F2.0.jpg" type="Texture" id=2]
@@ -8,6 +8,11 @@
 [ext_resource path="res://Scenes/UI/PauseMenu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Block Scenes/Spikes.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Block Scenes/BasicBlock.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Prefabs/Sus.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Prefabs/MovingPlatform.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Block Scenes/IceBlock.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Block Scenes/FlamePillar.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Prefabs/GearPlatform.tscn" type="PackedScene" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1936.5, 186 )
@@ -35,7 +40,7 @@ scale = Vector2( 6, 6 )
 texture = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 5207, -3217 )
+position = Vector2( 7220, -1559 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 838, 468 )
@@ -100,51 +105,324 @@ zoom = Vector2( 16, 16 )
 
 [node name="Objects" type="Node2D" parent="."]
 
-[node name="Spikes" parent="Objects" instance=ExtResource( 7 )]
+[node name="Part 1 branch 1" type="Node2D" parent="Objects"]
+
+[node name="Spikes" parent="Objects/Part 1 branch 1" instance=ExtResource( 7 )]
 position = Vector2( 6059, -2543 )
 rotation = 0.0174533
 scale = Vector2( 1.6, 0.821713 )
 
-[node name="Spikes2" parent="Objects" instance=ExtResource( 7 )]
+[node name="Spikes2" parent="Objects/Part 1 branch 1" instance=ExtResource( 7 )]
 position = Vector2( 6373, -2539 )
 rotation = 0.0174533
 scale = Vector2( 1.6, 0.821713 )
 
-[node name="Spikes3" parent="Objects" instance=ExtResource( 7 )]
+[node name="Spikes3" parent="Objects/Part 1 branch 1" instance=ExtResource( 7 )]
 position = Vector2( 6692, -2534 )
 rotation = 0.0174533
 scale = Vector2( 1.6, 0.821713 )
 
-[node name="Spikes4" parent="Objects" instance=ExtResource( 7 )]
+[node name="Spikes4" parent="Objects/Part 1 branch 1" instance=ExtResource( 7 )]
 position = Vector2( 7012, -2526 )
 rotation = 0.0174533
 scale = Vector2( 1.6, 0.821713 )
 
-[node name="Spikes5" parent="Objects" instance=ExtResource( 7 )]
+[node name="Spikes5" parent="Objects/Part 1 branch 1" instance=ExtResource( 7 )]
+position = Vector2( 7168, -2397 )
+rotation = 1.5708
+scale = Vector2( 0.9, 0.821713 )
+
+[node name="Spikes6" parent="Objects/Part 1 branch 1" instance=ExtResource( 7 )]
+position = Vector2( 7168, -2217 )
+rotation = 1.5708
+scale = Vector2( 0.9, 0.821713 )
+
+[node name="Spikes7" parent="Objects/Part 1 branch 1" instance=ExtResource( 7 )]
+position = Vector2( 7168, -2039 )
+rotation = 1.5708
+scale = Vector2( 0.9, 0.822 )
+
+[node name="Spikes8" parent="Objects/Part 1 branch 1" instance=ExtResource( 7 )]
+position = Vector2( 8185, -2381 )
+rotation = 4.71239
+scale = Vector2( 0.9, 0.821713 )
+
+[node name="Spikes9" parent="Objects/Part 1 branch 1" instance=ExtResource( 7 )]
+position = Vector2( 8185, -2201 )
+rotation = 4.71239
+scale = Vector2( 0.9, 0.821713 )
+
+[node name="Spikes10" parent="Objects/Part 1 branch 1" instance=ExtResource( 7 )]
+position = Vector2( 8185, -2023 )
+rotation = 4.71239
+scale = Vector2( 0.9, 0.822 )
+
+[node name="Spikes11" parent="Objects/Part 1 branch 1" instance=ExtResource( 7 )]
+position = Vector2( 8183, -1763 )
+rotation = 4.71239
+scale = Vector2( 0.9, 0.821713 )
+
+[node name="Spikes12" parent="Objects/Part 1 branch 1" instance=ExtResource( 7 )]
+position = Vector2( 8183, -1583 )
+rotation = 4.71239
+scale = Vector2( 0.9, 0.821713 )
+
+[node name="Spikes13" parent="Objects/Part 1 branch 1" instance=ExtResource( 7 )]
+position = Vector2( 8183, -1405 )
+rotation = 4.71239
+scale = Vector2( 0.9, 0.822 )
+
+[node name="Spikes14" parent="Objects/Part 1 branch 1" instance=ExtResource( 7 )]
+position = Vector2( 8185, -1227 )
+rotation = 4.71239
+scale = Vector2( 0.9, 0.821713 )
+
+[node name="Spikes15" parent="Objects/Part 1 branch 1" instance=ExtResource( 7 )]
+position = Vector2( 8185, -1047 )
+rotation = 4.71239
+scale = Vector2( 0.9, 0.821713 )
+
+[node name="Spikes16" parent="Objects/Part 1 branch 1" instance=ExtResource( 7 )]
+position = Vector2( 8185, -869 )
+rotation = 4.71239
+scale = Vector2( 0.9, 0.822 )
+
+[node name="Spikes17" parent="Objects/Part 1 branch 1" instance=ExtResource( 7 )]
+position = Vector2( 8181, -694 )
+rotation = 4.71239
+scale = Vector2( 0.9, 0.821713 )
+
+[node name="Spikes18" parent="Objects/Part 1 branch 1" instance=ExtResource( 7 )]
+position = Vector2( 7083, -702 )
+rotation = 0.0174533
+scale = Vector2( 1.6, 0.821713 )
+
+[node name="Spikes19" parent="Objects/Part 1 branch 1" instance=ExtResource( 7 )]
+position = Vector2( 7397, -697.999 )
+rotation = 0.0174533
+scale = Vector2( 1.6, 0.821713 )
+
+[node name="Spikes20" parent="Objects/Part 1 branch 1" instance=ExtResource( 7 )]
+position = Vector2( 7716, -692.999 )
+rotation = 0.0174533
+scale = Vector2( 1.6, 0.821713 )
+
+[node name="Spikes21" parent="Objects/Part 1 branch 1" instance=ExtResource( 7 )]
+position = Vector2( 8036, -685 )
+rotation = 0.0174533
+scale = Vector2( 1.6, 0.821713 )
+
+[node name="Spikes23" parent="Objects/Part 1 branch 1" instance=ExtResource( 7 )]
+position = Vector2( 6134, -719 )
+rotation = 0.0174533
+scale = Vector2( 1.6, 0.821713 )
+
+[node name="Spikes24" parent="Objects/Part 1 branch 1" instance=ExtResource( 7 )]
+position = Vector2( 6453, -714 )
+rotation = 0.0174533
+scale = Vector2( 1.6, 0.821713 )
+
+[node name="Spikes25" parent="Objects/Part 1 branch 1" instance=ExtResource( 7 )]
+position = Vector2( 6773, -706 )
+rotation = 0.0174533
+scale = Vector2( 1.6, 0.821713 )
+
+[node name="Spikes26" parent="Objects/Part 1 branch 1" instance=ExtResource( 7 )]
+position = Vector2( 5958, -875 )
+rotation = 1.5708
+scale = Vector2( 1.6, 1.3 )
+
+[node name="Spikes27" parent="Objects/Part 1 branch 1" instance=ExtResource( 7 )]
+position = Vector2( 5958, -1184 )
+rotation = 1.5708
+scale = Vector2( 1.6, 1.3 )
+
+[node name="BasicBlock" parent="Objects/Part 1 branch 1" instance=ExtResource( 8 )]
+position = Vector2( 6547, -2703 )
+
+[node name="MovingPlatform" parent="Objects/Part 1 branch 1" instance=ExtResource( 10 )]
+position = Vector2( 7050, -2710 )
+scale = Vector2( 0.55, 2.3 )
+HORIZONTAL_SPEED = 300.0
+TRAVEL_DISTANCE = 250.0
+TRAVEL_TIMER = 7
+
+[node name="MovingPlatform6" parent="Objects/Part 1 branch 1" instance=ExtResource( 10 )]
+position = Vector2( 7661, -2708 )
+scale = Vector2( 0.55, 2.3 )
+HORIZONTAL_SPEED = 300.0
+TRAVEL_DISTANCE = 250.0
+TRAVEL_TIMER = 7
+
+[node name="MovingPlatform2" parent="Objects/Part 1 branch 1" instance=ExtResource( 10 )]
+position = Vector2( 8055, -2454 )
+scale = Vector2( 0.6, 2 )
+HORIZONTAL_SPEED = 700.0
+TRAVEL_DISTANCE = 760.0
+REVERSE = true
+
+[node name="Spikes5" parent="Objects/Part 1 branch 1/MovingPlatform2" instance=ExtResource( 7 )]
+position = Vector2( 0, -33.0575 )
+scale = Vector2( 2.01, 0.327 )
+
+[node name="MovingPlatform3" parent="Objects/Part 1 branch 1" instance=ExtResource( 10 )]
+position = Vector2( 7302, -2026 )
+scale = Vector2( 0.6, 2 )
+HORIZONTAL_SPEED = 700.0
+TRAVEL_DISTANCE = 760.0
+
+[node name="Spikes5" parent="Objects/Part 1 branch 1/MovingPlatform3" instance=ExtResource( 7 )]
+position = Vector2( 0, -33.0575 )
+scale = Vector2( 2.01, 0.327 )
+
+[node name="MovingPlatform4" parent="Objects/Part 1 branch 1" instance=ExtResource( 10 )]
+position = Vector2( 7307, -2321 )
+scale = Vector2( 0.6, 2 )
+HORIZONTAL_SPEED = 700.0
+TRAVEL_DISTANCE = 760.0
+
+[node name="Spikes5" parent="Objects/Part 1 branch 1/MovingPlatform4" instance=ExtResource( 7 )]
+position = Vector2( 0, -33.0575 )
+scale = Vector2( 2.01, 0.327 )
+
+[node name="MovingPlatform5" parent="Objects/Part 1 branch 1" instance=ExtResource( 10 )]
+position = Vector2( 8041, -2176 )
+scale = Vector2( 0.6, 2 )
+HORIZONTAL_SPEED = 700.0
+TRAVEL_DISTANCE = 760.0
+REVERSE = true
+
+[node name="Spikes5" parent="Objects/Part 1 branch 1/MovingPlatform5" instance=ExtResource( 7 )]
+position = Vector2( 0, -33.0575 )
+scale = Vector2( 2.01, 0.327 )
+
+[node name="IceBlock" parent="Objects/Part 1 branch 1" instance=ExtResource( 12 )]
+position = Vector2( 7480, -1877 )
+rotation = 0.122173
+scale = Vector2( 1.3, 0.3 )
+
+[node name="IceBlock2" parent="Objects/Part 1 branch 1" instance=ExtResource( 12 )]
+position = Vector2( 8064, -1869 )
+rotation = -0.174533
+scale = Vector2( 0.5, 0.3 )
+
+[node name="GearPlatform" parent="Objects/Part 1 branch 1" instance=ExtResource( 14 )]
+position = Vector2( 7734, -1651 )
+ROTATION_SPEED = 10
+
+[node name="GearPlatform2" parent="Objects/Part 1 branch 1" instance=ExtResource( 14 )]
+position = Vector2( 8004, -1657 )
+ROTATION_SPEED = -10
+
+[node name="GearPlatform3" parent="Objects/Part 1 branch 1" instance=ExtResource( 14 )]
+position = Vector2( 7862, -1173 )
+scale = Vector2( 2.5, 2.5 )
+ROTATION_SPEED = 15
+
+[node name="GearPlatform4" parent="Objects/Part 1 branch 1" instance=ExtResource( 14 )]
+position = Vector2( 7215, -1307 )
+ROTATION_SPEED = -2
+
+[node name="FlamePillar" parent="Objects/Part 1 branch 1/GearPlatform4" instance=ExtResource( 13 )]
+show_behind_parent = true
+position = Vector2( -38, -63 )
+rotation = 0.959931
+scale = Vector2( 0.1, 0.15 )
+seconds_off = 1.0
+stagger = 2.0
+
+[node name="FlamePillar2" parent="Objects/Part 1 branch 1/GearPlatform4" instance=ExtResource( 13 )]
+show_behind_parent = true
+position = Vector2( 72.5, 2 )
+rotation = 3.14159
+scale = Vector2( 0.1, 0.15 )
+seconds_off = 1.0
+stagger = 0.0
+
+[node name="FlamePillar3" parent="Objects/Part 1 branch 1/GearPlatform4" instance=ExtResource( 13 )]
+show_behind_parent = true
+position = Vector2( -36.5, 64 )
+rotation = 5.28835
+scale = Vector2( 0.1, 0.15 )
+seconds_off = 1.0
+
+[node name="GearPlatform5" parent="Objects/Part 1 branch 1" instance=ExtResource( 14 )]
+position = Vector2( 6746, -1486 )
+ROTATION_SPEED = 3
+
+[node name="FlamePillar" parent="Objects/Part 1 branch 1/GearPlatform5" instance=ExtResource( 13 )]
+show_behind_parent = true
+position = Vector2( -38, -63 )
+rotation = 0.959931
+scale = Vector2( 0.1, 0.15 )
+seconds_on = 1.0
+seconds_off = 2.0
+stagger = 0.0
+
+[node name="FlamePillar2" parent="Objects/Part 1 branch 1/GearPlatform5" instance=ExtResource( 13 )]
+show_behind_parent = true
+position = Vector2( 72.5, 2 )
+rotation = 3.14159
+scale = Vector2( 0.1, 0.15 )
+seconds_on = 1.0
+seconds_off = 2.0
+
+[node name="FlamePillar3" parent="Objects/Part 1 branch 1/GearPlatform5" instance=ExtResource( 13 )]
+show_behind_parent = true
+position = Vector2( -36.5, 64 )
+rotation = 5.28835
+scale = Vector2( 0.1, 0.15 )
+seconds_on = 1.0
+seconds_off = 2.0
+stagger = 2.0
+
+[node name="MovingPlatform7" parent="Objects" instance=ExtResource( 10 )]
+position = Vector2( 6383, -1475 )
+scale = Vector2( 0.6, 2 )
+HORIZONTAL_SPEED = 100.0
+TRAVEL_DISTANCE = 300.0
+TRAVEL_TIMER = 7
+REVERSE = true
+
+[node name="IceBlock" parent="Objects/MovingPlatform7" instance=ExtResource( 12 )]
+position = Vector2( 0, -29 )
+scale = Vector2( 0.81, 0.1 )
+
+[node name="FlamePillar" parent="Objects/MovingPlatform7" instance=ExtResource( 13 )]
+position = Vector2( -161.666, -29.5 )
+scale = Vector2( 0.0870485, 0.26559 )
+seconds_off = 2.0
+
+[node name="FlamePillar2" parent="Objects/MovingPlatform7" instance=ExtResource( 13 )]
+position = Vector2( 156.667, -29.0001 )
+scale = Vector2( 0.0870485, 0.26559 )
+seconds_off = 2.0
+
+[node name="Part 1 branch 2" type="Node2D" parent="Objects"]
+visible = false
+
+[node name="Spikes5" parent="Objects/Part 1 branch 2" instance=ExtResource( 7 )]
 position = Vector2( 3436, -2577 )
 rotation = 0.0174533
 scale = Vector2( 1.6, 0.821713 )
 
-[node name="Spikes6" parent="Objects" instance=ExtResource( 7 )]
+[node name="Spikes6" parent="Objects/Part 1 branch 2" instance=ExtResource( 7 )]
 position = Vector2( 3750, -2573 )
 rotation = 0.0174533
 scale = Vector2( 1.6, 0.821713 )
 
-[node name="Spikes7" parent="Objects" instance=ExtResource( 7 )]
+[node name="Spikes7" parent="Objects/Part 1 branch 2" instance=ExtResource( 7 )]
 position = Vector2( 4069, -2568 )
 rotation = 0.0174533
 scale = Vector2( 1.6, 0.821713 )
 
-[node name="Spikes8" parent="Objects" instance=ExtResource( 7 )]
+[node name="Spikes8" parent="Objects/Part 1 branch 2" instance=ExtResource( 7 )]
 position = Vector2( 4389, -2560 )
 rotation = 0.0174533
 scale = Vector2( 1.6, 0.821713 )
 
-[node name="BasicBlock" parent="Objects" instance=ExtResource( 8 )]
-position = Vector2( 6659, -2718 )
-
-[node name="BasicBlock2" parent="Objects" instance=ExtResource( 8 )]
-position = Vector2( 3798, -2735 )
+[node name="BasicBlock2" parent="Objects/Part 1 branch 2" instance=ExtResource( 8 )]
+position = Vector2( 3901, -2702 )
 
 [node name="Enemies" type="Node2D" parent="."]
 
@@ -165,3 +443,15 @@ shape = SubResource( 1 )
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 6 )]
 LEVEL_SELECT = "res://Scenes/BinderFlips/Single Player/20F.tscn"
+
+[node name="Sus" parent="." instance=ExtResource( 9 )]
+position = Vector2( 5936, 4668 )
+scale = Vector2( 3, 3 )
+dialogue = "You did good, kid. Stay [rainbow][wave amp=50] s u s .[/wave][/rainbow]"
+always_show = true
+
+[node name="Sus2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 5148, -2901 )
+scale = Vector2( 2, 2 )
+dialogue = "<-- Super easy Super hard -->"
+always_show = true

@@ -66,6 +66,10 @@ window/stretch/aspect="keep"
 
 singletons=[  ]
 
+[global]
+
+font=false
+
 [input]
 
 ui_up={

@@ -14,7 +14,13 @@ var enabled := true
 onready var dragCollider = $DragCollider
 
 func _ready():
-	$Timer.start(stagger)
+	if stagger != 0:
+		$DeadlyPart/CollisionShape2D.disabled = true
+		$DeadlyPart/AnimatedSprite.animation = "Off"
+		$Timer.start(stagger)
+	else:
+		_on_Timer_timeout()
+	
 
 func _on_DeadlyPart_body_entered(body):
 	if body is Player and !body.dead:
