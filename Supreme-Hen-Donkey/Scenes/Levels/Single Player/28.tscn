@@ -218,7 +218,6 @@ angle = 90
 
 [node name="Chicken2" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 1120, 891 )
-speed = 600
 angle = 70
 
 [node name="DonkeyCharge" parent="Enemies" instance=ExtResource( 10 )]

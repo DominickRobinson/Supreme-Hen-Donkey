@@ -14,15 +14,17 @@ var enabled := true
 onready var dragCollider = $DragCollider
 
 func _ready():
-	if stagger != 0:
-		$DeadlyPart/CollisionShape2D.disabled = true
-		$DeadlyPart/AnimatedSprite.animation = "Off"
-		$Timer.start(stagger)
-	else:
-		_on_Timer_timeout()
+	$DeadlyPart/CollisionShape2D.disabled = true
+	$DeadlyPart/AnimatedSprite.animation = "Off"
+	$Timer.start(stagger)
+
 	
 
 func _on_DeadlyPart_body_entered(body):
+	
+	if not is_on:
+		return
+	
 	if body is Player and !body.dead:
 		if Globals.GM is GameManagerMP:
 			Globals.GM.die()
@@ -30,7 +32,7 @@ func _on_DeadlyPart_body_entered(body):
 		get_tree().change_scene(get_tree().current_scene.filename)
 
 func _on_Timer_timeout():
-	if (is_on):
+	if is_on:
 		is_on = false
 		$DeadlyPart/CollisionShape2D.disabled = true
 		$DeadlyPart/AnimatedSprite.animation = "Off"

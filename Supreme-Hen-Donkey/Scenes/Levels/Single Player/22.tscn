@@ -59,6 +59,8 @@ scale = Vector2( 1.60279, 3.53738 )
 
 [node name="Trampoline" parent="Objects" instance=ExtResource( 4 )]
 position = Vector2( 855, 1139 )
+impulse_no_jump = 1000.0
+impulse_jump = 1500.0
 
 [node name="MovingPlatform" parent="Objects" instance=ExtResource( 5 )]
 position = Vector2( 1320, 680 )
@@ -154,8 +156,8 @@ worldScene = "res://Scenes/Levels/Single Player/22.tscn"
 [node name="Trampoline2" parent="Objects" instance=ExtResource( 4 )]
 position = Vector2( 431, 553 )
 scale = Vector2( 1.91909, 1.5456 )
-impulse_no_jump = -2275.0
-impulse_jump = -2275.0
+impulse_no_jump = 2275.0
+impulse_jump = 2275.0
 
 [node name="Goal" type="Area2D" parent="."]
 position = Vector2( 1200, 606 )

@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 export var move_speed := 100  # pixels/sec
 export var radius := 150  # pixels
+export var flame_deadly := false
 
 export var enabled := false
 onready var dragCollider = $CollisionPolygon2D
@@ -9,6 +10,11 @@ onready var dragCollider = $CollisionPolygon2D
 func _physics_process(delta):
 	if !enabled:
 		return
+	
+	if flame_deadly:
+		$Flame.make_deadly()
+	else:
+		$Flame.make_safe()
 	
 	var a = 2 * asin(move_speed * delta / (2 * radius))
 	rotation += a

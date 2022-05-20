@@ -13,7 +13,7 @@ func start(pos, dir, speed):
 #	print("Rotation:")
 #	print(rotation)
 	velocity = Vector2(speed, 0).rotated(deg2rad(-rotation))
-	print(velocity)
+	#print(velocity)
 
 func _physics_process(delta):
 	velocity.y += gravity * delta

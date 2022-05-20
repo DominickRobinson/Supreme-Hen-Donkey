@@ -122,7 +122,11 @@ func _physics_process(_delta: float):
 	#air resistance
 	if not is_on_floor():
 		if x == 0:
-			linear_velocity.x += -sign(linear_velocity.x) * AIR_RESISTANCE * linear_velocity.x * linear_velocity.x
+			var ar = -sign(linear_velocity.x) * AIR_RESISTANCE * linear_velocity.x * linear_velocity.x
+			if abs(linear_velocity.x) > abs(ar): 
+				linear_velocity.x += ar
+			else:
+				linear_velocity.x *= 0.98
 			
 
 	

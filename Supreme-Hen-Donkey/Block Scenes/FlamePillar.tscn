@@ -13,19 +13,19 @@ extents = Vector2( 127, 126.5 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "On",
+"speed": 20.0
+}, {
 "frames": [  ],
 "loop": true,
 "name": "Off",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "On",
-"speed": 12.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=3]
-radius = 43.9234
+radius = 100.402
 height = 623.775
 
 [sub_resource type="RectangleShape2D" id=4]
@@ -61,7 +61,7 @@ frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeadlyPart"]
-position = Vector2( -475.451, 6.2782 )
+position = Vector2( -476.734, 17.7651 )
 rotation = 1.5708
 shape = SubResource( 3 )
 

@@ -29,7 +29,7 @@ position = Vector2( -178, -5 )
 scale = Vector2( 0.323876, -0.436466 )
 frames = SubResource( 2 )
 animation = "Zooming"
-frame = 3
+frame = 2
 playing = true
 
 [node name="Sprite" type="Sprite" parent="."]

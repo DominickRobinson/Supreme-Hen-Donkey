@@ -149,6 +149,8 @@ seconds_off = 1.0
 [node name="Trampoline" parent="Objects" instance=ExtResource( 4 )]
 position = Vector2( -1005.18, 923.663 )
 scale = Vector2( 2.25, 1.24 )
+impulse_no_jump = 1000.0
+impulse_jump = 1500.0
 
 [node name="Spikes" parent="Objects" instance=ExtResource( 8 )]
 position = Vector2( -434.625, 385.084 )

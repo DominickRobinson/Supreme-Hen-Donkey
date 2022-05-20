@@ -1,7 +1,7 @@
 extends Node2D
 
-export var impulse_no_jump: float
-export var impulse_jump: float
+export var impulse_no_jump := 1000
+export var impulse_jump := 1500
 
 onready var anim = $AnimatedSprite
 
@@ -17,7 +17,13 @@ func _on_BounceArea_body_entered(body):
 		else:
 			imp = impulse_no_jump
 
-		body.apply_central_impulse(Vector2(imp * sin(rotation_degrees), imp * cos(rotation_degrees)))
+		var deg = deg2rad(90 - rotation_degrees)
+		#body.apply_central_impulse(Vector2(imp * sin(rotation_degrees), imp * cos(rotation_degrees)))
+		var vec = Vector2(cos(deg), -sin(deg))
+		print(imp * vec)
+		body.linear_velocity = imp * vec 
+		#body.linear_velocity.y = -body.linear_velocity.y
+		#body.apply_central_impulse(imp * vec)
 		anim.animation = "Boing"
 
 

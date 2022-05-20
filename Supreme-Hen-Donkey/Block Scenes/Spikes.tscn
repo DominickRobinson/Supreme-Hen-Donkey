@@ -7,7 +7,7 @@
 extents = Vector2( 100, 25.6085 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 90.5, 11.3442 )
+extents = Vector2( 95.1278, 17.4291 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 100.655, 48.6788 )
@@ -30,7 +30,7 @@ shape = SubResource( 1 )
 [node name="DeadlyPart" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeadlyPart"]
-position = Vector2( 0, -9.34425 )
+position = Vector2( -0.87273, -15.4291 )
 shape = SubResource( 2 )
 
 [node name="DragCollider" type="CollisionShape2D" parent="."]

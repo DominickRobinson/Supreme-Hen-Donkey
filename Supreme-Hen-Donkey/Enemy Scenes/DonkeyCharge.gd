@@ -29,7 +29,7 @@ func _physics_process(delta):
 		$AnimatedSprite.animation = "Idle"
 		$AnimatedSprite.speed_scale = 1
 		
-	print(linear_velocity)
+	#print(linear_velocity)
 	if linear_velocity.x > 0:
 		$AnimatedSprite.flip_h = true
 	elif linear_velocity.x < 0:

@@ -21,3 +21,10 @@ func _process(delta):
 			else:
 				#get_tree().change_scene(worldScene)
 				get_tree().change_scene(get_tree().current_scene.filename)
+				
+
+func make_deadly():
+	FLAME_DEADLY = true
+	
+func make_safe():
+	FLAME_DEADLY = false 
