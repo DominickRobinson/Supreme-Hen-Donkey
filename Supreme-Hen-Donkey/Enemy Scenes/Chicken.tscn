@@ -51,5 +51,6 @@ position = Vector2( -42, -4.76837e-07 )
 scale = Vector2( 10, 10 )
 
 [node name="Sprite" type="Sprite" parent="Muzzle"]
+visible = false
 scale = Vector2( 0.03, 0.03 )
 texture = ExtResource( 11 )

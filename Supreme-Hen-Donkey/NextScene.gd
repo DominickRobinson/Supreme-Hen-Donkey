@@ -11,7 +11,8 @@ func _process(_delta):
 	var bodies = get_overlapping_bodies()
 	for body in bodies:
 		if body is Player:
-			get_tree().change_scene(worldScene)
+			body.win(worldScene)
+			#get_tree().change_scene(worldScene)
 			#get_tree().change_scene(get_tree().current_scene.filename)
 			
 func _input(event):

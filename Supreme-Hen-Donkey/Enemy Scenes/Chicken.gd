@@ -1,7 +1,8 @@
 extends RigidBody2D
 export var speed := 600
-export var angle := 20
+#export var angle := 20
 export var launch_angle := 150
+export var fire_rate := 1.00
 export var is_flipped := false
 
 var Egg = preload("res://Egg.tscn")
@@ -45,10 +46,11 @@ func get_input():
 #		$AnimatedSprite.animation = "shoot"
 #		time_start = OS.get_unix_time()
 #		shoot()
-	if ($AnimatedSprite.animation == "shoot" and OS.get_unix_time() - time_start > .8):
+	if ($AnimatedSprite.animation == "shoot" and OS.get_unix_time() - time_start > 0.8):
 			$AnimatedSprite.animation = "idle"
 			
-	if (OS.get_unix_time() - time_start > 1):
+#	if (OS.get_unix_time() - time_start > 1):
+	if (OS.get_unix_time() - time_start >= fire_rate):
 		$AnimatedSprite.animation = "shoot"
 		time_start = OS.get_unix_time()
 		shoot()

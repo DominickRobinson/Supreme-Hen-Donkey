@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://NextScene.gd" type="Script" id=1]
 [ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Single Player/F2.0.jpg" type="Texture" id=2]
@@ -18,9 +18,11 @@
 [ext_resource path="res://Enemy Scenes/Chicken.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Enemy Scenes/HenFly.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Enemy Scenes/DonkeyCharge.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Enemy Scenes/DonkeyKick.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Block Scenes/FallingBlock.tscn" type="PackedScene" id=20]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1936.5, 186 )
+extents = Vector2( 1709.68, 186 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 412.5, 189 )
@@ -36,16 +38,16 @@ extents = Vector2( 868.501, 5076.01 )
 
 [node name="Node" type="Node"]
 __meta__ = {
-"_edit_vertical_guides_": [ 5432.0 ]
+"_edit_vertical_guides_": [ 5432.0, -3653.0 ]
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -280, -76 )
+position = Vector2( -278, -82 )
 scale = Vector2( 6, 6 )
 texture = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 5040, 4707 )
+position = Vector2( 5237, -2902 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 838, 468 )
@@ -77,7 +79,7 @@ script = ExtResource( 1 )
 worldScene = "res://Scenes/BinderFlips/Single Player/Final play scene.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
-position = Vector2( 5004.01, 2442 )
+position = Vector2( 5570.96, 2451.9 )
 rotation = 0.0174533
 scale = Vector2( 2.5, 2 )
 shape = SubResource( 1 )
@@ -95,7 +97,8 @@ scale = Vector2( 39.2343, -1.36354 )
 shape = SubResource( 2 )
 
 [node name="Barrier2" type="CollisionShape2D" parent="Death barrier"]
-position = Vector2( -2123.5, -8600.5 )
+position = Vector2( -2123.31, -8625.56 )
+rotation = 0.00872665
 shape = SubResource( 3 )
 
 [node name="Barrier3" type="CollisionShape2D" parent="Death barrier"]
@@ -107,7 +110,7 @@ position = Vector2( -9941.51, -4098.99 )
 shape = SubResource( 5 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 4 )]
-position = Vector2( 783, 420 )
+position = Vector2( 850, 10 )
 scale = Vector2( 4.44, 3.112 )
 zoom = Vector2( 16, 16 )
 
@@ -115,24 +118,851 @@ zoom = Vector2( 16, 16 )
 
 [node name="Easy part 1" type="Node2D" parent="Objects"]
 
+[node name="Intro" type="Node2D" parent="Objects/Easy part 1"]
+position = Vector2( 260, 220 )
+
+[node name="DonkeyKick" parent="Objects/Easy part 1/Intro" instance=ExtResource( 19 )]
+position = Vector2( 5025, -4655 )
+collision_layer = 1
+collision_mask = 1
+gravity_scale = 0.0
+linear_velocity = Vector2( 0, 200 )
+KICK_STRENGTH = 1350
+KICK_ANGLE = 135
+
+[node name="Trampolines" type="Node2D" parent="Objects/Easy part 1"]
+
+[node name="Trampoline" parent="Objects/Easy part 1/Trampolines" instance=ExtResource( 11 )]
+position = Vector2( 1833, -3666 )
+rotation = -1.0472
+scale = Vector2( 2, 1 )
+impulse_no_jump = 2000
+impulse_jump = 2000
+
+[node name="Trampoline14" parent="Objects/Easy part 1/Trampolines" instance=ExtResource( 11 )]
+position = Vector2( 1320, -3028 )
+rotation = -0.785398
+scale = Vector2( 2, 1 )
+impulse_no_jump = 1825
+impulse_jump = 1825
+
+[node name="Trampoline2" parent="Objects/Easy part 1/Trampolines" instance=ExtResource( 11 )]
+position = Vector2( 390, -3036 )
+rotation = -0.174533
+scale = Vector2( 2, 1 )
+impulse_no_jump = 3000
+impulse_jump = 4000
+
+[node name="Trampoline3" parent="Objects/Easy part 1/Trampolines" instance=ExtResource( 11 )]
+position = Vector2( 331, -3702 )
+rotation = -2.79253
+scale = Vector2( 2, 1 )
+impulse_no_jump = 3000
+impulse_jump = 4000
+
+[node name="Trampoline4" parent="Objects/Easy part 1/Trampolines" instance=ExtResource( 11 )]
+position = Vector2( 119, -3035 )
+rotation = -0.174533
+scale = Vector2( 2, 1 )
+impulse_no_jump = 3000
+impulse_jump = 4000
+
+[node name="Trampoline5" parent="Objects/Easy part 1/Trampolines" instance=ExtResource( 11 )]
+position = Vector2( 60, -3701 )
+rotation = -2.8798
+scale = Vector2( 2, 1 )
+impulse_no_jump = 3000
+impulse_jump = 4000
+
+[node name="Trampoline6" parent="Objects/Easy part 1/Trampolines" instance=ExtResource( 11 )]
+position = Vector2( -191, -3024 )
+rotation = -0.174533
+scale = Vector2( 2, 1 )
+impulse_no_jump = 3000
+impulse_jump = 4000
+
+[node name="Trampoline7" parent="Objects/Easy part 1/Trampolines" instance=ExtResource( 11 )]
+position = Vector2( -249, -3690 )
+rotation = -2.8798
+scale = Vector2( 2, 1 )
+impulse_no_jump = 3000
+impulse_jump = 4000
+
+[node name="Trampoline8" parent="Objects/Easy part 1/Trampolines" instance=ExtResource( 11 )]
+position = Vector2( -471, -2711 )
+rotation = -0.174533
+scale = Vector2( 2, 1 )
+impulse_no_jump = 3000
+impulse_jump = 4000
+
+[node name="Trampoline9" parent="Objects/Easy part 1/Trampolines" instance=ExtResource( 11 )]
+position = Vector2( -530, -3377 )
+rotation = -2.79253
+scale = Vector2( 2, 1 )
+impulse_no_jump = 3000
+impulse_jump = 4000
+
+[node name="Trampoline10" parent="Objects/Easy part 1/Trampolines" instance=ExtResource( 11 )]
+position = Vector2( -742, -2710 )
+rotation = -0.174533
+scale = Vector2( 2, 1 )
+impulse_no_jump = 3000
+impulse_jump = 4000
+
+[node name="Trampoline11" parent="Objects/Easy part 1/Trampolines" instance=ExtResource( 11 )]
+position = Vector2( -801, -3376 )
+rotation = -2.8798
+scale = Vector2( 2, 1 )
+impulse_no_jump = 3000
+impulse_jump = 4000
+
+[node name="Trampoline12" parent="Objects/Easy part 1/Trampolines" instance=ExtResource( 11 )]
+position = Vector2( -1003, -2690 )
+rotation = -0.174533
+scale = Vector2( 2, 1 )
+impulse_no_jump = 3000
+impulse_jump = 4000
+
+[node name="Trampoline13" parent="Objects/Easy part 1/Trampolines" instance=ExtResource( 11 )]
+position = Vector2( -1026, -3425 )
+rotation = -2.00713
+scale = Vector2( 3, 1 )
+impulse_no_jump = 7000
+impulse_jump = 4000
+
+[node name="Trampoline15" parent="Objects/Easy part 1/Trampolines" instance=ExtResource( 11 )]
+position = Vector2( -3467, -1806 )
+rotation = 0.523599
+scale = Vector2( 2, 1 )
+impulse_no_jump = 3700
+
+[node name="Trampoline16" parent="Objects/Easy part 1/Trampolines" instance=ExtResource( 11 )]
+position = Vector2( -2292, -2872 )
+rotation = 1.44862
+impulse_no_jump = 17000
+impulse_jump = 17750
+
+[node name="Trampoline21" parent="Objects/Easy part 1/Trampolines" instance=ExtResource( 11 )]
+position = Vector2( -820, -3431 )
+rotation = 0.261799
+scale = Vector2( 2, 1 )
+impulse_jump = 4000
+
+[node name="Trampoline20" parent="Objects/Easy part 1/Trampolines" instance=ExtResource( 11 )]
+position = Vector2( -543, -3432 )
+rotation = 0.261799
+scale = Vector2( 2, 1 )
+impulse_no_jump = 1200
+impulse_jump = 4000
+
+[node name="Trampoline19" parent="Objects/Easy part 1/Trampolines" instance=ExtResource( 11 )]
+position = Vector2( -266, -3744 )
+rotation = 0.261799
+scale = Vector2( 2, 1 )
+impulse_jump = 4000
+
+[node name="Trampoline18" parent="Objects/Easy part 1/Trampolines" instance=ExtResource( 11 )]
+position = Vector2( 42.9998, -3755 )
+rotation = 0.261799
+scale = Vector2( 2, 1 )
+impulse_no_jump = 1200
+impulse_jump = 4000
+
+[node name="Trampoline23" parent="Objects/Easy part 1/Trampolines" instance=ExtResource( 11 )]
+position = Vector2( 1660, -5312 )
+rotation = 4.53786
+impulse_no_jump = 30000
+
+[node name="Trampoline24" parent="Objects/Easy part 1/Trampolines" instance=ExtResource( 11 )]
+position = Vector2( -2111, -5065 )
+rotation = -0.785398
+impulse_no_jump = 1200
+
+[node name="IceBlock" parent="Objects/Easy part 1" instance=ExtResource( 12 )]
+position = Vector2( 751, -3962 )
+rotation = 0.349066
+scale = Vector2( 2, 0.548 )
+
+[node name="IceBlock2" parent="Objects/Easy part 1" instance=ExtResource( 12 )]
+position = Vector2( 1448, -3508 )
+rotation = 1.5708
+scale = Vector2( 1.5, 0.548 )
+
+[node name="FallingBlock" parent="Objects/Easy part 1" instance=ExtResource( 20 )]
+position = Vector2( -2033, -1869 )
+scale = Vector2( 3, 2 )
+
+[node name="FallingBlock8" parent="Objects/Easy part 1" instance=ExtResource( 20 )]
+position = Vector2( -2446, -1815 )
+rotation = 1.5708
+scale = Vector2( 1, 2 )
+
+[node name="FallingBlock10" parent="Objects/Easy part 1" instance=ExtResource( 20 )]
+position = Vector2( -2824, -1814 )
+rotation = 1.5708
+scale = Vector2( 1, 2 )
+
+[node name="FallingBlock11" parent="Objects/Easy part 1" instance=ExtResource( 20 )]
+position = Vector2( -3200, -1808 )
+rotation = 1.5708
+scale = Vector2( 1, 2 )
+
+[node name="IceBlock3" parent="Objects/Easy part 1" instance=ExtResource( 12 )]
+position = Vector2( -2646, -1751 )
+rotation = -0.0174533
+scale = Vector2( 3, 0.548 )
+
+[node name="FallingBlock2" parent="Objects/Easy part 1" instance=ExtResource( 20 )]
+position = Vector2( -2202, -5355 )
+scale = Vector2( 0.5, 3 )
+
+[node name="FallingBlock3" parent="Objects/Easy part 1" instance=ExtResource( 20 )]
+position = Vector2( -2191, -4914 )
+scale = Vector2( 2.977, 3 )
+
+[node name="FallingBlock9" parent="Objects/Easy part 1" instance=ExtResource( 20 )]
+position = Vector2( -2192, -4891 )
+scale = Vector2( 2.977, 3 )
+
+[node name="FallingBlock4" parent="Objects/Easy part 1" instance=ExtResource( 20 )]
+position = Vector2( -2198, -4397 )
+scale = Vector2( 2.977, 3 )
+
+[node name="FallingBlock6" parent="Objects/Easy part 1" instance=ExtResource( 20 )]
+position = Vector2( -2199, -4319 )
+scale = Vector2( 2.977, 3 )
+
+[node name="FallingBlock7" parent="Objects/Easy part 1" instance=ExtResource( 20 )]
+position = Vector2( -2204, -4231 )
+scale = Vector2( 2.977, 3 )
+
+[node name="FallingBlock5" parent="Objects/Easy part 1" instance=ExtResource( 20 )]
+position = Vector2( -2188, -3288 )
+scale = Vector2( 1, 3 )
+break_mult = 0.2
+
+[node name="Enemies" type="Node2D" parent="Objects/Easy part 1"]
+
+[node name="DonkeyKick" parent="Objects/Easy part 1/Enemies" instance=ExtResource( 19 )]
+modulate = Color( 0.0313726, 1, 0, 1 )
+position = Vector2( 4505, -2586 )
+KICK_STRENGTH = 30000
+KICK_ANGLE = 175
+
+[node name="Chicken" parent="Objects/Easy part 1/Enemies" instance=ExtResource( 16 )]
+position = Vector2( -2266, -3334 )
+speed = 1300
+launch_angle = 45
+fire_rate = 3.0
+is_flipped = true
+
+[node name="BasicBlock2" parent="Objects/Easy part 1" instance=ExtResource( 8 )]
+position = Vector2( -2270, -3275 )
+scale = Vector2( 0.5, 1 )
+
+[node name="Easy part 2" type="Node2D" parent="Objects"]
+
+[node name="IceBlock5" parent="Objects/Easy part 2" instance=ExtResource( 12 )]
+position = Vector2( -4820, -4414 )
+rotation = -0.349066
+scale = Vector2( 10, 0.3 )
+
+[node name="IceBlock6" parent="Objects/Easy part 2" instance=ExtResource( 12 )]
+position = Vector2( -5711, -3390 )
+scale = Vector2( 7.7, 0.3 )
+
+[node name="Trampoline2" parent="Objects/Easy part 2" instance=ExtResource( 11 )]
+position = Vector2( -1740, 5088 )
+rotation = 0.0349066
+impulse_no_jump = 5850
+impulse_jump = 6000
+
+[node name="Trampoline" parent="Objects/Easy part 2" instance=ExtResource( 11 )]
+position = Vector2( -7632, -3489 )
+rotation = 1.5708
+impulse_no_jump = 20000
+
+[node name="BasicBlock4" parent="Objects/Easy part 2" instance=ExtResource( 8 )]
+position = Vector2( -7761, -5627 )
+rotation = 1.5708
+
+[node name="BasicBlock3" parent="Objects/Easy part 2" instance=ExtResource( 8 )]
+position = Vector2( -1179, -5514 )
+
+[node name="IceBlock" parent="Objects/Easy part 2" instance=ExtResource( 12 )]
+position = Vector2( -4578, -5577 )
+scale = Vector2( 12.2, 0.1 )
+
+[node name="IceBlock2" parent="Objects/Easy part 2" instance=ExtResource( 12 )]
+position = Vector2( -4488, -5734 )
+scale = Vector2( 13, 0.1 )
+
+[node name="DonkeyKick" parent="Objects/Easy part 2" instance=ExtResource( 19 )]
+modulate = Color( 0.945098, 0, 1, 1 )
+position = Vector2( -1180, -5635 )
+scale = Vector2( 1.5, 1.5 )
+KICK_STRENGTH = 10000
+KICK_ANGLE = 170
+
+[node name="Easy part 3" type="Node2D" parent="Objects"]
+
+[node name="FallingBlock" parent="Objects/Easy part 3" instance=ExtResource( 20 )]
+position = Vector2( -1752, -1746 )
+scale = Vector2( 3, 1 )
+
+[node name="IceBlock" parent="Objects/Easy part 3" instance=ExtResource( 12 )]
+position = Vector2( -2790, -1377 )
+rotation = -0.174533
+scale = Vector2( 4.6, 0.25 )
+
+[node name="Trampoline" parent="Objects/Easy part 3" instance=ExtResource( 11 )]
+position = Vector2( -3993, -1173 )
+rotation = -0.191986
+impulse_no_jump = 2400
+
+[node name="Spikes" parent="Objects/Easy part 3" instance=ExtResource( 7 )]
+position = Vector2( -4487, -2962 )
+scale = Vector2( 1, 0.4 )
+
+[node name="Spikes2" parent="Objects/Easy part 3" instance=ExtResource( 7 )]
+position = Vector2( -4687, -2962 )
+scale = Vector2( 1, 0.4 )
+
+[node name="Spikes3" parent="Objects/Easy part 3" instance=ExtResource( 7 )]
+position = Vector2( -4884, -2962 )
+scale = Vector2( 1, 0.4 )
+
+[node name="Spikes4" parent="Objects/Easy part 3" instance=ExtResource( 7 )]
+position = Vector2( -5084, -2962 )
+scale = Vector2( 1, 0.4 )
+
+[node name="Spikes5" parent="Objects/Easy part 3" instance=ExtResource( 7 )]
+position = Vector2( -5282, -2962 )
+scale = Vector2( 1, 0.4 )
+
+[node name="Spikes6" parent="Objects/Easy part 3" instance=ExtResource( 7 )]
+position = Vector2( -5482, -2962 )
+scale = Vector2( 1, 0.4 )
+
+[node name="BasicBlock2" parent="Objects/Easy part 3" instance=ExtResource( 8 )]
+position = Vector2( -4403, -2995 )
+rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
+
+[node name="DonkeyCharge" parent="Objects/Easy part 3" instance=ExtResource( 18 )]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( -4467, -3027 )
+mass = 1000.0
+CHARGE_SPEED = 1000
+
+[node name="IceBlock2" parent="Objects/Easy part 3" instance=ExtResource( 12 )]
+position = Vector2( -6645, -2962 )
+scale = Vector2( 3, 0.25 )
+
+[node name="BasicBlock" parent="Objects/Easy part 3" instance=ExtResource( 8 )]
+position = Vector2( -7606, -3010 )
+rotation = 1.5708
+scale = Vector2( 5, 1 )
+
+[node name="BasicBlock3" parent="Objects/Easy part 3" instance=ExtResource( 8 )]
+position = Vector2( -5934, -2858 )
+rotation = 1.5708
+
+[node name="BasicBlock5" parent="Objects/Easy part 3" instance=ExtResource( 8 )]
+position = Vector2( -4702, -2711 )
+rotation = 1.5708
+
+[node name="GearPlatform" parent="Objects/Easy part 3" instance=ExtResource( 14 )]
+position = Vector2( -7439, -2675 )
+
+[node name="GearPlatform2" parent="Objects/Easy part 3" instance=ExtResource( 14 )]
+position = Vector2( -7173, -2681 )
+ROTATION_SPEED = -1
+
+[node name="GearPlatform3" parent="Objects/Easy part 3" instance=ExtResource( 14 )]
+position = Vector2( -7331, -2310 )
+rotation = 0.523599
+ROTATION_SPEED = 4
+
+[node name="GearPlatform4" parent="Objects/Easy part 3" instance=ExtResource( 14 )]
+position = Vector2( -7102, -2308 )
+ROTATION_SPEED = 4
+
+[node name="GearPlatform6" parent="Objects/Easy part 3" instance=ExtResource( 14 )]
+modulate = Color( 0.521569, 0.254902, 0.254902, 1 )
+position = Vector2( -6645, -2312 )
+
+[node name="GearPlatform5" parent="Objects/Easy part 3" instance=ExtResource( 14 )]
+position = Vector2( -6872, -2315 )
+rotation = 0.523599
+ROTATION_SPEED = 4
+
+[node name="Trampoline2" parent="Objects/Easy part 3" instance=ExtResource( 11 )]
+position = Vector2( -6490, -505 )
+rotation = -0.174533
+scale = Vector2( 3, 1 )
+impulse_no_jump = 2100
+
+[node name="IceBlock3" parent="Objects/Easy part 3" instance=ExtResource( 12 )]
+modulate = Color( 0.176471, 0.133333, 0.898039, 1 )
+position = Vector2( -7016, -1650 )
+rotation = -0.174533
+scale = Vector2( 1, 0.25 )
+
+[node name="IceBlock4" parent="Objects/Easy part 3" instance=ExtResource( 12 )]
+modulate = Color( 0.584314, 0.266667, 0.8, 1 )
+position = Vector2( -7441, -1473 )
+rotation = 0.0872665
+scale = Vector2( 1, 0.25 )
+
+[node name="IceBlock5" parent="Objects/Easy part 3" instance=ExtResource( 12 )]
+modulate = Color( 0.698039, 0.619608, 0.184314, 1 )
+position = Vector2( -6952, -1265 )
+rotation = -0.0872665
+scale = Vector2( 1, 0.25 )
+
+[node name="IceBlock6" parent="Objects/Easy part 3" instance=ExtResource( 12 )]
+modulate = Color( 0.247059, 0.839216, 0.423529, 1 )
+position = Vector2( -7358, -1064 )
+rotation = 0.0872665
+scale = Vector2( 1, 0.25 )
+
+[node name="IceBlock7" parent="Objects/Easy part 3" instance=ExtResource( 12 )]
+modulate = Color( 0.921569, 0.431373, 0.431373, 1 )
+position = Vector2( -6887, -900 )
+rotation = -0.0872665
+scale = Vector2( 1, 0.25 )
+
+[node name="IceBlock13" parent="Objects/Easy part 3" instance=ExtResource( 12 )]
+modulate = Color( 0.756863, 1, 0, 1 )
+position = Vector2( -7362, -732 )
+rotation = 0.0872665
+scale = Vector2( 1, 0.25 )
+
+[node name="IceBlock14" parent="Objects/Easy part 3" instance=ExtResource( 12 )]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -6891, -568 )
+rotation = -0.0872665
+scale = Vector2( 1, 0.25 )
+
+[node name="BasicBlock4" parent="Objects/Easy part 3" instance=ExtResource( 8 )]
+position = Vector2( -7401, -204 )
+
+[node name="FallingBlock" parent="Objects/Easy part 3/BasicBlock4" instance=ExtResource( 20 )]
+position = Vector2( 107, -25 )
+scale = Vector2( 1, 1 )
+break_mult = 5.0
+
+[node name="DonkeyKick" parent="Objects/Easy part 3" instance=ExtResource( 19 )]
+modulate = Color( 0.478431, 0, 1, 1 )
+position = Vector2( -7381, -288 )
+KICK_STRENGTH = 1100
+KICK_ANGLE = 355
+is_flipped = true
+
+[node name="IceBlock8" parent="Objects/Easy part 3" instance=ExtResource( 12 )]
+position = Vector2( -6225, -82 )
+rotation = 0.0872665
+scale = Vector2( 5, 0.25 )
+
+[node name="IceBlock9" parent="Objects/Easy part 3" instance=ExtResource( 12 )]
+position = Vector2( -5459, -2728 )
+rotation = 0.0872665
+scale = Vector2( 2, 0.25 )
+
+[node name="Spikes7" parent="Objects/Easy part 3" instance=ExtResource( 7 )]
+position = Vector2( -4809, 177 )
+
+[node name="Spikes8" parent="Objects/Easy part 3" instance=ExtResource( 7 )]
+position = Vector2( -4465, 177 )
+
+[node name="Spikes9" parent="Objects/Easy part 3" instance=ExtResource( 7 )]
+position = Vector2( -4121, 177 )
+
+[node name="Spikes10" parent="Objects/Easy part 3" instance=ExtResource( 7 )]
+position = Vector2( -3777, 177 )
+
+[node name="Spikes11" parent="Objects/Easy part 3" instance=ExtResource( 7 )]
+position = Vector2( -3434, 177 )
+
+[node name="Spikes12" parent="Objects/Easy part 3" instance=ExtResource( 7 )]
+position = Vector2( -3090, 177 )
+
+[node name="Spikes13" parent="Objects/Easy part 3" instance=ExtResource( 7 )]
+position = Vector2( -2746, 177 )
+
+[node name="Spikes14" parent="Objects/Easy part 3" instance=ExtResource( 7 )]
+position = Vector2( -2402, 177 )
+
+[node name="Spikes15" parent="Objects/Easy part 3" instance=ExtResource( 7 )]
+position = Vector2( -2058, 177 )
+
+[node name="Spikes17" parent="Objects/Easy part 3" instance=ExtResource( 7 )]
+position = Vector2( -1231, 508 )
+
+[node name="Spikes18" parent="Objects/Easy part 3" instance=ExtResource( 7 )]
+position = Vector2( -887, 508 )
+
+[node name="Spikes19" parent="Objects/Easy part 3" instance=ExtResource( 7 )]
+position = Vector2( -163, 893 )
+
+[node name="Spikes20" parent="Objects/Easy part 3" instance=ExtResource( 7 )]
+position = Vector2( 181, 893 )
+
+[node name="Spikes21" parent="Objects/Easy part 3" instance=ExtResource( 7 )]
+position = Vector2( -182, 370 )
+rotation = 3.14159
+
+[node name="Spikes22" parent="Objects/Easy part 3" instance=ExtResource( 7 )]
+position = Vector2( 162, 370 )
+rotation = 3.14159
+
+[node name="Spikes23" parent="Objects/Easy part 3" instance=ExtResource( 7 )]
+position = Vector2( -180, 331 )
+
+[node name="Spikes24" parent="Objects/Easy part 3" instance=ExtResource( 7 )]
+position = Vector2( 164, 331 )
+
+[node name="Spikes25" parent="Objects/Easy part 3" instance=ExtResource( 7 )]
+position = Vector2( -313, 252 )
+rotation = 1.5708
+scale = Vector2( 0.8, 0.822 )
+
+[node name="Spikes26" parent="Objects/Easy part 3" instance=ExtResource( 7 )]
+position = Vector2( 295, 251 )
+rotation = 4.71239
+scale = Vector2( 0.8, 0.822 )
+
+[node name="IceBlock11" parent="Objects/Easy part 3" instance=ExtResource( 12 )]
+position = Vector2( -4422, 5381 )
+rotation = -0.0349066
+scale = Vector2( 12, 0.25 )
+
+[node name="IceBlock10" parent="Objects/Easy part 3" instance=ExtResource( 12 )]
+position = Vector2( 816, 897 )
+scale = Vector2( 1, 0.25 )
+
+[node name="BasicBlock7" parent="Objects/Easy part 3" instance=ExtResource( 8 )]
+position = Vector2( 611, 1030 )
+rotation = 1.5708
+
+[node name="BasicBlock8" parent="Objects/Easy part 3" instance=ExtResource( 8 )]
+position = Vector2( 287, 1025 )
+rotation = 1.5708
+
+[node name="Spikes16" parent="Objects/Easy part 3" instance=ExtResource( 7 )]
+position = Vector2( 444, 1119 )
+
+[node name="BasicBlock6" parent="Objects/Easy part 3" instance=ExtResource( 8 )]
+position = Vector2( 1288, 822 )
+rotation = 1.5708
+
+[node name="Trampoline3" parent="Objects/Easy part 3" instance=ExtResource( 11 )]
+position = Vector2( 1313, 2375 )
+rotation = 4.71239
+scale = Vector2( 1, 3 )
+impulse_no_jump = 8000
+
+[node name="IceBlock12" parent="Objects/Easy part 3" instance=ExtResource( 12 )]
+position = Vector2( 559, 2458 )
+scale = Vector2( 3.3, 0.25 )
+
+[node name="Trampoline4" parent="Objects/Easy part 3" instance=ExtResource( 11 )]
+position = Vector2( -318, 2480 )
+rotation = -0.244346
+scale = Vector2( 1, 2 )
+impulse_no_jump = 3800
+
+[node name="Trampoline5" parent="Objects/Easy part 3" instance=ExtResource( 11 )]
+position = Vector2( -6738, -1345 )
+rotation = -1.65806
+impulse_no_jump = 2000
+
+[node name="Trampoline7" parent="Objects/Easy part 3" instance=ExtResource( 11 )]
+position = Vector2( -7661, -1574 )
+rotation = 1.65806
+impulse_no_jump = 2000
+
+[node name="Trampoline8" parent="Objects/Easy part 3" instance=ExtResource( 11 )]
+position = Vector2( -7586, -1160 )
+rotation = 1.65806
+impulse_no_jump = 2000
+
+[node name="Trampoline6" parent="Objects/Easy part 3" instance=ExtResource( 11 )]
+position = Vector2( -6669, -982 )
+rotation = -1.65806
+impulse_no_jump = 2000
+
+[node name="Trampoline9" parent="Objects/Easy part 3" instance=ExtResource( 11 )]
+position = Vector2( -7588, -850 )
+rotation = 1.65806
+impulse_no_jump = 2000
+
+[node name="Trampoline10" parent="Objects/Easy part 3" instance=ExtResource( 11 )]
+position = Vector2( -6671, -672 )
+rotation = -1.65806
+impulse_no_jump = 2000
+
+[node name="BasicBlock9" parent="Objects/Easy part 3" instance=ExtResource( 8 )]
+position = Vector2( -7361, -546 )
+rotation = 1.5708
+
+[node name="Easy part 4" type="Node2D" parent="Objects"]
+
+[node name="Trampoline" parent="Objects/Easy part 4" instance=ExtResource( 11 )]
+position = Vector2( -7464, 5463 )
+rotation = 0.349066
+impulse_no_jump = 950
+
+[node name="Trampoline2" parent="Objects/Easy part 4" instance=ExtResource( 11 )]
+position = Vector2( -7225, 5253 )
+rotation = 1.51844
+impulse_no_jump = 10000
+
+[node name="Rocket" parent="Objects/Easy part 4" instance=ExtResource( 15 )]
+position = Vector2( -5577, 3603 )
+move_speed = 1000
+radius = 1500
+turn_right = false
+enabled = true
+
+[node name="BasicBlock" parent="Objects/Easy part 4/Rocket" instance=ExtResource( 8 )]
+position = Vector2( -26, 173 )
+rotation = 0.0349066
+scale = Vector2( 1, 0.1 )
+
+[node name="BasicBlock2" parent="Objects/Easy part 4/Rocket" instance=ExtResource( 8 )]
+position = Vector2( -84, 128 )
+rotation = 1.6057
+scale = Vector2( 0.6, 0.3 )
+
+[node name="IceBlock2" parent="Objects/Easy part 4" instance=ExtResource( 12 )]
+position = Vector2( -4573, 5184 )
+rotation = -0.0523599
+scale = Vector2( 10.7, 0.25 )
+
+[node name="IceBlock3" parent="Objects/Easy part 4" instance=ExtResource( 12 )]
+position = Vector2( -153, 4961 )
+rotation = -0.0523599
+scale = Vector2( 5.5, 0.25 )
+
+[node name="Trampoline3" parent="Objects/Easy part 4" instance=ExtResource( 11 )]
+position = Vector2( 1258, 4880 )
+rotation = -0.0698132
+impulse_no_jump = 2100
+
+[node name="Trampoline5" parent="Objects/Easy part 4" instance=ExtResource( 11 )]
+position = Vector2( -6229, 5046 )
+rotation = 0.349066
+impulse_no_jump = 2000
+
+[node name="IceBlock4" parent="Objects/Easy part 4" instance=ExtResource( 12 )]
+position = Vector2( -256, 4706 )
+rotation = -0.0523599
+scale = Vector2( 5, 0.25 )
+
+[node name="IceBlock5" parent="Objects/Easy part 4" instance=ExtResource( 12 )]
+position = Vector2( -4058, 4959 )
+rotation = -0.0523599
+scale = Vector2( 8.5, 0.25 )
+
+[node name="IceBlock" parent="Objects/Easy part 4" instance=ExtResource( 12 )]
+position = Vector2( 894, 4163 )
+rotation = 1.91986
+scale = Vector2( 1.5, 0.25 )
+
+[node name="IceBlock6" parent="Objects/Easy part 4" instance=ExtResource( 12 )]
+position = Vector2( 710, 4372 )
+rotation = 2.35619
+scale = Vector2( 1, 0.25 )
+
+[node name="IceBlock7" parent="Objects/Easy part 4" instance=ExtResource( 12 )]
+position = Vector2( 308, 4617 )
+rotation = 2.79253
+scale = Vector2( 1, 0.25 )
+
+[node name="IceBlock8" parent="Objects/Easy part 4" instance=ExtResource( 12 )]
+position = Vector2( -1417, 4737 )
+rotation = 3.49066
+scale = Vector2( 0.5, 0.25 )
+
+[node name="IceBlock9" parent="Objects/Easy part 4" instance=ExtResource( 12 )]
+position = Vector2( -2110, 4799 )
+rotation = 2.79253
+scale = Vector2( 1, 0.25 )
+
+[node name="IceBlock10" parent="Objects/Easy part 4" instance=ExtResource( 12 )]
+position = Vector2( -1508, 5163 )
+rotation = 2.61799
+scale = Vector2( 1, 0.25 )
+
+[node name="BasicBlock" parent="Objects/Easy part 4" instance=ExtResource( 8 )]
+position = Vector2( -5591, 3867 )
+
+[node name="Trampoline" parent="Objects/Easy part 4/BasicBlock" instance=ExtResource( 11 )]
+position = Vector2( -10, -59 )
+impulse_no_jump = 400
+
+[node name="Node2D" type="Node2D" parent="Objects"]
+position = Vector2( 82, -12 )
+
+[node name="DonkeyKick" parent="Objects/Node2D" instance=ExtResource( 19 )]
+position = Vector2( -7916, 5654 )
+KICK_STRENGTH = 7000
+KICK_ANGLE = 0
+is_flipped = true
+
+[node name="IceBlock" parent="Objects/Node2D" instance=ExtResource( 12 )]
+position = Vector2( -3607, 5710 )
+rotation = -0.0174533
+scale = Vector2( 18, 0.25 )
+
+[node name="FallingBlock" parent="Objects/Node2D" instance=ExtResource( 20 )]
+position = Vector2( 1868, 5536 )
+rotation = 1.58825
+scale = Vector2( 1.5, 1 )
+
+[node name="FallingBlock2" parent="Objects/Node2D" instance=ExtResource( 20 )]
+position = Vector2( 2266, 5605 )
+rotation = 1.58825
+scale = Vector2( 0.5, 1 )
+
+[node name="FallingBlock3" parent="Objects/Node2D" instance=ExtResource( 20 )]
+position = Vector2( 2620, 5608 )
+rotation = 1.58825
+scale = Vector2( 0.5, 1 )
+
+[node name="FallingBlock4" parent="Objects/Node2D" instance=ExtResource( 20 )]
+position = Vector2( 2936, 5611 )
+rotation = 1.58825
+scale = Vector2( 0.5, 1 )
+
+[node name="FallingBlock5" parent="Objects/Node2D" instance=ExtResource( 20 )]
+position = Vector2( 3335, 5615 )
+rotation = 1.58825
+scale = Vector2( 0.5, 1 )
+
+[node name="FallingBlock6" parent="Objects/Node2D" instance=ExtResource( 20 )]
+position = Vector2( 3704, 5621 )
+rotation = 1.58825
+scale = Vector2( 0.5, 1 )
+
+[node name="FallingBlock7" parent="Objects/Node2D" instance=ExtResource( 20 )]
+position = Vector2( 4098, 5629 )
+rotation = 1.58825
+scale = Vector2( 0.5, 1 )
+
+[node name="IceBlock2" parent="Objects/Node2D" instance=ExtResource( 12 )]
+position = Vector2( 2862, 5651 )
+rotation = 0.0174533
+scale = Vector2( 5, 0.25 )
+
+[node name="BasicBlock2" parent="Objects/Node2D" instance=ExtResource( 8 )]
+position = Vector2( -8088, 5686 )
+rotation = 1.5708
+
+[node name="BasicBlock3" parent="Objects/Node2D" instance=ExtResource( 8 )]
+position = Vector2( 4125, 5885 )
+scale = Vector2( 2, 1 )
+
+[node name="DonkeyKick2" parent="Objects/Node2D" instance=ExtResource( 19 )]
+position = Vector2( 4073, 5797 )
+mass = 0.00833333
+KICK_STRENGTH = 4000
+KICK_ANGLE = 180
+is_flipped = true
+
+[node name="Hidden" type="Node2D" parent="Objects/Node2D"]
+visible = false
+position = Vector2( 35, 0 )
+
+[node name="IceBlock3" parent="Objects/Node2D/Hidden" instance=ExtResource( 12 )]
+position = Vector2( 2729, 5888 )
+scale = Vector2( 5, 0.25 )
+
+[node name="Trampoline" parent="Objects/Node2D/Hidden" instance=ExtResource( 11 )]
+position = Vector2( 1435, 5953 )
+rotation = -0.00174533
+scale = Vector2( 1, 5 )
+impulse_no_jump = 7000
+impulse_jump = 5800
+
+[node name="IceBlock" parent="Objects/Node2D/Hidden" instance=ExtResource( 12 )]
+position = Vector2( 1405, -3773 )
+rotation = 2.26893
+scale = Vector2( 0.4, 0.2 )
+
+[node name="Trampoline2" parent="Objects/Node2D/Hidden" instance=ExtResource( 11 )]
+position = Vector2( 1935, -5278 )
+rotation = 1.74533
+scale = Vector2( 1, 10 )
+impulse_no_jump = 20000
+
+[node name="IceBlock2" parent="Objects/Node2D/Hidden" instance=ExtResource( 12 )]
+position = Vector2( 3598, -4792 )
+rotation = 0.174533
+scale = Vector2( 5, 0.2 )
+
+[node name="Trampoline3" parent="Objects/Node2D/Hidden" instance=ExtResource( 11 )]
+position = Vector2( 4958, -4821 )
+rotation = 3.14159
+scale = Vector2( 1, 10 )
+
+[node name="FallingBlock" parent="Objects/Node2D/Hidden" instance=ExtResource( 20 )]
+position = Vector2( 4986, -3709 )
+scale = Vector2( 2, 1 )
+break_mult = 0.25
+
+[node name="Dialogue" type="Node2D" parent="Objects/Node2D"]
+
+[node name="final1" parent="Objects/Node2D/Dialogue" instance=ExtResource( 9 )]
+position = Vector2( 1826, 5575 )
+dialogue = "welp..."
+
+[node name="final2" parent="Objects/Node2D/Dialogue" instance=ExtResource( 9 )]
+position = Vector2( 2217, 5584 )
+dialogue = "i guess this is it..."
+
+[node name="final3" parent="Objects/Node2D/Dialogue" instance=ExtResource( 9 )]
+position = Vector2( 2567, 5587 )
+dialogue = "you have almost beaten the level..."
+
+[node name="final4" parent="Objects/Node2D/Dialogue" instance=ExtResource( 9 )]
+position = Vector2( 2890, 5606 )
+dialogue = "the easy way..."
+
+[node name="final5" parent="Objects/Node2D/Dialogue" instance=ExtResource( 9 )]
+position = Vector2( 3288, 5612 )
+dialogue = "do you feel ashamed?"
+
+[node name="final7" parent="Objects/Node2D/Dialogue" instance=ExtResource( 9 )]
+position = Vector2( 3653, 5611 )
+dialogue = "because you should"
+
+[node name="final6" parent="Objects/Node2D/Dialogue" instance=ExtResource( 9 )]
+position = Vector2( 4037, 5604 )
+dialogue = "[rainbow][wave amp=50] e n j o y ;) [/wave][/rainbow]"
+
+[node name="haha" parent="Objects/Node2D/Dialogue" instance=ExtResource( 9 )]
+position = Vector2( 5003, -3802 )
+dialogue = "there is no easy mode lmao beat the level on your own"
+
 [node name="Hard part 1" type="Node2D" parent="Objects"]
 
-[node name="BasicBlock" parent="Objects/Hard part 1" instance=ExtResource( 8 )]
-position = Vector2( 6547, -2703 )
+[node name="FallingBlock" parent="Objects/Hard part 1" instance=ExtResource( 20 )]
+position = Vector2( 6584, -2707 )
 
 [node name="MovingPlatform" parent="Objects/Hard part 1" instance=ExtResource( 10 )]
 position = Vector2( 7050, -2710 )
 scale = Vector2( 0.55, 2.3 )
 HORIZONTAL_SPEED = 300.0
 TRAVEL_DISTANCE = 250.0
-TRAVEL_TIMER = 7
 
 [node name="MovingPlatform6" parent="Objects/Hard part 1" instance=ExtResource( 10 )]
 position = Vector2( 7661, -2708 )
 scale = Vector2( 0.55, 2.3 )
 HORIZONTAL_SPEED = 300.0
 TRAVEL_DISTANCE = 250.0
-TRAVEL_TIMER = 7
 
 [node name="MovingPlatform2" parent="Objects/Hard part 1" instance=ExtResource( 10 )]
 position = Vector2( 8055, -2454 )
@@ -258,7 +1088,6 @@ stagger = 2.0
 position = Vector2( 6383, -1475 )
 scale = Vector2( 0.6, 2 )
 HORIZONTAL_SPEED = 100.0
-TRAVEL_TIMER = 7
 REVERSE = true
 
 [node name="IceBlock" parent="Objects/Hard part 1/MovingPlatform7" instance=ExtResource( 12 )]
@@ -790,37 +1619,317 @@ scale = Vector2( 2.5, 1 )
 
 [node name="Rocket" parent="Objects/Hard part 3" instance=ExtResource( 15 )]
 position = Vector2( 5472, 103 )
+flame_deadly = true
 enabled = true
 
 [node name="Rocket6" parent="Objects/Hard part 3" instance=ExtResource( 15 )]
 position = Vector2( 5472, 103 )
+flame_deadly = true
 enabled = true
 
 [node name="Rocket5" parent="Objects/Hard part 3" instance=ExtResource( 15 )]
 position = Vector2( 4451, 482 )
 radius = 200
+flame_deadly = true
 enabled = true
 
 [node name="Rocket2" parent="Objects/Hard part 3" instance=ExtResource( 15 )]
 position = Vector2( 3957, 419 )
 rotation = 3.14159
-move_speed = 400
+move_speed = -400
 radius = 200
+flame_deadly = true
 enabled = true
 
 [node name="Rocket3" parent="Objects/Hard part 3" instance=ExtResource( 15 )]
 position = Vector2( 4691, 215 )
 move_speed = 1200
 radius = 400
+flame_deadly = true
 enabled = true
 
 [node name="Rocket4" parent="Objects/Hard part 3" instance=ExtResource( 15 )]
 position = Vector2( 5200, 628 )
 move_speed = 800
 radius = 300
+flame_deadly = true
 enabled = true
 
+[node name="BasicBlock4" parent="Objects/Hard part 3" instance=ExtResource( 8 )]
+position = Vector2( 3104, 282 )
+rotation = 0.104321
+scale = Vector2( 6, 1.5 )
+
+[node name="BasicBlock5" parent="Objects/Hard part 3" instance=ExtResource( 8 )]
+position = Vector2( 2336, 388 )
+
 [node name="Lots of spikes" type="Node2D" parent="Objects/Hard part 3"]
+
+[node name="Spike ball11" parent="Objects/Hard part 3/Lots of spikes" instance=ExtResource( 7 )]
+position = Vector2( 2426, 608 )
+scale = Vector2( 0.5, 1 )
+
+[node name="Spikes3" parent="Objects/Hard part 3/Lots of spikes/Spike ball11" instance=ExtResource( 7 )]
+position = Vector2( -103.25, 28 )
+rotation = -1.5708
+scale = Vector2( 0.24, 0.822 )
+
+[node name="Spikes" parent="Objects/Hard part 3/Lots of spikes/Spike ball11" instance=ExtResource( 7 )]
+position = Vector2( 101, 26 )
+rotation = 1.5708
+scale = Vector2( 0.24, 0.822 )
+
+[node name="Spikes2" parent="Objects/Hard part 3/Lots of spikes/Spike ball11" instance=ExtResource( 7 )]
+position = Vector2( -2, 53 )
+rotation = 3.14159
+scale = Vector2( 1, 1 )
+
+[node name="Spike ball12" parent="Objects/Hard part 3/Lots of spikes" instance=ExtResource( 7 )]
+position = Vector2( 2683, 2031 )
+scale = Vector2( 0.5, 1 )
+
+[node name="Spikes3" parent="Objects/Hard part 3/Lots of spikes/Spike ball12" instance=ExtResource( 7 )]
+position = Vector2( -103.25, 28 )
+rotation = -1.5708
+scale = Vector2( 0.24, 0.822 )
+
+[node name="Spikes" parent="Objects/Hard part 3/Lots of spikes/Spike ball12" instance=ExtResource( 7 )]
+position = Vector2( 101, 26 )
+rotation = 1.5708
+scale = Vector2( 0.24, 0.822 )
+
+[node name="Spikes2" parent="Objects/Hard part 3/Lots of spikes/Spike ball12" instance=ExtResource( 7 )]
+position = Vector2( -2, 53 )
+rotation = 3.14159
+scale = Vector2( 1, 1 )
+
+[node name="Spike ball13" parent="Objects/Hard part 3/Lots of spikes" instance=ExtResource( 7 )]
+position = Vector2( 2502, 1320 )
+scale = Vector2( 0.5, 1 )
+
+[node name="Spikes3" parent="Objects/Hard part 3/Lots of spikes/Spike ball13" instance=ExtResource( 7 )]
+position = Vector2( -103.25, 28 )
+rotation = -1.5708
+scale = Vector2( 0.24, 0.822 )
+
+[node name="Spikes" parent="Objects/Hard part 3/Lots of spikes/Spike ball13" instance=ExtResource( 7 )]
+position = Vector2( 101, 26 )
+rotation = 1.5708
+scale = Vector2( 0.24, 0.822 )
+
+[node name="Spikes2" parent="Objects/Hard part 3/Lots of spikes/Spike ball13" instance=ExtResource( 7 )]
+position = Vector2( -2, 53 )
+rotation = 3.14159
+scale = Vector2( 1, 1 )
+
+[node name="Spike ball14" parent="Objects/Hard part 3/Lots of spikes" instance=ExtResource( 7 )]
+position = Vector2( 2589, 725 )
+scale = Vector2( 0.5, 1 )
+
+[node name="Spikes3" parent="Objects/Hard part 3/Lots of spikes/Spike ball14" instance=ExtResource( 7 )]
+position = Vector2( -103.25, 28 )
+rotation = -1.5708
+scale = Vector2( 0.24, 0.822 )
+
+[node name="Spikes" parent="Objects/Hard part 3/Lots of spikes/Spike ball14" instance=ExtResource( 7 )]
+position = Vector2( 101, 26 )
+rotation = 1.5708
+scale = Vector2( 0.24, 0.822 )
+
+[node name="Spikes2" parent="Objects/Hard part 3/Lots of spikes/Spike ball14" instance=ExtResource( 7 )]
+position = Vector2( -2, 53 )
+rotation = 3.14159
+scale = Vector2( 1, 1 )
+
+[node name="Spike ball15" parent="Objects/Hard part 3/Lots of spikes" instance=ExtResource( 7 )]
+position = Vector2( 3173, 468 )
+scale = Vector2( 0.5, 1 )
+
+[node name="Spikes3" parent="Objects/Hard part 3/Lots of spikes/Spike ball15" instance=ExtResource( 7 )]
+position = Vector2( -103.25, 28 )
+rotation = -1.5708
+scale = Vector2( 0.24, 0.822 )
+
+[node name="Spikes" parent="Objects/Hard part 3/Lots of spikes/Spike ball15" instance=ExtResource( 7 )]
+position = Vector2( 101, 26 )
+rotation = 1.5708
+scale = Vector2( 0.24, 0.822 )
+
+[node name="Spikes2" parent="Objects/Hard part 3/Lots of spikes/Spike ball15" instance=ExtResource( 7 )]
+position = Vector2( -2, 53 )
+rotation = 3.14159
+scale = Vector2( 1, 1 )
+
+[node name="Spike ball16" parent="Objects/Hard part 3/Lots of spikes" instance=ExtResource( 7 )]
+position = Vector2( 2975, 743 )
+scale = Vector2( 0.5, 1 )
+
+[node name="Spikes3" parent="Objects/Hard part 3/Lots of spikes/Spike ball16" instance=ExtResource( 7 )]
+position = Vector2( -103.25, 28 )
+rotation = -1.5708
+scale = Vector2( 0.24, 0.822 )
+
+[node name="Spikes" parent="Objects/Hard part 3/Lots of spikes/Spike ball16" instance=ExtResource( 7 )]
+position = Vector2( 101, 26 )
+rotation = 1.5708
+scale = Vector2( 0.24, 0.822 )
+
+[node name="Spikes2" parent="Objects/Hard part 3/Lots of spikes/Spike ball16" instance=ExtResource( 7 )]
+position = Vector2( -2, 53 )
+rotation = 3.14159
+scale = Vector2( 1, 1 )
+
+[node name="Spike ball19" parent="Objects/Hard part 3/Lots of spikes" instance=ExtResource( 7 )]
+position = Vector2( 2773, 1079 )
+scale = Vector2( 0.5, 1 )
+
+[node name="Spikes3" parent="Objects/Hard part 3/Lots of spikes/Spike ball19" instance=ExtResource( 7 )]
+position = Vector2( -103.25, 28 )
+rotation = -1.5708
+scale = Vector2( 0.24, 0.822 )
+
+[node name="Spikes" parent="Objects/Hard part 3/Lots of spikes/Spike ball19" instance=ExtResource( 7 )]
+position = Vector2( 101, 26 )
+rotation = 1.5708
+scale = Vector2( 0.24, 0.822 )
+
+[node name="Spikes2" parent="Objects/Hard part 3/Lots of spikes/Spike ball19" instance=ExtResource( 7 )]
+position = Vector2( -2, 53 )
+rotation = 3.14159
+scale = Vector2( 1, 1 )
+
+[node name="Spike ball17" parent="Objects/Hard part 3/Lots of spikes" instance=ExtResource( 7 )]
+position = Vector2( 3242, 1191 )
+scale = Vector2( 0.5, 1 )
+
+[node name="Spikes3" parent="Objects/Hard part 3/Lots of spikes/Spike ball17" instance=ExtResource( 7 )]
+position = Vector2( -103.25, 28 )
+rotation = -1.5708
+scale = Vector2( 0.24, 0.822 )
+
+[node name="Spikes" parent="Objects/Hard part 3/Lots of spikes/Spike ball17" instance=ExtResource( 7 )]
+position = Vector2( 101, 26 )
+rotation = 1.5708
+scale = Vector2( 0.24, 0.822 )
+
+[node name="Spikes2" parent="Objects/Hard part 3/Lots of spikes/Spike ball17" instance=ExtResource( 7 )]
+position = Vector2( -2, 53 )
+rotation = 3.14159
+scale = Vector2( 1, 1 )
+
+[node name="Spike ball18" parent="Objects/Hard part 3/Lots of spikes" instance=ExtResource( 7 )]
+position = Vector2( 2826, 1506 )
+scale = Vector2( 0.5, 1 )
+
+[node name="Spikes3" parent="Objects/Hard part 3/Lots of spikes/Spike ball18" instance=ExtResource( 7 )]
+position = Vector2( -103.25, 28 )
+rotation = -1.5708
+scale = Vector2( 0.24, 0.822 )
+
+[node name="Spikes" parent="Objects/Hard part 3/Lots of spikes/Spike ball18" instance=ExtResource( 7 )]
+position = Vector2( 101, 26 )
+rotation = 1.5708
+scale = Vector2( 0.24, 0.822 )
+
+[node name="Spikes2" parent="Objects/Hard part 3/Lots of spikes/Spike ball18" instance=ExtResource( 7 )]
+position = Vector2( -2, 53 )
+rotation = 3.14159
+scale = Vector2( 1, 1 )
+
+[node name="Spike ball20" parent="Objects/Hard part 3/Lots of spikes" instance=ExtResource( 7 )]
+position = Vector2( 2598, 1594 )
+scale = Vector2( 0.5, 1 )
+
+[node name="Spikes3" parent="Objects/Hard part 3/Lots of spikes/Spike ball20" instance=ExtResource( 7 )]
+position = Vector2( -103.25, 28 )
+rotation = -1.5708
+scale = Vector2( 0.24, 0.822 )
+
+[node name="Spikes" parent="Objects/Hard part 3/Lots of spikes/Spike ball20" instance=ExtResource( 7 )]
+position = Vector2( 101, 26 )
+rotation = 1.5708
+scale = Vector2( 0.24, 0.822 )
+
+[node name="Spikes2" parent="Objects/Hard part 3/Lots of spikes/Spike ball20" instance=ExtResource( 7 )]
+position = Vector2( -2, 53 )
+rotation = 3.14159
+scale = Vector2( 1, 1 )
+
+[node name="Spike ball21" parent="Objects/Hard part 3/Lots of spikes" instance=ExtResource( 7 )]
+position = Vector2( 3182, 1499 )
+scale = Vector2( 0.5, 1 )
+
+[node name="Spikes3" parent="Objects/Hard part 3/Lots of spikes/Spike ball21" instance=ExtResource( 7 )]
+position = Vector2( -103.25, 28 )
+rotation = -1.5708
+scale = Vector2( 0.24, 0.822 )
+
+[node name="Spikes" parent="Objects/Hard part 3/Lots of spikes/Spike ball21" instance=ExtResource( 7 )]
+position = Vector2( 101, 26 )
+rotation = 1.5708
+scale = Vector2( 0.24, 0.822 )
+
+[node name="Spikes2" parent="Objects/Hard part 3/Lots of spikes/Spike ball21" instance=ExtResource( 7 )]
+position = Vector2( -2, 53 )
+rotation = 3.14159
+scale = Vector2( 1, 1 )
+
+[node name="Spike ball22" parent="Objects/Hard part 3/Lots of spikes" instance=ExtResource( 7 )]
+position = Vector2( 2886, 2030 )
+scale = Vector2( 0.5, 1 )
+
+[node name="Spikes3" parent="Objects/Hard part 3/Lots of spikes/Spike ball22" instance=ExtResource( 7 )]
+position = Vector2( -103.25, 28 )
+rotation = -1.5708
+scale = Vector2( 0.24, 0.822 )
+
+[node name="Spikes" parent="Objects/Hard part 3/Lots of spikes/Spike ball22" instance=ExtResource( 7 )]
+position = Vector2( 101, 26 )
+rotation = 1.5708
+scale = Vector2( 0.24, 0.822 )
+
+[node name="Spikes2" parent="Objects/Hard part 3/Lots of spikes/Spike ball22" instance=ExtResource( 7 )]
+position = Vector2( -2, 53 )
+rotation = 3.14159
+scale = Vector2( 1, 1 )
+
+[node name="Spike ball23" parent="Objects/Hard part 3/Lots of spikes" instance=ExtResource( 7 )]
+position = Vector2( 3292, 1744 )
+scale = Vector2( 0.5, 1 )
+
+[node name="Spikes3" parent="Objects/Hard part 3/Lots of spikes/Spike ball23" instance=ExtResource( 7 )]
+position = Vector2( -103.25, 28 )
+rotation = -1.5708
+scale = Vector2( 0.24, 0.822 )
+
+[node name="Spikes" parent="Objects/Hard part 3/Lots of spikes/Spike ball23" instance=ExtResource( 7 )]
+position = Vector2( 101, 26 )
+rotation = 1.5708
+scale = Vector2( 0.24, 0.822 )
+
+[node name="Spikes2" parent="Objects/Hard part 3/Lots of spikes/Spike ball23" instance=ExtResource( 7 )]
+position = Vector2( -2, 53 )
+rotation = 3.14159
+scale = Vector2( 1, 1 )
+
+[node name="Spike ball24" parent="Objects/Hard part 3/Lots of spikes" instance=ExtResource( 7 )]
+position = Vector2( 3091, 1884 )
+scale = Vector2( 0.5, 1 )
+
+[node name="Spikes3" parent="Objects/Hard part 3/Lots of spikes/Spike ball24" instance=ExtResource( 7 )]
+position = Vector2( -103.25, 28 )
+rotation = -1.5708
+scale = Vector2( 0.24, 0.822 )
+
+[node name="Spikes" parent="Objects/Hard part 3/Lots of spikes/Spike ball24" instance=ExtResource( 7 )]
+position = Vector2( 101, 26 )
+rotation = 1.5708
+scale = Vector2( 0.24, 0.822 )
+
+[node name="Spikes2" parent="Objects/Hard part 3/Lots of spikes/Spike ball24" instance=ExtResource( 7 )]
+position = Vector2( -2, 53 )
+rotation = 3.14159
+scale = Vector2( 1, 1 )
 
 [node name="Spikes" parent="Objects/Hard part 3/Lots of spikes" instance=ExtResource( 7 )]
 position = Vector2( 3555, 963 )
@@ -964,237 +2073,8 @@ scale = Vector2( 1, 0.821713 )
 
 [node name="Spikes30" parent="Objects/Hard part 3/Lots of spikes" instance=ExtResource( 7 )]
 position = Vector2( 3470, 2035 )
-rotation = 4.71239
+rotation = -1.5708
 scale = Vector2( 1, 0.821713 )
-
-[node name="Spike ball" parent="Objects/Hard part 3/Lots of spikes" instance=ExtResource( 7 )]
-position = Vector2( 2548, 1103 )
-scale = Vector2( 0.5, 1 )
-
-[node name="Spikes3" parent="Objects/Hard part 3/Lots of spikes/Spike ball" instance=ExtResource( 7 )]
-position = Vector2( -103.25, 28 )
-rotation = -1.5708
-scale = Vector2( 0.24, 0.822 )
-
-[node name="Spikes" parent="Objects/Hard part 3/Lots of spikes/Spike ball" instance=ExtResource( 7 )]
-position = Vector2( 101, 26 )
-rotation = 1.5708
-scale = Vector2( 0.24, 0.822 )
-
-[node name="Spikes2" parent="Objects/Hard part 3/Lots of spikes/Spike ball" instance=ExtResource( 7 )]
-position = Vector2( -2, 53 )
-rotation = 3.14159
-scale = Vector2( 1, 1 )
-
-[node name="Spike ball2" parent="Objects/Hard part 3/Lots of spikes" instance=ExtResource( 7 )]
-position = Vector2( 3238, 741 )
-scale = Vector2( 0.5, 1 )
-
-[node name="Spikes3" parent="Objects/Hard part 3/Lots of spikes/Spike ball2" instance=ExtResource( 7 )]
-position = Vector2( -103.25, 28 )
-rotation = -1.5708
-scale = Vector2( 0.24, 0.822 )
-
-[node name="Spikes" parent="Objects/Hard part 3/Lots of spikes/Spike ball2" instance=ExtResource( 7 )]
-position = Vector2( 101, 26 )
-rotation = 1.5708
-scale = Vector2( 0.24, 0.822 )
-
-[node name="Spikes2" parent="Objects/Hard part 3/Lots of spikes/Spike ball2" instance=ExtResource( 7 )]
-position = Vector2( -2, 53 )
-rotation = 3.14159
-scale = Vector2( 1, 1 )
-
-[node name="Spike ball3" parent="Objects/Hard part 3/Lots of spikes" instance=ExtResource( 7 )]
-position = Vector2( 2696, 1347 )
-scale = Vector2( 0.5, 1 )
-
-[node name="Spikes3" parent="Objects/Hard part 3/Lots of spikes/Spike ball3" instance=ExtResource( 7 )]
-position = Vector2( -103.25, 28 )
-rotation = -1.5708
-scale = Vector2( 0.24, 0.822 )
-
-[node name="Spikes" parent="Objects/Hard part 3/Lots of spikes/Spike ball3" instance=ExtResource( 7 )]
-position = Vector2( 101, 26 )
-rotation = 1.5708
-scale = Vector2( 0.24, 0.822 )
-
-[node name="Spikes2" parent="Objects/Hard part 3/Lots of spikes/Spike ball3" instance=ExtResource( 7 )]
-position = Vector2( -2, 53 )
-rotation = 3.14159
-scale = Vector2( 1, 1 )
-
-[node name="Spike ball4" parent="Objects/Hard part 3/Lots of spikes" instance=ExtResource( 7 )]
-position = Vector2( 2873, 925 )
-scale = Vector2( 0.5, 1 )
-
-[node name="Spikes3" parent="Objects/Hard part 3/Lots of spikes/Spike ball4" instance=ExtResource( 7 )]
-position = Vector2( -103.25, 28 )
-rotation = -1.5708
-scale = Vector2( 0.24, 0.822 )
-
-[node name="Spikes" parent="Objects/Hard part 3/Lots of spikes/Spike ball4" instance=ExtResource( 7 )]
-position = Vector2( 101, 26 )
-rotation = 1.5708
-scale = Vector2( 0.24, 0.822 )
-
-[node name="Spikes2" parent="Objects/Hard part 3/Lots of spikes/Spike ball4" instance=ExtResource( 7 )]
-position = Vector2( -2, 53 )
-rotation = 3.14159
-scale = Vector2( 1, 1 )
-
-[node name="Spike ball5" parent="Objects/Hard part 3/Lots of spikes" instance=ExtResource( 7 )]
-position = Vector2( 2799, 1936 )
-scale = Vector2( 0.5, 1 )
-
-[node name="Spikes3" parent="Objects/Hard part 3/Lots of spikes/Spike ball5" instance=ExtResource( 7 )]
-position = Vector2( -103.25, 28 )
-rotation = -1.5708
-scale = Vector2( 0.24, 0.822 )
-
-[node name="Spikes" parent="Objects/Hard part 3/Lots of spikes/Spike ball5" instance=ExtResource( 7 )]
-position = Vector2( 101, 26 )
-rotation = 1.5708
-scale = Vector2( 0.24, 0.822 )
-
-[node name="Spikes2" parent="Objects/Hard part 3/Lots of spikes/Spike ball5" instance=ExtResource( 7 )]
-position = Vector2( -2, 53 )
-rotation = 3.14159
-scale = Vector2( 1, 1 )
-
-[node name="Spike ball6" parent="Objects/Hard part 3/Lots of spikes" instance=ExtResource( 7 )]
-position = Vector2( 3115, 1606 )
-scale = Vector2( 0.5, 1 )
-
-[node name="Spikes3" parent="Objects/Hard part 3/Lots of spikes/Spike ball6" instance=ExtResource( 7 )]
-position = Vector2( -103.25, 28 )
-rotation = -1.5708
-scale = Vector2( 0.24, 0.822 )
-
-[node name="Spikes" parent="Objects/Hard part 3/Lots of spikes/Spike ball6" instance=ExtResource( 7 )]
-position = Vector2( 101, 26 )
-rotation = 1.5708
-scale = Vector2( 0.24, 0.822 )
-
-[node name="Spikes2" parent="Objects/Hard part 3/Lots of spikes/Spike ball6" instance=ExtResource( 7 )]
-position = Vector2( -2, 53 )
-rotation = 3.14159
-scale = Vector2( 1, 1 )
-
-[node name="Spike ball7" parent="Objects/Hard part 3/Lots of spikes" instance=ExtResource( 7 )]
-position = Vector2( 2548, 2415 )
-scale = Vector2( 0.5, 1 )
-
-[node name="Spikes3" parent="Objects/Hard part 3/Lots of spikes/Spike ball7" instance=ExtResource( 7 )]
-position = Vector2( -103.25, 28 )
-rotation = -1.5708
-scale = Vector2( 0.24, 0.822 )
-
-[node name="Spikes" parent="Objects/Hard part 3/Lots of spikes/Spike ball7" instance=ExtResource( 7 )]
-position = Vector2( 101, 26 )
-rotation = 1.5708
-scale = Vector2( 0.24, 0.822 )
-
-[node name="Spikes2" parent="Objects/Hard part 3/Lots of spikes/Spike ball7" instance=ExtResource( 7 )]
-position = Vector2( -2, 53 )
-rotation = 3.14159
-scale = Vector2( 1, 1 )
-
-[node name="Spike ball8" parent="Objects/Hard part 3/Lots of spikes" instance=ExtResource( 7 )]
-position = Vector2( 2924, 2040 )
-scale = Vector2( 0.5, 1 )
-
-[node name="Spikes3" parent="Objects/Hard part 3/Lots of spikes/Spike ball8" instance=ExtResource( 7 )]
-position = Vector2( -103.25, 28 )
-rotation = -1.5708
-scale = Vector2( 0.24, 0.822 )
-
-[node name="Spikes" parent="Objects/Hard part 3/Lots of spikes/Spike ball8" instance=ExtResource( 7 )]
-position = Vector2( 101, 26 )
-rotation = 1.5708
-scale = Vector2( 0.24, 0.822 )
-
-[node name="Spikes2" parent="Objects/Hard part 3/Lots of spikes/Spike ball8" instance=ExtResource( 7 )]
-position = Vector2( -2, 53 )
-rotation = 3.14159
-scale = Vector2( 1, 1 )
-
-[node name="Spike ball9" parent="Objects/Hard part 3/Lots of spikes" instance=ExtResource( 7 )]
-position = Vector2( 2425, 1619 )
-scale = Vector2( 0.5, 1 )
-
-[node name="Spikes3" parent="Objects/Hard part 3/Lots of spikes/Spike ball9" instance=ExtResource( 7 )]
-position = Vector2( -103.25, 28 )
-rotation = -1.5708
-scale = Vector2( 0.24, 0.822 )
-
-[node name="Spikes" parent="Objects/Hard part 3/Lots of spikes/Spike ball9" instance=ExtResource( 7 )]
-position = Vector2( 101, 26 )
-rotation = 1.5708
-scale = Vector2( 0.24, 0.822 )
-
-[node name="Spikes2" parent="Objects/Hard part 3/Lots of spikes/Spike ball9" instance=ExtResource( 7 )]
-position = Vector2( -2, 53 )
-rotation = 3.14159
-scale = Vector2( 1, 1 )
-
-[node name="Spike ball10" parent="Objects/Hard part 3/Lots of spikes" instance=ExtResource( 7 )]
-position = Vector2( 3358, 2093 )
-scale = Vector2( 0.5, 1 )
-
-[node name="Spikes3" parent="Objects/Hard part 3/Lots of spikes/Spike ball10" instance=ExtResource( 7 )]
-position = Vector2( -103.25, 28 )
-rotation = -1.5708
-scale = Vector2( 0.24, 0.822 )
-
-[node name="Spikes" parent="Objects/Hard part 3/Lots of spikes/Spike ball10" instance=ExtResource( 7 )]
-position = Vector2( 101, 26 )
-rotation = 1.5708
-scale = Vector2( 0.24, 0.822 )
-
-[node name="Spikes2" parent="Objects/Hard part 3/Lots of spikes/Spike ball10" instance=ExtResource( 7 )]
-position = Vector2( -2, 53 )
-rotation = 3.14159
-scale = Vector2( 1, 1 )
-
-[node name="Spike ball11" parent="Objects/Hard part 3/Lots of spikes" instance=ExtResource( 7 )]
-position = Vector2( 3352, 1417 )
-scale = Vector2( 0.5, 1 )
-
-[node name="Spikes3" parent="Objects/Hard part 3/Lots of spikes/Spike ball11" instance=ExtResource( 7 )]
-position = Vector2( -103.25, 28 )
-rotation = -1.5708
-scale = Vector2( 0.24, 0.822 )
-
-[node name="Spikes" parent="Objects/Hard part 3/Lots of spikes/Spike ball11" instance=ExtResource( 7 )]
-position = Vector2( 101, 26 )
-rotation = 1.5708
-scale = Vector2( 0.24, 0.822 )
-
-[node name="Spikes2" parent="Objects/Hard part 3/Lots of spikes/Spike ball11" instance=ExtResource( 7 )]
-position = Vector2( -2, 53 )
-rotation = 3.14159
-scale = Vector2( 1, 1 )
-
-[node name="Spike ball12" parent="Objects/Hard part 3/Lots of spikes" instance=ExtResource( 7 )]
-position = Vector2( 2451, 719 )
-rotation = 0.523599
-scale = Vector2( 0.7, 1 )
-
-[node name="Spikes3" parent="Objects/Hard part 3/Lots of spikes/Spike ball12" instance=ExtResource( 7 )]
-position = Vector2( -103.25, 28 )
-rotation = -1.5708
-scale = Vector2( 0.24, 0.822 )
-
-[node name="Spikes" parent="Objects/Hard part 3/Lots of spikes/Spike ball12" instance=ExtResource( 7 )]
-position = Vector2( 101, 26 )
-rotation = 1.5708
-scale = Vector2( 0.24, 0.822 )
-
-[node name="Spikes2" parent="Objects/Hard part 3/Lots of spikes/Spike ball12" instance=ExtResource( 7 )]
-position = Vector2( -2, 53 )
-rotation = 3.14159
-scale = Vector2( 1, 1 )
 
 [node name="Spikes15" parent="Objects/Hard part 3/Lots of spikes" instance=ExtResource( 7 )]
 position = Vector2( 2395, 2599 )
@@ -1214,159 +2094,9 @@ position = Vector2( 3244, 2623 )
 rotation = 1.5708
 scale = Vector2( 0.2, 0.5 )
 
-[node name="BasicBlock4" parent="Objects/Hard part 3" instance=ExtResource( 8 )]
-position = Vector2( 3108, 329 )
-scale = Vector2( 6, 1.5 )
-
-[node name="BasicBlock5" parent="Objects/Hard part 3" instance=ExtResource( 8 )]
-position = Vector2( 3229, 121 )
-scale = Vector2( 4, 1.5 )
-
-[node name="GearPlatform6" parent="Objects/Hard part 3" instance=ExtResource( 14 )]
-position = Vector2( 1715, 1287 )
-ROTATION_SPEED = -2
-
-[node name="FlamePillar" parent="Objects/Hard part 3/GearPlatform6" instance=ExtResource( 13 )]
-show_behind_parent = true
-position = Vector2( -38, -63 )
-rotation = 0.959931
-scale = Vector2( 0.1, 0.15 )
-seconds_off = 0.0
-stagger = 2.0
-
-[node name="FlamePillar2" parent="Objects/Hard part 3/GearPlatform6" instance=ExtResource( 13 )]
-show_behind_parent = true
-position = Vector2( 72.5, 2 )
-rotation = 3.14159
-scale = Vector2( 0.1, 0.15 )
-seconds_off = 0.0
-
-[node name="FlamePillar3" parent="Objects/Hard part 3/GearPlatform6" instance=ExtResource( 13 )]
-show_behind_parent = true
-position = Vector2( -36.5, 64 )
-rotation = 5.28835
-scale = Vector2( 0.1, 0.15 )
-seconds_off = 0.0
-
-[node name="GearPlatform7" parent="Objects/Hard part 3" instance=ExtResource( 14 )]
-position = Vector2( 1150, 735 )
-scale = Vector2( 1, 1 )
-ROTATION_SPEED = 3
-
-[node name="FlamePillar" parent="Objects/Hard part 3/GearPlatform7" instance=ExtResource( 13 )]
-show_behind_parent = true
-position = Vector2( -38, -63 )
-rotation = 0.959931
-scale = Vector2( 0.1, 0.15 )
-seconds_on = 1.0
-seconds_off = 0.0
-
-[node name="FlamePillar2" parent="Objects/Hard part 3/GearPlatform7" instance=ExtResource( 13 )]
-show_behind_parent = true
-position = Vector2( 72.5, 2 )
-rotation = 3.14159
-scale = Vector2( 0.1, 0.15 )
-seconds_on = 1.0
-seconds_off = 0.0
-
-[node name="FlamePillar3" parent="Objects/Hard part 3/GearPlatform7" instance=ExtResource( 13 )]
-show_behind_parent = true
-position = Vector2( -36.5, 64 )
-rotation = 5.28835
-scale = Vector2( 0.1, 0.15 )
-seconds_on = 1.0
-seconds_off = 0.0
-stagger = 2.0
-
-[node name="GearPlatform8" parent="Objects/Hard part 3" instance=ExtResource( 14 )]
-position = Vector2( 1673, 2025 )
-ROTATION_SPEED = -4
-
-[node name="FlamePillar" parent="Objects/Hard part 3/GearPlatform8" instance=ExtResource( 13 )]
-show_behind_parent = true
-position = Vector2( -38, -63 )
-rotation = 0.959931
-scale = Vector2( 0.1, 0.15 )
-seconds_off = 0.0
-stagger = 2.0
-
-[node name="FlamePillar2" parent="Objects/Hard part 3/GearPlatform8" instance=ExtResource( 13 )]
-show_behind_parent = true
-position = Vector2( 72.5, 2 )
-rotation = 3.14159
-scale = Vector2( 0.1, 0.15 )
-seconds_off = 0.0
-
-[node name="FlamePillar3" parent="Objects/Hard part 3/GearPlatform8" instance=ExtResource( 13 )]
-show_behind_parent = true
-position = Vector2( -36.5, 64 )
-rotation = 5.28835
-scale = Vector2( 0.1, 0.15 )
-seconds_off = 0.0
-
-[node name="GearPlatform9" parent="Objects/Hard part 3" instance=ExtResource( 14 )]
-position = Vector2( 1155, 1597 )
-scale = Vector2( 1.5, 1 )
-ROTATION_SPEED = 3
-
-[node name="FlamePillar" parent="Objects/Hard part 3/GearPlatform9" instance=ExtResource( 13 )]
-show_behind_parent = true
-position = Vector2( -38, -63 )
-rotation = 0.959931
-scale = Vector2( 0.1, 0.15 )
-seconds_on = 1.0
-seconds_off = 0.0
-
-[node name="FlamePillar2" parent="Objects/Hard part 3/GearPlatform9" instance=ExtResource( 13 )]
-show_behind_parent = true
-position = Vector2( 72.5, 2 )
-rotation = 3.14159
-scale = Vector2( 0.1, 0.15 )
-seconds_on = 1.0
-seconds_off = 0.0
-
-[node name="FlamePillar3" parent="Objects/Hard part 3/GearPlatform9" instance=ExtResource( 13 )]
-show_behind_parent = true
-position = Vector2( -36.5, 64 )
-rotation = 5.28835
-scale = Vector2( 0.1, 0.15 )
-seconds_on = 1.0
-seconds_off = 0.0
-stagger = 2.0
-
-[node name="GearPlatform10" parent="Objects/Hard part 3" instance=ExtResource( 14 )]
-position = Vector2( 1040, 2118 )
-scale = Vector2( 1, 1 )
-ROTATION_SPEED = 3
-
-[node name="FlamePillar" parent="Objects/Hard part 3/GearPlatform10" instance=ExtResource( 13 )]
-show_behind_parent = true
-position = Vector2( -38, -63 )
-rotation = 0.959931
-scale = Vector2( 0.1, 0.15 )
-seconds_on = 1.0
-seconds_off = 0.0
-
-[node name="FlamePillar2" parent="Objects/Hard part 3/GearPlatform10" instance=ExtResource( 13 )]
-show_behind_parent = true
-position = Vector2( 72.5, 2 )
-rotation = 3.14159
-scale = Vector2( 0.1, 0.15 )
-seconds_on = 1.0
-seconds_off = 0.0
-
-[node name="FlamePillar3" parent="Objects/Hard part 3/GearPlatform10" instance=ExtResource( 13 )]
-show_behind_parent = true
-position = Vector2( -36.5, 64 )
-rotation = 5.28835
-scale = Vector2( 0.1, 0.15 )
-seconds_on = 1.0
-seconds_off = 0.0
-stagger = 2.0
-
 [node name="HenFly" parent="Objects/Hard part 3" instance=ExtResource( 17 )]
-position = Vector2( 3116, -17 )
-FLIGHT_SPEED = 50
+position = Vector2( 2349, 318 )
+radius = 750
 
 [node name="MovingPlatform" parent="Objects/Hard part 3" instance=ExtResource( 10 )]
 position = Vector2( 2808, 2438 )
@@ -1399,7 +2129,6 @@ scale = Vector2( 0.5, 1 )
 [node name="Chicken2" parent="Objects/Hard part 4" instance=ExtResource( 16 )]
 position = Vector2( 2984, 3118 )
 speed = 3000
-angle = 105
 launch_angle = 100
 
 [node name="BasicBlock3" parent="Objects/Hard part 4" instance=ExtResource( 8 )]
@@ -1419,31 +2148,25 @@ scale = Vector2( 3.2, 1 )
 [node name="Chicken3" parent="Objects/Hard part 4" instance=ExtResource( 16 )]
 position = Vector2( 2657, 3907 )
 speed = 1000
-angle = 30
 launch_angle = 20
 is_flipped = true
 
 [node name="BasicBlock6" parent="Objects/Hard part 4" instance=ExtResource( 8 )]
 position = Vector2( 2649, 3838 )
-scale = Vector2( 1, 1 )
 
 [node name="BasicBlock7" parent="Objects/Hard part 4" instance=ExtResource( 8 )]
 position = Vector2( 2651, 3697 )
-scale = Vector2( 1, 1 )
 
 [node name="BasicBlock8" parent="Objects/Hard part 4" instance=ExtResource( 8 )]
 position = Vector2( 2647, 3547 )
-scale = Vector2( 1, 1 )
 
 [node name="Chicken4" parent="Objects/Hard part 4" instance=ExtResource( 16 )]
 position = Vector2( 2653, 3769 )
-angle = 30
 launch_angle = 30
 is_flipped = true
 
 [node name="Chicken5" parent="Objects/Hard part 4" instance=ExtResource( 16 )]
 position = Vector2( 2650, 3630 )
-angle = 30
 launch_angle = 30
 is_flipped = true
 
@@ -1762,17 +2485,128 @@ scale = Vector2( 5, 2.1 )
 
 [node name="Hard part 6" type="Node2D" parent="Objects"]
 
-[node name="BasicBlock11" parent="Objects/Hard part 6" instance=ExtResource( 8 )]
-position = Vector2( 5462, 2124 )
-rotation = 1.5708
-scale = Vector2( 6, 3 )
+[node name="Enemies" type="Node2D" parent="Objects/Hard part 6"]
 
-[node name="Spikes3" parent="Objects/Hard part 6/BasicBlock11" instance=ExtResource( 7 )]
+[node name="Chicken" parent="Objects/Hard part 6/Enemies" instance=ExtResource( 16 )]
+position = Vector2( 6862, 2581 )
+speed = 1000
+launch_angle = 135
+is_flipped = true
+
+[node name="DonkeyCharge" parent="Objects/Hard part 6/Enemies" instance=ExtResource( 18 )]
+position = Vector2( 6877, 2657 )
+
+[node name="DonkeyKick" parent="Objects/Hard part 6/Enemies" instance=ExtResource( 19 )]
+position = Vector2( 6514, 2606 )
+
+[node name="HenFly" parent="Objects/Hard part 6/Enemies" instance=ExtResource( 17 )]
+position = Vector2( 6685, 2502 )
+FLIGHT_SPEED = 400
+radius = 500
+
+[node name="Chicken2" parent="Objects/Hard part 6/Enemies" instance=ExtResource( 16 )]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 6318, 2469 )
+speed = 500
+launch_angle = 120
+
+[node name="DonkeyCharge2" parent="Objects/Hard part 6/Enemies" instance=ExtResource( 18 )]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 6333, 2545 )
+
+[node name="DonkeyKick2" parent="Objects/Hard part 6/Enemies" instance=ExtResource( 19 )]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 5970, 2494 )
+
+[node name="HenFly2" parent="Objects/Hard part 6/Enemies" instance=ExtResource( 17 )]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 6141, 2390 )
+FLIGHT_SPEED = 400
+radius = 500
+
+[node name="Chicken3" parent="Objects/Hard part 6/Enemies" instance=ExtResource( 16 )]
+modulate = Color( 0.407843, 0, 1, 1 )
+position = Vector2( 6901, 2401 )
+speed = 1000
+launch_angle = 135
+
+[node name="DonkeyCharge3" parent="Objects/Hard part 6/Enemies" instance=ExtResource( 18 )]
+modulate = Color( 0.407843, 0, 1, 1 )
+position = Vector2( 6916, 2477 )
+
+[node name="DonkeyKick3" parent="Objects/Hard part 6/Enemies" instance=ExtResource( 19 )]
+modulate = Color( 0.407843, 0, 1, 1 )
+position = Vector2( 6553, 2426 )
+
+[node name="HenFly3" parent="Objects/Hard part 6/Enemies" instance=ExtResource( 17 )]
+modulate = Color( 0.407843, 0, 1, 1 )
+position = Vector2( 6724, 2322 )
+FLIGHT_SPEED = 400
+radius = 500
+
+[node name="Chicken4" parent="Objects/Hard part 6/Enemies" instance=ExtResource( 16 )]
+modulate = Color( 0, 1, 0.415686, 1 )
+position = Vector2( 6564, 2572 )
+speed = 500
+launch_angle = 135
+is_flipped = true
+
+[node name="DonkeyCharge4" parent="Objects/Hard part 6/Enemies" instance=ExtResource( 18 )]
+modulate = Color( 0, 1, 0.415686, 1 )
+position = Vector2( 6579, 2648 )
+
+[node name="DonkeyKick4" parent="Objects/Hard part 6/Enemies" instance=ExtResource( 19 )]
+modulate = Color( 0, 1, 0.415686, 1 )
+position = Vector2( 6216, 2597 )
+
+[node name="HenFly4" parent="Objects/Hard part 6/Enemies" instance=ExtResource( 17 )]
+modulate = Color( 0, 1, 0.415686, 1 )
+position = Vector2( 6387, 2493 )
+FLIGHT_SPEED = 400
+radius = 500
+
+[node name="Chicken5" parent="Objects/Hard part 6/Enemies" instance=ExtResource( 16 )]
+modulate = Color( 0.921569, 0, 1, 1 )
+position = Vector2( 6504, 2424 )
+speed = 1000
+launch_angle = 135
+is_flipped = true
+
+[node name="DonkeyCharge5" parent="Objects/Hard part 6/Enemies" instance=ExtResource( 18 )]
+modulate = Color( 0.921569, 0, 1, 1 )
+position = Vector2( 6519, 2500 )
+
+[node name="DonkeyKick5" parent="Objects/Hard part 6/Enemies" instance=ExtResource( 19 )]
+modulate = Color( 0.921569, 0, 1, 1 )
+position = Vector2( 6156, 2449 )
+
+[node name="HenFly5" parent="Objects/Hard part 6/Enemies" instance=ExtResource( 17 )]
+modulate = Color( 0.921569, 0, 1, 1 )
+position = Vector2( 6327, 2345 )
+FLIGHT_SPEED = 400
+radius = 500
+
+[node name="BasicBlock11" parent="Objects/Hard part 6" instance=ExtResource( 8 )]
+position = Vector2( 5457, 2054 )
+rotation = 1.5708
+scale = Vector2( 5, 3 )
+
+[node name="BasicBlock13" parent="Objects/Hard part 6" instance=ExtResource( 8 )]
+position = Vector2( 5406, 2636 )
+rotation = 1.5708
+scale = Vector2( 1, 5 )
+
+[node name="BasicBlock12" parent="Objects/Hard part 6" instance=ExtResource( 8 )]
+position = Vector2( 5953, 1919 )
+rotation = 3.15905
+scale = Vector2( 6, 6 )
+
+[node name="Spikes3" parent="Objects/Hard part 6/BasicBlock12" instance=ExtResource( 7 )]
 position = Vector2( 33.6002, -44.3335 )
 rotation = -5.22458e-15
 scale = Vector2( 0.34, 0.274 )
 
-[node name="Spikes4" parent="Objects/Hard part 6/BasicBlock11" instance=ExtResource( 7 )]
+[node name="Spikes4" parent="Objects/Hard part 6/BasicBlock12" instance=ExtResource( 7 )]
 position = Vector2( -34.3999, -45.6669 )
 rotation = -5.22458e-15
 scale = Vector2( 0.34, 0.274 )
@@ -1797,9 +2631,85 @@ scale = Vector2( 0.35, 0.3288 )
 [node name="Lots of spikes" type="Node2D" parent="Objects/Hard part 7"]
 
 [node name="Spikes" parent="Objects/Hard part 7/Lots of spikes" instance=ExtResource( 7 )]
-position = Vector2( 7881, 1460 )
+position = Vector2( 7874, 1463 )
 rotation = -3.14159
 scale = Vector2( 3.8, 0.822 )
+
+[node name="BasicBlock" parent="Objects/Hard part 7" instance=ExtResource( 8 )]
+position = Vector2( 7804, 1960 )
+scale = Vector2( 4.51618, 1.5 )
+
+[node name="BasicBlock2" parent="Objects/Hard part 7" instance=ExtResource( 8 )]
+position = Vector2( 7977, 2181 )
+scale = Vector2( 4.5, 1.5 )
+
+[node name="BasicBlock3" parent="Objects/Hard part 7" instance=ExtResource( 8 )]
+position = Vector2( 7803, 2401 )
+scale = Vector2( 4.5, 1.5 )
+
+[node name="BasicBlock4" parent="Objects/Hard part 7" instance=ExtResource( 8 )]
+position = Vector2( 7969, 2621 )
+scale = Vector2( 4.5, 1.5 )
+
+[node name="BasicBlock5" parent="Objects/Hard part 7" instance=ExtResource( 8 )]
+position = Vector2( 7812, 2850 )
+scale = Vector2( 4.5, 1.5 )
+
+[node name="BasicBlock6" parent="Objects/Hard part 7" instance=ExtResource( 8 )]
+position = Vector2( 8115, 3133 )
+scale = Vector2( 2, 1.5 )
+
+[node name="BasicBlock7" parent="Objects/Hard part 7" instance=ExtResource( 8 )]
+position = Vector2( 7646, 3130 )
+scale = Vector2( 2, 1.5 )
+
+[node name="MovingPlatform" parent="Objects/Hard part 7" instance=ExtResource( 10 )]
+position = Vector2( 7883, 3106 )
+scale = Vector2( 0.2, 6 )
+HORIZONTAL_SPEED = 120.0
+TRAVEL_DISTANCE = 300.0
+ROTATION = -90
+REVERSE = true
+
+[node name="Joke" type="Node2D" parent="Objects"]
+
+[node name="Prompt" parent="Objects/Joke" instance=ExtResource( 9 )]
+position = Vector2( -2173, -5419 )
+dialogue = "Time for a [rainbow][wave amp=50]joke[/wave][/rainbow]..."
+
+[node name="Question" parent="Objects/Joke" instance=ExtResource( 9 )]
+position = Vector2( -2259, -5000 )
+dialogue = "Why did the [rainbow][wave amp=50]hen[/wave][/rainbow] cross the road?"
+
+[node name="Wait" parent="Objects/Joke" instance=ExtResource( 9 )]
+position = Vector2( -2200, -4503 )
+dialogue = "I'll give you a moment to think..."
+
+[node name="Punchline" parent="Objects/Joke" instance=ExtResource( 9 )]
+position = Vector2( -2209, -3389 )
+scale = Vector2( 3, 3 )
+dialogue = "EGG GO [rainbow][wave amp=50] B O O O O O M ! ! ! ! [/wave][/rainbow]"
+
+[node name="Joke2" type="Node2D" parent="Objects"]
+
+[node name="Sus" parent="Objects/Joke2" instance=ExtResource( 9 )]
+position = Vector2( -2546, -5362 )
+dialogue = "what do you call..."
+
+[node name="Sus2" parent="Objects/Joke2" instance=ExtResource( 9 )]
+position = Vector2( -2917, -5255 )
+scale = Vector2( 1.5, 1.5 )
+dialogue = "a pile..."
+
+[node name="Sus3" parent="Objects/Joke2" instance=ExtResource( 9 )]
+position = Vector2( -3241, -5122 )
+scale = Vector2( 2, 2 )
+dialogue = "of cats???"
+
+[node name="Sus4" parent="Objects/Joke2" instance=ExtResource( 9 )]
+position = Vector2( -1694, -1816 )
+scale = Vector2( 2, 2 )
+dialogue = "jk it's called a         [rainbow][wave amp=50] M E O W T A I N ! ! ![/wave][/rainbow]"
 
 [node name="Easter egg" type="Area2D" parent="."]
 visible = false
@@ -1819,19 +2729,51 @@ shape = SubResource( 1 )
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 6 )]
 LEVEL_SELECT = "res://Scenes/BinderFlips/Single Player/20F.tscn"
 
-[node name="Sus" parent="." instance=ExtResource( 9 )]
+[node name="Dialogues" type="Node2D" parent="."]
+
+[node name="Sus" parent="Dialogues" instance=ExtResource( 9 )]
 position = Vector2( 5936, 4668 )
 scale = Vector2( 3, 3 )
 dialogue = "You did good, kid. Stay [rainbow][wave amp=50] s u s .[/wave][/rainbow]"
 always_show = true
 
-[node name="Above" parent="." instance=ExtResource( 9 )]
-position = Vector2( 7826, 1402 )
+[node name="Above" parent="Dialogues" instance=ExtResource( 9 )]
+position = Vector2( 7920, 1281 )
 scale = Vector2( 2, 2 )
 dialogue = "< -- [rainbow][wave amp=50] D E B U G[/wave][/rainbow]"
 always_show = true
 
-[node name="Easy or hard" parent="." instance=ExtResource( 9 )]
-position = Vector2( 5198, -2917 )
+[node name="Easy or hard" parent="Dialogues" instance=ExtResource( 9 )]
+position = Vector2( 5235, -2897 )
 scale = Vector2( 2, 2 )
-dialogue = "<-- Super easy  Super hard  -->"
+dialogue = "Super hard  -->"
+
+[node name="PressNothing" parent="Dialogues" instance=ExtResource( 9 )]
+position = Vector2( 5189, -2874 )
+scale = Vector2( 0.75, 0.75 )
+dialogue = "(For easy mode: don't press anything :0 )"
+
+[node name="sorry" parent="Dialogues" instance=ExtResource( 9 )]
+position = Vector2( 4361, -2628 )
+dialogue = "If this doesn't work, im sorry try again :|"
+
+[node name="speed" parent="Dialogues" instance=ExtResource( 9 )]
+position = Vector2( -2418, -1863 )
+rotation = -0.0634312
+dialogue = "i hope this isn't too fast for you"
+
+[node name="hi" parent="Dialogues" instance=ExtResource( 9 )]
+position = Vector2( -2032, -1911 )
+rotation = -0.0634312
+scale = Vector2( 2, 2 )
+dialogue = "[rainbow][wave amp=50] h i [/wave][/rainbow]"
+
+[node name="speed2" parent="Dialogues" instance=ExtResource( 9 )]
+position = Vector2( -2789, -1890 )
+rotation = -0.0502513
+dialogue = "woah there buddy watch the speed limit"
+
+[node name="speed3" parent="Dialogues" instance=ExtResource( 9 )]
+position = Vector2( -3178, -1891 )
+rotation = -0.0686183
+dialogue = "don't you dare press anything coward"

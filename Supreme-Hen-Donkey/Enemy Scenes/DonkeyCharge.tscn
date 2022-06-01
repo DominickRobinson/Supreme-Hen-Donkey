@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://GCS - SHD/Enemies/Charge Donkey/ChargeDonkeyRun02.png" type="Texture" id=1]
 [ext_resource path="res://GCS - SHD/Enemies/Charge Donkey/ChargeDonkeyIdle02.png" type="Texture" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://GCS - SHD/Enemies/Charge Donkey/ChargeDonkeyIdle01.png" type="Texture" id=6]
 [ext_resource path="res://GCS - SHD/Enemies/Charge Donkey/ChargeDonkeyIdle03.png" type="Texture" id=7]
 [ext_resource path="res://Enemy Scenes/DonkeyCharge.gd" type="Script" id=8]
+
+[sub_resource type="PhysicsMaterial" id=4]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -23,25 +25,26 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 49, 45 )
+extents = Vector2( 49, 32.5 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 209.5, 86 )
 
-[node name="DonkeyCharge" type="KinematicBody2D"]
+[node name="DonkeyCharge" type="RigidBody2D"]
 collision_layer = 3
 collision_mask = 3
+physics_material_override = SubResource( 4 )
 script = ExtResource( 8 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 2 )
 animation = "Charging"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1, 5 )
+position = Vector2( -1, 17.5 )
 shape = SubResource( 1 )
 
 [node name="SightZone" type="Area2D" parent="."]
@@ -49,3 +52,7 @@ shape = SubResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SightZone"]
 scale = Vector2( 2.6661, -0.750917 )
 shape = SubResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( -24, 41 )
+polygon = PoolVector2Array( -13, 7, -4, -25, -6, -41, -21, -41, -25, -55, -20, -57, -14, -72, 33, -77, 12, -62, 15, -44, 53, -41, 60, 8 )

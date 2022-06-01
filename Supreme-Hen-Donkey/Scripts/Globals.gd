@@ -5,10 +5,12 @@ enum Difficulties {EASY, DIFFICULT, IMPOSSIBLE}
 
 const MAX_ROUNDS = 10
 
+var death_counter = 0
+var oof_counter = 1
 var lives = -1
 var winTally = [0, 0]
 
-var playerSprites = [1, 0]
+var playerSprites = [0, 0]
 var customSprites = []
 
 var GM = null

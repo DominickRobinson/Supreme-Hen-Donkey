@@ -19,8 +19,7 @@ func _process(delta):
 			if Globals.GM is GameManagerMP:
 				Globals.GM.die()
 			else:
-				#get_tree().change_scene(worldScene)
-				get_tree().change_scene(get_tree().current_scene.filename)
+				body.die()
 				
 
 func make_deadly():

@@ -28,6 +28,7 @@ position = Vector2( 0, 24.3915 )
 shape = SubResource( 1 )
 
 [node name="DeadlyPart" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeadlyPart"]
 position = Vector2( -0.87273, -15.4291 )

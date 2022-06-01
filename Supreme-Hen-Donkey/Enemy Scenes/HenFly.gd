@@ -3,6 +3,7 @@ extends RigidBody2D
 #export var SIGHT_RADIUS := 200
 export var FLIGHT_SPEED := 400
 export var is_flipped := false
+export var radius := 350
 
 onready var bottom_zone = $BottomZone
 
@@ -14,6 +15,7 @@ onready var dragCollider = $CollisionShape2D
 var pref_scale
 
 func _ready():
+	$SightZone/CollisionShape2D.shape.radius = radius
 	pref_scale = scale
 
 

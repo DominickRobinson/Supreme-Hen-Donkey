@@ -3,10 +3,11 @@ extends KinematicBody2D
 export var HORIZONTAL_SPEED := 80.0
 export var TRAVEL_DISTANCE := 200.0
 export var ROTATION := 0
-export var TRAVEL_TIMER := 4
+export var TRAVEL_TIMER := 4.0
 export var REVERSE := false
 
 export var enabled := true
+export var neglect_dist_limit := false
 onready var dragCollider = $CollisionShape2D
 
 var timer
@@ -34,8 +35,8 @@ func _process(delta):
 	
 	current_distance += abs(delta*HORIZONTAL_SPEED)
 
-
-	if OS.get_unix_time() - timer > TRAVEL_TIMER or current_distance > TRAVEL_DISTANCE:
+	
+	if OS.get_unix_time() - timer > TRAVEL_TIMER or (not neglect_dist_limit and current_distance > TRAVEL_DISTANCE):
 		travel_forward = not travel_forward
 		current_distance = 0
 		timer = OS.get_unix_time()

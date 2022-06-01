@@ -42,6 +42,7 @@ script = ExtResource( 10 )
 scale = Vector2( 0.196983, 0.2 )
 frames = SubResource( 1 )
 animation = "Idle"
+frame = 3
 playing = true
 
 [node name="SightZone" type="Area2D" parent="."]

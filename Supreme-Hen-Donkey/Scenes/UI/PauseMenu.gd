@@ -30,6 +30,7 @@ func _on_Continue_pressed():
 
 func _on_Restart_pressed():
 	unpause()
+	Globals.death_counter += 1
 	get_tree().change_scene(get_tree().current_scene.filename)
 
 

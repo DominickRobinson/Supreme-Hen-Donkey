@@ -54,5 +54,3 @@ position = Vector2( 2312, -131 )
 position = Vector2( 360, 742 )
 
 [node name="BuilderView" parent="." instance=ExtResource( 7 )]
-possibleTiles = [ "res://Prefabs/Block.tscn", "res://Prefabs/GearPlatform.tscn", "res://Prefabs/MovingPlatform.tscn", "res://Block Scenes/FallingBlock.tscn", "res://Block Scenes/FlamePillar.tscn", "res://Block Scenes/IceBlock.tscn", "res://Block Scenes/Spikes.tscn", "res://Block Scenes/Trampoline.tscn", "res://Enemy Scenes/HenFly.tscn", "res://Enemy Scenes/DonkeyKick.tscn", "res://Block Scenes/Rocket.tscn", "res://Block Scenes/Eraser.tscn" ]
-tileScalings = [ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.5, 1.0, 1.0, 1.0, 1.0, 1.0 ]

@@ -18,6 +18,8 @@ export(String, FILE, ".tscn") var UNDER_SCENE := ""
 
 export var MUSIC_NUM := 0
 
+export var autostart := false
+
 onready var image = $Image
 onready var video = $Video
 
@@ -45,7 +47,11 @@ func _ready():
 		ra.visible = true
 	if UNDER_SCENE != "":
 		da.visible = true
+		
+	if autostart:
+		flip("u")
 
+	
 
 
  

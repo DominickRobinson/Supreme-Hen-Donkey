@@ -18,8 +18,11 @@ export var WOBBLE := 10
 export var GROUND_WOBBLE_SPEED := 4
 
 var step = 1
+var scene = ""
 
 var dead = false
+var won = false
+var wc = 0
 var finished = false
 var resetPosNextFrame = false
 var startPos: Vector2
@@ -68,6 +71,7 @@ func _physics_process(_delta: float):
 	if (is_on_right_wall() and x > 0) or (is_on_left_wall() and x < 0):
 		x = 0
 		
+	
 	
 	if (is_on_right_wall() or is_on_left_wall()):
 		gravity_scale = .7
@@ -126,13 +130,27 @@ func _physics_process(_delta: float):
 			if abs(linear_velocity.x) > abs(ar): 
 				linear_velocity.x += ar
 			else:
-				linear_velocity.x *= 0.98
-			
+				pass
+				#linear_velocity.x += -sign(linear_velocity.x) 
+	
 
 	
 	checkFell()
 	
-	if is_on_floor():
+	
+			
+	if dead:
+		$AnimatedSprite.animation = "Death"
+		gravity_scale = 0
+		linear_velocity = Vector2(0, 0)
+	elif won:
+		$AnimatedSprite.speed_scale = 1
+		#applied_force = Vector2(0, 0)
+		gravity_scale = 0
+		linear_velocity = Vector2(0, 0)
+		$AnimatedSprite.animation = "Victory"
+		
+	elif is_on_floor():
 	
 		if x != 0:
 			$AnimatedSprite.speed_scale = 0.3 + 2.2 * abs(linear_velocity.x) / HORIZONTAL_MAX_SPEED
@@ -160,6 +178,7 @@ func _physics_process(_delta: float):
 	else:
 		
 		$AnimatedSprite.speed_scale = 1.5 * abs(linear_velocity.y) / 200
+		#$AnimatedSprite.speed_scale = 2
 		
 		if linear_velocity.y <= 0:
 			$AnimatedSprite.animation = "Jumping"
@@ -194,6 +213,9 @@ func _physics_process(_delta: float):
 #		elif linear_velocity.y > 0:
 #			CustomSprite.rotation_degrees += CUSTOM_SPRITE_ROTATION_SPEED * rotation_dir * 1.5
 #			$CustomSprite.rotation_degrees *= abs(linear_velocity.y) / 1000
+		
+
+		
 		
 ## Helper functions
 # Gets if the center jump zone detects a floor (player is definitely on a floor)
@@ -260,7 +282,37 @@ func _on_Timer_timeout():
 	finished = false
 
 
+func die():
+	
+	if dead:
+		return false
+	
+	dead = true
+#	gravity_scale = 0
+#	linear_velocity = Vector2(0, 0)
+	Globals.death_counter += 1
+	#$AnimatedSprite.play("Death")
+	$TextureRect.visible = true
+	$AnimatedSprite.speed_scale = 1;
+	$AnimatedSprite.animation = "Death"
+	scene = get_tree().current_scene.filename
+
+
+func win(var ns):
+	
+	if won:
+		return false
+		
+	won = true	
+	$AnimatedSprite.animation = "Victory"
+	scene = ns
+	
+	
+
+
 func change_sprite():
+	
+	$TextureRect.visible = false
 	CUSTOM_SPRITE_NUM = Globals.playerSprites[CURRENT_PLAYER-1]
 	
 	if CUSTOM_SPRITE_NUM == 0:
@@ -282,3 +334,19 @@ func wobble_sprite():
 		$CustomSprite.rotation_degrees = -WOBBLE
 		wobble_dir = 1
 	$CustomSprite.rotation_degrees += GROUND_WOBBLE_SPEED * wobble_dir * abs(linear_velocity.x) / HORIZONTAL_MAX_SPEED
+
+
+
+
+func _on_AnimatedSprite_animation_finished():
+#	if $AnimatedSprite.animation != "Falling" and $AnimatedSprite.animation != "Running":
+#		print($AnimatedSprite.animation)
+	
+	if won and wc < 2:
+		wc += 1
+		win(scene)
+		return false
+		
+	
+	if scene != "":
+		get_tree().change_scene(scene) # Replace with function body.

@@ -89,7 +89,7 @@ scale = Vector2( 0.333333, 0.333333 )
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 4 )
-worldScene = "res://Scenes/Levels/1-2.tscn"
+worldScene = "res://Scenes/Levels/DemoScene.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Goal"]
 position = Vector2( 1410.99, -1178 )

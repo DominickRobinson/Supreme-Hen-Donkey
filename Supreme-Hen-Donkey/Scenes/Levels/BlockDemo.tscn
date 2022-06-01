@@ -98,9 +98,8 @@ scale = Vector2( 0.0919951, 0.347019 )
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 9 )
-worldScene = "res://Scenes/Levels/0-0.tscn"
+worldScene = "res://Scenes/Levels/1-1 (old).tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
 position = Vector2( 474.001, -1026 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )

@@ -8,7 +8,6 @@ extents = Vector2( 74.125, 64.75 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 32
-extra_spacing_char = 2
 font_data = ExtResource( 2 )
 
 [node name="Sus" type="Node2D"]
@@ -27,8 +26,7 @@ margin_top = -111.0
 margin_right = 225.0
 margin_bottom = -61.0
 rect_min_size = Vector2( 300, 50 )
-custom_colors/default_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
 text = "testing"
@@ -38,6 +36,7 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="Dialogue"]
+visible = false
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0

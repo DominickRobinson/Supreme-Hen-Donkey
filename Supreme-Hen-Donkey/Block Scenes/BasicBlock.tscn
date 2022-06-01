@@ -4,19 +4,19 @@
 [ext_resource path="res://Scripts/Objects/DraggableTileBlock.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 36.5, 26 )
+extents = Vector2( 152.5, 54 )
 
 [node name="BasicBlock" type="KinematicBody2D"]
-scale = Vector2( 2.38, 2.1 )
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2( 1.85802, 1.23635 )
+scale = Vector2( 0.45, 0.6 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0.0452014, -2.54238e-06 )
-scale = Vector2( 0.271819, 0.256 )
+[node name="Sprite" type="Sprite" parent="CollisionShape2D"]
+show_behind_parent = true
+position = Vector2( 0.250018, -0.249992 )
+scale = Vector2( 0.607, 0.426 )
 texture = ExtResource( 1 )
