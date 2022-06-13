@@ -42,7 +42,11 @@ onready var deathNode = get_node(deathNP)
 
 
 func _ready():
-	startPos = Vector2(0,0)
+	
+	print("Current scene: " + get_tree().current_scene.filename)
+	
+	#startPos = Vector2(0,0)
+	startPos = self.position
 	linear_velocity = Vector2(0,0)
 	
 	change_sprite()
@@ -72,8 +76,9 @@ func _physics_process(_delta: float):
 		x = 0
 		
 	
-	
-	if (is_on_right_wall() or is_on_left_wall()):
+	if won:
+		gravity_scale = 0
+	elif (is_on_right_wall() or is_on_left_wall()):
 		gravity_scale = .7
 	else:
 		gravity_scale = 1
@@ -93,7 +98,9 @@ func _physics_process(_delta: float):
 	
 	
 	# Only allow acceleration when less than the maximum horizontal speed
-	if abs(linear_velocity.x) < HORIZONTAL_MAX_SPEED or sign(linear_velocity.x) != sign(x):
+	if won:
+		pass	
+	elif abs(linear_velocity.x) < HORIZONTAL_MAX_SPEED or sign(linear_velocity.x) != sign(x):
 		apply_central_impulse(Vector2(x*accel, 0))
 		#print(applied_force)
 	
@@ -101,7 +108,9 @@ func _physics_process(_delta: float):
 	
 	
 	# Jumping
-	if Input.is_action_just_pressed("jump"):
+	if won:
+		pass
+	elif Input.is_action_just_pressed("jump"):
 		# If we're fully on floor, or we've just walked off a ledge (grace zone), jump normally
 		if is_on_floor() or (is_maybe_on_floor() and not (is_on_left_wall() or is_on_right_wall())):
 			linear_velocity.y = -JUMP_SPEED
@@ -138,21 +147,34 @@ func _physics_process(_delta: float):
 	checkFell()
 	
 	
-			
+	if won:
+		dead = false
+	
 	if dead:
 		$AnimatedSprite.animation = "Death"
 		gravity_scale = 0
 		linear_velocity = Vector2(0, 0)
+		$TextureRect.color = Color("#66ff7272")
 	elif won:
-		$AnimatedSprite.speed_scale = 1
+#		$AnimatedSprite.animation = "Victory"
+#		$AnimatedSprite.speed_scale = 1
+#		$TextureRect.color = Color("#6649f354")
+#
+		#yield(get_tree().create_timer(.5), "timeout")
 		#applied_force = Vector2(0, 0)
-		gravity_scale = 0
-		linear_velocity = Vector2(0, 0)
-		$AnimatedSprite.animation = "Victory"
+		#gravity_scale = 0
+		#linear_velocity = Vector2(0, 0)
+		pass
 		
 	elif is_on_floor():
 	
-		if x != 0:
+		if Input.is_action_pressed("v") and x == 0:
+			$AnimatedSprite.speed_scale = 1
+			$AnimatedSprite.animation = "Victory"
+		elif Input.is_action_pressed("z") and x == 0:
+			$AnimatedSprite.speed_scale = 1
+			$AnimatedSprite.animation = "Death"			
+		elif x != 0:
 			$AnimatedSprite.speed_scale = 0.3 + 2.2 * abs(linear_velocity.x) / HORIZONTAL_MAX_SPEED
 			$AnimatedSprite.animation = "Running"
 			physics_material_override.friction = 0.3
@@ -243,6 +265,7 @@ func _integrate_forces(state):
 	
 func resetPosition():
 	resetPosNextFrame = true
+	linear_velocity = Vector2(0,0)
 
 
 func test():
@@ -260,6 +283,7 @@ func checkFinished():
 			emit_signal("finished")
 			finished = true
 			finishTimer.start()
+			#win("")
 			break
 
 
@@ -284,7 +308,11 @@ func _on_Timer_timeout():
 
 func die():
 	
-	if dead:
+	if Globals.playerSprites[0] != 0:
+		scene = get_tree().current_scene.filename
+		get_tree().change_scene(scene)
+	
+	if dead or won:
 		return false
 	
 	dead = true
@@ -295,16 +323,33 @@ func die():
 	$TextureRect.visible = true
 	$AnimatedSprite.speed_scale = 1;
 	$AnimatedSprite.animation = "Death"
+	$TextureRect.color = Color("#66ff7272")
 	scene = get_tree().current_scene.filename
 
 
 func win(var ns):
 	
+	#$AnimatedSprite.animation = "Victory"
+	if Globals.playerSprites[0] != 0:
+		scene = ns
+		get_tree().change_scene(scene)
+	
+	
 	if won:
 		return false
-		
-	won = true	
+	
+	$TextureRect.visible = true
 	$AnimatedSprite.animation = "Victory"
+	$AnimatedSprite.speed_scale = 1
+	$TextureRect.color = Color("#6649f354")
+
+	yield(get_tree().create_timer(0.5), "timeout")
+	#applied_force = Vector2(0, 0)
+	gravity_scale = 0
+	#linear_velocity = Vector2(0, 0)
+	linear_velocity *= 0.999
+	
+	won = true
 	scene = ns
 	
 	
@@ -348,5 +393,5 @@ func _on_AnimatedSprite_animation_finished():
 		return false
 		
 	
-	if scene != "":
+	if (won or dead) and scene != "":
 		get_tree().change_scene(scene) # Replace with function body.

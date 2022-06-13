@@ -14,10 +14,11 @@ func _ready():
 #	b1.connect("toggled", self, "_on_S1_pressed")
 #	b2.connect("toggled", self, "_on_S2_pressed")
 	
-	toggle(PLAYER_NUM)
+	#toggle(PLAYER_NUM)
 	
-	$S1.icon = Globals.customSprites[0]
-	$S2.icon = Globals.customSprites[1]
+	b1.icon = Globals.customSprites[0]
+	b2.icon = Globals.customSprites[1]
+	toggle(Globals.playerSprites[PLAYER_NUM-1])
 
 
 func _on_S0_pressed():

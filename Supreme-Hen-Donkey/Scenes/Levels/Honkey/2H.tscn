@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://NextScene.gd" type="Script" id=1]
 [ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Single Player/2.H.jpg" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Prefabs/Camera.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/Death barrier.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/UI/PauseMenu.tscn" type="PackedScene" id=8]
+[ext_resource path="res://title_card.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 328.078, 296.999 )
@@ -46,7 +47,7 @@ scale = Vector2( 0.333333, 0.333333 )
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 1 )
-worldScene = "res://Scenes/BinderFlips/Single Player/20F.tscn"
+worldScene = "res://Scenes/BinderFlips/Honkey/4H.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
 position = Vector2( 672.001, -2115 )
@@ -76,12 +77,14 @@ shape = SubResource( 4 )
 position = Vector2( -9991.01, -4167.99 )
 shape = SubResource( 5 )
 
-[node name="Honkey" parent="." instance=ExtResource( 5 )]
-position = Vector2( 446, -319 )
-mass = 8.33333
-
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -1016, -81 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Honkey" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 446, -319 )
+mass = 8.33333
 
 [node name="Mask" type="Sprite" parent="."]
 position = Vector2( -409.813, 179.5 )
@@ -96,3 +99,6 @@ zoom = Vector2( 3, 3 )
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 8 )]
 LEVEL_SELECT = "res://Scenes/BinderFlips/Honkey/4H.tscn"
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource( 9 )]
+visible = false

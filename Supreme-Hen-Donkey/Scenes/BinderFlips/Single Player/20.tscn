@@ -6,9 +6,8 @@
 
 [node name="Control" parent="." instance=ExtResource( 1 )]
 IMAGE = "res://GCS - SHD/SHD-live/SHD_photos/Single Player/2.0.jpg"
-LEFT_VIDEO = "res://GCS - SHD/SHD-live/SHD_videos/Main Menu/r02-1.webm"
 RIGHT_VIDEO = "res://GCS - SHD/SHD-live/SHD_videos/Single Player/2.0-1.webm"
-LEFT_SCENE = "res://Scenes/BinderFlips/Main menu/01.tscn"
+LEFT_SCENE = "res://Scenes/BinderFlips/Main menu/02.tscn"
 RIGHT_SCENE = "res://Scenes/BinderFlips/Single Player/21.tscn"
 UNDER_SCENE = "res://Scenes/Levels/Single Player/20.tscn"
 MUSIC_NUM = 2

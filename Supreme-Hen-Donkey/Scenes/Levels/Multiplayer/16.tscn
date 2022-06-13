@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/GameManagerMP.gd" type="Script" id=1]
 [ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Multiplayer/1.6.jpg" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/UI/UI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Prefabs/StartBlock.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/UI/PauseMenu.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Block Scenes/Spikes.tscn" type="PackedScene" id=10]
 
 [node name="Node2D2" type="Node2D"]
 
@@ -34,7 +35,7 @@ layer = 0
 [node name="UI" parent="CanvasLayer" instance=ExtResource( 7 )]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 9 )]
-LEVEL_SELECT = "res://Scenes/BinderFlips/Multiplayer/146tscn"
+LEVEL_SELECT = "res://Scenes/BinderFlips/Multiplayer/16.tscn"
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( -46, -38 )
@@ -45,21 +46,19 @@ position = Vector2( 1461.25, 622.25 )
 script = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 62, 96 )
+position = Vector2( 29, 167 )
 deathNP = NodePath("../Death")
 
 [node name="StartBlock" parent="." instance=ExtResource( 8 )]
-visible = false
 position = Vector2( 32, 314 )
 scale = Vector2( 1.70671, 1.58183 )
 
 [node name="EndBlock" parent="." instance=ExtResource( 6 )]
-visible = false
-position = Vector2( 1335, 1217 )
-scale = Vector2( 1.26492, 1.3027 )
+position = Vector2( 1339, 1240 )
+scale = Vector2( 1.5, 1.5 )
 
 [node name="Death" type="Position2D" parent="."]
-position = Vector2( 704, 1485 )
+position = Vector2( 559, 2393 )
 
 [node name="BuilderView" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1794.25, 549.25 )
@@ -103,3 +102,27 @@ polygon = PoolVector2Array( 325, -3, 323, 123, -9, 117, -7, -12 )
 [node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="Area2D"]
 position = Vector2( -627, -200 )
 polygon = PoolVector2Array( 2, -4, 2631, 35, 2484, 153, 141, 119, 138, 1831, 2456, 1839, 2490, 155, 2637, 31, 2584, 1971, 0, 1969 )
+
+[node name="Spikes" type="Node2D" parent="."]
+
+[node name="Spikes" parent="Spikes" instance=ExtResource( 10 )]
+position = Vector2( -318, 1605 )
+
+[node name="Spikes2" parent="Spikes" instance=ExtResource( 10 )]
+position = Vector2( 26, 1605 )
+
+[node name="Spikes3" parent="Spikes" instance=ExtResource( 10 )]
+position = Vector2( 370, 1605 )
+
+[node name="Spikes4" parent="Spikes" instance=ExtResource( 10 )]
+position = Vector2( 714, 1605 )
+
+[node name="Spikes5" parent="Spikes" instance=ExtResource( 10 )]
+position = Vector2( 1058, 1605 )
+
+[node name="Spikes6" parent="Spikes" instance=ExtResource( 10 )]
+position = Vector2( 1402, 1605 )
+
+[node name="Spikes7" parent="Spikes" instance=ExtResource( 10 )]
+position = Vector2( 1699, 1605 )
+scale = Vector2( 1.25, 0.822 )

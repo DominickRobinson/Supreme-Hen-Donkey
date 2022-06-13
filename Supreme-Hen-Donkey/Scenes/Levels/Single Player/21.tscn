@@ -37,11 +37,11 @@ collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2( 0, 2 )
-polygon = PoolVector2Array( 219, -900, 1090, -884, 1096, -816, 1423, -814, 1421, -887, 1758, -885, 1760, -674, 352, -681, 347.427, 452.34, 815.698, 468.281, 815.698, 534.326, 1144.78, 537.742, 1148.02, 473.975, 1293.68, 466.004, 1293.68, 530.91, 1630.32, 542.297, 1631.4, 190.44, 1761.95, 185.885, 1763.03, 686.911, 351.743, 677.802, 349.585, 1499.94, 202.845, 1519.3 )
+polygon = PoolVector2Array( 219, -900, 1090, -884, 1096, -816, 1423, -814, 1421, -887, 1758, -885, 1760, -674, 352, -681, 347.427, 452.34, 817.856, 456.895, 815.698, 534.326, 1144.78, 537.742, 1143.7, 460.311, 1293.68, 466.004, 1293.68, 530.91, 1630.32, 542.297, 1631.4, 190.44, 1761.95, 185.885, 1763.03, 686.911, 351.743, 677.802, 349.585, 1499.94, 202.845, 1519.3 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2( 2.15793, 31.8835 )
-polygon = PoolVector2Array( 2027.38, -1126.17, 2164.4, -1129.59, 2189.22, 1106.81, 1773.82, 1098.84, 1778.13, 1465.5, 1641.11, 1457.53, 1634.63, 932.592, 2034.93, 949.673, 2049, 402, 2033, -140, 540.562, -134.366, 538.404, -354.135, 673.274, -356.412, 671.116, -272.148, 1008.83, -276.703, 1012.07, -354.135, 1212.76, -346.164, 1210.6, -271.01, 1566.66, -274.426, 1566.66, -340.47, 2024, -351 )
+polygon = PoolVector2Array( 2027.38, -1126.17, 2164.4, -1129.59, 2165.13, -1055.29, 2178.43, -772.036, 2169.8, -735.598, 2180.59, -701.437, 2183.83, 857.439, 2197.67, 866.221, 2198.93, 941.702, 2187.98, 994.841, 2189.22, 1106.81, 2155.2, 1106.16, 2018.74, 1095.43, 1773.82, 1098.84, 1778.13, 1465.5, 1630.32, 1457.53, 1636.79, 945.118, 1629.5, 944.217, 1629.24, 936.009, 1725.27, 931.454, 1785.69, 929.177, 2041.4, 947.396, 2049, 402, 2033, -140, 540.562, -134.366, 533.009, -339.332, 542.719, -360.967, 673.274, -356.412, 671.116, -272.148, 1008.83, -276.703, 1012.07, -354.135, 1215.99, -355.273, 1210.6, -271.01, 1555.87, -274.426, 1550.47, -348.441, 2024, -351 )
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2( -26.9741, 112.731 )
@@ -52,42 +52,50 @@ position = Vector2( 513, -823 )
 
 [node name="Spikes" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1103, -733 )
-scale = Vector2( 1.63245, 0.660706 )
+rotation = 0.00872665
+scale = Vector2( 1.6, 0.660706 )
 worldScene = "res://Scenes/Levels/Single Player/21.tscn"
 
 [node name="Spikes2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 722, -238 )
-scale = Vector2( 1.60635, 0.694268 )
+position = Vector2( 728, -237 )
+rotation = 0.00872665
+scale = Vector2( 1.6, 0.694268 )
 worldScene = "res://Scenes/Levels/Single Player/21.tscn"
 
 [node name="Spikes3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1236, -234 )
-scale = Vector2( 1.69573, 0.827797 )
+position = Vector2( 1235, -231 )
+rotation = 0.00872665
+scale = Vector2( 1.6, 0.7 )
 worldScene = "res://Scenes/Levels/Single Player/21.tscn"
 
 [node name="Spikes4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1314, 452 )
-scale = Vector2( 1.69573, 0.674764 )
+position = Vector2( 1302, 456 )
+rotation = 0.00872665
+scale = Vector2( 1.6, 0.674764 )
 worldScene = "res://Scenes/Levels/Single Player/21.tscn"
 
 [node name="Spikes5" parent="." instance=ExtResource( 2 )]
-position = Vector2( 868, 447 )
-scale = Vector2( 1.69573, 0.674764 )
+position = Vector2( 857, 457 )
+rotation = 0.00872665
+scale = Vector2( 1.6, 0.674764 )
 worldScene = "res://Scenes/Levels/Single Player/21.tscn"
 
 [node name="Spikes6" parent="." instance=ExtResource( 2 )]
 position = Vector2( 422, 1245 )
-scale = Vector2( 1.59702, 1.83424 )
+rotation = 0.00872665
+scale = Vector2( 1.6, 1.83424 )
 worldScene = "res://Scenes/Levels/Single Player/21.tscn"
 
 [node name="Spikes7" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1311, 1241 )
-scale = Vector2( 1.50861, 1.80328 )
+rotation = 0.00872665
+scale = Vector2( 1.6, 1.80328 )
 worldScene = "res://Scenes/Levels/Single Player/21.tscn"
 
 [node name="Spikes8" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1000, 1242 )
-scale = Vector2( 1.59546, 1.7766 )
+rotation = 0.00872665
+scale = Vector2( 1.6, 1.7766 )
 worldScene = "res://Scenes/Levels/Single Player/21.tscn"
 
 [node name="Goal" type="Area2D" parent="."]

@@ -34,6 +34,7 @@ layer = 0
 [node name="UI" parent="CanvasLayer" instance=ExtResource( 7 )]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 9 )]
+LEVEL_SELECT = "res://Scenes/BinderFlips/Multiplayer/17.tscn"
 
 [node name="TileMap" type="TileMap" parent="."]
 format = 1
@@ -46,16 +47,14 @@ position = Vector2( 1461.25, 622.25 )
 script = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 44, 73 )
+position = Vector2( 47, 159 )
 deathNP = NodePath("../Death")
 
 [node name="StartBlock" parent="." instance=ExtResource( 8 )]
-visible = false
-position = Vector2( 64, 316 )
+position = Vector2( 55, 296 )
 scale = Vector2( 1.35533, 1.67567 )
 
 [node name="EndBlock" parent="." instance=ExtResource( 6 )]
-visible = false
 position = Vector2( 2252, 319 )
 scale = Vector2( 1.32664, 1.80501 )
 

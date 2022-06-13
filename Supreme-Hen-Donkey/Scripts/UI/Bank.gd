@@ -24,5 +24,5 @@ func getTilePos():
 	for node in $CenterContainer/GridContainer.get_children():
 		tileX.append(node.rect_position.x + rect_position.x)
 	
-	print(tileX)
-	print(tileY)
+	#print(tileX)
+	#print(tileY)

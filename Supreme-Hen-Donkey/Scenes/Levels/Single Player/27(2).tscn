@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://NextScene.gd" type="Script" id=1]
 [ext_resource path="res://Enemy Scenes/DonkeyKick.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Prefabs/Camera.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scripts/Death barrier.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/UI/PauseMenu.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Enemy Scenes/DonkeyCharge.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Enemy Scenes/Chicken.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 265.078, 154.5 )
@@ -33,7 +35,7 @@ scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 5 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1891, 67 )
+position = Vector2( 1837, 66 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 2, 61 )
@@ -41,8 +43,63 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2( 2029, 207 )
-polygon = PoolVector2Array( 186, 462, 50, 572, -747, 586, -772, 718, 36, 728, 12, 932, 34, 1138, -992, 1272, -1328, 1098, -1423, -941, -753, -943, -743, -846, -644, -849, -654, -770, -832, -756, -820, -675, -1076, -675, -1079, -530, -901, -518, -888, -483, -956, -464, -964, -344, -896, -336, -878, -258, -495, -280, -454.516, -133.732, 84, -130 )
+position = Vector2( 2023, 216 )
+polygon = PoolVector2Array( -1348, -92, -1343, -147, -1217, -160, -1208, -278, -1362, -296, -1372, -234, -1440, -238, -1432, -349, -1218, -337, -1209, -476, -1387, -483, -1418, -419, -1464, -467, -1436, -534, -1197, -533, -1189, -680, -1380, -680, -1414, -641, -1456, -650, -1451, -738, -1220, -740, -1225, -874, -1362.89, -881.479, -1364, -942, -753, -943, -743, -846, -644, -849, -654, -770, -832, -756, -820, -675, -1076, -675, -1079, -530, -901, -518, -888, -483, -965, -472, -968, -330, -896, -327, -878, -258, -495, -280, -454.516, -133.732, 35, -116, 27, -72 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( 746, 212, 2102, 229, 2097, 265, 744, 249 )
+
+[node name="CollisionPolygon2D13" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -110, -1503 )
+polygon = PoolVector2Array( 746, 212, 2114, 237, 2106, 264, 744, 249 )
+
+[node name="CollisionPolygon2D14" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -103, -1330 )
+polygon = PoolVector2Array( 746, 212, 2367, 230, 2364, 237, 746, 219 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 3, 123 )
+polygon = PoolVector2Array( 746, 212, 2143, 237, 2137, 263, 744, 249 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 3.40002, 257.9 )
+polygon = PoolVector2Array( 746, 212, 2146.6, 229.1, 2141.6, 262.1, 744, 249 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 6.40002, 380.9 )
+polygon = PoolVector2Array( 746, 212, 2169.6, 235.1, 2163.6, 266.1, 744, 249 )
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -8.59998, 513.9 )
+polygon = PoolVector2Array( 746, 212, 2064.6, 228.1, 2063.6, 262.1, 744, 249 )
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -5.59998, 636.9 )
+polygon = PoolVector2Array( 746, 212, 1266.6, 220.1, 1261.6, 252.1, 744, 249 )
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 78, 751 )
+polygon = PoolVector2Array( 1271, 214, 1296, 239, 1824, 227, 1950, 212, 1957, 298, 1279, 303, 1235, 294, 1248, 240 )
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 77, 751 )
+polygon = PoolVector2Array( 759, 220, 925, 224, 932, 231, 929, 256, 951, 268, 938, 299, 819, 304, 744, 318 )
+
+[node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 1148, -1300 )
+polygon = PoolVector2Array( 759, 220, 884, 217, 1187, 199, 1214, 228, 1176, 395, 1172, 462, 1141, 473, 1149, 549, 810, 553, 771, 463, 793, 277 )
+
+[node name="CollisionPolygon2D12" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -125, -1236 )
+polygon = PoolVector2Array( 759, 220, 793, 224, 800, 235, 914, 244, 922, 227, 957, 233, 956, 244, 1241, 250, 1270, 234, 1296, 246, 1410, 248, 1432, 232, 1454, 232, 1455, 243, 1595, 247, 1601, 293, 753, 284 )
+
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 387, 753 )
+polygon = PoolVector2Array( 765, 222, 841, 225, 854, 257, 847, 290, 822, 294, 798, 281, 758, 299, 739, 292, 741, 258 )
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 31, 983 )
+polygon = PoolVector2Array( 767, 214, 890, 176, 1092, 151, 1453, 132, 1728, 129, 1916, 154, 1916, 130, 1902, 119, 1916, 95, 1938, 119, 1922, 129, 1924, 159, 1981, 190, 2022, 238, 2025, 303, 2000, 342, 1915, 384, 1764, 420, 1530, 431, 1311, 427, 1101, 410, 912, 390, 816, 353, 772, 321, 745, 283, 744, 249 )
 
 [node name="Goal" type="Area2D" parent="."]
 position = Vector2( 1200, 606 )
@@ -83,11 +140,14 @@ shape = SubResource( 5 )
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="HenFly" parent="Enemies" instance=ExtResource( 3 )]
-position = Vector2( 1026, -327 )
+position = Vector2( 1883, 996 )
+FLIGHT_SPEED = 500
+rad = 500
 
 [node name="DonkeyKick" parent="Enemies" instance=ExtResource( 2 )]
 position = Vector2( 1507, -83 )
 KICK_ANGLE = 45
+is_flipped = true
 
 [node name="DonkeyKick2" parent="Enemies" instance=ExtResource( 2 )]
 position = Vector2( 1988, 79 )
@@ -98,12 +158,21 @@ position = Vector2( 1783, -108 )
 timer = 20
 
 [node name="Egg2" parent="Enemies" instance=ExtResource( 6 )]
-position = Vector2( 2051, -224 )
+position = Vector2( 2180, -426 )
 timer = 20
 
 [node name="Egg3" parent="Enemies" instance=ExtResource( 6 )]
 position = Vector2( 1292, -192 )
 timer = 20
+
+[node name="DonkeyCharge" parent="Enemies" instance=ExtResource( 10 )]
+position = Vector2( 1035, -315 )
+CHARGE_SPEED = 700
+
+[node name="Chicken" parent="Enemies" instance=ExtResource( 11 )]
+position = Vector2( 1106, -110 )
+launch_angle = 45
+is_flipped = true
 
 [node name="Camera2D" parent="." instance=ExtResource( 7 )]
 position = Vector2( -40.0002, 78 )

@@ -5,6 +5,7 @@ var slow_theme = load("res://GCS - SHD/music/slow.wav")
 var boss_theme1 = load("res://GCS - SHD/music/honkey-music/boss1.mp3")
 var boss_theme2 = load("res://GCS - SHD/music/honkey-music/boss2.mp3")
 var boss_theme3 = load("res://GCS - SHD/music/honkey-music/boss3.mp3")
+var happy_theme = load("res://GCS - SHD/music/happy.mp3")
 
 var curr_num = 0
 
@@ -30,6 +31,9 @@ func play_music(num):
 		elif num == 3:
 			play_boss()
 			
+		elif num == 4:
+			play_happy()
+			
 		curr_num = num
 		
 	else:
@@ -46,6 +50,10 @@ func play_fast():
 	
 func play_boss():
 	$Music.stream = boss_theme1
+	$Music.play()
+	
+func play_happy():
+	$Music.stream = happy_theme
 	$Music.play()
 	
 func turn_off():

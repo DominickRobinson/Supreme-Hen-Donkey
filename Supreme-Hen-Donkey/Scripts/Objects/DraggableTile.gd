@@ -70,6 +70,8 @@ func init(childResourcePath, childResourceScaling, startBlock, endBlock):
 func _physics_process(delta):
 	if following:
 		followMouse()
+		
+	tileMap.visible = false
 
 
 func _input_event(viewport, event, shape_idx):
@@ -111,8 +113,9 @@ func followMouse():
 	var newPos = tileMap.map_to_world(tileMap.world_to_map(get_global_mouse_position()))
 	if (newPos.distance_to(startBlock.position) > blockBufferPx) && \
 		(newPos.distance_to(endBlock.position) > blockBufferPx):
-		position = newPos
-		position += mouseOffset
+#		position = newPos
+#		position += mouseOffset
+		position = get_global_mouse_position()
 	
 	# Try to get something to erase
 	if draggedChild is Eraser:

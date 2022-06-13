@@ -19,7 +19,7 @@ var lootTable = [
 	['res://Enemy Scenes/DonkeyKick.tscn', 1, 0.25],
 	['res://Enemy Scenes/DonkeyCharge.tscn', 1, 0.25],
 	['res://Enemy Scenes/Chicken.tscn', 1, 0.25],
-	['res://Enemy Scenes/Honkey.tscn', 1, 0.01],
+	#['res://Enemy Scenes/Honkey.tscn', 1, 0.01],
 	['res://Block Scenes/Rocket.tscn', 1, 0.5],
 	['res://Block Scenes/Eraser.tscn', 1, 2],
 #	('', ),
@@ -69,7 +69,7 @@ func _ready():
 	
 	# Things that can be erased
 	for node in possibleTiles:
-		print(node)
+		#print(node)
 		erasableTileNames.append(load(node).instance().name)
 	
 	# Signals

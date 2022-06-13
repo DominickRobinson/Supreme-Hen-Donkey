@@ -16,10 +16,6 @@ position = Vector2( 161, 11 )
 [node name="GameManager" type="Node2D" parent="."]
 position = Vector2( 1473.25, 1069.25 )
 script = ExtResource( 1 )
-playerNP = NodePath("../Player")
-builderViewNP = NodePath("../BuilderView")
-startBlockNP = NodePath("../StartBlock")
-endBlockNP = NodePath("../EndBlock")
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 4305.25, 8.25024 )
@@ -47,7 +43,7 @@ position = Vector2( 1406.25, 612.25 )
 script = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 33, -34.9998 )
+position = Vector2( -57, 11 )
 deathNP = NodePath("../Death")
 
 [node name="StartBlock" parent="." instance=ExtResource( 4 )]
@@ -55,7 +51,7 @@ position = Vector2( -63.0002, 141 )
 scale = Vector2( 1.44676, 1.44167 )
 
 [node name="EndBlock" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1404, 154 )
+position = Vector2( 1412, 152 )
 scale = Vector2( 1.23989, 1.56908 )
 
 [node name="Death" type="Position2D" parent="."]

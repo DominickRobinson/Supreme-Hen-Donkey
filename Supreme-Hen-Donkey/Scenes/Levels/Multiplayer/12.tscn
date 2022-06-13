@@ -47,16 +47,14 @@ position = Vector2( 1461.25, 622.25 )
 script = ExtResource( 8 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 88, -25 )
+position = Vector2( -1, 27 )
 deathNP = NodePath("../Death")
 
 [node name="StartBlock" parent="." instance=ExtResource( 5 )]
-visible = false
 position = Vector2( -6.00001, 156 )
 scale = Vector2( 1.44676, 1.44167 )
 
 [node name="EndBlock" parent="." instance=ExtResource( 6 )]
-visible = false
 position = Vector2( 2248, 163 )
 scale = Vector2( 1.23989, 1.56908 )
 

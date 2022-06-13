@@ -47,16 +47,14 @@ position = Vector2( 1461.25, 622.25 )
 script = ExtResource( 8 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 9, 26 )
+position = Vector2( 3, 71 )
 deathNP = NodePath("../Death")
 
 [node name="StartBlock" parent="." instance=ExtResource( 5 )]
-visible = false
 position = Vector2( 2, 228 )
 scale = Vector2( 1.35533, 1.67567 )
 
 [node name="EndBlock" parent="." instance=ExtResource( 6 )]
-visible = false
 position = Vector2( 1543, -1813 )
 scale = Vector2( 1.32664, 1.80501 )
 
@@ -68,6 +66,8 @@ position = Vector2( 1794.25, 549.25 )
 
 [node name="Area2D" type="StaticBody2D" parent="."]
 position = Vector2( 58.2109, -1007.17 )
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 position = Vector2( 557, 821 )

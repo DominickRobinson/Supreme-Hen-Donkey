@@ -1,9 +1,8 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Single Player/2.7.jpg" type="Texture" id=1]
 [ext_resource path="res://NextScene.gd" type="Script" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Block Scenes/BasicBlock.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Egg.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Enemy Scenes/Chicken.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Enemy Scenes/HenFly.tscn" type="PackedScene" id=7]
@@ -59,8 +58,56 @@ timer = 100
 position = Vector2( -370.667, 333.333 )
 timer = 100
 
+[node name="Egg7" parent="Sprite" instance=ExtResource( 5 )]
+position = Vector2( -630.667, -494.667 )
+timer = 100
+
+[node name="Egg8" parent="Sprite" instance=ExtResource( 5 )]
+position = Vector2( -273.333, -203.333 )
+timer = 100
+
+[node name="Egg9" parent="Sprite" instance=ExtResource( 5 )]
+position = Vector2( -111.333, -192 )
+timer = 100
+
+[node name="Egg10" parent="Sprite" instance=ExtResource( 5 )]
+position = Vector2( -145.333, 400.667 )
+timer = 100
+
+[node name="Egg11" parent="Sprite" instance=ExtResource( 5 )]
+position = Vector2( -384, 336 )
+timer = 100
+
+[node name="Egg12" parent="Sprite" instance=ExtResource( 5 )]
+position = Vector2( -306.667, 335.333 )
+timer = 100
+
+[node name="Egg13" parent="Sprite" instance=ExtResource( 5 )]
+position = Vector2( -518, -524.667 )
+timer = 100
+
+[node name="Egg14" parent="Sprite" instance=ExtResource( 5 )]
+position = Vector2( -160.666, -233.333 )
+timer = 100
+
+[node name="Egg15" parent="Sprite" instance=ExtResource( 5 )]
+position = Vector2( 1.33398, -222 )
+timer = 100
+
+[node name="Egg16" parent="Sprite" instance=ExtResource( 5 )]
+position = Vector2( -32.666, 370.667 )
+timer = 100
+
+[node name="Egg17" parent="Sprite" instance=ExtResource( 5 )]
+position = Vector2( -271.333, 306 )
+timer = 100
+
+[node name="Egg18" parent="Sprite" instance=ExtResource( 5 )]
+position = Vector2( -194, 305.333 )
+timer = 100
+
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( -1422, -696 )
+position = Vector2( -1415, -700 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 2, 61 )
@@ -82,6 +129,14 @@ polygon = PoolVector2Array( 262, 107, -1373, 36, -1359, -140, 313, -32 )
 [node name="CollisionShape2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2( -308, 672 )
 polygon = PoolVector2Array( 198, 101, 289, 120, 298, 200, -1374, 111, -1359, -140, 243, -53 )
+
+[node name="CollisionShape2D5" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -233, -942 )
+polygon = PoolVector2Array( -784, 42, -1339, 15, -1334, -104, -789, -77 )
+
+[node name="CollisionShape2D6" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -203, -1276 )
+polygon = PoolVector2Array( 5, -12, -1340, -53, -1341, -108, 16, -39 )
 
 [node name="Goal" type="Area2D" parent="."]
 position = Vector2( 1200, 606 )
@@ -115,41 +170,12 @@ shape = SubResource( 3 )
 position = Vector2( -580, -3351.99 )
 shape = SubResource( 4 )
 
-[node name="Barrier5" type="CollisionShape2D" parent="Death barrier"]
-position = Vector2( -580, -3258.99 )
-shape = SubResource( 4 )
-
 [node name="Barrier4" type="CollisionShape2D" parent="Death barrier"]
 position = Vector2( -9941.51, -4098.99 )
 shape = SubResource( 5 )
 
 [node name="Node2D" type="Node2D" parent="."]
-
-[node name="BasicBlock" parent="Node2D" instance=ExtResource( 4 )]
-position = Vector2( 326, -492 )
-rotation = 1.5708
-scale = Vector2( 22.0746, -3.47457 )
-
-[node name="BasicBlock2" parent="Node2D" instance=ExtResource( 4 )]
-position = Vector2( -1984, -153 )
-rotation = 1.5708
-scale = Vector2( 22.0746, -3.47457 )
-
-[node name="BasicBlock3" parent="Node2D" instance=ExtResource( 4 )]
-position = Vector2( -1756, 223 )
-scale = Vector2( 1.87568, 2.91564 )
-
-[node name="BasicBlock4" parent="Node2D" instance=ExtResource( 4 )]
-position = Vector2( 87, -159 )
-scale = Vector2( 1.92858, 2.48305 )
-
-[node name="BasicBlock5" parent="Node2D" instance=ExtResource( 4 )]
-position = Vector2( 75, 786 )
-scale = Vector2( 2.12919, 3.3563 )
-
-[node name="BasicBlock6" parent="Node2D" instance=ExtResource( 4 )]
-position = Vector2( -1739, -561 )
-scale = Vector2( 1.92858, 2.48305 )
+position = Vector2( 13, -19 )
 
 [node name="Enemies" type="Node2D" parent="."]
 

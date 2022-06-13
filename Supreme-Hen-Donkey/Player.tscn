@@ -88,15 +88,10 @@ animations = [ {
 "name": "Falling",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
 "loop": true,
-"name": "Running",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 58 ), ExtResource( 60 ), ExtResource( 55 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 57 ), ExtResource( 59 ), ExtResource( 61 ) ],
-"loop": true,
-"name": "Victory",
-"speed": 8.0
+"name": "SlidingWall",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 15 ), ExtResource( 20 ), ExtResource( 23 ) ],
 "loop": true,
@@ -108,25 +103,30 @@ animations = [ {
 "name": "Death",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 32 ) ],
+"frames": [ ExtResource( 58 ), ExtResource( 60 ), ExtResource( 55 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 57 ), ExtResource( 59 ), ExtResource( 61 ) ],
 "loop": true,
-"name": "SlidingFloor",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
-"loop": true,
-"name": "SlidingWall",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 10.0
+"name": "Victory",
+"speed": 8.0
 }, {
 "frames": [  ],
 "loop": true,
 "name": "New Anim",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 32 ) ],
+"loop": true,
+"name": "SlidingFloor",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "Running",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 10.0
 } ]
 
 [sub_resource type="GDScript" id=10]
@@ -165,7 +165,7 @@ margin_left = -27.0
 margin_top = -37.0
 margin_right = 26.0
 margin_bottom = 36.0
-color = Color( 1, 0.447059, 0.447059, 0.4 )
+color = Color( 0.286275, 0.952941, 0.329412, 0.4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

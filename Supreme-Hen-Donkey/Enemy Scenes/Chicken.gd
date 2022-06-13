@@ -7,6 +7,8 @@ export var is_flipped := false
 
 var Egg = preload("res://Egg.tscn")
 var time_start = OS.get_unix_time()
+export var despawn := false
+export var despawn_timer := 150
 
 var enabled = true
 var pref_scale
@@ -15,6 +17,8 @@ onready var dragCollider = $CollisionShape2D
 
 func _ready():
 	pref_scale = scale
+	if despawn:
+		activate_self_destruct()
 
 
 func _integrate_forces(state):
@@ -70,3 +74,13 @@ func _physics_process(delta):
 		return
 	
 	get_input()
+	
+func activate_self_destruct():
+	
+	var timer = Timer.new()
+	self.add_child(timer)
+	
+	timer.connect("timeout", self, "queue_free")
+	timer.set_wait_time(despawn_timer)
+	timer.start()
+

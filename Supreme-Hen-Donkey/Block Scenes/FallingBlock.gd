@@ -14,7 +14,7 @@ func _ready():
 
 func _on_Area2D_body_entered(body):
 	if body is Player and enabled:
-		collapse()	
+		collapse()
 
 
 func _on_AnimatedSprite_animation_finished():

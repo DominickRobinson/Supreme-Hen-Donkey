@@ -10,3 +10,4 @@ IMAGE = "res://GCS - SHD/SHD-live/SHD_photos/Single Player/2.H.jpg"
 RIGHT_VIDEO = "res://GCS - SHD/SHD-live/SHD_videos/Single Player/2.H-0.webm"
 RIGHT_SCENE = "res://Scenes/Levels/Single Player/20F.tscn"
 UNDER_SCENE = "res://Scenes/Levels/Honkey/2H.tscn"
+MUSIC_NUM = 4

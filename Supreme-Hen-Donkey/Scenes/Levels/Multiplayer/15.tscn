@@ -51,12 +51,10 @@ position = Vector2( 9, -2 )
 deathNP = NodePath("../Death")
 
 [node name="StartBlock" parent="." instance=ExtResource( 5 )]
-visible = false
 position = Vector2( -2.2334, 161.355 )
 scale = Vector2( 1.35533, 1.67567 )
 
 [node name="EndBlock" parent="." instance=ExtResource( 6 )]
-visible = false
 position = Vector2( 539.767, -811.645 )
 scale = Vector2( 1.06218, 1.69818 )
 

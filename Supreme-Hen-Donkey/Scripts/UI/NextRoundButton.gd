@@ -20,4 +20,5 @@ func _pressed():
 			Globals.GM.die()
 		
 		Globals.Modes.BUILDING:
-			Globals.GM.advanceRound()
+			#Globals.GM.advanceRound()
+			Globals.GM.match_flow()

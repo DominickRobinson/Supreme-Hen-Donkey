@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Single Player/2.6.jpg" type="Texture" id=1]
 [ext_resource path="res://NextScene.gd" type="Script" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://Enemy Scenes/DonkeyCharge.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Prefabs/Camera.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/UI/PauseMenu.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Block Scenes/FallingBlock.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scripts/Death barrier.gd" type="Script" id=15]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 412.5, 189 )
@@ -85,15 +87,27 @@ position = Vector2( 193, 15 )
 polygon = PoolVector2Array( 16, 26, 467, -57, 470, 26, 1506, 26, 1491, 55, 1403, 57, 1452, 284, 1385, 297, 1308, 385, 1173, 382, 1178, 285, -21, 280, -14, 224, -118, 226, -110, 133, 2, 120 )
 
 [node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PoolVector2Array( 93, -52, 90, 71, -84, 77, -114, -28 )
+position = Vector2( 299, -1068 )
+polygon = PoolVector2Array( 1114, 28, 1107, 76, -11, 78, -86, 45, -85, 0 )
+
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 308, -871 )
+polygon = PoolVector2Array( 1326, -49, 1332, 55, -99, 51, -92, -52 )
+
+[node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 291, -1291 )
+polygon = PoolVector2Array( 1145, 31, 1148, 77, -83, 65, -76, 17 )
+
+[node name="CollisionPolygon2D12" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 1208, -1295 )
+polygon = PoolVector2Array( 762, 204, 702, 242, 614, 245, 510, 222, 434, 152, 400, 88, 417, -11, 478, 9, 540, -10, 625, -17, 745, 15, 814, 94, 819, 158 )
 
 [node name="Death barrier" type="Area2D" parent="."]
 position = Vector2( 826.333, 1252.33 )
 scale = Vector2( 0.333333, 0.333333 )
 collision_layer = 3
 collision_mask = 3
-script = ExtResource( 2 )
-worldScene = "res://Scenes/Levels/Single Player/26.tscn"
+script = ExtResource( 15 )
 
 [node name="Barrier1" type="CollisionShape2D" parent="Death barrier"]
 position = Vector2( -1618, 995.011 )
@@ -172,22 +186,37 @@ shape = SubResource( 7 )
 position = Vector2( 8.25, -4 )
 texture = ExtResource( 6 )
 
+[node name="FallingBlock" parent="Objects" instance=ExtResource( 14 )]
+position = Vector2( 1421, -666 )
+break_mult = 0.1
+
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Chicken" parent="Enemies" instance=ExtResource( 10 )]
 position = Vector2( 1160, -233 )
+speed = 470
+launch_angle = 120
+fire_rate = 0.3
 
 [node name="Chicken2" parent="Enemies" instance=ExtResource( 10 )]
 position = Vector2( 1152, -407 )
+speed = 470
+launch_angle = 120
+fire_rate = 0.3
 
 [node name="Chicken3" parent="Enemies" instance=ExtResource( 10 )]
 position = Vector2( 1146, -552 )
+speed = 470
+launch_angle = 120
+fire_rate = 0.3
 
 [node name="DonkeyCharge" parent="Enemies" instance=ExtResource( 11 )]
 position = Vector2( 639, -409 )
 
 [node name="DonkeyKick" parent="Enemies" instance=ExtResource( 8 )]
-position = Vector2( 661, -580 )
+position = Vector2( 638, -564 )
+KICK_ANGLE = 135
+is_flipped = true
 
 [node name="DonkeyCharge2" parent="Enemies" instance=ExtResource( 11 )]
 position = Vector2( 635, -243 )

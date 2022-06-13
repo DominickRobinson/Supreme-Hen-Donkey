@@ -20,6 +20,8 @@ export var MUSIC_NUM := 0
 
 export var autostart := false
 
+export var extra := false
+
 onready var image = $Image
 onready var video = $Video
 
@@ -31,12 +33,14 @@ onready var da = $DownArrow
 
 func _ready():
 	
+	print("Current scene: " + get_tree().current_scene.filename)
+	
 	image.texture = load(IMAGE)
 	image.expand = true
 	video.expand = true
 	
 	if TURN_CURR_MUSIC_OFF:
-		print("should turn off music\n")
+		#print("should turn off music\n")
 		MusicController.turn_off()
 	else:
 		MusicController.play_music(MUSIC_NUM)
@@ -58,7 +62,7 @@ func _ready():
 func _input(event):
 	
 	if video.is_playing() and event.is_action_pressed("skip_video"):
-		print("should skip video")
+		#print("should skip video")
 		_on_Video_finished()
 		
 	if video.is_playing():
@@ -99,12 +103,17 @@ func flip(dir):
 		next_video = UNDER_VIDEO
 		
 	
-	if get_parent().get_node("Extra") != null:
-		get_parent().get_node("Extra").visible = false
+	if extra:
+		if get_parent().get_node("Extra") != null:
+			get_parent().get_node("Extra").visible = false
 		
+	
+	
+	
 	if next_video != "":
 		video.stream = load(next_video)
 	else:
+		print("Next scene:    " + next_scene)
 		get_tree().change_scene(next_scene)
 		
 	if dir != "":
@@ -114,4 +123,5 @@ func flip(dir):
 
 	
 func _on_Video_finished():
+	print("Next scene:    " + next_scene)
 	get_tree().change_scene(next_scene)

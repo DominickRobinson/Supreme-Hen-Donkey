@@ -29,7 +29,7 @@ position = Vector2( -178, -5 )
 scale = Vector2( 0.323876, -0.436466 )
 frames = SubResource( 2 )
 animation = "Zooming"
-frame = 2
+frame = 1
 playing = true
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -39,7 +39,7 @@ texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( -111, 2 )
-polygon = PoolVector2Array( 13, -41, 39, -49, -5, -73, -5, -94, 69, -96, 127, -68, 186, -43, 235, -3, 187, 39, 127, 54, 75, 83, -2, 81, -5, 60, 33, 43, 6, 29, -11, 0 )
+polygon = PoolVector2Array( 13, -41, 39, -49, -5, -73, -5, -94, 69, -96, 127, -68, 128, -62, 151, -57, 186, -43, 222, -18, 222, 14, 187, 39, 127, 54, 75, 83, -2, 81, -5, 60, 33, 43, 6, 29, -11, 0 )
 
 [node name="Flame" type="Node2D" parent="."]
 script = ExtResource( 6 )

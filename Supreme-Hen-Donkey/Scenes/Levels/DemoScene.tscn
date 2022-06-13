@@ -1,11 +1,18 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Launcher.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Prefabs/Sus.tscn" type="PackedScene" id=3]
+[ext_resource path="res://NextScene.gd" type="Script" id=4]
+[ext_resource path="res://Block Scenes/BasicBlock.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/Death barrier.gd" type="Script" id=6]
+[ext_resource path="res://Enemy Scenes/Chicken.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Enemy Scenes/DonkeyKick.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Block Scenes/Rocket.tscn" type="PackedScene" id=9]
 [ext_resource path="res://GCS - SHD/screens/lined-notebook-paper.jpg" type="Texture" id=10]
 [ext_resource path="res://Enemy Scenes/DonkeyCharge.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Enemy Scenes/HenFly.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Prefabs/Camera.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Prefabs/StartBlock.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Prefabs/EndBlock.tscn" type="PackedScene" id=16]
 
@@ -18,6 +25,21 @@ friction = 0.15
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 176.226, 30.301 )
 
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 357.666, 186 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 412.5, 189 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 10798.5, 472.502 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 915.751, 5577.01 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 868.501, 5076.01 )
+
 [node name="DemoScene" type="Node2D"]
 position = Vector2( 3, -5 )
 
@@ -29,7 +51,19 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 10000, 1500 )
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource( 1 )]
-position = Vector2( 813, 182 )
+position = Vector2( -1118, 410 )
+
+[node name="Player2" parent="." groups=["Player"] instance=ExtResource( 1 )]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( -913, 407 )
+
+[node name="Player3" parent="." groups=["Player"] instance=ExtResource( 1 )]
+modulate = Color( 0.262745, 1, 0.0588235, 1 )
+position = Vector2( -1078, 264 )
+
+[node name="Player4" parent="." groups=["Player"] instance=ExtResource( 1 )]
+modulate = Color( 0, 0.298039, 1, 1 )
+position = Vector2( -919, 266 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 modulate = Color( 0.956863, 0.0235294, 0.0235294, 1 )
@@ -126,18 +160,136 @@ scale = Vector2( 0.707958, 0.242988 )
 position = Vector2( 76, 529 )
 
 [node name="EndBlock" parent="." instance=ExtResource( 16 )]
-position = Vector2( 1298, 307 )
-
-[node name="DonkeyCharge" parent="." instance=ExtResource( 11 )]
-position = Vector2( -3648, 55 )
-CHARGE_SPEED = 800
+position = Vector2( 1713, 479 )
 
 [node name="Rocket" parent="." instance=ExtResource( 9 )]
 position = Vector2( -1787, 103 )
 enabled = true
 
 [node name="Sus" parent="." instance=ExtResource( 3 )]
-position = Vector2( 305, 224 )
+position = Vector2( -976, 489 )
 scale = Vector2( 3, 3 )
-dialogue = "Debug stage!"
+dialogue = "[rainbow][wave amp=50] Debug stage! [/wave][/rainbow] "
 always_show = true
+
+[node name="Goal2" type="Area2D" parent="."]
+position = Vector2( -4069, 44 )
+scale = Vector2( 0.333333, 0.333333 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 4 )
+worldScene = "res://Scenes/BinderFlips/Single Player/Final play scene.tscn"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Goal2"]
+position = Vector2( 6.00195, -38.9961 )
+shape = SubResource( 5 )
+
+[node name="Sus" parent="Goal2/CollisionShape2D2" instance=ExtResource( 3 )]
+position = Vector2( -78.002, 45.0039 )
+scale = Vector2( 5, 5 )
+dialogue = "easy way out..."
+always_show = true
+
+[node name="Sus2" parent="Goal2/CollisionShape2D2" instance=ExtResource( 3 )]
+position = Vector2( 5763, 998.997 )
+scale = Vector2( 7, 5 )
+dialogue = "so there actually is an easy way out...                       <----------"
+always_show = true
+
+[node name="ColorRect" type="ColorRect" parent="Goal2/CollisionShape2D2"]
+margin_left = -363.0
+margin_top = -198.0
+margin_right = 363.0
+margin_bottom = 189.0
+color = Color( 0.141176, 0.87451, 0.392157, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="BasicBlock" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( -795, 582 )
+scale = Vector2( 3, 2.2 )
+
+[node name="BasicBlock2" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( -1205, 582 )
+scale = Vector2( 3, 2.2 )
+
+[node name="BasicBlock3" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( -1616, 583 )
+scale = Vector2( 3, 2.2 )
+
+[node name="BasicBlock4" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( -2026, 583 )
+scale = Vector2( 3, 2.2 )
+
+[node name="BasicBlock5" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( -2437, 583 )
+scale = Vector2( 3, 2.2 )
+
+[node name="BasicBlock6" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( -2847, 583 )
+scale = Vector2( 3, 2.2 )
+
+[node name="BasicBlock7" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( -3313, 584 )
+scale = Vector2( 3.8, 2.2 )
+
+[node name="BasicBlock8" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( -3928, 520 )
+scale = Vector2( 5.5, 4.4 )
+
+[node name="BasicBlock9" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( -3930, 262 )
+scale = Vector2( 5.5, 4.4 )
+
+[node name="Death barrier" type="Area2D" parent="."]
+position = Vector2( 2254, 1200 )
+scale = Vector2( 1.33, 1.33 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 6 )
+
+[node name="Barrier1" type="CollisionShape2D" parent="Death barrier"]
+position = Vector2( -1618, 995.011 )
+scale = Vector2( 39.2343, -1.36354 )
+shape = SubResource( 6 )
+
+[node name="Barrier2" type="CollisionShape2D" parent="Death barrier"]
+position = Vector2( -2123.31, -8625.56 )
+rotation = 0.00872665
+shape = SubResource( 7 )
+
+[node name="Barrier3" type="CollisionShape2D" parent="Death barrier"]
+position = Vector2( 6764.01, -3594.99 )
+shape = SubResource( 8 )
+
+[node name="Barrier4" type="CollisionShape2D" parent="Death barrier"]
+position = Vector2( -9941.51, -4098.99 )
+shape = SubResource( 9 )
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="DonkeyCharge" parent="Node2D" instance=ExtResource( 11 )]
+position = Vector2( -3648, 55 )
+CHARGE_SPEED = 800
+
+[node name="Chicken" parent="Node2D" instance=ExtResource( 7 )]
+position = Vector2( -2911, 397 )
+speed = 500
+launch_angle = 45
+is_flipped = true
+
+[node name="DonkeyKick" parent="Node2D" instance=ExtResource( 8 )]
+position = Vector2( -2561, 445 )
+KICK_ANGLE = 45
+is_flipped = true
+
+[node name="HenFly" parent="Node2D" instance=ExtResource( 12 )]
+position = Vector2( -3170, 324 )
+
+[node name="Camera2D" parent="." instance=ExtResource( 13 )]
+position = Vector2( -2443, 308 )
+scale = Vector2( 4.44, 3.112 )
+zoom = Vector2( 3, 2 )

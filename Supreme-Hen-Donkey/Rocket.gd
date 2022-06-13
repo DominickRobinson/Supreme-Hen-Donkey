@@ -23,9 +23,10 @@ func _physics_process(delta):
 	else:
 		$Flame.make_safe()
 	
-
 	
-	var a = 2 * asin(move_speed * delta / (2 * radius))
+	var a = 0
+	if radius != 0:
+		a = 2 * asin(move_speed * delta / (2 * radius))
 	rotation += mult * a
 	#$Sprite.rotation += a
 	#$CollisionShape2D.rotation += a

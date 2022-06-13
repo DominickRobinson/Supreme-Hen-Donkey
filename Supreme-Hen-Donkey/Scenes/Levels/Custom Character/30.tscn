@@ -61,6 +61,7 @@ __meta__ = {
 RIGHT_VIDEO = "res://GCS - SHD/SHD-live/SHD_videos/Custom Character/3.0-1.webm"
 LEFT_SCENE = "res://Scenes/BinderFlips/Main menu/03.tscn"
 RIGHT_SCENE = "res://Scenes/BinderFlips/Custom Character/31.tscn"
+extra = true
 
 [node name="Extra" type="Control" parent="."]
 anchor_right = 1.0
