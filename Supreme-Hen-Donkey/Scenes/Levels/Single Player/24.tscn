@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://GCS - SHD/SHD-live/SHD_photos/Single Player/2.4.jpg" type="Texture" id=1]
 [ext_resource path="res://NextScene.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scripts/Death barrier.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/UI/PauseMenu.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Prefabs/Sus.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Enemy Scenes/HenFly.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 319.313, 180 )
@@ -168,6 +169,9 @@ dialogue = "hi, my name is [rainbow][wave amp=50] DONK THE DONKEY[/wave][/rainbo
 position = Vector2( 1682, 1093 )
 KICK_STRENGTH = 7000
 KICK_ANGLE = 175
+
+[node name="HenFly" parent="Enemies" instance=ExtResource( 11 )]
+position = Vector2( 760, -975 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 7 )]
 position = Vector2( -40.0002, 78 )

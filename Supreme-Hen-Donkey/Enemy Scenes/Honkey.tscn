@@ -28,7 +28,7 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[node name="Honkey" type="RigidBody2D"]
+[node name="Honkey" type="RigidBody2D" groups=["enemy"]]
 collision_layer = 3
 collision_mask = 3
 mass = 83.6799
@@ -38,7 +38,6 @@ script = ExtResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
 animation = "idle"
-frame = 3
 playing = true
 
 [node name="Muzzle" type="Position2D" parent="."]

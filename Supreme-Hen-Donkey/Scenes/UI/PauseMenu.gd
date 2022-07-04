@@ -5,6 +5,12 @@ export(String, FILE, ".tscn") var LEVEL_SELECT
 
 var is_paused = false setget set_is_paused
 
+func _ready():
+	visible = false
+		
+
+
+
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
 		

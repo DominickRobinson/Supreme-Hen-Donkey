@@ -1210,7 +1210,7 @@ break_mult = 0.5
 position = Vector2( -1276, 680 )
 rotation = 1.5708
 scale = Vector2( 3, 2 )
-break_mult = 0.2
+break_mult = 0.1
 
 [node name="IceBlock2" parent="Objects/Easy/Easy part 5/box" instance=ExtResource( 12 )]
 modulate = Color( 0.980392, 0.164706, 0.317647, 1 )

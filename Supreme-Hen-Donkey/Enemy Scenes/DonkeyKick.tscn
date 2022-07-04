@@ -33,7 +33,7 @@ extents = Vector2( 36.5259, 51.125 )
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 44.5, 37.5 )
 
-[node name="DonkeyKick" type="RigidBody2D"]
+[node name="DonkeyKick" type="RigidBody2D" groups=["enemy"]]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 10 )
@@ -42,7 +42,7 @@ script = ExtResource( 10 )
 scale = Vector2( 0.196983, 0.2 )
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 3
+frame = 1
 playing = true
 
 [node name="SightZone" type="Area2D" parent="."]

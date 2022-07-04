@@ -38,8 +38,7 @@ func _process(delta):
 			
 			for body in $KickZone.get_overlapping_bodies():
 				
-				if body is Player:
-		
+				if body is Player or body.is_in_group("enemy") and body != self:
 					body.linear_velocity.x = cos(deg2rad(KICK_ANGLE)) * KICK_STRENGTH
 					body.linear_velocity.y = -sin(deg2rad(KICK_ANGLE)) * KICK_STRENGTH
 					
@@ -51,7 +50,7 @@ func check_for_player():
 
 	for body in $SightZone.get_overlapping_bodies():
 
-		if body is Player:
+		if body is Player or body.is_in_group("enemy") and body != self:
 
 			$AnimatedSprite.animation = "Kicking"
 

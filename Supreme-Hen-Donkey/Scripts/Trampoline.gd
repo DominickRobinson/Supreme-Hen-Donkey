@@ -10,12 +10,16 @@ onready var dragCollider = $Base/CollisionPolygon2D
 
 
 func _on_BounceArea_body_entered(body):
-	if body is Player:
+	if body is Player or body.is_in_group("enemy"):
 		var imp
-		if Input.is_action_pressed("jump"):
-			imp = impulse_jump			
+		if Input.is_action_pressed("jump") and body is Player:
+			imp = impulse_jump
 		else:
 			imp = impulse_no_jump
+			
+		if body.is_in_group("enemy"):
+			#lol
+			body.angular_velocity += 20
 
 		var deg = deg2rad(90 - rotation_degrees)
 		#body.apply_central_impulse(Vector2(imp * sin(rotation_degrees), imp * cos(rotation_degrees)))
